@@ -5,6 +5,6 @@
 #           http://www.boost.org/LICENSE_1_0.txt)
 
 
-PROJECT_GROUP = axdf
+PROJECT_GROUP = axfd
 
 include(../build-proset.pri)
