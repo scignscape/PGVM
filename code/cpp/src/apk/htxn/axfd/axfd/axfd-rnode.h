@@ -17,12 +17,13 @@
 #include "kans.h"
 
 #include <QString>
-#include <QList>
-#include <QDate>
+#include <QVector>
+#include <QPair>
 
 #include <functional>
 
 #include "global-types.h"
+#include "accessors.h"
 
 
 #include "axfd-string-node.h"
@@ -34,10 +35,14 @@ KANS_(AXFD)
 
 class AXFD_Tile_Scope;
 
-class AXFD_RNode
+class AXFD_RNode : QVector<QPair<QString, AXFD_Tile_Scope*>>
 { 
- 
+ AXFD_String_Node tag_command_name_;
+  
+ AXFD_RNode(QString tag_command_name);
+ //AXFD_RNode();
 
+ ACCESSORS__RGET(AXFD_String_Node ,tag_command_name)
 
 };
 

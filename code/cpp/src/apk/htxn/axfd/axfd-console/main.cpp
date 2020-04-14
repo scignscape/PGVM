@@ -4,23 +4,21 @@
 //     (See accompanying file LICENSE_1_0.txt or copy at
 //           http://www.boost.org/LICENSE_1_0.txt)
 
-#include "axfd-rnode.h"
 
-#include "axfd-string-node.h"
+#include <QDebug>
+
+#include "axfd/axfd-rnode.h"
+//#include "htxn/glyph-layer-8b.h"
 
 
 USING_KANS(AXFD)
 
 
-AXFD_RNode::AXFD_RNode(QString tag_command_name)
-  :  tag_command_name_(AXFD_String_Node::from_string(tag_command_name))
+int main(int argc, char *argv[])
 {
+ qDebug() << "OK";
+
+ return 0;
 }
-
-
-//AXFD_RNode::AXFD_RNode()
-//{
-//}
-
 
 
