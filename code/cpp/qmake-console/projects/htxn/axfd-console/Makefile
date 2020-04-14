@@ -14,7 +14,7 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DWHICH_DEFINES=\"./_defines/isobuild_defines.h\" -DDEFAULT_WCM_FOLDER=\"/home/nlevisrael/hypergr/pgvm/ar/data/wcm\" -DDEFAULT_NTXH_FOLDER=\"/home/nlevisrael/hypergr/pgvm/ar/data/ntxh\" -DQT_REPROZIP_BIN_FOLDER=\"/home/nlevisrael/hypergr/pgvm/ar/qt-reprozip/bin\" -DROOT_FOLDER=\"/home/nlevisrael/hypergr/pgvm/ar\" -DUSE_KANS -DQT_NO_DEBUG -DQT_NO_KEYWORDS -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DWHICH_DEFINES=\"./_defines/isobuild_defines.h\" -DDEFAULT_WCM_FOLDER=\"/home/nlevisrael/hypergr/pgvm/ar/dev/wcm\" -DDEFAULT_AXFD_FOLDER=\"/consoles/axfd\" -DQT_REPROZIP_BIN_FOLDER=\"/home/nlevisrael/hypergr/pgvm/ar/qt-reprozip/bin\" -DROOT_FOLDER=\"/home/nlevisrael/hypergr/pgvm/ar\" -DUSE_KANS -DQT_NO_DEBUG -DQT_NO_KEYWORDS -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -O2 -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 INCPATH       = -I../../../../projects/qt/qtm/isobuild/apk/htxn/axfd/axfd-console -I. -I../../../../src/apk/htxn/axfd/axfd-console -I../../../../src -I/home/nlevisrael/hypergr/pgvm/ar/code/cpp/src/global -I../../../../src/apk/htxn/axfd/axfd-console -I../../../../src/apk/htxn/axfd -I../../../../src -I../../../../src/dbk/thql/wcm -I../../../../src/apk/hgdm/ntxh -I../../../../src/apk/hgdm/ntxh/ntxh -I../../../../src/apk/hgdm/phaon-graph -I../../../../src/apk/hgdm/relae-graph -I/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include -I/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui -I/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/mkspecs/linux-g++
@@ -40,7 +40,7 @@ DISTNAME      = axfd-console1.0.0
 DISTDIR = /home/nlevisrael/hypergr/pgvm/ar/code/cpp/qmake-console/targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/axfd-console/release/axfd-console1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1 -Wl,-rpath,/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/lib
-LIBS          = $(SUBLIBS) -L/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/lib -lQt5Gui -lQt5Core -lGL -lpthread   
+LIBS          = $(SUBLIBS) -L/home/nlevisrael/hypergr/pgvm/ar/code/cpp/qmake-console/targets/targets-5-12-3-qmake-console -laxfd -L/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/lib -lQt5Gui -lQt5Core -lGL -lpthread   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -813,7 +813,8 @@ compiler_clean: compiler_moc_predefs_clean
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qvector2d.h \
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qtouchdevice.h \
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDate \
-		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatetime.h
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatetime.h \
+		../../../../src/apk/htxn/axfd/axfd/axfd-document.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/axfd-console/release/main.o ../../../../src/apk/htxn/axfd/axfd-console/main.cpp
 
 ####### Install

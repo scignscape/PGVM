@@ -43,6 +43,7 @@ HEADERS += \
   $$SRC_DIR/axfd-rnode.h \
   $$SRC_DIR/axfd-string-node.h \
   $$SRC_DIR/axfd-tile-scope.h \
+  $$SRC_DIR/axfd-document.h \
 
 
 SOURCES += \
@@ -50,6 +51,7 @@ SOURCES += \
   $$SRC_DIR/axfd-rnode.cpp \
   $$SRC_DIR/axfd-string-node.cpp \
   $$SRC_DIR/axfd-tile-scope.cpp \
+  $$SRC_DIR/axfd-document.cpp \
 
 
 message(choice: $$CPP_ROOT_DIR/targets/$$CHOICE_CODE/$$PROJECT_SET--$$PROJECT_GROUP--$$PROJECT_NAME)

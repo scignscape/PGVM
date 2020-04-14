@@ -35,7 +35,7 @@ KANS_(AXFD)
 
 class AXFD_Tile_Scope;
 
-class AXFD_RNode : QVector<QPair<QString, AXFD_Tile_Scope*>>
+class AXFD_RNode : public QVector<QPair<QString, AXFD_Tile_Scope*>>
 { 
  AXFD_String_Node tag_command_name_;
   

@@ -29,24 +29,23 @@ class QTextStream;
 
 KANS_(AXFD)
 
-class Glyph_Layer_8b;
+class AXFD_Document;
 
-struct AXFD_Tile
+struct AXFD_Tile_Code
 {
  u4 enter;
  u4 leave;
 }; 
 
-class AXFD_Tile_Scope
-{ 
- union Scope_Element {
-   AXFD_Tile tile;
-   AXFD_Tile_Scope* scope;
- };
 
- QVector<Scope_Element> elements_;
+class AXFD_Tile_Scope : public QVector<AXFD_Tile_Code>
+{ 
+public:
 
  AXFD_Tile_Scope();
+
+ QString to_sieved_string(AXFD_Document& doc, 
+   void* layer = nullptr);
 };
 
 _KANS(HTXN)

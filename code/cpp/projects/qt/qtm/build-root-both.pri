@@ -31,6 +31,7 @@ CODE_ROOT_DIR = $$ROOT_DIR/code
 CPP_ROOT_DIR = $$CODE_ROOT_DIR/cpp
 DATA_ROOT_DIR = $$ROOT_DIR/data
 TEXT_ROOT_DIR = $$ROOT_DIR/text
+DATA_ROOT_DIR = $$ROOT_DIR/dev
 
 
 message(Root Directory: $$ROOT_DIR)

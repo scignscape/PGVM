@@ -8,7 +8,8 @@
 #include <QDebug>
 
 #include "axfd/axfd-rnode.h"
-//#include "htxn/glyph-layer-8b.h"
+
+#include "axfd/axfd-document.h"
 
 
 USING_KANS(AXFD)
@@ -16,7 +17,13 @@ USING_KANS(AXFD)
 
 int main(int argc, char *argv[])
 {
- qDebug() << "OK";
+ AXFD_Document doc;
+ doc.set_input_folder(DEFAULT_AXFD_FOLDER "/t1");
+ doc.set_output_folder(DEFAULT_AXFD_FOLDER "/t1");
+
+ AXFD_Tile_Scope* ats = doc.add_tile_scope_from_text("OK").first;
+ 
+ qDebug() << doc.tile_scope_to_string(ats);
 
  return 0;
 }
