@@ -99,8 +99,9 @@ theoretical framework.
 `addcontentsline -> toc -> section -> 
 From `dq.Naturalizing Phenomenology` ... ;;
 
-`input<intro.ngml>;
-`input<section1.ngml>;
+`input<man/intro/intro.ngml>;
+`input<man/section1/section1.ngml>;
+
 `input<section2.ngml>;
 `input<section3.ngml>;
 `input<section4.ngml>;

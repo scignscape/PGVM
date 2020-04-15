@@ -72,8 +72,8 @@ language.  An overall philosophy of language, then,
 rather than judging the merits or demerits of 
 logical, mathematical, or computational formalization as a 
 criteria of theoretical rigor, should instead seek 
-to integrate diverse analyses which paradigmatically 
-differ on this issue into a aggregated, multi-paradigm 
+to integrate diverse analyses, which paradigmatically 
+differ on this issue, into a aggregated, multi-paradigm 
 theoretical framework.
 </abstract>
 
@@ -88,8 +88,9 @@ theoretical framework.
 
 <addcontentsline><man>>toc</man><man>>section</man><man>>From <dq>Naturalizing Phenomenology</dq> ...</man>
 
-<input<man>intro.ngml<man>>
-<input<man>section1.ngml<man>>
+<input<man>man/intro/intro.ngml<man>>
+<input<man>man/section1/section1.ngml<man>>
+
 <input<man>section2.ngml<man>>
 <input<man>section3.ngml<man>>
 <input<man>section4.ngml<man>>

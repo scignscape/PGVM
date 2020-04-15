@@ -60,23 +60,26 @@ void NGML_Folder::convert_to_latex(std::function<void(QString)> fn)
   
  QStringList qsl;
 
+ if(!first_file_path_.isEmpty())
+   qsl.push_back(first_file_path_);
+
  if(man_path_.isEmpty())
  {
   dir.setCurrent(local_path_);
-  dir.setFilter(QDir::Dirs | QDir::Files 
+  dir.setFilter(QDir::Files 
     | QDir::Hidden | QDir::NoSymLinks);
  }
  else if(man_path_.startsWith(';'))
  {
   dir.setCurrent(man_path_.mid(1));
-  dir.setFilter(QDir::Dirs);
+  dir.setFilter(QDir::Dirs | QDir::NoDotAndDotDot);
 //  if(!first_file_path_.isEmpty())
 //    qsl.push_back(first_file_path_);
  }
  else
  {
-  dir.setCurrent(local_path_);
-  dir.setFilter(QDir::Dirs | QDir::Files 
+  dir.setCurrent(man_path_);
+  dir.setFilter(QDir::Files 
     | QDir::Hidden | QDir::NoSymLinks);
 //  if(!first_file_path_.isEmpty())
 //    qsl.push_back(first_file_path_);
@@ -106,16 +109,13 @@ void NGML_Folder::convert_to_latex(std::function<void(QString)> fn)
       qsl.push_back(qfi.absoluteFilePath() + "/" + iqs);    
    }
   }
-//?  else if(!man_path_.isEmpty())
-//?    ; // //  nothing, because we're only taking 
+  else if(!man_path_.isEmpty())
+    ; // //  nothing, because we're only taking 
        //    other files from the man folder ...
-//?  else if(qfi.suffix() == "ngml")
-//?  {
-//?   qDebug() << "adding ..." << qfi.absoluteFilePath();
-//?   qsl << qfi.absoluteFilePath();
-//?  }
-
-//?  qDebug() << qsl;
+  else if(qfi.suffix() == "ngml")
+  {
+   qsl << qfi.absoluteFilePath();
+  }
  }
 
  QStringListIterator slit(qsl);
@@ -123,7 +123,7 @@ void NGML_Folder::convert_to_latex(std::function<void(QString)> fn)
  {
   QString path = slit.next();
 
-  qDebug() << "ppath: " << path;
+  fn(path);
 
 //  NGML_Document doc;
 //  doc.load_and_parse(path);

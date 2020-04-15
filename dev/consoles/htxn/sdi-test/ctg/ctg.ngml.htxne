@@ -55,9 +55,9 @@ language.  An overall philosophy of language, then,
 rather than judging the merits or demerits of 
 logical, mathematical, or computational formalization as a 
 criteria of theoretical rigor, should instead seek 
-to integrate diverse analyses which paradigmatically 
-differ on this issue into a aggregated, multi-paradigm 
-theoretical framework.3emtocsectionFromNaturalizing Phenomenology...intro.ngmlsection1.ngmlsection2.ngmlsection3.ngmlsection4.ngmlconclusion.ngmlbiblio`[/]
+to integrate diverse analyses, which paradigmatically 
+differ on this issue, into a aggregated, multi-paradigm 
+theoretical framework.3emtocsectionFromNaturalizing Phenomenology...man/intro/intro.ngmlman/section1/section1.ngmlsection2.ngmlsection3.ngmlsection4.ngmlconclusion.ngmlbiblio`[/]
 
 @@ ranges
 3
@@ -79,7 +79,7 @@ theoretical framework.3emtocsectionFromNaturalizing Phenomenology...intro.ngmlse
 =3
 48<3>0;13,0;16,0;19,
 66<1>0;30,
-89<3>2188;40,0;41,2185;42,
+89<3>2190;40,0;41,2187;42,
 128<1>142;43,
 285<1>294;44,
 464<1>473;45,
@@ -90,9 +90,9 @@ theoretical framework.3emtocsectionFromNaturalizing Phenomenology...intro.ngmlse
 1112<1>1123;50,
 1401<1>1408;51,
 1489<1>1499;52,
-2186<6>2185;53,0;54,0;55,0;57,0;58,0;60,
-2189<1>0;61,
-2203<1>2228;67,
+2188<6>2187;53,0;54,0;55,0;57,0;58,0;60,
+2191<1>0;61,
+2205<1>2230;67,
 !
  *
 @@ details
@@ -152,33 +152,33 @@ theoretical framework.3emtocsectionFromNaturalizing Phenomenology...intro.ngmlse
 67125249;131:140
 9408;141:146
 131072;53:57
-1048576;2186:2185
+1048576;2188:2187
 1216;141:146
 131072;58:63
-1048576;2186:2185
+1048576;2188:2187
 1024;147:154
 1216;155:160
-0;2186:2188
-1048580;89:2188
+0;2188:2190
+1048580;89:2190
 16576;161:175
-1048576;2189:2191
-1048576;2192:2198
+1048576;2191:2193
+1048576;2194:2200
 6144;176:177
-1048576;2199:2231
+1048576;2201:2233
 1216;178:182
-0;2232:2241
-1216;178:182
-0;2242:2254
-1216;178:182
-0;2255:2267
-1216;178:182
-0;2268:2280
+0;2234:2253
 16576;178:182
-0;2281:2293
+0;2254:2279
+1216;178:182
+0;2280:2292
+1216;178:182
+0;2293:2305
 16576;178:182
-0;2294:2308
+0;2306:2318
 16576;178:182
-0;2309:2314
+0;2319:2333
+16576;178:182
+0;2334:2339
  *
 %% ties
 &&2
