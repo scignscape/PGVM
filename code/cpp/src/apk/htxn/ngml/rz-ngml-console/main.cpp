@@ -100,19 +100,36 @@ int main(int argc, char* argv[])
 {
  QString folder;// = cmdl.size() > 2? cmdl[2]: DEFAULT_SDI_FOLDER;
  QString file;// = cmdl.size() > 3? cmdl[3]: DEFAULT_SDI_FOLDER
+ QString manfolder;
 
- QStringList cmdl = get_cmdl(argc, argv, 2, {{&folder, DEFAULT_NGML_DIRECTORY},
-   {&file, DEFAULT_NGML_DIRECTORY "/t1/t1.ngml" }} );
+ QStringList cmdl = get_cmdl(argc, argv, 2, {
+   {&folder, DEFAULT_NGML_DIRECTORY},
+   {&file, DEFAULT_NGML_DIRECTORY "/t1/t1.ngml"}, 
+   {&manfolder, {}}
+   });
 
 //? folder = "/home/nlevisrael/hypergr/ntxh-ngml/ar/htxn/sdi-test/t9";
 //? file = "/home/nlevisrael/hypergr/ntxh-ngml/ar/htxn/sdi-test/t9/t9.ngml";
 
  qDebug() << "Folder: " << folder << ", File: " << file;
+ qDebug() << "ManFolder: " << manfolder;
 
- if(file.isEmpty())
+ if(manfolder.isEmpty())
+ {
+  if(file.isEmpty())
+  {
    // process whole folder ...
-   ;
- process_ngml_file(file);
+   NGML_Folder fld(folder);
+   fld.convert_to_latex();
+  }
+  else
+    process_ngml_file(file);
+ }
+ else
+ {
+  NGML_Folder fld(folder, file, manfolder);
+  fld.convert_to_latex(&process_ngml_file);
+ }
  return 0;
 }
 

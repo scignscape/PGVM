@@ -1,4 +1,10 @@
 
+//           Copyright Nathaniel Christen 2019.
+//  Distributed under the Boost Software License, Version 1.0.
+//     (See accompanying file LICENSE_1_0.txt or copy at
+//           http://www.boost.org/LICENSE_1_0.txt)
+
+
 #include "rz-ngml-folder.h"
 
 #include "rz-ngml-document.h"
@@ -27,6 +33,13 @@ NGML_Folder::NGML_Folder(QString local_path)
 
 }
 
+NGML_Folder::NGML_Folder(QString local_path, QString first_file_path, 
+   QString man_path)
+  : local_path_(local_path), 
+    first_file_path_(first_file_path), man_path_(man_path)
+{
+
+}
 
 void NGML_Folder::read_output_path(QString path)
 {
@@ -41,26 +54,68 @@ void NGML_Folder::read_output_path(QString path)
 }
 
 
-void NGML_Folder::convert_to_latex()
+void NGML_Folder::convert_to_latex(std::function<void(QString)> fn)
 {
- QDir dir(local_path_);
- dir.setFilter(QDir::Files | QDir::Hidden | QDir::NoSymLinks);
+ QDir dir;
+  
+ QStringList qsl;
+
+ if(man_path_.isEmpty())
+ {
+  dir.setCurrent(local_path_);
+  dir.setFilter(QDir::Dirs | QDir::Files 
+    | QDir::Hidden | QDir::NoSymLinks);
+ }
+ else if(man_path_.startsWith(';'))
+ {
+  dir.setCurrent(man_path_.mid(1));
+  dir.setFilter(QDir::Dirs);
+//  if(!first_file_path_.isEmpty())
+//    qsl.push_back(first_file_path_);
+ }
+ else
+ {
+  dir.setCurrent(local_path_);
+  dir.setFilter(QDir::Dirs | QDir::Files 
+    | QDir::Hidden | QDir::NoSymLinks);
+//  if(!first_file_path_.isEmpty())
+//    qsl.push_back(first_file_path_);
+ }
+
  dir.setSorting(QDir::Size | QDir::Reversed);
 
  QFileInfoList qfil = dir.entryInfoList();
 
  QListIterator<QFileInfo> it(qfil);
 
- QStringList qsl;
  QString cabinet;
 
  while(it.hasNext())
  {
   QFileInfo qfi = it.next();
-  if(qfi.suffix() == "ngml")
+  if(qfi.isDir())
   {
-   qsl << qfi.absoluteFilePath();
+   if(man_path_.startsWith(';'))
+   {
+    QDir idir(qfi.absoluteFilePath());
+    idir.setFilter(QDir::Dirs | QDir::Files 
+      | QDir::Hidden | QDir::NoSymLinks);
+    idir.setNameFilters({"*.ngml"});
+    QStringList iqsl = idir.entryList();     
+    for(QString iqs : iqsl)
+      qsl.push_back(qfi.absoluteFilePath() + "/" + iqs);    
+   }
   }
+//?  else if(!man_path_.isEmpty())
+//?    ; // //  nothing, because we're only taking 
+       //    other files from the man folder ...
+//?  else if(qfi.suffix() == "ngml")
+//?  {
+//?   qDebug() << "adding ..." << qfi.absoluteFilePath();
+//?   qsl << qfi.absoluteFilePath();
+//?  }
+
+//?  qDebug() << qsl;
  }
 
  QStringListIterator slit(qsl);
@@ -68,18 +123,34 @@ void NGML_Folder::convert_to_latex()
  {
   QString path = slit.next();
 
+  qDebug() << "ppath: " << path;
+
+//  NGML_Document doc;
+//  doc.load_and_parse(path);
+
+//  doc.set_annotations(&annotations_);
+
+//  NGML_Output_Latex nol(doc);
+//  nol.export_latex();
+
+// doc.write_local_annotations(path + ".an");
+
+ }
+// NGML_Document::write_annotations(local_path_ + "/annotation-summary.html", annotations_);
+}
+
+void NGML_Folder::convert_to_latex()
+{
+ convert_to_latex([this](QString path)
+ {
   NGML_Document doc;
   doc.load_and_parse(path);
 
   doc.set_annotations(&annotations_);
 
   NGML_Output_Latex nol(doc);
-  nol.export_latex();
-
-  doc.write_local_annotations(path + ".an");
-
- }
- NGML_Document::write_annotations(local_path_ + "/annotation-summary.html", annotations_);
+  nol.export_latex();  
+ });
 }
 
 #ifdef HIDE

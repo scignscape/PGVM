@@ -1,4 +1,10 @@
 
+//           Copyright Nathaniel Christen 2019.
+//  Distributed under the Boost Software License, Version 1.0.
+//     (See accompanying file LICENSE_1_0.txt or copy at
+//           http://www.boost.org/LICENSE_1_0.txt)
+
+
 #ifndef RZ_NGML_FOLDER__H
 #define RZ_NGML_FOLDER__H
 
@@ -6,6 +12,8 @@
 #include <QStringList>
 
 #include <QMap>
+
+#include <functional>
 
 #include "accessors.h"
 #include "flags.h"
@@ -24,6 +32,9 @@ class NGML_Annotation_Tile;
 
 class NGML_Folder
 {
+ QString first_file_path_;
+ QString man_path_;
+
  QString local_path_;
  QString output_path_;
  QString input_path_;
@@ -40,17 +51,23 @@ class NGML_Folder
 
 public:
 
+ NGML_Folder(QString local_path = QString());
+ NGML_Folder(QString local_path, QString first_file_path, 
+   QString man_path);
+
 
  ACCESSORS(QString ,local_path)
+ ACCESSORS(QString ,first_file_path)
+ ACCESSORS(QString ,man_path)
 
-
- NGML_Folder(QString local_path = QString());
  void convert_all_files();
  void convert_all_files(QString output_path, QString khif_path = QString());
  void read_output_path(QString document_file);
  void display_user_highlights();
 
  void get_ngml_files(QStringList& result);
+
+ void convert_to_latex(std::function<void(QString)> fn);
 
  void convert_to_latex();
 
