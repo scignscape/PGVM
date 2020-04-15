@@ -89,7 +89,7 @@ private:
  void flag_test_map(QString s, RZ_Flag_Test* test)
  {
   if( rule_names_.find(s) != rule_names_.end() )
-  flag_test_map(rule_names_[s], test);
+    flag_test_map(rule_names_[s], test);
  }
 
  QVector<Context> context_vector_;

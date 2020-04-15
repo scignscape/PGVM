@@ -1,42 +1,42 @@
 ## htxne
 #
-`[//]Test sentence.  Another test sentence.`[/]
+`[///]
 
-`[//]documentclassincludedocumentp`[/]
+`[//]documentaddcontentslinedq`[/]
 
-`[//]articlesdi-commands`[/]
+`[//]tocsectionFromNaturalizing Phenomenology...`[/]
 
 @@ ranges
 3
 =1
-2<4>0;1,0;3,39;5,39;6,
+2<2>1;1,0;2,
 !
 =2
 !
 =3
+16<1>41;5,
 !
  *
 @@ details
 6
-1216;2:14
-0;2:8
-16576;15:21
-0;9:20
-67125249;22:29
-24576;30:30
+67125761;2:9
+24768;10:24
+1048576;2:4
+1048576;5:11
+6144;25:26
+1048576;12:44
  *
 %% ties
+&!2
+!
 &&2
-2~
+3 4 6~
 !
 &!3
-!
-&&2
-4~
 !
 &!3
 !
 &!2
 !
-&!2
+&!3
 !

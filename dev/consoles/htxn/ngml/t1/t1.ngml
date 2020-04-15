@@ -1,12 +1,19 @@
-`documentclass<article>;
-`include<sdi-commands>;
 
 `document,
 
-`p.
-Test sentence.  Another test sentence.
-`p`
+`addcontentsline -> toc -> section -> 
+From `dq.Naturalizing Phenomenology` ... ;;
+
+;;~~
+`input<section2.ngml>;
+`input<section3.ngml>;
+`input<section4.ngml>;
+
+`input<conclusion.ngml>;
+
+`input<biblio>;
+~~;;
+
 
 `document`
-
 

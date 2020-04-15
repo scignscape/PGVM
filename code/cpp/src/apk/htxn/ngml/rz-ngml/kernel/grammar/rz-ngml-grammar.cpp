@@ -62,6 +62,7 @@ void NGML_Grammar::init(NGML_Parser& p, NGML_Graph& g, NGML_Graph_Build& graph_b
 
  size_t test;
 
+
 #ifdef HIDE
 
  add_rule( khif_context, "tag-command-with-predicate-vector",
@@ -215,32 +216,14 @@ void NGML_Grammar::init(NGML_Parser& p, NGML_Graph& g, NGML_Graph_Build& graph_b
    });
 #endif //def HIDE
 
-
  add_rule( flags_none_(parse_context ,inside_multiline_comment),
            ngml_context, "ngml-multiline-comment",
-           " (?: (?<semis> ;; ;* ) (?<tildes> ~~ ~* ) )"
+           " (?: (?<semis> ;; ;*) (?<tildes> ~~ ~*) )"
            ,[&]
  {
   QString semis = p.matched("semis");
   QString tildes = p.matched("tildes");
   graph_build.enter_multiline_comment(semis, tildes);
- });
-
- add_rule( flags_all_(parse_context ,inside_multiline_comment),
-           ngml_context, "ngml-multiline-comment-leave",
-          " (?: (?<tildes> ~~ ~~* ) (?<semis> ;; ;* ) )"
-          ,[&]
- {
-  QString semis = p.matched("semis");
-  QString tildes = p.matched("tildes");
-  graph_build.check_leave_multiline_comment(semis, tildes);
- });
-
- add_rule( flags_all_(parse_context ,inside_multiline_comment),
-           ngml_context, "ngml-multiline-comment-characters",
-          " [^~]+ | ~ "
-          ,[&]
- {
  });
 
  add_rule( ngml_context, "ngml-comment",
@@ -343,6 +326,35 @@ void NGML_Grammar::init(NGML_Parser& p, NGML_Graph& g, NGML_Graph_Build& graph_b
   graph_build.complete_html_tag_command_attribute();
  });
 #endif
+
+
+// add_rule( flags_none_(parse_context ,inside_multiline_comment),
+//           ngml_context, "ngml-multiline-comment",
+//           " (?: (?<semis> ;; ;* ) (?<tildes> ~~ ~* ) )"
+//           ,[&]
+// {
+//   qDebug() << "MLC";
+//  QString semis = p.matched("semis");
+//  QString tildes = p.matched("tildes");
+//  graph_build.enter_multiline_comment(semis, tildes);
+// });
+
+ add_rule( flags_all_(parse_context ,inside_multiline_comment),
+           ngml_context, "ngml-multiline-comment-leave",
+          " (?: (?<tildes> ~~ ~* ) (?<semis> ;; ;* ) )"
+          ,[&]
+ {
+  QString semis = p.matched("semis");
+  QString tildes = p.matched("tildes");
+  graph_build.check_leave_multiline_comment(semis, tildes);
+ });
+
+ add_rule( flags_all_(parse_context ,inside_multiline_comment),
+           ngml_context, "ngml-multiline-comment-characters",
+          " [^~]+ | ~ "
+          ,[&]
+ {
+ });
 
  add_rule( flags_all_(parse_context ,inside_attribute_sequence),
    ngml_context, "attribute-sequence-leave",

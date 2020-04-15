@@ -816,6 +816,12 @@ void NGML_Graph_Build::check_multi_parent_reset()
    else
      parse_context_.flags.inside_multi_parent = true;
   }
+  else
+  {
+   parse_context_.flags.inside_multi_generic = false;
+   parse_context_.flags.inside_multi_parent = false;
+   parse_context_.flags.inside_multi_parent_semis = false;
+  }
  }
  else
  {
