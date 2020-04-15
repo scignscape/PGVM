@@ -94,7 +94,7 @@ int main(int argc, char* argv[])
  QString file;// = cmdl.size() > 3? cmdl[3]: DEFAULT_SDI_FOLDER
 
  QStringList cmdl = get_cmdl(argc, argv, 2, {{&folder, DEFAULT_NGML_DIRECTORY},
-   {&file, {} }} );
+   {&file, DEFAULT_NGML_DIRECTORY "/t1/t1.ngml" }} );
 
 //? folder = "/home/nlevisrael/hypergr/ntxh-ngml/ar/htxn/sdi-test/t9";
 //? file = "/home/nlevisrael/hypergr/ntxh-ngml/ar/htxn/sdi-test/t9/t9.ngml";
