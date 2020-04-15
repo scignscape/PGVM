@@ -1,0 +1,49 @@
+In file included from ../../../../src/apk/hgdm/relae-graph/relae-graph/relae-node-ptr.h:12:0,
+                 from ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.h:11,
+                 from ../../../../src/apk/htxn/ngml/rz-ngml-console/main.cpp:8:
+../../../../src/accessors.h:130:1: warning: multi-line comment [-Wcomment]
+ //#define ACCESSORS(type, name) \
+ ^
+In file included from ../../../../src/apk/htxn/htxn/htxn/graph/htxn-node-detail.h:15:0,
+                 from ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-htxn.h:16,
+                 from ../../../../src/apk/htxn/ngml/rz-ngml-console/main.cpp:13:
+../../../../src/flags.h:204:1: warning: multi-line comment [-Wcomment]
+ //#define flags_(byte_count) \
+ ^
+In file included from ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.h:13:0,
+                 from ../../../../src/apk/htxn/ngml/rz-ngml-console/main.cpp:8:
+../../../../src/apk/htxn/ngml/rz-ngml/kernel/rz-ngml-dominion.h: In member function ‘RZ::NGML::NGML_Dominion::Type_Codes RZ::NGML::NGML_Dominion::get_type_code()’:
+../../../../src/apk/htxn/ngml/rz-ngml/kernel/rz-ngml-dominion.h:51:2: warning: no return statement in function returning non-void [-Wreturn-type]
+  }
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml-console/main.cpp: At global scope:
+../../../../src/apk/htxn/ngml/rz-ngml-console/main.cpp:75:15: warning: unused parameter ‘argc’ [-Wunused-parameter]
+ int main1(int argc, char* argv[])
+               ^
+../../../../src/apk/htxn/ngml/rz-ngml-console/main.cpp:75:32: warning: unused parameter ‘argv’ [-Wunused-parameter]
+ int main1(int argc, char* argv[])
+                                ^
+../../../../src/apk/htxn/ngml/rz-ngml-console/main.cpp: In function ‘int main(int, char**)’:
+../../../../src/apk/htxn/ngml/rz-ngml-console/main.cpp:98:18: error: invalid initialization of non-const reference of type ‘QVector<QPair<QString*, const QString> >&’ from an rvalue of type ‘QVector<QPair<QString*, const QString> >’
+    {&file, {} }} );
+                  ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qevent.h:52:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/QList:1,
+                 from ../../../../src/apk/hgdm/relae-graph/relae-graph/relae-node-ptr.h:18,
+                 from ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.h:11,
+                 from ../../../../src/apk/htxn/ngml/rz-ngml-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvector.h:521:1: note:   after user-defined conversion: QVector<T>::QVector(std::initializer_list<_Tp>) [with T = QPair<QString*, const QString>]
+ QVector<T>::QVector(std::initializer_list<T> args)
+ ^
+In file included from ../../../../src/apk/htxn/ngml/rz-ngml-console/main.cpp:25:0:
+../../../../src/get-cmdl.h:35:20: note:   initializing argument 4 of ‘QStringList KA::TextIO::get_cmdl(int, char**, int, QVector<QPair<QString*, const QString> >&)’
+ inline QStringList get_cmdl(int argc, char* argv[], 
+                    ^
+../../../../src/apk/htxn/ngml/rz-ngml-console/main.cpp: At global scope:
+../../../../src/apk/htxn/ngml/rz-ngml-console/main.cpp:107:15: warning: unused parameter ‘argc’ [-Wunused-parameter]
+ int main2(int argc, char* argv[])
+               ^
+../../../../src/apk/htxn/ngml/rz-ngml-console/main.cpp:107:32: warning: unused parameter ‘argv’ [-Wunused-parameter]
+ int main2(int argc, char* argv[])
+                                ^
+make: *** [../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/rz-ngml-console/release/main.o] Error 1
