@@ -1,5 +1,5 @@
 - Generated from LaTeX File ctg.ngml.tex 
-15/4/2020, 15:58
+15/4/2020, 18:2
 .
 
 - i=id n=name (entity kind) k=element kind p=page r=paragraph o=order (on page)
@@ -44,5 +44,137 @@ $global-baseline-skip: 12.0pt
 /!
 <+>
 
+
+
+!/ SDI_Paragraph_Start
+$n: Paragraph:Start
+$i: 1
+$o: 1
+$p: 1
+$x: 32.52127pt
+$y: 204.10863pt
+/!
+<+>
+
+!/ SDI_Sentence_Start
+$n: Sentence:Start
+$i: 1
+$r: 1
+$c: 1
+$o: 1
+$p: 1
+$x: 32.52127pt
+$y: 204.10863pt
+/!
+<+>
+
+!/ SDI_Sentence_End
+$n: Sentence:End
+$i: 1
+$o: 1
+$p: 1
+$x: 146.91026pt
+$y: 194.10863pt
+/!
+<+>
+
+!/ SDI_Sentence_Start
+$n: Sentence:Start
+$i: 2
+$r: 1
+$c: 2
+$o: 2
+$p: 1
+$x: 146.91026pt
+$y: 194.10863pt
+/!
+<+>
+
+!/ SDI_Sentence_End
+$n: Sentence:End
+$i: 2
+$o: 1
+$p: 1
+$x: 204.99373pt
+$y: 194.10863pt
+/!
+<+>
+
+!/ SDI_Paragraph_End
+$n: Paragraph:End
+$i: 1
+$o: 1
+$p: 1
+$x: 204.99373pt
+$y: 194.10863pt
+/!
+<+>
+
+!/ SDI_Paragraph_Start
+$n: Paragraph:Start
+$i: 2
+$o: 2
+$p: 1
+$x: 32.52127pt
+$y: 141.13646pt
+/!
+<+>
+
+!/ SDI_Sentence_Start
+$n: Sentence:Start
+$i: 3
+$r: 2
+$c: 1
+$o: 3
+$p: 1
+$x: 32.52127pt
+$y: 141.13646pt
+/!
+<+>
+
+!/ SDI_Sentence_End
+$n: Sentence:End
+$i: 3
+$o: 2
+$p: 1
+$x: 97.13245pt
+$y: 129.13646pt
+/!
+<+>
+
+!/ SDI_Sentence_Start
+$n: Sentence:Start
+$i: 4
+$r: 2
+$c: 2
+$o: 4
+$p: 1
+$x: 97.13245pt
+$y: 129.13646pt
+/!
+<+>
+
+!/ SDI_Sentence_End
+$n: Sentence:End
+$i: 4
+$o: 2
+$p: 1
+$x: 194.99371pt
+$y: 129.13646pt
+/!
+<+>
+
+!/ SDI_Paragraph_End
+$n: Paragraph:End
+$i: 2
+$o: 2
+$p: 1
+$x: 194.99371pt
+$y: 129.13646pt
+/!
+<+>
+
+
+/&
 
 

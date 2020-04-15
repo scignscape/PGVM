@@ -12,6 +12,9 @@
 \usepackage{zref-user}
 \usepackage{xifthen}
 
+\newcommand{\interSententenceSpace}{\kern} %\hspace*{-1em}}
+
+
 \newCCforEXC\newCCforDASH
 
 %\newCCforCOL
@@ -60,9 +63,7 @@
 \newcommand{\<}{\iftabng\oldtblt\else\spe\fi}
 
 \renewcommand{\>}{\iftabng\oldtbplus\else\relax%
-\ifmmode\oldmmgt\else\sse\sss\fi\fi}
-
-%\renewcommand{\>}{\sse\sss}
+\ifmmode\oldmmgt\else\sse\sss\interSententenceSpace}\fi\fi}
 
 \renewcommand{\;}{\relax\ifmmode\oldmmsemi\else\sse\fi}
 \renewcommand{\:}{\relax\ifmmode\oldmmcolon\else\sps\fi}
