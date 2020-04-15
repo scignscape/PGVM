@@ -81,6 +81,7 @@ void NGML_Output_XML::export_xml(QString path)
   QFileInfo qfi(document_.local_path());
   path.prepend(qfi.absolutePath() + '/' + qfi.completeBaseName());
  }
+
  QString xml_output;
  write_xml_output(xml_output);
 

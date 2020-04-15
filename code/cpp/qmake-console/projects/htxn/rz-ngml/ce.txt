@@ -1,108 +1,932 @@
 In file included from ../../../../src/apk/hgdm/relae-graph/relae-graph/relae-node-ptr.h:12:0,
-                 from ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.h:11,
-                 from ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.cpp:8:
+                 from ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-base.h:11,
+                 from ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.h:15,
+                 from ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:8:
 ../../../../src/accessors.h:130:1: warning: multi-line comment [-Wcomment]
  //#define ACCESSORS(type, name) \
  ^
-In file included from ../../../../src/apk/hgdm/relae-graph/relae-graph/relae-parser.h:10:0,
-                 from ../../../../src/apk/hgdm/relae-graph/relae-graph/relae-parser.templates.h:10,
-                 from ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.cpp:10:
+In file included from ../../../../src/apk/htxn/htxn/htxn/infoset/htxn-infoset-8b.h:15:0,
+                 from ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.h:18,
+                 from ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:8:
 ../../../../src/flags.h:204:1: warning: multi-line comment [-Wcomment]
  //#define flags_(byte_count) \
  ^
-In file included from ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.h:13:0,
-                 from ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.cpp:8:
+In file included from ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-base.h:13:0,
+                 from ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.h:15,
+                 from ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:8:
 ../../../../src/apk/htxn/ngml/rz-ngml/kernel/rz-ngml-dominion.h: In member function ‘RZ::NGML::NGML_Dominion::Type_Codes RZ::NGML::NGML_Dominion::get_type_code()’:
 ../../../../src/apk/htxn/ngml/rz-ngml/kernel/rz-ngml-dominion.h:51:2: warning: no return statement in function returning non-void [-Wreturn-type]
   }
   ^
-In file included from ../../../../src/apk/hgdm/relae-graph/relae-graph/relae-parser.h:12:0,
-                 from ../../../../src/apk/hgdm/relae-graph/relae-graph/relae-parser.templates.h:10,
-                 from ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.cpp:10:
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-regex.h: In constructor ‘RZ_Core_Rule::RZ_Core_Rule(tString, tString, std::function<void()>)’:
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-regex.h:50:20: warning: ‘RZ_Core_Rule::callback’ will be initialized after [-Wreorder]
-  RZ_MATCH_CALLBACK callback;
-                    ^
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-regex.h:32:6: warning:   ‘int RZ_Core_Rule::context_index’ [-Wreorder]
-  int context_index;
-      ^
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-regex.h:52:2: warning:   when initialized here [-Wreorder]
-  RZ_Core_Rule(tString n, tString e, RZ_MATCH_CALLBACK c):name(n),expr(e),
-  ^
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-regex.h: In member function ‘virtual char* RZ_Match_Data_Base::original_rule_type()’:
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-regex.h:81:10: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
-   return "unknown";
-          ^
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-regex.h: At global scope:
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-regex.h:87:31: warning: unused parameter ‘capture_name’ [-Wunused-parameter]
-  virtual tString text(tString capture_name)
-                               ^
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-regex.h:91:27: warning: unused parameter ‘capture_number’ [-Wunused-parameter]
-  virtual tString text(int capture_number)
-                           ^
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-regex.h:100:27: warning: unused parameter ‘pos’ [-Wunused-parameter]
-  void reset_position(int& pos){}
-                           ^
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-regex.h: In member function ‘virtual char* RZ_Match_Data_Qt::original_rule_type()’:
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-regex.h:125:10: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
-   return "QRegularExpression";
-          ^
-In file included from ../../../../src/apk/htxn/ngml/rz-ngml/kernel/grammar/rz-ngml-grammar.h:11:0,
-                 from ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.cpp:15:
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-grammar.h: In lambda function:
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-grammar.h:446:8: warning: suggest braces around empty body in an ‘else’ statement [-Wempty-body]
-        ;
-        ^
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-grammar.h: In member function ‘void Relae_Grammar<GRAPH_Type, PARSER_Type>::prepare_compound_rule(QString, QString&, QString&)’:
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-grammar.h:555:39: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
-    else if(check_named_capture_flag());
-                                       ^
-In file included from ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.cpp:8:0:
-../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.h: In constructor ‘RZ::NGML::NGML_Document::NGML_Document()’:
-../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.h:54:21: warning: ‘RZ::NGML::NGML_Document::parsing_mode_’ will be initialized after [-Wreorder]
-  NGML_Parsing_Modes parsing_mode_;
-                     ^
-../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.h:36:23: warning:   ‘caon_ptr<RZ::NGML::NGML_Graph> RZ::NGML::NGML_Document::graph_’ [-Wreorder]
-  caon_ptr<NGML_Graph> graph_;
-                       ^
-../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.cpp:33:1: warning:   when initialized here [-Wreorder]
- NGML_Document::NGML_Document()
- ^
-../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.cpp: In member function ‘void RZ::NGML::NGML_Document::check_sdi_tag_command_info()’:
-../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.cpp:286:5: error: ‘tag_command_info_path_’ was not declared in this scope
-  if(tag_command_info_path_.isEmpty())
+In file included from ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:46:0:
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h: In lambda function:
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:11:38: error: ‘check_sentence_boundaries’ was not declared in this scope
+   check_sentence_boundaries(qts, node);
+                                      ^
+In file included from ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:44:0:
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h: At global scope:
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
      ^
-../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.cpp:288:3: error: incomplete type ‘RZ::NGML::NGML_Tag_Command’ used in nested name specifier
-   NGML_Tag_Command::set_needs_sdi_mark_check([](QString name) -> bool 
-   ^
-In file included from ../../../../src/apk/htxn/ngml/rz-ngml/kernel/grammar/rz-ngml-grammar.h:11:0,
-                 from ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.cpp:15:
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-grammar.h: In instantiation of ‘void Relae_Grammar<GRAPH_Type, PARSER_Type>::compile(Relae_Grammar<GRAPH_Type, PARSER_Type>::tParser&, Relae_Grammar<GRAPH_Type, PARSER_Type>::tGraph&, QString, int) [with GRAPH_Type = RZ::NGML::NGML_Graph; PARSER_Type = RZ::NGML::NGML_Parser; Relae_Grammar<GRAPH_Type, PARSER_Type>::tParser = RZ::NGML::NGML_Parser; Relae_Grammar<GRAPH_Type, PARSER_Type>::tGraph = RZ::NGML::NGML_Graph]’:
-../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.cpp:280:48:   required from here
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-grammar.h:771:35: warning: unused parameter ‘g’ [-Wunused-parameter]
-  void compile(tParser& p, tGraph& g, QString str, int start_position = 0)
-                                   ^
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-grammar.h: In instantiation of ‘void Relae_Grammar<GRAPH_Type, PARSER_Type>::compile(QString, void*, int&, Relae_Grammar<GRAPH_Type, PARSER_Type>::tParser&) [with GRAPH_Type = RZ::NGML::NGML_Graph; PARSER_Type = RZ::NGML::NGML_Parser; Relae_Grammar<GRAPH_Type, PARSER_Type>::tParser = RZ::NGML::NGML_Parser]’:
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-grammar.h:784:11:   required from ‘void Relae_Grammar<GRAPH_Type, PARSER_Type>::compile(Relae_Grammar<GRAPH_Type, PARSER_Type>::tParser&, Relae_Grammar<GRAPH_Type, PARSER_Type>::tGraph&, QString, int) [with GRAPH_Type = RZ::NGML::NGML_Graph; PARSER_Type = RZ::NGML::NGML_Parser; Relae_Grammar<GRAPH_Type, PARSER_Type>::tParser = RZ::NGML::NGML_Parser; Relae_Grammar<GRAPH_Type, PARSER_Type>::tGraph = RZ::NGML::NGML_Graph]’
-../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.cpp:280:48:   required from here
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-grammar.h:674:12: warning: unused variable ‘st’ [-Wunused-variable]
-     size_t st = (size_t) pv;
-            ^
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-grammar.h: In instantiation of ‘RZ_Match_Data_Base* Relae_Grammar<GRAPH_Type, PARSER_Type>::try_rule(Relae_Grammar<GRAPH_Type, PARSER_Type>::tRule&, QString, void*, int) [with GRAPH_Type = RZ::NGML::NGML_Graph; PARSER_Type = RZ::NGML::NGML_Parser; Relae_Grammar<GRAPH_Type, PARSER_Type>::tRule = RZ_Core_Rule]’:
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-grammar.h:724:37:   required from ‘void Relae_Grammar<GRAPH_Type, PARSER_Type>::compile(QString, void*, int&, Relae_Grammar<GRAPH_Type, PARSER_Type>::tParser&) [with GRAPH_Type = RZ::NGML::NGML_Graph; PARSER_Type = RZ::NGML::NGML_Parser; Relae_Grammar<GRAPH_Type, PARSER_Type>::tParser = RZ::NGML::NGML_Parser]’
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-grammar.h:784:11:   required from ‘void Relae_Grammar<GRAPH_Type, PARSER_Type>::compile(Relae_Grammar<GRAPH_Type, PARSER_Type>::tParser&, Relae_Grammar<GRAPH_Type, PARSER_Type>::tGraph&, QString, int) [with GRAPH_Type = RZ::NGML::NGML_Graph; PARSER_Type = RZ::NGML::NGML_Parser; Relae_Grammar<GRAPH_Type, PARSER_Type>::tParser = RZ::NGML::NGML_Parser; Relae_Grammar<GRAPH_Type, PARSER_Type>::tGraph = RZ::NGML::NGML_Graph]’
-../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.cpp:280:48:   required from here
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-grammar.h:606:40: warning: unused parameter ‘extra_string_data’ [-Wunused-parameter]
-  try_rule(tRule& r, QString str, void* extra_string_data, int pos)
-                                        ^
-In file included from ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.cpp:10:0:
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-parser.templates.h: In instantiation of ‘void Relae_Parser<GALAXY>::delete_match(RZ_Match_Data_Base*) [with GALAXY = RZ::NGML::NGML_Galaxy]’:
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-parser.templates.h:73:14:   required from ‘void Relae_Parser<GALAXY>::delete_last_match() [with GALAXY = RZ::NGML::NGML_Galaxy]’
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-parser.templates.h:58:19:   required from ‘void Relae_Parser<GALAXY>::set_match(RZ_Match_Data_Base*, Relae_Parser<GALAXY>::tRule*, int) [with GALAXY = RZ::NGML::NGML_Galaxy; Relae_Parser<GALAXY>::tRule = RZ_Core_Rule]’
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-grammar.h:733:6:   required from ‘void Relae_Grammar<GRAPH_Type, PARSER_Type>::compile(QString, void*, int&, Relae_Grammar<GRAPH_Type, PARSER_Type>::tParser&) [with GRAPH_Type = RZ::NGML::NGML_Graph; PARSER_Type = RZ::NGML::NGML_Parser; Relae_Grammar<GRAPH_Type, PARSER_Type>::tParser = RZ::NGML::NGML_Parser]’
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-grammar.h:784:11:   required from ‘void Relae_Grammar<GRAPH_Type, PARSER_Type>::compile(Relae_Grammar<GRAPH_Type, PARSER_Type>::tParser&, Relae_Grammar<GRAPH_Type, PARSER_Type>::tGraph&, QString, int) [with GRAPH_Type = RZ::NGML::NGML_Graph; PARSER_Type = RZ::NGML::NGML_Parser; Relae_Grammar<GRAPH_Type, PARSER_Type>::tParser = RZ::NGML::NGML_Parser; Relae_Grammar<GRAPH_Type, PARSER_Type>::tGraph = RZ::NGML::NGML_Graph]’
-../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.cpp:280:48:   required from here
-../../../../src/apk/hgdm/relae-graph/relae-graph/relae-parser.templates.h:83:2: warning: deleting object of abstract class type ‘RZ_Match_Data_Base’ which has non-virtual destructor will cause undefined behaviour [-Wdelete-non-virtual-dtor]
-  delete m;
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:9:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
   ^
-make: *** [../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/rz-ngml/release/rz-ngml-document.o] Error 1
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:9:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:30: warning: unused parameter ‘qts’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:38:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:38:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:38:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:38:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:30: warning: unused parameter ‘qts’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:47:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:47:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:47:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:47:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:30: warning: unused parameter ‘qts’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:51:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:51:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:51:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:51:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:30: warning: unused parameter ‘qts’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:59:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:59:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:59:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:59:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:30: warning: unused parameter ‘qts’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:63:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:63:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:63:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:63:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:30: warning: unused parameter ‘qts’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:71:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:71:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:71:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:71:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:30: warning: unused parameter ‘qts’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:39:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre) \
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:80:1: note: in expansion of macro ‘NGML_CALLBACK_SUPPRESS’
+ NGML_CALLBACK_SUPPRESS(documentclass)
+ ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:39:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre) \
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:80:1: note: in expansion of macro ‘NGML_CALLBACK_SUPPRESS’
+ NGML_CALLBACK_SUPPRESS(documentclass)
+ ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:39:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre) \
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:80:1: note: in expansion of macro ‘NGML_CALLBACK_SUPPRESS’
+ NGML_CALLBACK_SUPPRESS(documentclass)
+ ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:30: warning: unused parameter ‘qts’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:43:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post) \
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:80:1: note: in expansion of macro ‘NGML_CALLBACK_SUPPRESS’
+ NGML_CALLBACK_SUPPRESS(documentclass)
+ ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:43:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post) \
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:80:1: note: in expansion of macro ‘NGML_CALLBACK_SUPPRESS’
+ NGML_CALLBACK_SUPPRESS(documentclass)
+ ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:43:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post) \
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:80:1: note: in expansion of macro ‘NGML_CALLBACK_SUPPRESS’
+ NGML_CALLBACK_SUPPRESS(documentclass)
+ ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:43:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post) \
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:80:1: note: in expansion of macro ‘NGML_CALLBACK_SUPPRESS’
+ NGML_CALLBACK_SUPPRESS(documentclass)
+ ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:30: warning: unused parameter ‘qts’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:52:3: note: in expansion of macro ‘WHEN_’
+   WHEN_(around) \
+   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:81:1: note: in expansion of macro ‘NGML_CALLBACK_NOACTION’
+ NGML_CALLBACK_NOACTION(include)
+ ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:52:3: note: in expansion of macro ‘WHEN_’
+   WHEN_(around) \
+   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:81:1: note: in expansion of macro ‘NGML_CALLBACK_NOACTION’
+ NGML_CALLBACK_NOACTION(include)
+ ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:52:3: note: in expansion of macro ‘WHEN_’
+   WHEN_(around) \
+   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:81:1: note: in expansion of macro ‘NGML_CALLBACK_NOACTION’
+ NGML_CALLBACK_NOACTION(include)
+ ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:52:3: note: in expansion of macro ‘WHEN_’
+   WHEN_(around) \
+   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:81:1: note: in expansion of macro ‘NGML_CALLBACK_NOACTION’
+ NGML_CALLBACK_NOACTION(include)
+ ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:30: warning: unused parameter ‘qts’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:84:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:84:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:84:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:84:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:30: warning: unused parameter ‘qts’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:93:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:93:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:93:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:93:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:30: warning: unused parameter ‘qts’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:102:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:102:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:102:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:102:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:30: warning: unused parameter ‘qts’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:106:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:106:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:106:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:106:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:30: warning: unused parameter ‘qts’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:115:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:115:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:115:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:115:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:30: warning: unused parameter ‘qts’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:118:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:118:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:118:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:118:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:30: warning: unused parameter ‘qts’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:126:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:126:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:126:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:126:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:135:3: note: in expansion of macro ‘WHEN_’
+   WHEN_(around)
+   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:135:3: note: in expansion of macro ‘WHEN_’
+   WHEN_(around)
+   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:135:3: note: in expansion of macro ‘WHEN_’
+   WHEN_(around)
+   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:154:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:154:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:154:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:158:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:158:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:158:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:30: warning: unused parameter ‘qts’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:169:3: note: in expansion of macro ‘WHEN_’
+   WHEN_(pre)
+   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:169:3: note: in expansion of macro ‘WHEN_’
+   WHEN_(pre)
+   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:169:3: note: in expansion of macro ‘WHEN_’
+   WHEN_(pre)
+   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:169:3: note: in expansion of macro ‘WHEN_’
+   WHEN_(pre)
+   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:30: warning: unused parameter ‘qts’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:173:3: note: in expansion of macro ‘_WHEN_’
+   _WHEN_(post)
+   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:173:3: note: in expansion of macro ‘_WHEN_’
+   _WHEN_(post)
+   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:173:3: note: in expansion of macro ‘_WHEN_’
+   _WHEN_(post)
+   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:173:3: note: in expansion of macro ‘_WHEN_’
+   _WHEN_(post)
+   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:30: warning: unused parameter ‘qts’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:183:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:183:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:183:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:30: warning: unused parameter ‘qts’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:188:3: note: in expansion of macro ‘_WHEN_’
+   _WHEN_(post)
+   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:188:3: note: in expansion of macro ‘_WHEN_’
+   _WHEN_(post)
+   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:188:3: note: in expansion of macro ‘_WHEN_’
+   _WHEN_(post)
+   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:198:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:198:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:198:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:207:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:207:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:207:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(pre)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:211:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:211:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:33:28: note: in expansion of macro ‘WHEN_’
+ #define _WHEN_(kind) _WHEN WHEN_(kind)
+                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:211:2: note: in expansion of macro ‘_WHEN_’
+  _WHEN_(post)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:30: warning: unused parameter ‘qts’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:222:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:222:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:222:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:222:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:30: warning: unused parameter ‘qts’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:232:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:232:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:232:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:232:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:30: warning: unused parameter ‘qts’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:241:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:241:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:241:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:241:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:30: warning: unused parameter ‘qts’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:250:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:28:51: warning: unused parameter ‘node’ [-Wunused-parameter]
+  {#kind, [this](QTextStream& qts, caon_ptr<tNode> node, \
+                                                   ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:250:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:5: warning: unused parameter ‘index’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:250:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h:29:44: warning: unused parameter ‘cb’ [-Wunused-parameter]
+  u4 index, caon_ptr<NGML_Command_Callback> cb)
+                                            ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h:250:2: note: in expansion of macro ‘WHEN_’
+  WHEN_(around)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:109:82: warning: unused parameter ‘b’ [-Wunused-parameter]
+ void NGML_Output_AXFD::generate_tag_command_auto_leave(const NGML_Output_Bundle& b, caon_ptr<NGML_Tag_Command> ntc)
+                                                                                  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:109:112: warning: unused parameter ‘ntc’ [-Wunused-parameter]
+ void NGML_Output_AXFD::generate_tag_command_auto_leave(const NGML_Output_Bundle& b, caon_ptr<NGML_Tag_Command> ntc)
+                                                                                                                ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp: In member function ‘void RZ::NGML::NGML_Output_AXFD::generate_tag_command_argument(const RZ::NGML::NGML_Output_Bundle&, RZ::NGML::NGML_HTXN_Node&)’:
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:119:20: warning: unused variable ‘nd’ [-Wunused-variable]
+  HTXN_Node_Detail* nd = nhn.get_node_detail(htxn_document_);
+                    ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp: At global scope:
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:115:80: warning: unused parameter ‘b’ [-Wunused-parameter]
+ void NGML_Output_AXFD::generate_tag_command_argument(const NGML_Output_Bundle& b,
+                                                                                ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp: In member function ‘void RZ::NGML::NGML_Output_AXFD::generate_tag_command_entry(const RZ::NGML::NGML_Output_Bundle&, RZ::NGML::NGML_HTXN_Node&)’:
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:142:18: warning: unused variable ‘gl’ [-Wunused-variable]
+  Glyph_Layer_8b* gl = nd->get_layer();
+                  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp: At global scope:
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:138:77: warning: unused parameter ‘b’ [-Wunused-parameter]
+ void NGML_Output_AXFD::generate_tag_command_entry(const NGML_Output_Bundle& b, NGML_HTXN_Node& nhn)
+                                                                             ^
+In file included from ../../../../src/apk/hgdm/relae-graph/relae-graph/relae-node-ptr.h:10:0,
+                 from ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-base.h:11,
+                 from ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.h:15,
+                 from ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:8:
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp: In member function ‘virtual void RZ::NGML::NGML_Output_AXFD::generate_tag_command_entry(const RZ::NGML::NGML_Output_Bundle&, caon_ptr<RZ::NGML::NGML_Tag_Command>)’:
+../../../../src/apk/hgdm/relae-graph/relae-graph/relae-caon-ptr.h:42:28: warning: unused variable ‘_cb’ [-Wunused-variable]
+  CAON_EVALUATE_DEBUG(type, _##ptr, ptr)
+                            ^
+../../../../src/apk/hgdm/relae-graph/relae-graph/relae-caon-ptr.h:40:14: note: in definition of macro ‘CAON_EVALUATE_DEBUG’
+  const type& name = *ptr;
+              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:161:4: note: in expansion of macro ‘CAON_PTR_DEBUG’
+    CAON_PTR_DEBUG(NGML_Command_Callback ,cb)
+    ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:178:23: warning: unused variable ‘nhn’ [-Wunused-variable]
+    if(NGML_HTXN_Node* nhn = ntc->ngml_htxn_node())
+                       ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:150:8: warning: enumeration value ‘N_A’ not handled in switch [-Wswitch]
+  switch(b.connection_descriptor)
+        ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:150:8: warning: enumeration value ‘Tag_Command_Main_Tile’ not handled in switch [-Wswitch]
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:150:8: warning: enumeration value ‘Closed_Tag_Command_Main_Tile’ not handled in switch [-Wswitch]
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:150:8: warning: enumeration value ‘Tag_Command_Attribute_Tile’ not handled in switch [-Wswitch]
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:150:8: warning: enumeration value ‘Tag_Command_Continue’ not handled in switch [-Wswitch]
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:150:8: warning: enumeration value ‘Tag_Command_Continue_From_Blank’ not handled in switch [-Wswitch]
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:150:8: warning: enumeration value ‘Tile_Sequence’ not handled in switch [-Wswitch]
+In file included from ../../../../src/apk/hgdm/relae-graph/relae-graph/relae-node-ptr.h:10:0,
+                 from ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-base.h:11,
+                 from ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.h:15,
+                 from ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:8:
+../../../../src/apk/hgdm/relae-graph/relae-graph/relae-caon-ptr.h:44:28: warning: unused variable ‘_node’ [-Wunused-variable]
+  CAON_EVALUATE_DEBUG(type, _##ptr, b.ptr)
+                            ^
+../../../../src/apk/hgdm/relae-graph/relae-graph/relae-caon-ptr.h:40:14: note: in definition of macro ‘CAON_EVALUATE_DEBUG’
+  const type& name = *ptr;
+              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:148:2: note: in expansion of macro ‘CAON_PTR_B_DEBUG’
+  CAON_PTR_B_DEBUG(NGML_Node ,node)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp: In member function ‘void RZ::NGML::NGML_Output_AXFD::generate_tag_command_leave(const RZ::NGML::NGML_Output_Bundle&, RZ::NGML::NGML_HTXN_Node&)’:
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:223:5: warning: suggest braces around empty body in an ‘if’ statement [-Wempty-body]
+     ; //?    check_reconcile_gap(b, 10);  //? b.qts << '\n';
+     ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp: At global scope:
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:191:77: warning: unused parameter ‘b’ [-Wunused-parameter]
+ void NGML_Output_AXFD::generate_tag_command_leave(const NGML_Output_Bundle& b, NGML_HTXN_Node& nhn)
+                                                                             ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp: In member function ‘void RZ::NGML::NGML_Output_AXFD::generate_tag_body_leave(const RZ::NGML::NGML_Output_Bundle&, RZ::NGML::NGML_HTXN_Node&)’:
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:272:20: warning: unused variable ‘nd’ [-Wunused-variable]
+  HTXN_Node_Detail* nd = nhn.get_node_detail(htxn_document_);
+                    ^
+In file included from ../../../../src/apk/hgdm/relae-graph/relae-graph/relae-node-ptr.h:10:0,
+                 from ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-base.h:11,
+                 from ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.h:15,
+                 from ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:8:
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp: In member function ‘virtual void RZ::NGML::NGML_Output_AXFD::generate_tag_body_leave(const RZ::NGML::NGML_Output_Bundle&, caon_ptr<RZ::NGML::NGML_Tag_Command>)’:
+../../../../src/apk/hgdm/relae-graph/relae-graph/relae-caon-ptr.h:42:28: warning: unused variable ‘_ntc’ [-Wunused-variable]
+  CAON_EVALUATE_DEBUG(type, _##ptr, ptr)
+                            ^
+../../../../src/apk/hgdm/relae-graph/relae-graph/relae-caon-ptr.h:40:14: note: in definition of macro ‘CAON_EVALUATE_DEBUG’
+  const type& name = *ptr;
+              ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:281:2: note: in expansion of macro ‘CAON_PTR_DEBUG’
+  CAON_PTR_DEBUG(NGML_Tag_Command ,ntc)
+  ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp: At global scope:
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:296:73: warning: unused parameter ‘b’ [-Wunused-parameter]
+ void NGML_Output_AXFD::generate_tile_via_htxn(const NGML_Output_Bundle& b, NGML_HTXN_Node& nhn)
+                                                                         ^
+../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp:296:92: warning: unused parameter ‘nhn’ [-Wunused-parameter]
+ void NGML_Output_AXFD::generate_tile_via_htxn(const NGML_Output_Bundle& b, NGML_HTXN_Node& nhn)
+                                                                                            ^
+make: *** [../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/rz-ngml/release/rz-ngml-output-axfd.o] Error 1

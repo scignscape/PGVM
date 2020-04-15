@@ -5,13 +5,13 @@
 //           http://www.boost.org/LICENSE_1_0.txt)
 
 
-NGML_CALLBACK_(p)
- WHEN_(around)
- {
-  check_sentence_boundaries(qts, node);
- }
- _WHEN
-_NGML_CALLBACK
+//NGML_CALLBACK_(p)
+// WHEN_(around)
+// {
+//  check_sentence_boundaries(qts, node);
+// }
+// _WHEN
+//_NGML_CALLBACK
 
 
 //NGML_CALLBACK_()
@@ -150,35 +150,6 @@ RENAME_TAG(pdf-ref, span)
 RENAME_(latex-only, span, latex-only)
 
 
-NGML_CALLBACK_(q)
- WHEN_(pre)
- {
-  qts << "&ldquo;";
- }
- _WHEN_(post)
- {
-  qts << "&rdquo;";
-  //?check_post_whitespace(qts, node);
- }
- _WHEN
-_NGML_CALLBACK
-
-
-
- NGML_CALLBACK_(meetup-add)
-  WHEN_(pre)
-  {
-//   start_meetup_add(qts, node);
-  }
-  _WHEN_(post)
-  {
-//   complete_meetup_add(qts, node);
-  }
-  _WHEN
- _NGML_CALLBACK
-
-
-
 NGML_CALLBACK_(code)
  WHEN_(pre)
   {
@@ -201,21 +172,6 @@ NGML_CALLBACK_(bq)
  }
  _WHEN
 _NGML_CALLBACK
-
-
-NGML_CALLBACK_(sq)
- WHEN_(pre)
- {
-  qts << "&lsquo;";
- }
- _WHEN_(post)
- {
-  qts << "&rsquo;";
- }
- _WHEN
-_NGML_CALLBACK
-
-
 
 
 NGML_CALLBACK_(kf-link)

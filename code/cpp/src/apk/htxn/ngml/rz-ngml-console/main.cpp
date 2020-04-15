@@ -15,6 +15,8 @@
 
 #include "rz-ngml/output/rz-ngml-output-xml.h"
 
+#include "rz-ngml/output/rz-ngml-output-axfd.h"
+
 //?
 #include "rz-ngml/kernel/document/rz-ngml-folder.h"
 
@@ -70,6 +72,12 @@ void process_ngml_file(QString path)
  nox.set_ngml_output_htxn(&noh);
  nox.set_htxn_document(&hxd);
  nox.export_xml(path + ".xml");
+
+ NGML_Output_AXFD noa(ndoc, &infoset);
+ //noa.set_ngml_output_htxn(&noh);
+ //nox.set_htxn_document(&hxd);
+ noa.export_axfd(path + ".axfd");
+
 }
 
 int main1(int argc, char* argv[])

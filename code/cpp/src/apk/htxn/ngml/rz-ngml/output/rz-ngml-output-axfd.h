@@ -41,16 +41,31 @@ class NGML_Output_AXFD : public NGML_Output_Base, private NGML_Output_Event_Hand
 {
  HTXN_Infoset_8b* infoset_;
 
- QStack<caon_ptr<NGML_Node>> chiefs_;
+ HTXN_Document_8b* htxn_document_;
 
+ caon_ptr<tNode> suppress_node_;
+
+ QMap<QString, caon_ptr<NGML_Command_Callback>> callbacks_;
+ void init_callbacks();
+
+ //QStack<caon_ptr<NGML_Node>> chiefs_;
+
+ void write_axfd_output(QString& axfd_output);
 
 public:
 
  NGML_Output_AXFD(NGML_Document& document, HTXN_Infoset_8b* infoset);
 
+ void export_axfd(QString path = "..axfd");
+
  void generate(QTextStream& qts);
 
  void generate_root(const NGML_Output_Bundle& b, caon_ptr<NGML_Root> nr) Q_DECL_OVERRIDE;
+
+caon_ptr<NGML_Command_Callback> check_command_callback(caon_ptr<NGML_Tag_Command> ntc) Q_DECL_OVERRIDE;
+
+void check_post_callback
+ (QTextStream& qts, caon_ptr<NGML_Command_Callback> cb, caon_ptr<tNode> node, u4 index);
 
  void generate_tag_command_entry(const NGML_Output_Bundle& b, caon_ptr<NGML_Tag_Command> ntc) Q_DECL_OVERRIDE;
  void generate_tag_command_entry(const NGML_Output_Bundle& b, NGML_HTXN_Node& nhn);

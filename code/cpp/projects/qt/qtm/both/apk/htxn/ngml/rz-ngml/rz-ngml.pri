@@ -76,9 +76,11 @@ HEADERS += \
   $$SRC_DIR/output/rz-ngml-output-callbacks-common.h \
   $$SRC_DIR/output/rz-ngml-output-html.callbacks.h \
   $$SRC_DIR/output/rz-ngml-output-latex.callbacks.h \
-  $$SRC_DIR/output/rz-ngml-output-xml.callbacks.h \
   $$SRC_DIR/output/rz-ngml-output-html.h \
   $$SRC_DIR/output/rz-ngml-output-xml.h \
+  $$SRC_DIR/output/rz-ngml-output-xml.callbacks.h \
+  $$SRC_DIR/output/rz-ngml-output-axfd.h \
+  $$SRC_DIR/output/rz-ngml-output-axfd.callbacks.h \
   $$SRC_DIR/output/rz-ngml-output-htxn.h \
   $$SRC_DIR/output/rz-ngml-output-htxn.callbacks.h \
   $$SRC_DIR/output/rz-ngml-output-infoset.h \
@@ -119,6 +121,7 @@ SOURCES += \
   $$SRC_DIR/output/rz-ngml-output-event-generator.cpp \
   $$SRC_DIR/output/rz-ngml-output-html.cpp \
   $$SRC_DIR/output/rz-ngml-output-xml.cpp \
+  $$SRC_DIR/output/rz-ngml-output-axfd.cpp \
   $$SRC_DIR/output/rz-ngml-output-latex.cpp \
   $$SRC_DIR/output/rz-ngml-output-htxn.cpp \
   $$SRC_DIR/output/rz-ngml-output-infoset.cpp \

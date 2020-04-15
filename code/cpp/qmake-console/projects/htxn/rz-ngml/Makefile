@@ -81,6 +81,7 @@ SOURCES       = ../../../../src/apk/htxn/ngml/rz-ngml/kernel/rz-ngml-dominion.cp
 		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-event-generator.cpp \
 		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-html.cpp \
 		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-xml.cpp \
+		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp \
 		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-latex.cpp \
 		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-htxn.cpp \
 		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-infoset.cpp \
@@ -116,6 +117,7 @@ OBJECTS       = ../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/rz
 		../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/rz-ngml/release/rz-ngml-output-event-generator.o \
 		../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/rz-ngml/release/rz-ngml-output-html.o \
 		../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/rz-ngml/release/rz-ngml-output-xml.o \
+		../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/rz-ngml/release/rz-ngml-output-axfd.o \
 		../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/rz-ngml/release/rz-ngml-output-latex.o \
 		../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/rz-ngml/release/rz-ngml-output-htxn.o \
 		../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/rz-ngml/release/rz-ngml-output-infoset.o \
@@ -351,9 +353,11 @@ DIST          = /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/mkspecs/features/spec_p
 		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h \
 		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-html.callbacks.h \
 		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-latex.callbacks.h \
-		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-xml.callbacks.h \
 		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-html.h \
 		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-xml.h \
+		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-xml.callbacks.h \
+		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.h \
+		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h \
 		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-htxn.h \
 		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-htxn.callbacks.h \
 		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-infoset.h \
@@ -390,6 +394,7 @@ DIST          = /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/mkspecs/features/spec_p
 		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-event-generator.cpp \
 		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-html.cpp \
 		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-xml.cpp \
+		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp \
 		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-latex.cpp \
 		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-htxn.cpp \
 		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-infoset.cpp \
@@ -843,8 +848,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../../../src/apk/htxn/ngml/rz-ngml/kernel/rz-ngml-dominion.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/rz-ngml-root.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document-info.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document-light-xml.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-folder.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/dominion/connectors.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/dominion/types.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/frame/rz-ngml-frame.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/grammar/rz-ngml-grammar.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/grammar/rz-ngml-graph-build.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/grammar/rz-ngml-parser.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/grammar/rz-ngml-parsing-mode.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/grammar/rz-ngml-parse-context.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/graph/rz-ngml-graph.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/graph/rz-ngml-node.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/graph/rz-ngml-markup-position.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/query/rz-ngml-query.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/output/rz-ngml-connection-descriptor.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/output/rz-ngml-output-bundle.h ../../../../src/apk/htxn/ngml/rz-ngml/tile/rz-ngml-token.h ../../../../src/apk/htxn/ngml/rz-ngml/tile/rz-ngml-tile.h ../../../../src/apk/htxn/ngml/rz-ngml/tile/rz-ngml-attribute-tile.h ../../../../src/apk/htxn/ngml/rz-ngml/tile/rz-ngml-paralex-tile.h ../../../../src/apk/htxn/ngml/rz-ngml/annotation/rz-ngml-annotation-tile.h ../../../../src/apk/htxn/ngml/rz-ngml/annotation/rz-ngml-annotation-filter.h ../../../../src/apk/htxn/ngml/rz-ngml/tag-command/rz-ngml-tag-command.h ../../../../src/apk/htxn/ngml/rz-ngml/tag-command/rz-ngml-command-callback.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-base.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-event-handler.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-event-generator.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-latex.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-html.callbacks.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-latex.callbacks.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-xml.callbacks.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-html.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-xml.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-htxn.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-htxn.callbacks.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-infoset.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-infoset.callbacks.h ../../../../src/apk/htxn/ngml/rz-ngml/whitespace/rz-ngml-whitespace.h ../../../../src/apk/htxn/ngml/rz-ngml/whitespace/rz-ngml-whitespace-holder.h ../../../../src/apk/htxn/ngml/rz-ngml/whitespace/rz-ngml-whitespace-holder.h ../../../../src/apk/htxn/ngml/rz-ngml/ngml-htxn/ngml-htxn-node.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../../../src/apk/htxn/ngml/rz-ngml/kernel/rz-ngml-dominion.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document-info.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document-light-xml.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-folder.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/frame/rz-ngml-frame.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/grammar/rz-ngml-grammar.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/grammar/rz-ngml-graph-build.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/grammar/rz-ngml-parser.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/grammar/rz-ngml-parse-context.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/graph/rz-ngml-graph.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/graph/rz-ngml-node.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/graph/rz-ngml-markup-position.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/query/rz-ngml-query.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/output/rz-ngml-connection-descriptor.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/output/rz-ngml-output-bundle.cpp ../../../../src/apk/htxn/ngml/rz-ngml/tile/rz-ngml-token.cpp ../../../../src/apk/htxn/ngml/rz-ngml/tile/rz-ngml-tile.cpp ../../../../src/apk/htxn/ngml/rz-ngml/tile/rz-ngml-attribute-tile.cpp ../../../../src/apk/htxn/ngml/rz-ngml/tile/rz-ngml-paralex-tile.cpp ../../../../src/apk/htxn/ngml/rz-ngml/annotation/rz-ngml-annotation-tile.cpp ../../../../src/apk/htxn/ngml/rz-ngml/annotation/rz-ngml-annotation-filter.cpp ../../../../src/apk/htxn/ngml/rz-ngml/tag-command/rz-ngml-tag-command.cpp ../../../../src/apk/htxn/ngml/rz-ngml/tag-command/rz-ngml-command-callback.cpp ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-base.cpp ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-event-handler.cpp ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-event-generator.cpp ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-html.cpp ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-xml.cpp ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-latex.cpp ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-htxn.cpp ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-infoset.cpp ../../../../src/apk/htxn/ngml/rz-ngml/whitespace/rz-ngml-whitespace.cpp ../../../../src/apk/htxn/ngml/rz-ngml/whitespace/rz-ngml-whitespace-holder.cpp ../../../../src/apk/htxn/ngml/rz-ngml/ngml-htxn/ngml-htxn-node.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../../../src/apk/htxn/ngml/rz-ngml/kernel/rz-ngml-dominion.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/rz-ngml-root.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document-info.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document-light-xml.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-folder.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/dominion/connectors.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/dominion/types.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/frame/rz-ngml-frame.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/grammar/rz-ngml-grammar.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/grammar/rz-ngml-graph-build.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/grammar/rz-ngml-parser.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/grammar/rz-ngml-parsing-mode.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/grammar/rz-ngml-parse-context.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/graph/rz-ngml-graph.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/graph/rz-ngml-node.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/graph/rz-ngml-markup-position.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/query/rz-ngml-query.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/output/rz-ngml-connection-descriptor.h ../../../../src/apk/htxn/ngml/rz-ngml/kernel/output/rz-ngml-output-bundle.h ../../../../src/apk/htxn/ngml/rz-ngml/tile/rz-ngml-token.h ../../../../src/apk/htxn/ngml/rz-ngml/tile/rz-ngml-tile.h ../../../../src/apk/htxn/ngml/rz-ngml/tile/rz-ngml-attribute-tile.h ../../../../src/apk/htxn/ngml/rz-ngml/tile/rz-ngml-paralex-tile.h ../../../../src/apk/htxn/ngml/rz-ngml/annotation/rz-ngml-annotation-tile.h ../../../../src/apk/htxn/ngml/rz-ngml/annotation/rz-ngml-annotation-filter.h ../../../../src/apk/htxn/ngml/rz-ngml/tag-command/rz-ngml-tag-command.h ../../../../src/apk/htxn/ngml/rz-ngml/tag-command/rz-ngml-command-callback.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-base.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-event-handler.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-event-generator.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-latex.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-html.callbacks.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-latex.callbacks.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-html.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-xml.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-xml.callbacks.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-htxn.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-htxn.callbacks.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-infoset.h ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-infoset.callbacks.h ../../../../src/apk/htxn/ngml/rz-ngml/whitespace/rz-ngml-whitespace.h ../../../../src/apk/htxn/ngml/rz-ngml/whitespace/rz-ngml-whitespace-holder.h ../../../../src/apk/htxn/ngml/rz-ngml/whitespace/rz-ngml-whitespace-holder.h ../../../../src/apk/htxn/ngml/rz-ngml/ngml-htxn/ngml-htxn-node.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../../../src/apk/htxn/ngml/rz-ngml/kernel/rz-ngml-dominion.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document-info.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document-light-xml.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-folder.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/frame/rz-ngml-frame.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/grammar/rz-ngml-grammar.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/grammar/rz-ngml-graph-build.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/grammar/rz-ngml-parser.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/grammar/rz-ngml-parse-context.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/graph/rz-ngml-graph.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/graph/rz-ngml-node.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/graph/rz-ngml-markup-position.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/query/rz-ngml-query.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/output/rz-ngml-connection-descriptor.cpp ../../../../src/apk/htxn/ngml/rz-ngml/kernel/output/rz-ngml-output-bundle.cpp ../../../../src/apk/htxn/ngml/rz-ngml/tile/rz-ngml-token.cpp ../../../../src/apk/htxn/ngml/rz-ngml/tile/rz-ngml-tile.cpp ../../../../src/apk/htxn/ngml/rz-ngml/tile/rz-ngml-attribute-tile.cpp ../../../../src/apk/htxn/ngml/rz-ngml/tile/rz-ngml-paralex-tile.cpp ../../../../src/apk/htxn/ngml/rz-ngml/annotation/rz-ngml-annotation-tile.cpp ../../../../src/apk/htxn/ngml/rz-ngml/annotation/rz-ngml-annotation-filter.cpp ../../../../src/apk/htxn/ngml/rz-ngml/tag-command/rz-ngml-tag-command.cpp ../../../../src/apk/htxn/ngml/rz-ngml/tag-command/rz-ngml-command-callback.cpp ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-base.cpp ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-event-handler.cpp ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-event-generator.cpp ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-html.cpp ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-xml.cpp ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-latex.cpp ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-htxn.cpp ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-infoset.cpp ../../../../src/apk/htxn/ngml/rz-ngml/whitespace/rz-ngml-whitespace.cpp ../../../../src/apk/htxn/ngml/rz-ngml/whitespace/rz-ngml-whitespace-holder.cpp ../../../../src/apk/htxn/ngml/rz-ngml/ngml-htxn/ngml-htxn-node.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -3649,6 +3654,149 @@ compiler_clean: compiler_moc_predefs_clean
 		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h \
 		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-xml.callbacks.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/rz-ngml/release/rz-ngml-output-xml.o ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-xml.cpp
+
+../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/rz-ngml/release/rz-ngml-output-axfd.o: ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QStack \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstack.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvector.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qalgorithms.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qglobal.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qconfig.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qtcore-config.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsysinfo.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlogging.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qflags.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qatomic.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qmutex.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qnumeric.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qversiontagging.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qiterator.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlist.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qrefcount.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qarraydata.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qbytearray.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qnamespace.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringliteral.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringview.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qpair.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringlist.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qregexp.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qpoint.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QTextStream \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qtextstream.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qiodevice.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qobject.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qcoreevent.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qmetatype.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qobject_impl.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlocale.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvariant.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qmap.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qset.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qshareddata.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QSet \
+		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-base.h \
+		../../../../src/apk/hgdm/relae-graph/relae-graph/relae-node-ptr.h \
+		../../../../src/apk/hgdm/relae-graph/relae-graph/relae-caon-ptr.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QSharedPointer \
+		../../../../src/accessors.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QMultiMap \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QMapIterator \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QString \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/QList \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qevent.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qtgui-config.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qregion.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qrect.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qmargins.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsize.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qkeysequence.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qurl.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qurlquery.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qfile.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qfiledevice.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qvector2d.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QPair \
+		../../../../src/apk/htxn/ngml/rz-ngml/kernel/rz-ngml-dominion.h \
+		../../../../src/rzns.h \
+		../../../../src/apk/htxn/ngml/rz-ngml/kernel/dominion/types.h \
+		../../../../src/apk/hgdm/relae-graph/relae-graph/dominion-macros.h \
+		../../../../src/apk/htxn/ngml/rz-ngml/kernel/query/rz-ngml-query.h \
+		../../../../src/apk/htxn/ngml/rz-ngml/kernel/dominion/connectors.h \
+		../../../../src/kans.h \
+		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-event-handler.h \
+		../../../../src/apk/htxn/ngml/rz-ngml/kernel/output/rz-ngml-connection-descriptor.h \
+		../../../../src/apk/htxn/htxn/htxn/infoset/htxn-infoset-8b.h \
+		../../../../src/global-types.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QtGlobal \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QMap \
+		../../../../src/flags.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QVector \
+		../../../../src/apk/htxn/htxn/htxn/infoset/htxn-infoset-range.h \
+		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-event-generator.h \
+		../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document.h \
+		../../../../src/apk/htxn/ngml/rz-ngml/kernel/grammar/rz-ngml-parsing-mode.h \
+		../../../../src/apk/htxn/ngml/rz-ngml/kernel/document/rz-ngml-document-info.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QStringList \
+		../../../../src/apk/htxn/ngml/rz-ngml/kernel/output/rz-ngml-output-bundle.h \
+		../../../../src/apk/htxn/ngml/rz-ngml/tile/rz-ngml-token.h \
+		../../../../src/apk/htxn/ngml/rz-ngml/kernel/graph/rz-ngml-node.h \
+		../../../../src/apk/htxn/ngml/rz-ngml/kernel/frame/rz-ngml-frame.h \
+		../../../../src/apk/htxn/ngml/rz-ngml/tag-command/rz-ngml-tag-command.h \
+		../../../../src/apk/htxn/ngml/rz-ngml/whitespace/rz-ngml-whitespace-holder.h \
+		../../../../src/apk/htxn/ngml/rz-ngml/whitespace/rz-ngml-whitespace.h \
+		../../../../src/apk/htxn/ngml/rz-ngml/kernel/rz-ngml-root.h \
+		../../../../src/apk/htxn/ngml/rz-ngml/tag-command/rz-ngml-command-callback.h \
+		../../../../src/apk/htxn/ngml/rz-ngml/ngml-htxn/ngml-htxn-node.h \
+		../../../../src/apk/htxn/htxn/htxn/htxn-document-8b.h \
+		../../../../src/apk/htxn/htxn/htxn/glyph-layers-8b.h \
+		../../../../src/apk/htxn/htxn/htxn/graph/htxn-node-details.h \
+		../../../../src/apk/htxn/htxn/htxn/graph/htxn-node-detail.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDate \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatetime.h \
+		../../../../src/apk/htxn/htxn/htxn/glyph-layer-8b.h \
+		../../../../src/apk/htxn/htxn/htxn/glyph-vector-8b.h \
+		../../../../src/apk/htxn/htxn/htxn/glyph-refinement.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QFile \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QFileInfo \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qfileinfo.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug \
+		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-callbacks-common.h \
+		../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.callbacks.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/rz-ngml/release/rz-ngml-output-axfd.o ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-axfd.cpp
 
 ../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/rz-ngml/release/rz-ngml-output-latex.o: ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-latex.cpp ../../../../src/apk/htxn/ngml/rz-ngml/output/rz-ngml-output-latex.h \
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QTextStream \
