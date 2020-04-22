@@ -478,11 +478,13 @@ public:
     {
      dot_flag = false;
      if(c.isNull() ) //== 0
-      main_acc += '.';
+       main_acc += '.';
+     else if(c == ',')
+       main_acc += '.';
      else if(c == ' ' || c == '\n' || c == '\r' || c == ']')
-      main_acc += '.' + c;
+       main_acc += '.' + c;
      else if(c == '.')
-      double_dot_flag = true;
+       double_dot_flag = true;
      else
      {
       local_name_flag = false;

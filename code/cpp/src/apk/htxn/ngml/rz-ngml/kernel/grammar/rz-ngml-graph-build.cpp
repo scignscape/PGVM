@@ -907,17 +907,24 @@ caon_ptr<NGML_Graph_Build::tNode> NGML_Graph_Build::make_new_node(caon_ptr<NGML_
 }
 
 void NGML_Graph_Build::check_nonstandard_special_character_sequence
-  (QString match_text, QString& esc, u1& mode)
+  (QString match_text, QString& esc, u1& mode, QString& sup_text)
 {
- static QMap<QString, std::pair<QString, u1> > static_map {
+ static QMap<QString, std::pair<QString, u1>> static_map {
   {"%--", {"-", 2}},
   {"->-", {"/", 2}},
+  {"%..", {"...", 2}},
+  {"%...", {"...", 2}},
+ };
+
+ static QMap<QString, QString> supp_map {
+  {"%...", "."},
  };
 
  auto it = static_map.find(match_text);
  if(it != static_map.end())
  {
   std::tie(esc, mode) = it.value();
+  sup_text = supp_map.value(match_text);
 //  esc = it.value().first;
 //  mode = it.value().second;
  }
@@ -926,7 +933,8 @@ void NGML_Graph_Build::check_nonstandard_special_character_sequence
 void NGML_Graph_Build::special_character_sequence(QString match_text, 
   QString esc, u1 mode)
 {
- check_nonstandard_special_character_sequence(match_text, esc, mode);
+ QString sup_text;
+ check_nonstandard_special_character_sequence(match_text, esc, mode, sup_text);
 
  QString text;
  NGML_Paralex_Tile::Kind k = NGML_Paralex_Tile::N_A;
@@ -963,25 +971,28 @@ void NGML_Graph_Build::special_character_sequence(QString match_text,
   break;
  }
 
+ int adj = 0;
  // // maybe we just acc everything ...
  switch(k)
  {
  case NGML_Paralex_Tile::Alt_Interpretation:
   //?tile_acc_length_adjustment_ += (text.size() + 3) - w;
-  tile_acc_length_adjustment_ += (text.size() + 2);
+  //?adj = text.size();
+  //?adj += 2;
+  tile_acc_length_adjustment_ += 3;
   switch (mode)
   {
   case 1:
-   tile_acc(QString("`(%1)").arg(text));
+   tile_acc(QString("`(%1)%2").arg(text).arg(sup_text));
    return;
   case 2:
-   tile_acc(QString("`{%1}").arg(text));
+   tile_acc(QString("`{%1}%2").arg(text).arg(sup_text));
    return;
   case 3:
-   tile_acc(QString("`[%1]").arg(text));
+   tile_acc(QString("`[%1]%2").arg(text).arg(sup_text));
    return;
   case 4:
-   tile_acc(QString("`<%1>").arg(text));
+   tile_acc(QString("`<%1>%2").arg(text).arg(sup_text));
    return;
   }
   break;

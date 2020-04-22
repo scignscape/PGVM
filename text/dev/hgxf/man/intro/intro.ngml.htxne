@@ -1,6 +1,6 @@
 ## htxne
 #
-`[//]T `{...}.`[/]
+`[//]This is a test sentence.  And another.`[/]
 
 `[//]p`[/]
 
@@ -9,7 +9,7 @@
 @@ ranges
 3
 =1
-2<1>7;1,
+2<1>39;1,
 !
 =2
 !

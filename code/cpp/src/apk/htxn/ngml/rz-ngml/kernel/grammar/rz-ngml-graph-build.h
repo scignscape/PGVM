@@ -189,7 +189,8 @@ QString* carried_arg_marker = nullptr, QString argument = QString(), QString nam
 
  void mark_attribute_tile();
  void special_character_sequence(QString match_text, QString esc, u1 mode);
- void check_nonstandard_special_character_sequence(QString match_text, QString& esc, u1& mode);
+ void check_nonstandard_special_character_sequence(QString match_text, QString& esc,
+   u1& mode, QString& sup_text);
 
    //QString bq_trig, QString bq_esc, QString pipe);
 
