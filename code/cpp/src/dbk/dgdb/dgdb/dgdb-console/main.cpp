@@ -7,10 +7,17 @@
 
 #include <QDebug>
 
+#include "dgdb/dgdb-instance.h"
+#include "dgdb/dgenvironment.h"
+
+USING_KANS(DGDB)
 
 int main(int argc, char* argv[])
 {
- qDebug() << "OK";
+ DgDb_Instance* dgi = DGEnvironment(
+   DEFAULT_DEV_DGDB_FOLDER "/instances/t1");
+
+ qDebug() << "OK: " << dgi->db_root_folder();
  return 0;
 }
 

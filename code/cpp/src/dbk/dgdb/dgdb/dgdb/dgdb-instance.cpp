@@ -4,17 +4,14 @@
 //     (See accompanying file LICENSE_1_0.txt or copy at
 //           http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef DGDB__H
-#define DGDB__H
 
+#include "dgdb-instance.h"
 
-#include "kans.h"
+USING_KANS(DGDB)
 
-KANS_(DGDB)
-
-
-_KANS(DGDB)
-
-#endif // DGDB__H
+DgDb_Instance::DgDb_Instance()
+{
+ 
+}
 
 

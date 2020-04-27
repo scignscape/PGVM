@@ -11,7 +11,7 @@ include(../build-group.pri)
 TEMPLATE = app
 
 
-DEFINES += DEFAULT_KPH_FOLDER=\\\"$$CPP_ROOT_DIR/kph\\\"
+DEFINES += DEFAULT_DEV_DGDB_FOLDER=\\\"$$ROOT_DIR/dev/data/dgdb\\\"
 
 
 
@@ -37,6 +37,9 @@ HEADERS += \
 
 SOURCES += \
   $$SRC_DIR/main.cpp \
+
+
+LIBS += -L$$TARGETSDIR -ldgdb
 
 
 message(choice: $$CPP_ROOT_DIR/targets/$$CHOICE_CODE/$$PROJECT_SET--$$PROJECT_GROUP--$$PROJECT_NAME)

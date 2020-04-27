@@ -4,17 +4,17 @@
 //     (See accompanying file LICENSE_1_0.txt or copy at
 //           http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef DGDB__H
-#define DGDB__H
-
 
 #include "kans.h"
 
+#include <QString>
+
 KANS_(DGDB)
+
+class DgDb_Instance;
+
+DgDb_Instance* DGEnvironment(QString path);
+
 
 
 _KANS(DGDB)
-
-#endif // DGDB__H
-
-

@@ -9,7 +9,7 @@ PROJECT_NAME = dgdb
 include(../build-group.pri)
 
 
-DEFINES += DEFAULT_KPH_FOLDER=\\\"$$CPP_ROOT_DIR/kph\\\"
+DEFINES += DEFAULT_DEV_DGDB_FOLDER=\\\"$$ROOT_DIR/dev/data/dgdb\\\"
 
 
 
@@ -32,10 +32,14 @@ DEFINES += USE_KANS
 
 HEADERS += \
   $$SRC_DIR/dgdb.h \
+  $$SRC_DIR/dgdb-instance.h \
+  $$SRC_DIR/dgenvironment.h \
 
 
 SOURCES += \
   $$SRC_DIR/dgdb.cpp \
+  $$SRC_DIR/dgdb-instance.cpp \
+  $$SRC_DIR/dgenvironment.cpp \
 
 
 message(choice: $$CPP_ROOT_DIR/targets/$$CHOICE_CODE/$$PROJECT_SET--$$PROJECT_GROUP--$$PROJECT_NAME)
