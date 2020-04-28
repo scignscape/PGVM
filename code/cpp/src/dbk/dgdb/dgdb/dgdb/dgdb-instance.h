@@ -17,16 +17,28 @@
 
 KANS_(DGDB)
 
+class DgDb_Node;
+class DgDb_Frame;
 
 class DgDb_Instance
 {
  QString db_root_folder_;
+ DgDb_Frame* default_frame_;
+ DgDb_Frame* current_frame_;
+
+ DgDb_Node* _add(void* v);
 
 public:
 
  ACCESSORS(QString ,db_root_folder)
 
  DgDb_Instance();
+
+ template<typename VERTEX_Type>
+ DgDb_Node* add(VERTEX_Type* v)
+ {
+  _add((void*) v);
+ }
 
 };
 
