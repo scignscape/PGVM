@@ -17,7 +17,7 @@ CXX           = g++
 DEFINES       = -DWHICH_DEFINES=\"./_defines/isobuild_defines.h\" -DDEFAULT_DEV_DGDB_FOLDER=\"/home/nlevisrael/hypergr/pgvm/ar/dev/data/dgdb\" -DUSE_RZNS -DCAON_DEBUG -DRELAE_LABEL_NODES -DUSE_KANS -DQT_NO_DEBUG -DQT_NO_KEYWORDS -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -O2 -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../../../../projects/qt/qtm/isobuild/dbk/dgdb/dgdb/dgdb-console -I. -I../../../../src/dbk/dgdb/dgdb/dgdb-console -I../../../../src -I/home/nlevisrael/hypergr/pgvm/ar/code/cpp/src/global -I../../../../src/dbk/dgdb/dgdb/dgdb-console -I../../../../src/dbk/dgdb/dgdb -I../../../../src/sk/phaonir/PhaonLib -I../../../../src/apk/hgdm/relae-graph -I/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include -I/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui -I/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/mkspecs/linux-g++
+INCPATH       = -I../../../../projects/qt/qtm/isobuild/dbk/dgdb/dgdb/dgdb-console -I. -I../../../../src/dbk/dgdb/dgdb/dgdb-console -I../../../../src -I/home/nlevisrael/hypergr/pgvm/ar/code/cpp/src/global -I../../../../src/dbk/dgdb/dgdb/dgdb-console -I../../../../src/dbk/dgdb/dgdb -I../../../../src/dbk/dgdb/dgdb/dgdb -I/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include -I/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui -I/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -785,9 +785,14 @@ compiler_clean: compiler_moc_predefs_clean
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
 		../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h \
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QString \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QMap \
 		../../../../src/accessors.h \
 		../../../../src/kans.h \
-		../../../../src/dbk/dgdb/dgdb/dgdb/dgenvironment.h
+		../../../../src/dbk/dgdb/dgdb/dgdb/dgenvironment.h \
+		../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h \
+		../../../../src/global-types.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QtGlobal \
+		../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/dgdb-console/release/main.o ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp
 
 ####### Install

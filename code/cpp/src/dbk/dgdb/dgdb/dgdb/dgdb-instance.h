@@ -21,11 +21,20 @@
 register_type_name_resolution<tn>(#tn)
 #endif
 
+#ifndef REGISTER_TYPE_NAME_RESOLUTION_2_1
+#define REGISTER_TYPE_NAME_RESOLUTION_2_1(ho_tname ,tn) \
+register_type_name_resolution<ho_tname<tn>>("(" #ho_tname \
+  " " #tn ")")
+#endif
+
 
 KANS_(DGDB)
 
 class DgDb_Node;
 class DgDb_Frame;
+class DgDb_Type;
+
+class DgDb_Type_Builder;
 
 class DgDb_Instance
 {
@@ -37,11 +46,20 @@ class DgDb_Instance
 
  QMap<QString, QString> type_name_resolutions_;
 
+ QMap<QString, DgDb_Type*> types_by_name_;
+
+ DgDb_Type_Builder* current_type_builder_;
+
+
 public:
 
  ACCESSORS(QString ,db_root_folder)
 
  DgDb_Instance();
+
+ void build_default_types();
+
+ DgDb_Type* get_type_by_name(QString tn);
 
  template<typename VERTEX_Type>
  QString register_type_name_resolution(QString desired)

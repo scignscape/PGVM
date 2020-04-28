@@ -10,8 +10,11 @@
 USING_KANS(DGDB)
 
 DgDb_Type::DgDb_Type()
+  :  byte_length_(0), meta_object_(nullptr)
 {
 
 }
+
+
 
 

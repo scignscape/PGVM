@@ -37,6 +37,8 @@ HEADERS += \
   $$SRC_DIR/graph/dgdb-node.h \
   $$SRC_DIR/graph/dgdb-frame.h \
   $$SRC_DIR/types/dgdb-type.h \
+  $$SRC_DIR/types/dgdb-type-builder.h \
+  $$SRC_DIR/_whitedb/_whitedb.h \
 
 
 SOURCES += \
@@ -46,6 +48,8 @@ SOURCES += \
   $$SRC_DIR/graph/dgdb-node.cpp \
   $$SRC_DIR/graph/dgdb-frame.cpp \
   $$SRC_DIR/types/dgdb-type.cpp \
+  $$SRC_DIR/types/dgdb-type-builder.cpp \
+  $$SRC_DIR/_whitedb/_whitedb.c \
 
 
 message(choice: $$CPP_ROOT_DIR/targets/$$CHOICE_CODE/$$PROJECT_SET--$$PROJECT_GROUP--$$PROJECT_NAME)
