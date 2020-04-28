@@ -10,10 +10,17 @@
 
 #include <QString>
 
+#include <QMap>
 
 #include "accessors.h"
 
 #include "kans.h"
+
+#ifndef REGISTER_TYPE_NAME_RESOLUTION
+#define REGISTER_TYPE_NAME_RESOLUTION(tn) \
+register_type_name_resolution<tn>(#tn)
+#endif
+
 
 KANS_(DGDB)
 
@@ -26,7 +33,9 @@ class DgDb_Instance
  DgDb_Frame* default_frame_;
  DgDb_Frame* current_frame_;
 
- DgDb_Node* _add(void* v);
+ DgDb_Node* _add(void* v, QString tn);
+
+ QMap<QString, QString> type_name_resolutions_;
 
 public:
 
@@ -35,9 +44,19 @@ public:
  DgDb_Instance();
 
  template<typename VERTEX_Type>
+ QString register_type_name_resolution(QString desired)
+ {
+  QString tn = QString::fromStdString(typeid(VERTEX_Type).name());
+  type_name_resolutions_[tn] = desired;
+  return tn;
+ }
+
+ template<typename VERTEX_Type>
  DgDb_Node* add(VERTEX_Type* v)
  {
-  _add((void*) v);
+  QString tn = QString::fromStdString(typeid(VERTEX_Type).name());
+  tn = type_name_resolutions_.value(tn, tn);
+  _add((void*) v, tn);
  }
 
 };

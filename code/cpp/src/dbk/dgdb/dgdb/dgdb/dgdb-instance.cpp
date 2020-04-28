@@ -10,6 +10,9 @@
 #include "graph/dgdb-node.h"
 #include "graph/dgdb-frame.h"
 
+#include <typeinfo>
+#include <QDebug> 
+
 USING_KANS(DGDB)
 
 DgDb_Instance::DgDb_Instance()
@@ -18,10 +21,13 @@ DgDb_Instance::DgDb_Instance()
  current_frame_ = default_frame_;
 }
 
-DgDb_Node* DgDb_Instance::_add(void* v)
+DgDb_Node* DgDb_Instance::_add(void* v, QString tn)
 {
  DgDb_Node* result = new DgDb_Node(v);
  current_frame_->add(result);
+
+ qDebug() << "TN is: " << tn;
+
  return result;
 }
 
