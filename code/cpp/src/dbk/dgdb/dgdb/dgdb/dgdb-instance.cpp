@@ -11,6 +11,7 @@
 #include "graph/dgdb-frame.h"
 
 #include "types/dgdb-type-builder.h"
+#include "types/dgdb-type.h"
 
 
 #include <typeinfo>
@@ -23,6 +24,19 @@ DgDb_Instance::DgDb_Instance()
  default_frame_ = new DgDb_Frame();
  current_frame_ = default_frame_;
  current_type_builder_ = new DgDb_Type_Builder;
+}
+
+DgDb_Type* DgDb_Instance::register_type(QString tn, QString ctn)
+{
+ DgDb_Type* result = get_type_by_name(tn);
+ if(!result)
+ {
+  result = new DgDb_Type();
+  result->set_name(tn);
+  result->set_cname(ctn);
+  types_by_name_[tn] = result;
+ }
+ return result;
 }
 
 void DgDb_Instance::build_default_types()

@@ -36,6 +36,13 @@ u1 WG_Stage_Value::_run(Callback_type cb, u4 field_index)
  cb(field_index, this);
 }
 
+WG_Stage_Value& WG_Stage_Value::new_qstring(const QString& qs)
+{
+ note_qstring().set_data(qs);
+}
+
+
+
 // // #define WG_NULLTYPE 1
 // // #define WG_RECORDTYPE 2
 // // #define WG_INTTYPE 3

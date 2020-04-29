@@ -40,14 +40,18 @@ void Test::encode_wg_stage_value(QByteArray& qba,
    WG_Stage_Value::Callback_type cb)
 {
  QDataStream qds(&qba, QIODevice::WriteOnly);
- qds << WG_Stage_Value().note_qstring().set_data(title).run[1](cb)
+ qds << WG_Stage_Value().new_qstring(title).run[1](cb)
    << author;
 }
 
 
 
+
 int main(int argc, char* argv[])
 {
+ std::function<void(Test*, QByteArray& qba, 
+   WG_Stage_Value::Callback_type cb)> fn = &Test::encode_wg_stage_value;
+
  DgDb_Instance* dgi = DGEnvironment(
    DEFAULT_DEV_DGDB_FOLDER "/instances/t1");
 
@@ -56,6 +60,13 @@ int main(int argc, char* argv[])
 
  dgi->REGISTER_TYPE_NAME_RESOLUTION(QString);
  dgi->REGISTER_TYPE_NAME_RESOLUTION(Test);
+
+ dgi->REGISTER_TYPE(Test)->set_byte_length(8);
+ 
+ //dgi->register_type("Test")
+
+ //dgi->register_type_interface("Test", )
+
 // dgi->register_type_name_resolution<QVector<u1>>("(QVector u1)");
 
  dgi->REGISTER_TYPE_NAME_RESOLUTION_2_1(QVector ,u1);

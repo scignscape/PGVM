@@ -27,6 +27,12 @@ register_type_name_resolution<ho_tname<tn>>("(" #ho_tname \
   " " #tn ")")
 #endif
 
+#ifndef REGISTER_TYPE
+#define REGISTER_TYPE(tn) \
+register_type_with_name_resolution<tn>(#tn)
+#endif
+
+
 
 KANS_(DGDB)
 
@@ -50,7 +56,6 @@ class DgDb_Instance
 
  DgDb_Type_Builder* current_type_builder_;
 
-
 public:
 
  ACCESSORS(QString ,db_root_folder)
@@ -60,6 +65,7 @@ public:
  void build_default_types();
 
  DgDb_Type* get_type_by_name(QString tn);
+ DgDb_Type* register_type(QString tn, QString ctn = QString());
 
  template<typename VERTEX_Type>
  QString register_type_name_resolution(QString desired)
@@ -67,6 +73,13 @@ public:
   QString tn = QString::fromStdString(typeid(VERTEX_Type).name());
   type_name_resolutions_[tn] = desired;
   return tn;
+ }
+
+ template<typename VERTEX_Type>
+ DgDb_Type* register_type_with_name_resolution(QString desired)
+ {
+  QString ctn = register_type_name_resolution<VERTEX_Type>(desired);
+  return register_type(desired, ctn);
  }
 
  template<typename VERTEX_Type>

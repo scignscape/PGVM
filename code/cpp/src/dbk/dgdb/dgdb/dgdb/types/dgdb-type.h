@@ -56,6 +56,7 @@ public:
 
  ACCESSORS(u4 ,byte_length)
  ACCESSORS(QString ,name)
+ ACCESSORS(QString ,cname)
 
  template<typename CType>
  void rtti_read(QString name)

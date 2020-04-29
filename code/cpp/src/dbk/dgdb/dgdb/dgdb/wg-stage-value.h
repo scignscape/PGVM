@@ -87,6 +87,10 @@ public:
  WG_Stage_Value& note_byte_length(u1 len);
  WG_Stage_Value& note_raw();
  WG_Stage_Value& clear_raw();
+
+ WG_Stage_Value& new_qstring(const QString& qs);
+
+
 };
 
 
