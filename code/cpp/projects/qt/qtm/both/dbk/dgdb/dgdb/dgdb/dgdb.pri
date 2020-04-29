@@ -33,6 +33,7 @@ DEFINES += USE_KANS
 HEADERS += \
   $$SRC_DIR/dgdb.h \
   $$SRC_DIR/dgdb-instance.h \
+  $$SRC_DIR/wg-stage-value.h \
   $$SRC_DIR/dgenvironment.h \
   $$SRC_DIR/graph/dgdb-node.h \
   $$SRC_DIR/graph/dgdb-frame.h \
@@ -45,6 +46,7 @@ SOURCES += \
   $$SRC_DIR/dgdb.cpp \
   $$SRC_DIR/dgdb-instance.cpp \
   $$SRC_DIR/dgenvironment.cpp \
+  $$SRC_DIR/wg-stage-value.cpp \
   $$SRC_DIR/graph/dgdb-node.cpp \
   $$SRC_DIR/graph/dgdb-frame.cpp \
   $$SRC_DIR/types/dgdb-type.cpp \

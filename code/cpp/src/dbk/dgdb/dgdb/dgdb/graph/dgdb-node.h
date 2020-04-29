@@ -14,11 +14,14 @@
 KANS_(DGDB)
 
 class DgDb_Type;
+class WG_Stage_Value;
 
 class DgDb_Node
 {
  void* vertex_;
  void* xnode_;
+ WG_Stage_Value* stage_value_;
+ void* wg_record_;
 
  DgDb_Type* dgdb_type_;
 
@@ -26,6 +29,8 @@ public:
 
  ACCESSORS(void* ,vertex)
  ACCESSORS(void* ,xnode)
+ ACCESSORS(WG_Stage_Value* ,stage_value)
+ ACCESSORS(void* ,wg_record)
  ACCESSORS(DgDb_Type* ,dgdb_type)
 
  DgDb_Node(void* vertex);
