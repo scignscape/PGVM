@@ -6,22 +6,45 @@
 
 
 #include <QDebug>
+#include <QByteArray>
+#include <QDataStream>
 
 #include "dgdb/dgdb-instance.h"
 #include "dgdb/dgenvironment.h"
 
 #include "dgdb/types/dgdb-type.h"
 
+#include "dgdb/wg-stage-value.h"
+
 #include "global-types.h"
 
 
 USING_KANS(DGDB)
 
+
 struct Test
 {
  QString title;
  QString author;
+
+ void encode_wg_stage_value(QByteArray& qba,
+    // WG_Stage_Value& wgv, 
+   WG_Stage_Value::Callback_type cb); 
+
+ //QMap<u4, WG_Stage_Value*>& indexers);
+
 };
+
+void Test::encode_wg_stage_value(QByteArray& qba,
+    // WG_Stage_Value& wgv, 
+   WG_Stage_Value::Callback_type cb)
+{
+ QDataStream qds(&qba, QIODevice::WriteOnly);
+ qds << WG_Stage_Value().note_qstring().set_data(title).run[1](cb)
+   << author;
+}
+
+
 
 int main(int argc, char* argv[])
 {
