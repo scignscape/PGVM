@@ -49,8 +49,8 @@ void Test::encode_wg_stage_value(QByteArray& qba,
 
 int main(int argc, char* argv[])
 {
- std::function<void(Test*, QByteArray& qba, 
-   WG_Stage_Value::Callback_type cb)> fn = &Test::encode_wg_stage_value;
+// std::function<void(Test*, QByteArray& qba, 
+//   WG_Stage_Value::Callback_type cb)> fn = &Test::encode_wg_stage_value;
 
  DgDb_Instance* dgi = DGEnvironment(
    DEFAULT_DEV_DGDB_FOLDER "/instances/t1");
@@ -61,8 +61,11 @@ int main(int argc, char* argv[])
  dgi->REGISTER_TYPE_NAME_RESOLUTION(QString);
  dgi->REGISTER_TYPE_NAME_RESOLUTION(Test);
 
- dgi->REGISTER_TYPE(Test)->set_byte_length(8);
+ dgi->REGISTER_TYPE(Test)
+   .default_object_layout()
+   .set_stage_encoder(&Test::encode_wg_stage_value);
  
+
  //dgi->register_type("Test")
 
  //dgi->register_type_interface("Test", )

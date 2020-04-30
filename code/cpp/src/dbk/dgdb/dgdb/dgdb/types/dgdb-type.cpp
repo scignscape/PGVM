@@ -10,11 +10,17 @@
 USING_KANS(DGDB)
 
 DgDb_Type::DgDb_Type()
-  :  byte_length_(0), meta_object_(nullptr)
+  :  byte_length_(0), meta_object_(nullptr),
+     stage_encoder_(nullptr)
 {
 
 }
 
-
+DgDb_Type& DgDb_Type::default_object_layout()
+{
+ set_byte_length(QT_POINTER_SIZE);
+ set_byte_length_code(QT_POINTER_SIZE);
+ return *this;
+}
 
 

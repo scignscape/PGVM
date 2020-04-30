@@ -11,6 +11,8 @@
 
 #include "global-types.h"
 
+#include "wg-stage-value.h"
+
 #include "_whitedb/_whitedb.h"
 
 #include "accessors.h"
@@ -40,6 +42,9 @@ class DgDb_Type
  u1 byte_length_code_;
  void* meta_object_;
 
+ std::function<void(void*, QByteArray& qba, 
+   WG_Stage_Value::Callback_type cb)> stage_encoder_;
+
  std::function<void*(DgDb_Node*, 
    std::function<void*(u4)> )> binary_encoder_;
 
@@ -51,10 +56,22 @@ public:
  ACCESSORS(MACRO_PASTE(std::function<void*(DgDb_Node*, 
    std::function<void*(u4)> )>) ,binary_encoder)
 
+// ACCESSORS__GET(MACRO_PASTE(std::function<void(void*, QByteArray& qba, 
+//   WG_Stage_Value::Callback_type cb)>) ,stage_encoder)
+
+ template<typename PROC_Type>
+ DgDb_Type& set_stage_encoder(PROC_Type pt)
+ {
+  stage_encoder_ = (void(*)(void*, QByteArray& qba,
+    WG_Stage_Value::Callback_type cb)) pt;
+ }  
+
+
  ACCESSORS(MACRO_PASTE(std::function<void*(DgDb_Node*, 
    std::function<void*(u8)> )>) ,wg_record_encoder)
 
  ACCESSORS(u4 ,byte_length)
+ ACCESSORS(u1 ,byte_length_code)
  ACCESSORS(QString ,name)
  ACCESSORS(QString ,cname)
 
@@ -72,6 +89,7 @@ public:
 
  DgDb_Type();
 
+ DgDb_Type& default_object_layout();
  
 
 };

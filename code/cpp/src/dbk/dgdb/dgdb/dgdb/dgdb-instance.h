@@ -65,7 +65,7 @@ public:
  void build_default_types();
 
  DgDb_Type* get_type_by_name(QString tn);
- DgDb_Type* register_type(QString tn, QString ctn = QString());
+ DgDb_Type& register_type(QString tn, QString ctn = QString());
 
  template<typename VERTEX_Type>
  QString register_type_name_resolution(QString desired)
@@ -76,7 +76,7 @@ public:
  }
 
  template<typename VERTEX_Type>
- DgDb_Type* register_type_with_name_resolution(QString desired)
+ DgDb_Type& register_type_with_name_resolution(QString desired)
  {
   QString ctn = register_type_name_resolution<VERTEX_Type>(desired);
   return register_type(desired, ctn);

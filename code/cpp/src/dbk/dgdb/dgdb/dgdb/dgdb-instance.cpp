@@ -26,7 +26,7 @@ DgDb_Instance::DgDb_Instance()
  current_type_builder_ = new DgDb_Type_Builder;
 }
 
-DgDb_Type* DgDb_Instance::register_type(QString tn, QString ctn)
+DgDb_Type& DgDb_Instance::register_type(QString tn, QString ctn)
 {
  DgDb_Type* result = get_type_by_name(tn);
  if(!result)
@@ -36,7 +36,7 @@ DgDb_Type* DgDb_Instance::register_type(QString tn, QString ctn)
   result->set_cname(ctn);
   types_by_name_[tn] = result;
  }
- return result;
+ return *result;
 }
 
 void DgDb_Instance::build_default_types()
