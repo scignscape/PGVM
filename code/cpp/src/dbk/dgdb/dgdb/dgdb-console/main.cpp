@@ -65,6 +65,12 @@ int main(int argc, char* argv[])
    .default_object_layout()
    .set_stage_encoder(&Test::encode_wg_stage_value);
  
+ DgDb_Type* testt = dgi->get_type_by_name("Test");
+
+ std::function<void(void*, QByteArray& qba, 
+   WG_Stage_Value::Callback_type cb)> fn = testt->stage_encoder();
+ 
+
 
  //dgi->register_type("Test")
 

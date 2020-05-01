@@ -56,8 +56,8 @@ public:
  ACCESSORS(MACRO_PASTE(std::function<void*(DgDb_Node*, 
    std::function<void*(u4)> )>) ,binary_encoder)
 
-// ACCESSORS__GET(MACRO_PASTE(std::function<void(void*, QByteArray& qba, 
-//   WG_Stage_Value::Callback_type cb)>) ,stage_encoder)
+ ACCESSORS__GET(MACRO_PASTE(std::function<void(void*, QByteArray& qba, 
+   WG_Stage_Value::Callback_type cb)>) ,stage_encoder)
 
  template<typename PROC_Type>
  DgDb_Type& set_stage_encoder(PROC_Type pt)
