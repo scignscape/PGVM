@@ -52,6 +52,8 @@ public:
 
  WG_Stage_Value();
 
+ ACCESSORS(u8 ,data)
+
  WG_Stage_Value& set_ptr_data(void* ptr);
 
  u1 _run(Callback_type cb, u4 field_index = 0);

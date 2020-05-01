@@ -69,8 +69,13 @@ int main(int argc, char* argv[])
 
  std::function<void(void*, QByteArray& qba, 
    WG_Stage_Value::Callback_type cb)> fn = testt->stage_encoder();
- 
 
+ WG_Stage_Value::Callback_type cb = [](u4 u, WG_Stage_Value* v)
+ {
+  qDebug() << "U4: " << u;
+  QString* vv = (QString*) v->data();
+  qDebug() << "vv: " << *vv; 
+ };
 
  //dgi->register_type("Test")
 
@@ -86,7 +91,15 @@ int main(int argc, char* argv[])
  QString* qs = new QString("OK");
  DgDb_Node* dgn = dgi->add(qs);
 
- Test* test = new Test{"Crit", "IK"};
+ Test* test = new Test{"Critique of Pure Reason", "IK"};
+ QByteArray qba;
+ fn(test, qba, cb);
+
+ QDataStream qds(qba);
+ u1 uuu;
+ qds >> uuu;
+ QString ttt;
+ qds >> ttt;
 
  DgDb_Node* dgn1 = dgi->add(test);
 

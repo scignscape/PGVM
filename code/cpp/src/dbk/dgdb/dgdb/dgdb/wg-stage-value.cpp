@@ -34,6 +34,7 @@ u1 WG_Stage_Value::_run_hold::operator()(WG_Stage_Value::Callback_type cb)
 u1 WG_Stage_Value::_run(Callback_type cb, u4 field_index)
 {
  cb(field_index, this);
+ return info_;
 }
 
 WG_Stage_Value& WG_Stage_Value::new_qstring(const QString& qs)
@@ -59,111 +60,111 @@ WG_Stage_Value& WG_Stage_Value::new_qstring(const QString& qs)
 
 WG_Stage_Value& WG_Stage_Value::note_unspec()
 {
- info_ ^= 240;
+ info_ &= 15;
  return *this;
 }
 
 WG_Stage_Value& WG_Stage_Value::note_null()
 {
- info_ ^= 240; 
+ info_ &= 15;
  info_ |= (1 << 4);
  return *this;
 }
 
 WG_Stage_Value& WG_Stage_Value::note_rec()
 {
- info_ ^= 240; 
+ info_ &= 15;
  info_ |= (2 << 4);
  return *this;
 }
 
 WG_Stage_Value& WG_Stage_Value::note_int()
 {
- info_ ^= 240; 
+ info_ &= 15;
  info_ |= (3 << 4);
  return *this;
 }
 
 WG_Stage_Value& WG_Stage_Value::note_dbl()
 {
- info_ ^= 240; 
+ info_ &= 15;
  info_ |= (4 << 4);
  return *this;
 }
 
 WG_Stage_Value& WG_Stage_Value::note_str()
 {
- info_ ^= 240; 
+ info_ &= 15;
  info_ |= (5 << 4);
  return *this;
 }
 
 WG_Stage_Value& WG_Stage_Value::note_xml()
 {
- info_ ^= 240; 
+ info_ &= 15;
  info_ |= (6 << 4);
  return *this;
 }
 
 WG_Stage_Value& WG_Stage_Value::note_uri()
 {
- info_ ^= 240; 
+ info_ &= 15;
  info_ |= (7 << 4);
  return *this;
 }
 
 WG_Stage_Value& WG_Stage_Value::note_blob()
 {
- info_ ^= 240; 
+ info_ &= 15;
  info_ |= (8 << 4);
  return *this;
 }
 
 WG_Stage_Value& WG_Stage_Value::note_char()
 {
- info_ ^= 240; 
+ info_ &= 15;
  info_ |= (9 << 4);
  return *this;
 }
 
 WG_Stage_Value& WG_Stage_Value::note_fixp()
 {
- info_ ^= 240; 
+ info_ &= 15;
  info_ |= (10 << 4);
  return *this;
 }
 
 WG_Stage_Value& WG_Stage_Value::note_date()
 {
- info_ ^= 240; 
+ info_ &= 15;
  info_ |= (11 << 4);
  return *this;
 }
 
 WG_Stage_Value& WG_Stage_Value::note_time()
 {
- info_ ^= 240; 
+ info_ &= 15;
  info_ |= (12 << 4);
  return *this;
 }
 
 WG_Stage_Value& WG_Stage_Value::note_qstring()
 {
- info_ ^= 240; 
+ info_ &= 15;
  info_ |= (13 << 4);
  return *this;
 }
 
 WG_Stage_Value& WG_Stage_Value::note_mrec()
 {
- info_ ^= 240; 
+ info_ &= 15;
  info_ |= (14 << 4);
  return *this;
 }
 
 WG_Stage_Value& WG_Stage_Value::note_tbd()
 {
- info_ ^= 240; 
+ info_ &= 15;
  info_ |= (15 << 4);
  return *this;
 }
@@ -177,7 +178,7 @@ WG_Stage_Value& WG_Stage_Value::note_data_has_type()
 
 WG_Stage_Value& WG_Stage_Value::clear_data_has_type()
 {
- info_ ^= 8;
+ info_ &= (255 - 8);
  return *this;
 }
 
@@ -186,10 +187,10 @@ WG_Stage_Value& WG_Stage_Value::note_byte_length(u1 len)
  switch(len)
  {
  case 1: info_  |= 3; break;
- case 2: info_ ^= 1; info_  |= 2; break;
- case 4: info_ ^= 2; info_  |= 1; break;
+ case 2: info_ &= (255 - 1); info_  |= 2; break;
+ case 4: info_ &= (255 - 2); info_  |= 1; break;
  default:
- case 8: info_ ^= 3; break; 
+ case 8: info_ &= (255 - 3); break;
  }
  return *this;
 }
@@ -202,7 +203,7 @@ WG_Stage_Value& WG_Stage_Value::note_raw()
 
 WG_Stage_Value& WG_Stage_Value::clear_raw()
 {
- info_ ^= 16;
+ info_ &= (255 - 16);
  return *this;
 }
 
