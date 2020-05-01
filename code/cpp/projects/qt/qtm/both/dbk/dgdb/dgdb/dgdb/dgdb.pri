@@ -34,6 +34,8 @@ HEADERS += \
   $$SRC_DIR/dgdb.h \
   $$SRC_DIR/dgdb-instance.h \
   $$SRC_DIR/wg-stage-value.h \
+  $$SRC_DIR/wdb-manager.h \
+  $$SRC_DIR/wdb-instance.h \
   $$SRC_DIR/dgenvironment.h \
   $$SRC_DIR/graph/dgdb-node.h \
   $$SRC_DIR/graph/dgdb-frame.h \
@@ -47,6 +49,8 @@ SOURCES += \
   $$SRC_DIR/dgdb-instance.cpp \
   $$SRC_DIR/dgenvironment.cpp \
   $$SRC_DIR/wg-stage-value.cpp \
+  $$SRC_DIR/wdb-manager.cpp \
+  $$SRC_DIR/wdb-instance.cpp \
   $$SRC_DIR/graph/dgdb-node.cpp \
   $$SRC_DIR/graph/dgdb-frame.cpp \
   $$SRC_DIR/types/dgdb-type.cpp \

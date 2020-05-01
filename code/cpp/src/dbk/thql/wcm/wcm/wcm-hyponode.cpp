@@ -60,3 +60,5 @@ void WCM_Hyponode::set_raw_data(quint64 raw_data, quint32 size)
  raw_data_ = raw_data;
  qt_encoding_.setValue(qvdbv);
 }
+
+
