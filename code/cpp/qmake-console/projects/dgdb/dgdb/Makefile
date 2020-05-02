@@ -17,7 +17,7 @@ CXX           = g++
 DEFINES       = -DWHICH_DEFINES=\"./_defines/isobuild_defines.h\" -DDEFAULT_DEV_DGDB_FOLDER=\"/home/nlevisrael/hypergr/pgvm/ar/dev/data/dgdb\" -DUSE_RZNS -DCAON_DEBUG -DRELAE_LABEL_NODES -DUSE_KANS -DQT_NO_DEBUG -DQT_NO_KEYWORDS -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -O2 -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../../../../projects/qt/qtm/isobuild/dbk/dgdb/dgdb/dgdb -I. -I../../../../src/dbk/dgdb/dgdb/dgdb -I../../../../src -I/home/nlevisrael/hypergr/pgvm/ar/code/cpp/src/global -I../../../../src/dbk/dgdb/dgdb/dgdb -I../../../../src/dbk/dgdb/dgdb -I../../../../src/sk/phaonir/PhaonLib -I../../../../src/apk/hgdm/relae-graph -I/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include -I/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui -I/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/mkspecs/linux-g++
+INCPATH       = -I../../../../projects/qt/qtm/isobuild/dbk/dgdb/dgdb/dgdb -I. -I../../../../src/dbk/dgdb/dgdb/dgdb -I../../../../src -I/home/nlevisrael/hypergr/pgvm/ar/code/cpp/src/global -I../../../../src/dbk/dgdb/dgdb/dgdb -I../../../../src/dbk/dgdb/dgdb -I../../../../src/apk/hgdm/phaon-graph -I../../../../src/apk/hgdm/relae-graph -I../../../../src/apk/hgdm/ntxh -I../../../../src/apk/hgdm/ntxh/ntxh -I/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include -I/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui -I/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = dgdb1.0.0
 DISTDIR = /home/nlevisrael/hypergr/pgvm/ar/code/cpp/qmake-console/targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/dgdb/release/dgdb1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1 -Wl,-rpath,/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/lib -shared -Wl,-soname,libdgdb.so.1
-LIBS          = $(SUBLIBS) -L/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/lib -lQt5Gui -lQt5Core -lGL -lpthread   
+LIBS          = $(SUBLIBS) -L/home/nlevisrael/hypergr/pgvm/ar/code/cpp/qmake-console/targets/targets-5-12-3-qmake-console -lntxh -L/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/lib -lQt5Gui -lQt5Core -lGL -lpthread   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -1088,6 +1088,47 @@ compiler_clean: compiler_moc_predefs_clean
 		../../../../src/accessors.h \
 		../../../../src/kans.h \
 		../../../../src/dbk/dgdb/dgdb/dgdb/wdb-instance.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDateTime \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatetime.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug \
+		../../../../src/textio.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QFile \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qfile.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qfiledevice.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QTextStream \
+		../../../../src/apk/hgdm/phaon-graph/phaong/phaong.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QVector \
+		../../../../src/apk/hgdm/phaon-graph/phaong/phaong-types.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QPair \
+		../../../../src/apk/hgdm/ntxh/ntxh-parser/ntxh-document.h \
+		../../../../src/apk/hgdm/relae-graph/relae-graph/relae-node-ptr.h \
+		../../../../src/apk/hgdm/relae-graph/relae-graph/relae-caon-ptr.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QSharedPointer \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QMultiMap \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QMapIterator \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/QList \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qevent.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qtgui-config.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qregion.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qrect.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qmargins.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsize.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qkeysequence.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qurl.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qurlquery.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qvector2d.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qtouchdevice.h \
+		../../../../src/apk/hgdm/ntxh/ntxh/kernel/ntxh-dominion.h \
+		../../../../src/apk/hgdm/ntxh/ntxh/kernel/dominion/types.h \
+		../../../../src/apk/hgdm/relae-graph/relae-graph/dominion-macros.h \
+		../../../../src/apk/hgdm/ntxh/ntxh/kernel/dominion/connectors.h \
+		../../../../src/apk/hgdm/ntxh/ntxh/kernel/graph/ntxh-graph.h \
+		../../../../src/apk/hgdm/ntxh/ntxh/kernel/graph/ntxh-node.h \
+		../../../../src/apk/hgdm/ntxh/ntxh/kernel/frame/ntxh-frame.h \
 		../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/dgdb/release/wdb-manager.o ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp
 
@@ -1124,6 +1165,43 @@ compiler_clean: compiler_moc_predefs_clean
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringalgorithms.h \
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringview.h \
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QMap \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qmap.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qiterator.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlist.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qalgorithms.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qpair.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringlist.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qregexp.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qtextstream.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qiodevice.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qobject.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qcoreevent.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qmetatype.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qobject_impl.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlocale.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvariant.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qshareddata.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvector.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qpoint.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qset.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDateTime \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatetime.h \
+		../../../../src/global-types.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QtGlobal \
 		../../../../src/kans.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/dgdb/release/wdb-instance.o ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-instance.cpp
 

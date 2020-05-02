@@ -32,6 +32,12 @@ class WDB_Manager
 
  WDB_Instance* current_white_;  
 
+ QString db_root_folder_;
+
+ void to_ntxh(QString& result);
+ void update_ntxh();
+
+
 public:
 
  WDB_Manager();
@@ -39,6 +45,9 @@ public:
  ACCESSORS(u8 ,default_mem_size)
 
  ACCESSORS(WDB_Instance* ,current_white)
+ ACCESSORS(QString ,db_root_folder)
+
+ void init_from_ntxh();
 
  WDB_Instance* get_current_white();
  WDB_Instance* get_white(QString name);

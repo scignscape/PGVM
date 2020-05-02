@@ -58,8 +58,6 @@ int main(int argc, char* argv[])
  dgi->Config.flags.scratch_mode = true;
  dgi->init();
 
-// dgi->register_type_name_resolution<QString>("QString");
-// dgi->register_type_name_resolution<Test>("Test");
 
  dgi->REGISTER_TYPE_NAME_RESOLUTION(QString);
  dgi->REGISTER_TYPE_NAME_RESOLUTION(Test);

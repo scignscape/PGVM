@@ -40,7 +40,7 @@ DISTNAME      = dgdb-console1.0.0
 DISTDIR = /home/nlevisrael/hypergr/pgvm/ar/code/cpp/qmake-console/targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/dgdb-console/release/dgdb-console1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1 -Wl,-rpath,/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/lib
-LIBS          = $(SUBLIBS) -L/home/nlevisrael/hypergr/pgvm/ar/code/cpp/qmake-console/targets/targets-5-12-3-qmake-console -ldgdb -L/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/lib -lQt5Gui -lQt5Core -lGL -lpthread   
+LIBS          = $(SUBLIBS) -L/home/nlevisrael/hypergr/pgvm/ar/code/cpp/qmake-console/targets/targets-5-12-3-qmake-console -ldgdb -lntxh -lntxh-parser -L/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/lib -lQt5Gui -lQt5Core -lGL -lpthread   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -783,15 +783,21 @@ compiler_clean: compiler_moc_predefs_clean
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qcontiguouscache.h \
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsharedpointer.h \
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QByteArray \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h \
 		../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h \
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QString \
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QMap \
 		../../../../src/accessors.h \
 		../../../../src/kans.h \
+		../../../../src/flags.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QtGlobal \
 		../../../../src/dbk/dgdb/dgdb/dgdb/dgenvironment.h \
 		../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h \
 		../../../../src/global-types.h \
-		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QtGlobal \
+		../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QVector \
 		../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/dgdb-console/release/main.o ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp
 
