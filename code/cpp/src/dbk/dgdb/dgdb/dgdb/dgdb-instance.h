@@ -33,6 +33,8 @@ register_type_with_name_resolution<tn>(#tn)
 #endif
 
 
+#include "flags.h"
+
 
 KANS_(DGDB)
 
@@ -41,6 +43,7 @@ class DgDb_Frame;
 class DgDb_Type;
 
 class DgDb_Type_Builder;
+class WDB_Manager;
 
 class DgDb_Instance
 {
@@ -56,11 +59,28 @@ class DgDb_Instance
 
  DgDb_Type_Builder* current_type_builder_;
 
+ WDB_Manager* wdb_manager_;
+
 public:
+
+ struct _Config
+ {
+  flags_(1)
+   bool scratch_mode:1;
+   bool auto_stage:1;
+   bool auto_commit:1;
+  _flags
+
+  _Config() : Flags(0) {}  
+ };
+
+ _Config Config; 
 
  ACCESSORS(QString ,db_root_folder)
 
  DgDb_Instance();
+
+ void init(); 
 
  void build_default_types();
 

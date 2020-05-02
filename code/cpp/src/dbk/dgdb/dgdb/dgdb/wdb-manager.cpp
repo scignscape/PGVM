@@ -9,7 +9,10 @@
 
 #include "wdb-instance.h"
 
+extern "C" {
 #include "_whitedb/_whitedb.h"
+}
+
 
 USING_KANS(DGDB)
 
@@ -44,6 +47,12 @@ WDB_Instance* WDB_Manager::new_white(u2 num_code, u8 mem, QString name)
  void* db = wg_attach_database(QString::number(num_code).toLatin1().data(), mem);
  WDB_Instance* result = new WDB_Instance(db, name);
  whites_[num_code] = result;
+
+ if(!name.isEmpty())
+ {
+  whites_by_name_[name] = result;
+ }
+
  return result; 
 }
 

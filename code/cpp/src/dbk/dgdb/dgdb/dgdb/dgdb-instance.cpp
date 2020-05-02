@@ -13,6 +13,7 @@
 #include "types/dgdb-type-builder.h"
 #include "types/dgdb-type.h"
 
+#include "wdb-manager.h"
 
 #include <typeinfo>
 #include <QDebug> 
@@ -24,6 +25,12 @@ DgDb_Instance::DgDb_Instance()
  default_frame_ = new DgDb_Frame();
  current_frame_ = default_frame_;
  current_type_builder_ = new DgDb_Type_Builder;
+ wdb_manager_ = new WDB_Manager;
+}
+
+void DgDb_Instance::init()
+{
+ wdb_manager_->get_current_white();
 }
 
 DgDb_Type& DgDb_Instance::register_type(QString tn, QString ctn)

@@ -28,6 +28,7 @@ class WDB_Manager
  u8 default_mem_size_;
 
  QMap<u2, WDB_Instance*> whites_;
+ QMap<QString, WDB_Instance*> whites_by_name_;
 
  WDB_Instance* current_white_;  
 
@@ -40,7 +41,7 @@ public:
  ACCESSORS(WDB_Instance* ,current_white)
 
  WDB_Instance* get_current_white();
-
+ WDB_Instance* get_white(QString name);
 
  WDB_Instance* new_white(u2 num_code = 0, u8 mem = 0, QString name = {});
  WDB_Instance* new_white(QString name)

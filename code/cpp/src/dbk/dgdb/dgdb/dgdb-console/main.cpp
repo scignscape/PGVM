@@ -55,6 +55,9 @@ int main(int argc, char* argv[])
  DgDb_Instance* dgi = DGEnvironment(
    DEFAULT_DEV_DGDB_FOLDER "/instances/t1");
 
+ dgi->Config.flags.scratch_mode = true;
+ dgi->init();
+
 // dgi->register_type_name_resolution<QString>("QString");
 // dgi->register_type_name_resolution<Test>("Test");
 

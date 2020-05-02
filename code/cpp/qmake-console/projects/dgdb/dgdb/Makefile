@@ -857,15 +857,17 @@ compiler_clean: compiler_moc_predefs_clean
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
 		../../../../src/accessors.h \
 		../../../../src/kans.h \
+		../../../../src/flags.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QtGlobal \
 		../../../../src/dbk/dgdb/dgdb/dgdb/graph/dgdb-node.h \
 		../../../../src/dbk/dgdb/dgdb/dgdb/graph/dgdb-frame.h \
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QVector \
 		../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type-builder.h \
 		../../../../src/global-types.h \
-		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QtGlobal \
 		../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h \
 		../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h \
 		../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h \
+		../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.h \
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/dgdb/release/dgdb-instance.o ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp
 
@@ -937,7 +939,9 @@ compiler_clean: compiler_moc_predefs_clean
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qcontiguouscache.h \
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsharedpointer.h \
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../../../src/accessors.h
+		../../../../src/accessors.h \
+		../../../../src/flags.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QtGlobal
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/dgdb/release/dgenvironment.o ../../../../src/dbk/dgdb/dgdb/dgdb/dgenvironment.cpp
 
 ../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/dgdb/release/wg-stage-value.o: ../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.cpp ../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h \
@@ -1078,14 +1082,48 @@ compiler_clean: compiler_moc_predefs_clean
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qcontiguouscache.h \
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsharedpointer.h \
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QString \
 		../../../../src/global-types.h \
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QtGlobal \
-		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QString \
+		../../../../src/accessors.h \
 		../../../../src/kans.h \
+		../../../../src/dbk/dgdb/dgdb/dgdb/wdb-instance.h \
 		../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/dgdb/release/wdb-manager.o ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp
 
 ../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/dgdb/release/wdb-instance.o: ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-instance.cpp ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-instance.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QString \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qglobal.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qconfig.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qtcore-config.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsysinfo.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlogging.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qflags.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qatomic.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qmutex.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qnumeric.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qversiontagging.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qbytearray.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qrefcount.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qnamespace.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qarraydata.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringliteral.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringview.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringbuilder.h \
 		../../../../src/kans.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/dgdb/release/wdb-instance.o ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-instance.cpp
 
