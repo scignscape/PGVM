@@ -41,6 +41,7 @@ public:
   bool replace_acc:1;
   bool wildcard_acc:1;
   bool define_replacement:1;
+  //bool expecting_field:1;
  _flags
 
  typedef NTXH_Graph::hypernode_type hypernode_type;

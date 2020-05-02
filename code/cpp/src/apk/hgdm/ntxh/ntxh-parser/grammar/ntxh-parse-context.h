@@ -28,6 +28,7 @@ public:
   flag_(1, inside_comment)
   flag_(2, multiline_field)
   flag_(3, active_type_decl)
+  flag_(4, expecting_field)
  _flags_
 
  NTXH_Parse_Context();

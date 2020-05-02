@@ -37,6 +37,7 @@ void NTXH_Graph_Build::init()
 void NTXH_Graph_Build::end_field()
 {
  parse_context_.flags.multiline_field = false;
+ parse_context_.flags.expecting_field = false;
  if(flags.discard_acc)
  {
   flags.discard_acc = false;
@@ -169,6 +170,8 @@ void NTXH_Graph_Build::prepare_field_read(QString prefix, QString field, QString
   current_field_name_ = field;
  }
  flags.array_field = prefix.startsWith('@');
+
+ parse_context_.flags.expecting_field = true;
 }
 
 void NTXH_Graph_Build::add_type(QString name, QString length)

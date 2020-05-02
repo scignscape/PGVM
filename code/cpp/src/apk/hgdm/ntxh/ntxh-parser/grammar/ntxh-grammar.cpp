@@ -182,7 +182,7 @@ void NTXH_Grammar::init(NTXH_Parser& p, NTXH_Graph& g, NTXH_Graph_Build& graph_b
   graph_build.top_level_append();
  });
 
- add_rule(read_context,
+ add_rule(flags_all_(parse_context ,expecting_field), read_context,
    "read-acc-field",
    " [^\\n]+ (?= \\n ) ",
    [&]
@@ -193,7 +193,18 @@ void NTXH_Grammar::init(NTXH_Parser& p, NTXH_Graph& g, NTXH_Graph_Build& graph_b
     graph_build.end_field();
  });
 
- add_rule( read_context, "prepare-field",
+// add_rule(flags_all_(parse_context ,expecting_field), read_context,
+//   "read-acc-field",
+//   " [^\\n]+ (?= \\n ) ",
+//   [&]
+// {
+//  QString s = p.match_text();
+//  graph_build.read_acc(s);
+//  if(!parse_context.flags.multiline_field)
+//    graph_build.end_field();
+// });
+
+ add_rule(read_context, "prepare-field",
    "\\n"
    " (?<prefix> [@$%]+ )"
    " (?<word> .script-word.?) "

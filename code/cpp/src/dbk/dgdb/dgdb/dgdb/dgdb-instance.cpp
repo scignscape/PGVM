@@ -33,7 +33,6 @@ void DgDb_Instance::init()
  wdb_manager_->set_db_root_folder(db_root_folder_);
  wdb_manager_->init_from_ntxh();
  wdb_manager_->get_current_white();
- wdb_manager_->init_from_ntxh();
 }
 
 DgDb_Type& DgDb_Instance::register_type(QString tn, QString ctn)

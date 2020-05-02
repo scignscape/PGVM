@@ -23,9 +23,7 @@ void WDB_Instance::to_ntxh(QString& result)
  QString ra = datetimes_.value(Recent_Attach).toString();
  QString llff = datetimes_.value(Last_Load_From_File).toString();
 
- result = QString(R"(
-
-!/ WDB_Instance
+ result = QString(R"(!/ WDB_Instance
 $name: %1
 $created: %2
 $attached: %3
