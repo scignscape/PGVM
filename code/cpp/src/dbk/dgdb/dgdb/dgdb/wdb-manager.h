@@ -21,9 +21,12 @@
 KANS_(DGDB)
 
 class WDB_Instance;
+class DgDb_Instance;
 
 class WDB_Manager
 {
+ DgDb_Instance* dgdb_instance_;
+
  u2 max_num_code_;
  u8 default_mem_size_;
 
@@ -40,7 +43,7 @@ class WDB_Manager
 
 public:
 
- WDB_Manager();
+ WDB_Manager(DgDb_Instance* dgdb_instance);
 
  ACCESSORS(u8 ,default_mem_size)
 

@@ -36,7 +36,8 @@ public:
 
  void set_creation_datetime(QDateTime dtm);
  void set_creation_datetime();
- 
+
+ static QString static_to_ntxh(); 
  void to_ntxh(QString& result);
 
 };

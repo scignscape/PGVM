@@ -9,6 +9,7 @@
 
 #include "wdb-instance.h"
 
+#include "dgdb-instance.h"
 
 #include <QDebug>
 
@@ -33,8 +34,9 @@ extern "C" {
 USING_KANS(DGDB)
 
 
-WDB_Manager::WDB_Manager()
-  :  max_num_code_(1000), default_mem_size_(0), current_white_(0)
+WDB_Manager::WDB_Manager(DgDb_Instance* dgdb_instance)
+  :  dgdb_instance_(dgdb_instance), 
+     max_num_code_(1000), default_mem_size_(0), current_white_(0)
 {
 
 
@@ -58,12 +60,23 @@ void WDB_Manager::update_ntxh()
 
 void WDB_Manager::to_ntxh(QString& result)
 {
- result = R"(
-&type WDB_Instance {4}
-  :name:1 :created:2 :attached:3 :llff:4 ;
+ //QString wty;
+
+ QString dty; 
+ QString dr;
+ dgdb_instance_->to_ntxh(dty, dr);
+
+ //result = WDB_Instance::static_to_ntxh();
+ result = QString(R"(
+
+%1
+
+%2
 
 &/
- )";
+
+%3
+ )").arg(dty).arg(WDB_Instance::static_to_ntxh()).arg(dr);
 
  for(WDB_Instance* white : whites_.values())
  {
@@ -85,9 +98,22 @@ void WDB_Manager::init_from_ntxh()
 
  typedef NTXH_Graph::hypernode_type hypernode_type;
 
- QVector<hypernode_type*>& hns = doc.top_level_hypernodes(); 
- for(hypernode_type* hn : hns)
+ QVector<hypernode_type*>& hns = doc.top_level_hypernodes();
+
+ QVectorIterator<hypernode_type*> it(hns);
+
+ hypernode_type* hn = it.next();
+ doc.graph()->get_sfs(hn, {1,2}, 
+   [this](QVector<QPair<QString, void*>>& prs)
  {
+  QString fld = prs[0].first;
+  qDebug() << "fld: " << fld;
+ });
+
+ //for(hypernode_type* hn : hns)
+ while(it.hasNext())
+ {
+  hypernode_type* hn = it.next();
   QString name;
   QVector<QDateTime> dts {{},{},{}}; 
 

@@ -84,6 +84,8 @@ public:
 
  void build_default_types();
 
+ void to_ntxh(QString& ty, QString& result);
+
  DgDb_Type* get_type_by_name(QString tn);
  DgDb_Type& register_type(QString tn, QString ctn = QString());
 

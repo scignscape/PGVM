@@ -1,0 +1,78 @@
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.h:16:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:8:
+../../../../src/accessors.h:130:1: warning: multi-line comment [-Wcomment]
+ //#define ACCESSORS(type, name) \
+ ^
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:36:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:12:
+../../../../src/flags.h:204:1: warning: multi-line comment [-Wcomment]
+ //#define flags_(byte_count) \
+ ^
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:12:0:
+../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h: In member function ‘KA::DGDB::DgDb_Node* KA::DGDB::DgDb_Instance::add(VERTEX_Type*)’:
+../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:113:2: warning: no return statement in function returning non-void [-Wreturn-type]
+  }
+  ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp: In lambda function:
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:129:6: warning: control reaches end of non-void function [-Wreturn-type]
+      });
+      ^
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:30:0:
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h: At global scope:
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:543:13: warning: ‘void yajl_set_default_alloc_funcs(yajl_alloc_funcs*)’ declared ‘static’ but never defined [-Wunused-function]
+ static void yajl_set_default_alloc_funcs(yajl_alloc_funcs * yaf);
+             ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:559:17: warning: ‘yajl_buf_t* yajl_buf_alloc(yajl_alloc_funcs*)’ declared ‘static’ but never defined [-Wunused-function]
+ static yajl_buf yajl_buf_alloc(yajl_alloc_funcs * alloc);
+                 ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:562:13: warning: ‘void yajl_buf_free(yajl_buf)’ declared ‘static’ but never defined [-Wunused-function]
+ static void yajl_buf_free(yajl_buf buf);
+             ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:565:13: warning: ‘void yajl_buf_append(yajl_buf, const void*, size_t)’ declared ‘static’ but never defined [-Wunused-function]
+ static void yajl_buf_append(yajl_buf buf, const void * data, size_t len);
+             ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:568:13: warning: ‘void yajl_buf_clear(yajl_buf)’ declared ‘static’ but never defined [-Wunused-function]
+ static void yajl_buf_clear(yajl_buf buf);
+             ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:571:30: warning: ‘const unsigned char* yajl_buf_data(yajl_buf)’ declared ‘static’ but never defined [-Wunused-function]
+ static const unsigned char * yajl_buf_data(yajl_buf buf);
+                              ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:574:15: warning: ‘size_t yajl_buf_len(yajl_buf)’ declared ‘static’ but never defined [-Wunused-function]
+ static size_t yajl_buf_len(yajl_buf buf);
+               ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:623:13: warning: ‘void yajl_string_encode(yajl_print_t, void*, const unsigned char*, size_t, int)’ declared ‘static’ but never defined [-Wunused-function]
+ static void yajl_string_encode(const yajl_print_t printer,
+             ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:629:13: warning: ‘void yajl_string_decode(yajl_buf, const unsigned char*, size_t)’ declared ‘static’ but never defined [-Wunused-function]
+ static void yajl_string_decode(yajl_buf buf, const unsigned char * str,
+             ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:632:12: warning: ‘int yajl_string_validate_utf8(const unsigned char*, size_t)’ declared ‘static’ but never defined [-Wunused-function]
+ static int yajl_string_validate_utf8(const unsigned char * s, size_t len);
+            ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:663:19: warning: ‘yajl_lexer_t* yajl_lex_alloc(yajl_alloc_funcs*, unsigned int, unsigned int)’ declared ‘static’ but never defined [-Wunused-function]
+ static yajl_lexer yajl_lex_alloc(yajl_alloc_funcs * alloc,
+                   ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:667:13: warning: ‘void yajl_lex_free(yajl_lexer)’ declared ‘static’ but never defined [-Wunused-function]
+ static void yajl_lex_free(yajl_lexer lexer);
+             ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:691:17: warning: ‘yajl_tok yajl_lex_lex(yajl_lexer, const unsigned char*, size_t, size_t*, const unsigned char**, size_t*)’ declared ‘static’ but never defined [-Wunused-function]
+ static yajl_tok yajl_lex_lex(yajl_lexer lexer, const unsigned char * jsonText,
+                 ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:709:21: warning: ‘const char* yajl_lex_error_to_string(yajl_lex_error)’ declared ‘static’ but never defined [-Wunused-function]
+ static const char * yajl_lex_error_to_string(yajl_lex_error error);
+                     ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:713:23: warning: ‘yajl_lex_error yajl_lex_get_error(yajl_lexer)’ declared ‘static’ but never defined [-Wunused-function]
+ static yajl_lex_error yajl_lex_get_error(yajl_lexer lexer);
+                       ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:752:1: warning: ‘yajl_status yajl_do_parse(yajl_handle, const unsigned char*, size_t)’ declared ‘static’ but never defined [-Wunused-function]
+ yajl_do_parse(yajl_handle handle, const unsigned char * jsonText,
+ ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:756:1: warning: ‘yajl_status yajl_do_finish(yajl_handle)’ declared ‘static’ but never defined [-Wunused-function]
+ yajl_do_finish(yajl_handle handle);
+ ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:759:1: warning: ‘unsigned char* yajl_render_error_string(yajl_handle, const unsigned char*, size_t, int)’ declared ‘static’ but never defined [-Wunused-function]
+ yajl_render_error_string(yajl_handle hand, const unsigned char * jsonText,
+ ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:765:1: warning: ‘long long int yajl_parse_integer(const unsigned char*, unsigned int)’ declared ‘static’ but never defined [-Wunused-function]
+ yajl_parse_integer(const unsigned char *number, unsigned int length);
+ ^

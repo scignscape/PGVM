@@ -25,7 +25,23 @@ DgDb_Instance::DgDb_Instance()
  default_frame_ = new DgDb_Frame();
  current_frame_ = default_frame_;
  current_type_builder_ = new DgDb_Type_Builder;
- wdb_manager_ = new WDB_Manager;
+ wdb_manager_ = new WDB_Manager(this);
+}
+
+void DgDb_Instance::to_ntxh(QString& ty, QString& result)
+{
+ ty = R"(&type DgDb_Instance {2}
+  :folder:1 :cc:2 ;
+ )";
+
+ result = QString(R"(!/ DgDb_Instance
+$folder: %1
+$cc: %2
+/!
+
+<+>
+)").arg(db_root_folder_).arg(Config.Flags);
+
 }
 
 void DgDb_Instance::init()

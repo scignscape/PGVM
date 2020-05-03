@@ -7,6 +7,8 @@
 
 #include "wdb-instance.h"
 
+
+
 USING_KANS(DGDB)
 
 
@@ -15,6 +17,13 @@ WDB_Instance::WDB_Instance(void* w, QString n)
 {
 
 
+}
+
+QString WDB_Instance::static_to_ntxh()
+{
+ return R"(&type WDB_Instance {4}
+  :name:1 :created:2 :attached:3 :llff:4 ;
+ )";
 }
 
 void WDB_Instance::to_ntxh(QString& result)
