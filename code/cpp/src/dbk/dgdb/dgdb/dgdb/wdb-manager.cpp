@@ -140,7 +140,7 @@ void WDB_Manager::init_from_ntxh()
  
 }
 
-void* WDB_Manager::new_wg_record(const QMap<u4, WG_Stage_Value>& wsvs,
+void* WDB_Manager::new_wg_record(QMap<u4, WG_Stage_Value>& wsvs,
   WDB_Instance* wdbi)
 {
  if(!wdbi)
@@ -148,7 +148,7 @@ void* WDB_Manager::new_wg_record(const QMap<u4, WG_Stage_Value>& wsvs,
 
  void* wh = wdbi->white();
 
- QMapIterator<u4, WG_Stage_Value> it(wsvs);
+ QMutableMapIterator<u4, WG_Stage_Value> it(wsvs);
 
  while(it.hasNext())
  {
@@ -156,7 +156,7 @@ void* WDB_Manager::new_wg_record(const QMap<u4, WG_Stage_Value>& wsvs,
   qDebug() << "it: " << it.key();
 
   u1 index = it.key();
-  const WG_Stage_Value& wsv = it.value();
+  WG_Stage_Value& wsv = it.value();
 
   u1 et = wsv.get_encoding_type();
   qDebug() << "et: " << et;
@@ -164,7 +164,9 @@ void* WDB_Manager::new_wg_record(const QMap<u4, WG_Stage_Value>& wsvs,
   switch(et)
   {
   case WG_RECORDTYPE: 
-   //wg_encode_int(wh, );
+   {
+    wg_int wi = wg_encode_record(wh, (void*) wsv.data());
+   }
    break; 
 
   case WG_INTTYPE:
@@ -172,20 +174,87 @@ void* WDB_Manager::new_wg_record(const QMap<u4, WG_Stage_Value>& wsvs,
     u4 uu = (u4) wsv.data();
     wg_int wi = wg_encode_int(wh, uu);
     int i = wg_decode_int(wh, wi);
-    //QString testqs(cs);
     qDebug() << "Ti: " << i;
-    //wg_en
-    break;
    }
+   break;
+
+  case WG_DOUBLETYPE:
+   {
+    double* dbl = (double*) wsv.data();
+    wg_int wi = wg_encode_double(wh, *dbl);
+    wsv.cleanup();
+   }
+   break;
+
+  case WG_STRTYPE:
+   {
+    char* cs = (char*) wsv.data();
+    wg_int wi = wg_encode_str(wh, cs, nullptr);
+    wsv.cleanup();
+   }
+   break;
+
+  case WG_XMLLITERALTYPE:
+   {
+    char* cs = (char*) wsv.data();
+    wg_int wi = wg_encode_xmlliteral(wh, cs, nullptr);
+    wsv.cleanup();
+   }
+   break;
+
+  case WG_URITYPE:
+   {
+    char* cs = (char*) wsv.data();
+    wg_int wi = wg_encode_uri(wh, cs, nullptr);
+    wsv.cleanup();
+   }
+   break;
+
+  case WG_BLOBTYPE:
+   {
+     //? wg_int wi = wg_encode_blob(wh, (void*) wsv.data());
+    wsv.cleanup();
+   }
+   break;
+
+  case WG_CHARTYPE:
+   {
+    wg_int wi = wg_encode_char(wh, wsv.data());
+   }
+   break;
+
+  case WG_FIXPOINTTYPE:
+   {
+    u4 rgt = wsv.data() & 0xFFFFFFFF;
+    u4 lft = wsv.data() >> 32;
+    double dbl = rgt + (lft/10000);
+    wg_int wi = wg_encode_double(wh, dbl);
+   }
+   break;
+
+  case WG_DATETYPE:
+   {
+    wg_int wi = wg_encode_date(wh, wsv.data());   
+   }
+   break;
+
+  case WG_TIMETYPE:
+   {
+    wg_int wi = wg_encode_date(wh, wsv.data());   
+   }
+   break;
 
   case 13: // qstring
    {
     QString* qs = (QString*) wsv.data();
     wg_int wi = wg_encode_str(wh, qs->toLatin1().data(), nullptr); 
-    char* cs = wg_decode_str(wh, wi);
-    QString testqs(cs);
-    qDebug() << "TQS: " << testqs;
+    wsv.cleanup();    
+
+//    char* cs = wg_decode_str(wh, wi);
+//    QString testqs(cs);
+//    qDebug() << "TQS: " << testqs;
    }
+   break;
 
   default: 
     break;

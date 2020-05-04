@@ -53,7 +53,7 @@ public:
 
  void init_from_ntxh();
 
- void* new_wg_record(const QMap<u4, WG_Stage_Value>& wsvs,
+ void* new_wg_record(QMap<u4, WG_Stage_Value>& wsvs,
    WDB_Instance* wdbi = nullptr);
 
  WDB_Instance* get_current_white();

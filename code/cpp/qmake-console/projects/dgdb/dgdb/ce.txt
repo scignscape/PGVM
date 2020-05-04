@@ -10,29 +10,72 @@ In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:38:0,
  ^
 In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:12:0:
 ../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘KA::DGDB::WG_Stage_Value& KA::DGDB::WG_Stage_Value::set_data(const T&)’:
-../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:69:2: warning: no return statement in function returning non-void [-Wreturn-type]
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:72:2: warning: no return statement in function returning non-void [-Wreturn-type]
   }
   ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘KA::DGDB::WG_Stage_Value& KA::DGDB::WG_Stage_Value::set_raw_data(const T&)’:
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:78:2: warning: no return statement in function returning non-void [-Wreturn-type]
+  }
+  ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘void KA::DGDB::WG_Stage_Value::cleanup()’:
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:82:18: warning: deleting ‘void*’ is undefined [-Wdelete-incomplete]
+   delete (void*) data_;
+                  ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘KA::DGDB::WG_Stage_Value& KA::DGDB::WG_Stage_Value::set_fixpoint_data(T)’:
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:161:31: warning: left shift count >= width of type [-Wshift-count-overflow]
+   set_raw_data( ((u8) (lft << 32)) | rgt);
+                               ^
 In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:14:0:
 ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h: In member function ‘KA::DGDB::DgDb_Node* KA::DGDB::DgDb_Instance::add(VERTEX_Type*)’:
-../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:117:2: warning: no return statement in function returning non-void [-Wreturn-type]
+../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:118:2: warning: no return statement in function returning non-void [-Wreturn-type]
   }
   ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp: In member function ‘void* KA::DGDB::WDB_Manager::new_wg_record(const QMap<unsigned int, KA::DGDB::WG_Stage_Value*>&, KA::DGDB::WDB_Instance*)’:
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:173:56: error: too few arguments to function ‘wg_int wg_encode_str(void*, char*, char*)’
-     wg_int wi = wg_encode_str(wh, qs->toLatin1().data()); 
-                                                        ^
-In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:32:0:
-../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:1720:8: note: declared here
- wg_int wg_encode_str(void* db, char* str, char* lang); ///< let lang==NULL if not used
-        ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:173:12: warning: unused variable ‘wi’ [-Wunused-variable]
-     wg_int wi = wg_encode_str(wh, qs->toLatin1().data()); 
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp: In member function ‘void* KA::DGDB::WDB_Manager::new_wg_record(QMap<unsigned int, KA::DGDB::WG_Stage_Value>&, KA::DGDB::WDB_Instance*)’:
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:168:12: warning: unused variable ‘wi’ [-Wunused-variable]
+     wg_int wi = wg_encode_record(wh, (void*) wsv.data());
             ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:156:6: warning: unused variable ‘index’ [-Wunused-variable]
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:184:12: warning: unused variable ‘wi’ [-Wunused-variable]
+     wg_int wi = wg_encode_double(wh, *dbl);
+            ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:192:12: warning: unused variable ‘wi’ [-Wunused-variable]
+     wg_int wi = wg_encode_str(wh, cs, nullptr);
+            ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:200:12: warning: unused variable ‘wi’ [-Wunused-variable]
+     wg_int wi = wg_encode_xmlliteral(wh, cs, nullptr);
+            ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:208:12: warning: unused variable ‘wi’ [-Wunused-variable]
+     wg_int wi = wg_encode_uri(wh, cs, nullptr);
+            ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:215:54: error: invalid conversion from ‘void*’ to ‘char*’ [-fpermissive]
+     wg_int wi = wg_encode_blob(wh, (void*) wsv.data());
+                                                      ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:215:54: error: too few arguments to function ‘wg_int wg_encode_blob(void*, char*, char*, wg_int)’
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:32:0:
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:1762:8: note: declared here
+ wg_int wg_encode_blob(void* db, char* str, char* type, wg_int len);
+        ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:215:12: warning: unused variable ‘wi’ [-Wunused-variable]
+     wg_int wi = wg_encode_blob(wh, (void*) wsv.data());
+            ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:222:12: warning: unused variable ‘wi’ [-Wunused-variable]
+     wg_int wi = wg_encode_char(wh, wsv.data());
+            ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:231:12: warning: unused variable ‘wi’ [-Wunused-variable]
+     wg_int wi = wg_encode_double(wh, dbl);
+            ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:237:12: warning: unused variable ‘wi’ [-Wunused-variable]
+     wg_int wi = wg_encode_date(wh, wsv.data());   
+            ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:243:12: warning: unused variable ‘wi’ [-Wunused-variable]
+     wg_int wi = wg_encode_date(wh, wsv.data());   
+            ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:250:12: warning: unused variable ‘wi’ [-Wunused-variable]
+     wg_int wi = wg_encode_str(wh, qs->toLatin1().data(), nullptr); 
+            ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:158:6: warning: unused variable ‘index’ [-Wunused-variable]
    u1 index = it.key();
       ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:180:1: warning: no return statement in function returning non-void [-Wreturn-type]
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:263:1: warning: no return statement in function returning non-void [-Wreturn-type]
  }
  ^
 ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp: In lambda function:

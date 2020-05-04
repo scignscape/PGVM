@@ -9,6 +9,9 @@
 
 #include <QVector>
 
+#include <QDateTime>
+#include <QDate>
+
 #include <functional>
 
 #include "accessors.h"
@@ -74,6 +77,12 @@ public:
   data_ = data;
  }
 
+ void cleanup()
+ {
+  delete (void*) data_;
+  data_ = 0;
+ }
+
  WG_Stage_Value& note_unspec();
  WG_Stage_Value& note_null();
  WG_Stage_Value& note_rec();
@@ -99,6 +108,112 @@ public:
 
  WG_Stage_Value& new_qstring(const QString& qs);
 
+ template<typename T>
+ WG_Stage_Value& set_int_data(T t)
+ {
+  note_int();
+  set_raw_data(t);
+  return *this;
+ }
+
+ WG_Stage_Value& set_null_data()
+ {
+  note_null();
+  set_raw_data(0);
+  return *this;
+ }
+
+ WG_Stage_Value& set_char_data(u1 chr)
+ {
+  note_char();
+  set_raw_data(chr);
+  return *this;
+ }
+
+ WG_Stage_Value& set_char_data(QChar chr)
+ {
+  return set_char_data(chr.toLatin1());
+ }
+
+ WG_Stage_Value& set_rec_data(void* rec)
+ {
+  note_rec();
+  set_ptr_data(rec);
+  return *this;
+ }
+
+ template<typename T>
+ WG_Stage_Value& set_double_data(T t)
+ {
+  T* tt = new T(t);
+  note_dbl();
+  set_ptr_data(tt);
+  return *this;
+ }
+
+ template<typename T>
+ WG_Stage_Value& set_fixpoint_data(T t)
+ {
+  u4 lft = (u4) t;
+  u4 rgt = (u4) 10000 * (t - lft);
+  
+  note_fixp();
+  set_raw_data( ((u8) (lft << 32)) | rgt);
+  return *this;
+ }
+
+ WG_Stage_Value& set_date_data(QDate qdt)
+ {
+  note_date();
+  set_raw_data(qdt.toJulianDay());
+  return *this;
+ }
+
+ WG_Stage_Value& set_time_data(QDateTime qdt)
+ {
+  note_time();
+  set_raw_data(qdt.toMSecsSinceEpoch());
+  return *this;
+ }
+
+ WG_Stage_Value& set_str_data(char* cs, u4 len = 0)
+ {
+  if(len == 0) len = strlen(cs) + 1;
+  char* ncs = (char*) malloc(len);
+  strcpy(ncs, cs);
+  note_str();
+  set_ptr_data(ncs);
+  return *this;
+ }
+
+ WG_Stage_Value& set_xml_data(QString str, u4 len = 0) //, QString xsd = {})
+ {
+  const char* cs = str.toLatin1().constData();
+  if(len == 0) len = strlen(cs) + 1;
+  char* ncs = (char*) malloc(len);
+  strcpy(ncs, cs);
+  note_xml();
+  set_ptr_data(ncs);
+  return *this;
+ }
+
+ WG_Stage_Value& set_uri_data(QString str, u4 len = 0) //, QString xsd = {})
+ {
+  const char* cs = str.toLatin1().constData();
+  if(len == 0) len = strlen(cs) + 1;
+  char* ncs = (char*) malloc(len);
+  strcpy(ncs, cs);
+  note_uri();
+  set_ptr_data(ncs);
+  return *this;
+ }
+
+ WG_Stage_Value& set_blob_data(void* blob) //, u4 len = 0) //, QString xsd = {})
+ {
+  note_blob();
+  set_ptr_data(blob);
+  return *this;
+ }
 
 };
 
