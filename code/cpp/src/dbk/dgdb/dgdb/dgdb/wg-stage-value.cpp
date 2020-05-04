@@ -57,6 +57,10 @@ WG_Stage_Value& WG_Stage_Value::new_qstring(const QString& qs)
 // // #define WG_DATETYPE 11
 // // #define WG_TIMETYPE 12
 
+u1 WG_Stage_Value::get_encoding_type() const
+{
+ return info_ >> 4;
+}
 
 WG_Stage_Value& WG_Stage_Value::note_unspec()
 {

@@ -14,6 +14,8 @@
 
 #include "accessors.h"
 
+#include "global-types.h"
+
 #include "kans.h"
 
 #ifndef REGISTER_TYPE_NAME_RESOLUTION
@@ -77,10 +79,13 @@ public:
  _Config Config; 
 
  ACCESSORS(QString ,db_root_folder)
+ ACCESSORS(WDB_Manager* ,wdb_manager)
 
  DgDb_Instance();
 
  void init(); 
+
+ void init_from_ntxh(QString fld, u1 code);
 
  void build_default_types();
 

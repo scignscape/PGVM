@@ -9,6 +9,8 @@
 
 #include "wdb-instance.h"
 
+#include "wg-stage-value.h"
+
 #include "dgdb-instance.h"
 
 #include <QDebug>
@@ -108,6 +110,8 @@ void WDB_Manager::init_from_ntxh()
  {
   QString fld = prs[0].first;
   qDebug() << "fld: " << fld;
+  u1 code = prs[1].first.toInt();
+  dgdb_instance_->init_from_ntxh(fld, code);
  });
 
  //for(hypernode_type* hn : hns)
@@ -136,6 +140,58 @@ void WDB_Manager::init_from_ntxh()
  
 }
 
+void* WDB_Manager::new_wg_record(const QMap<u4, WG_Stage_Value>& wsvs,
+  WDB_Instance* wdbi)
+{
+ if(!wdbi)
+   wdbi = current_white_;
+
+ void* wh = wdbi->white();
+
+ QMapIterator<u4, WG_Stage_Value> it(wsvs);
+
+ while(it.hasNext())
+ {
+  it.next();
+  qDebug() << "it: " << it.key();
+
+  u1 index = it.key();
+  const WG_Stage_Value& wsv = it.value();
+
+  u1 et = wsv.get_encoding_type();
+  qDebug() << "et: " << et;
+
+  switch(et)
+  {
+  case WG_RECORDTYPE: 
+   //wg_encode_int(wh, );
+   break; 
+
+  case WG_INTTYPE:
+   {
+    u4 uu = (u4) wsv.data();
+    wg_int wi = wg_encode_int(wh, uu);
+    int i = wg_decode_int(wh, wi);
+    //QString testqs(cs);
+    qDebug() << "Ti: " << i;
+    //wg_en
+    break;
+   }
+
+  case 13: // qstring
+   {
+    QString* qs = (QString*) wsv.data();
+    wg_int wi = wg_encode_str(wh, qs->toLatin1().data(), nullptr); 
+    char* cs = wg_decode_str(wh, wi);
+    QString testqs(cs);
+    qDebug() << "TQS: " << testqs;
+   }
+
+  default: 
+    break;
+  }
+ }
+}
 
 WDB_Instance* WDB_Manager::new_white(u2 num_code, u8 mem, QString name)
 {

@@ -10,6 +10,7 @@
 #include <QDataStream>
 
 #include "dgdb/dgdb-instance.h"
+#include "dgdb/wdb-manager.h"
 #include "dgdb/dgenvironment.h"
 
 #include "dgdb/types/dgdb-type.h"
@@ -26,8 +27,9 @@ struct Test
 {
  QString title;
  QString author;
+ u2 num;
 
- void encode_wg_stage_value(QByteArray& qba,
+ void encode_wg_stage_values(QByteArray& qba,
     // WG_Stage_Value& wgv, 
    WG_Stage_Value::Callback_type cb); 
 
@@ -35,13 +37,14 @@ struct Test
 
 };
 
-void Test::encode_wg_stage_value(QByteArray& qba,
+void Test::encode_wg_stage_values(QByteArray& qba,
     // WG_Stage_Value& wgv, 
    WG_Stage_Value::Callback_type cb)
 {
  QDataStream qds(&qba, QIODevice::WriteOnly);
  qds << WG_Stage_Value().new_qstring(title).run[1](cb)
-   << author;
+   << author 
+   << WG_Stage_Value().note_int().set_raw_data(num).run[2](cb);
 }
 
 
@@ -64,18 +67,25 @@ int main(int argc, char* argv[])
 
  dgi->REGISTER_TYPE(Test)
    .default_object_layout()
-   .set_stage_encoder(&Test::encode_wg_stage_value);
+   .set_stage_encoder(&Test::encode_wg_stage_values);
  
  DgDb_Type* testt = dgi->get_type_by_name("Test");
 
  std::function<void(void*, QByteArray& qba, 
    WG_Stage_Value::Callback_type cb)> fn = testt->stage_encoder();
 
- WG_Stage_Value::Callback_type cb = [](u4 u, WG_Stage_Value* v)
+ QMap<u4, WG_Stage_Value> svals;
+
+ WG_Stage_Value::Callback_type cb = [dgi, &svals](u4 u, WG_Stage_Value* v)
  {
   qDebug() << "U4: " << u;
-  QString* vv = (QString*) v->data();
-  qDebug() << "vv: " << *vv; 
+  //QString* vv = (QString*) v->data();
+  //qDebug() << "vv: " << *vv;
+  svals[u] = *v;
+  //QMap<u4, WG_Stage_Value*> qm{{u, v}};//
+  //qm[u] = v; //{{u, v}}};
+  //dgi->wdb_manager()->new_wg_record(qm);
+
  };
 
  //dgi->register_type("Test")
@@ -92,9 +102,11 @@ int main(int argc, char* argv[])
  QString* qs = new QString("OK");
  DgDb_Node* dgn = dgi->add(qs);
 
- Test* test = new Test{"Critique of Pure Reason", "IK"};
+ Test* test = new Test{"Critique of Pure Reason", "IK", 77};
  QByteArray qba;
  fn(test, qba, cb);
+
+ dgi->wdb_manager()->new_wg_record(svals);
 
  QDataStream qds(qba);
  u1 uuu;

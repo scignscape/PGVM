@@ -13,6 +13,8 @@
 
 #include "global-types.h"
 
+#include "accessors.h"
+
 #include "kans.h"
 
 KANS_(DGDB)
@@ -33,6 +35,8 @@ class WDB_Instance
 public:
 
  WDB_Instance(void* w, QString n = {}); 
+
+ ACCESSORS(void* ,white)
 
  void set_creation_datetime(QDateTime dtm);
  void set_creation_datetime();

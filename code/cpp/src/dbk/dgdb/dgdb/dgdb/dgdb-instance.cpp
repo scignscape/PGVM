@@ -44,6 +44,12 @@ $cc: %2
 
 }
 
+void DgDb_Instance::init_from_ntxh(QString fld, u1 code)
+{
+ Config.Flags = code;
+ qDebug() << "code: " << code;
+}
+
 void DgDb_Instance::init()
 {
  wdb_manager_->set_db_root_folder(db_root_folder_);

@@ -56,6 +56,8 @@ public:
 
  WG_Stage_Value& set_ptr_data(void* ptr);
 
+ u1 get_encoding_type() const;
+
  u1 _run(Callback_type cb, u4 field_index = 0);
 
  _run_hold run;
@@ -66,6 +68,11 @@ public:
   set_ptr_data(new T(data));
  }
 
+ template<typename T>
+ WG_Stage_Value& set_raw_data(const T& data)
+ {
+  data_ = data;
+ }
 
  WG_Stage_Value& note_unspec();
  WG_Stage_Value& note_null();

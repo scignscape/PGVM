@@ -22,6 +22,7 @@ KANS_(DGDB)
 
 class WDB_Instance;
 class DgDb_Instance;
+class WG_Stage_Value;
 
 class WDB_Manager
 {
@@ -51,6 +52,9 @@ public:
  ACCESSORS(QString ,db_root_folder)
 
  void init_from_ntxh();
+
+ void* new_wg_record(const QMap<u4, WG_Stage_Value>& wsvs,
+   WDB_Instance* wdbi = nullptr);
 
  WDB_Instance* get_current_white();
  WDB_Instance* get_white(QString name);
