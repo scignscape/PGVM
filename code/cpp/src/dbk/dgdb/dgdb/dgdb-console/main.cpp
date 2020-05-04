@@ -43,7 +43,7 @@ void Test::encode_wg_stage_values(QByteArray& qba,
 {
  QDataStream qds(&qba, QIODevice::WriteOnly);
  qds << WG_Stage_Value().new_qstring(title).run[1](cb)
-   << author 
+   << author
    << WG_Stage_Value().note_int().set_raw_data(num).run[2](cb);
 }
 
@@ -78,14 +78,7 @@ int main(int argc, char* argv[])
 
  WG_Stage_Value::Callback_type cb = [dgi, &svals](u4 u, WG_Stage_Value* v)
  {
-  qDebug() << "U4: " << u;
-  //QString* vv = (QString*) v->data();
-  //qDebug() << "vv: " << *vv;
   svals[u] = *v;
-  //QMap<u4, WG_Stage_Value*> qm{{u, v}};//
-  //qm[u] = v; //{{u, v}}};
-  //dgi->wdb_manager()->new_wg_record(qm);
-
  };
 
  //dgi->register_type("Test")
@@ -106,7 +99,8 @@ int main(int argc, char* argv[])
  QByteArray qba;
  fn(test, qba, cb);
 
- dgi->wdb_manager()->new_wg_record(svals);
+ void* pv = dgi->new_wg_record(qba, svals);
+
 
  QDataStream qds(qba);
  u1 uuu;

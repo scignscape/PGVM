@@ -53,6 +53,9 @@ public:
 
  void init_from_ntxh();
 
+ void set_qba_data_field(void* rec, u4 qba_index, QByteArray& qba,
+   WDB_Instance* wdbi = nullptr);
+
  void* new_wg_record(QMap<u4, WG_Stage_Value>& wsvs,
    WDB_Instance* wdbi = nullptr);
 

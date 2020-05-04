@@ -150,31 +150,38 @@ void* WDB_Manager::new_wg_record(QMap<u4, WG_Stage_Value>& wsvs,
 
  QMutableMapIterator<u4, WG_Stage_Value> it(wsvs);
 
+ QMap<u4, wg_int> wgim;
+
+ u4 max = 0;
+
  while(it.hasNext())
  {
   it.next();
-  qDebug() << "it: " << it.key();
 
   u1 index = it.key();
+  if(index > max)
+    max = index;
+
   WG_Stage_Value& wsv = it.value();
 
   u1 et = wsv.get_encoding_type();
-  qDebug() << "et: " << et;
+
 
   switch(et)
   {
   case WG_RECORDTYPE: 
    {
     wg_int wi = wg_encode_record(wh, (void*) wsv.data());
+    wgim[index] = wi;
    }
    break; 
 
   case WG_INTTYPE:
    {
-    u4 uu = (u4) wsv.data();
-    wg_int wi = wg_encode_int(wh, uu);
-    int i = wg_decode_int(wh, wi);
-    qDebug() << "Ti: " << i;
+    wg_int wi = wg_encode_int(wh, wsv.data());
+    wgim[index] = wi;
+//    int i = wg_decode_int(wh, wi);
+//    qDebug() << "Ti: " << i;
    }
    break;
 
@@ -182,6 +189,7 @@ void* WDB_Manager::new_wg_record(QMap<u4, WG_Stage_Value>& wsvs,
    {
     double* dbl = (double*) wsv.data();
     wg_int wi = wg_encode_double(wh, *dbl);
+    wgim[index] = wi;
     wsv.cleanup();
    }
    break;
@@ -190,6 +198,7 @@ void* WDB_Manager::new_wg_record(QMap<u4, WG_Stage_Value>& wsvs,
    {
     char* cs = (char*) wsv.data();
     wg_int wi = wg_encode_str(wh, cs, nullptr);
+    wgim[index] = wi;    
     wsv.cleanup();
    }
    break;
@@ -198,6 +207,7 @@ void* WDB_Manager::new_wg_record(QMap<u4, WG_Stage_Value>& wsvs,
    {
     char* cs = (char*) wsv.data();
     wg_int wi = wg_encode_xmlliteral(wh, cs, nullptr);
+    wgim[index] = wi;
     wsv.cleanup();
    }
    break;
@@ -206,13 +216,16 @@ void* WDB_Manager::new_wg_record(QMap<u4, WG_Stage_Value>& wsvs,
    {
     char* cs = (char*) wsv.data();
     wg_int wi = wg_encode_uri(wh, cs, nullptr);
+    wgim[index] = wi;
     wsv.cleanup();
    }
    break;
 
   case WG_BLOBTYPE:
    {
-     //? wg_int wi = wg_encode_blob(wh, (void*) wsv.data());
+    QPair<u4, char*>* pr = (QPair<u4, char*>*) wsv.data();
+    wg_int wi = wg_encode_blob(wh, pr->second, nullptr, pr->first);
+    wgim[index] = wi;
     wsv.cleanup();
    }
    break;
@@ -220,6 +233,7 @@ void* WDB_Manager::new_wg_record(QMap<u4, WG_Stage_Value>& wsvs,
   case WG_CHARTYPE:
    {
     wg_int wi = wg_encode_char(wh, wsv.data());
+    wgim[index] = wi;
    }
    break;
 
@@ -229,25 +243,29 @@ void* WDB_Manager::new_wg_record(QMap<u4, WG_Stage_Value>& wsvs,
     u4 lft = wsv.data() >> 32;
     double dbl = rgt + (lft/10000);
     wg_int wi = wg_encode_double(wh, dbl);
+    wgim[index] = wi;
    }
    break;
 
   case WG_DATETYPE:
    {
-    wg_int wi = wg_encode_date(wh, wsv.data());   
+    wg_int wi = wg_encode_date(wh, wsv.data());
+    wgim[index] = wi;   
    }
    break;
 
   case WG_TIMETYPE:
    {
-    wg_int wi = wg_encode_date(wh, wsv.data());   
+    wg_int wi = wg_encode_date(wh, wsv.data());
+    wgim[index] = wi;
    }
    break;
 
   case 13: // qstring
    {
     QString* qs = (QString*) wsv.data();
-    wg_int wi = wg_encode_str(wh, qs->toLatin1().data(), nullptr); 
+    wg_int wi = wg_encode_str(wh, qs->toLatin1().data(), nullptr);
+    wgim[index] = wi;
     wsv.cleanup();    
 
 //    char* cs = wg_decode_str(wh, wi);
@@ -260,6 +278,28 @@ void* WDB_Manager::new_wg_record(QMap<u4, WG_Stage_Value>& wsvs,
     break;
   }
  }
+
+ void* result = wg_create_record(wh, max + 1);
+ QMapIterator<u4, wg_int> wit(wgim);
+
+ while(wit.hasNext())
+ {
+  wit.next();
+  wg_set_field(wh, result, wit.key(), wit.value());
+ }
+
+ return result;
+}
+
+void WDB_Manager::set_qba_data_field(void* rec, u4 qba_index, QByteArray& qba,
+  WDB_Instance* wdbi)
+{
+ if(!wdbi)
+   wdbi = current_white_;
+ 
+ void* wh = wdbi->white();
+ wg_int wi = wg_encode_blob(wh, qba.data(), nullptr, qba.size());
+ wg_set_field(wh, rec, qba_index, wi); 
 }
 
 WDB_Instance* WDB_Manager::new_white(u2 num_code, u8 mem, QString name)

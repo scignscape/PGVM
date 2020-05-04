@@ -69,12 +69,14 @@ public:
  WG_Stage_Value& set_data(const T& data)
  {
   set_ptr_data(new T(data));
+  return *this;
  }
 
  template<typename T>
  WG_Stage_Value& set_raw_data(const T& data)
  {
   data_ = data;
+  return *this;
  }
 
  void cleanup()
@@ -208,10 +210,11 @@ public:
   return *this;
  }
 
- WG_Stage_Value& set_blob_data(void* blob) //, u4 len = 0) //, QString xsd = {})
+ WG_Stage_Value& set_blob_data(char* blob, u4 len) //, QString xsd = {})
  {
   note_blob();
-  set_ptr_data(blob);
+  QPair<u4, char*>* pr = new QPair<u4, char*>(len, blob);
+  set_ptr_data(pr);
   return *this;
  }
 

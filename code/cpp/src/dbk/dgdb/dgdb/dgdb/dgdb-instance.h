@@ -46,6 +46,9 @@ class DgDb_Type;
 
 class DgDb_Type_Builder;
 class WDB_Manager;
+class WG_Stage_Value;
+class WDB_Instance;
+
 
 class DgDb_Instance
 {
@@ -84,6 +87,9 @@ public:
  DgDb_Instance();
 
  void init(); 
+
+ void* new_wg_record(QByteArray& qba, QMap<u4, WG_Stage_Value>& wsvs,
+   u4 qba_index = 0, WDB_Instance* wdbi = nullptr);
 
  void init_from_ntxh(QString fld, u1 code);
 

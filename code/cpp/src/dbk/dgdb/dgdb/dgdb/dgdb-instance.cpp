@@ -44,6 +44,14 @@ $cc: %2
 
 }
 
+void* DgDb_Instance::new_wg_record(QByteArray& qba, QMap<u4, WG_Stage_Value>& wsvs,
+  u4 qba_index, WDB_Instance* wdbi)
+{
+ void* pv = wdb_manager_->new_wg_record(wsvs, wdbi);
+ wdb_manager_->set_qba_data_field(pv, qba_index, qba);
+}
+
+
 void DgDb_Instance::init_from_ntxh(QString fld, u1 code)
 {
  Config.Flags = code;
