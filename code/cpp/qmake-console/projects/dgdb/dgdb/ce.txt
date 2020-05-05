@@ -1,113 +1,57 @@
-In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.h:16:0,
-                 from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:8:
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:15:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:8:
 ../../../../src/accessors.h:130:1: warning: multi-line comment [-Wcomment]
  //#define ACCESSORS(type, name) \
  ^
 In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:38:0,
-                 from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:14:
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:8:
 ../../../../src/flags.h:204:1: warning: multi-line comment [-Wcomment]
  //#define flags_(byte_count) \
  ^
-In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:12:0:
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:8:0:
+../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h: In member function ‘KA::DGDB::DgDb_Node* KA::DGDB::DgDb_Instance::add(VERTEX_Type*)’:
+../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:129:2: warning: no return statement in function returning non-void [-Wreturn-type]
+  }
+  ^
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h:14:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:14:
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘void KA::DGDB::WG_Stage_Queue::operator=(std::initializer_list<void*>)’:
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:35:51: error: no matching function for call to ‘QQueue<void*>::append(QList<void*>::iterator, std::initializer_list<void*>::const_iterator, std::initializer_list<void*>::const_iterator)’
+   values.append(values.end(), vs.begin(), vs.end()); 
+                                                   ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qmap.h:44:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QMap:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:13,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlist.h:582:27: note: candidate: void QList<T>::append(const T&) [with T = void*]
+ Q_OUTOFLINE_TEMPLATE void QList<T>::append(const T &t)
+                           ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlist.h:582:27: note:   candidate expects 1 argument, 3 provided
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlist.h:965:13: note: candidate: void QList<T>::append(const QList<T>&) [with T = void*]
+ inline void QList<T>::append(const QList<T> &t)
+             ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlist.h:965:13: note:   candidate expects 1 argument, 3 provided
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h:14:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:14:
 ../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘void KA::DGDB::WG_Stage_Value::cleanup()’:
-../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:97:18: warning: deleting ‘void*’ is undefined [-Wdelete-incomplete]
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:112:18: warning: deleting ‘void*’ is undefined [-Wdelete-incomplete]
    delete (void*) data_;
                   ^
 ../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘KA::DGDB::WG_Stage_Value& KA::DGDB::WG_Stage_Value::set_fixpoint_data(T)’:
-../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:176:31: warning: left shift count >= width of type [-Wshift-count-overflow]
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:191:31: warning: left shift count >= width of type [-Wshift-count-overflow]
    set_raw_data( ((u8) (lft << 32)) | rgt);
                                ^
-In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:14:0:
-../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h: In member function ‘KA::DGDB::DgDb_Node* KA::DGDB::DgDb_Instance::add(VERTEX_Type*)’:
-../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:128:2: warning: no return statement in function returning non-void [-Wreturn-type]
-  }
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:14:0:
+../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h: In member function ‘KA::DGDB::DgDb_Type& KA::DGDB::DgDb_Type::set_stage_encoder(PROC_Type)’:
+../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h:67:2: warning: no return statement in function returning non-void [-Wreturn-type]
+  }  
   ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp: In member function ‘void KA::DGDB::WDB_Manager::decode_value(void*, u4, KA::DGDB::WG_Stage_Value&, KA::DGDB::WDB_Instance*)’:
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:332:11: warning: unused variable ‘wi’ [-Wunused-variable]
-    wg_int wi = wg_get_field(wh, rec, index);
-           ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:339:11: warning: unused variable ‘wi’ [-Wunused-variable]
-    wg_int wi = wg_get_field(wh, rec, index);
-           ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:346:11: warning: unused variable ‘wi’ [-Wunused-variable]
-    wg_int wi = wg_get_field(wh, rec, index);
-           ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:353:11: warning: unused variable ‘wi’ [-Wunused-variable]
-    wg_int wi = wg_get_field(wh, rec, index);
-           ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:360:11: warning: unused variable ‘wi’ [-Wunused-variable]
-    wg_int wi = wg_get_field(wh, rec, index);
-           ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:367:11: warning: unused variable ‘wi’ [-Wunused-variable]
-    wg_int wi = wg_get_field(wh, rec, index);
-           ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:374:11: warning: unused variable ‘wi’ [-Wunused-variable]
-    wg_int wi = wg_get_field(wh, rec, index);
-           ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:381:11: warning: unused variable ‘wi’ [-Wunused-variable]
-    wg_int wi = wg_get_field(wh, rec, index);
-           ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:388:11: warning: unused variable ‘wi’ [-Wunused-variable]
-    wg_int wi = wg_get_field(wh, rec, index);
-           ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:398:48: error: invalid conversion from ‘char*’ to ‘int’ [-fpermissive]
-    wsv.data_to_ref<QString>() = QString(cs, len);
-                                                ^
-In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhashfunctions.h:44:0,
-                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlist.h:47,
-                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qmap.h:44,
-                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QMap:1,
-                 from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.h:11,
-                 from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:8:
-/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:226:5: note:   initializing argument 1 of ‘QString::QString(int, QChar)’
-     QString(int size, QChar c);
-     ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:398:48: error: conversion from ‘wg_int {aka long int}’ to ‘QChar’ is ambiguous
-    wsv.data_to_ref<QString>() = QString(cs, len);
-                                                ^
-In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:48:0,
-                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhashfunctions.h:44,
-                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlist.h:47,
-                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qmap.h:44,
-                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QMap:1,
-                 from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.h:11,
-                 from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:8:
-/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:104:50: note: candidate: constexpr QChar::QChar(uchar)
-     QT_ASCII_CAST_WARN Q_DECL_CONSTEXPR explicit QChar(uchar c) Q_DECL_NOTHROW : ucs(c) { }
-                                                  ^
-/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:102:50: note: candidate: constexpr QChar::QChar(char)
-     QT_ASCII_CAST_WARN Q_DECL_CONSTEXPR explicit QChar(char c) Q_DECL_NOTHROW : ucs(uchar(c)) { }
-                                                  ^
-/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:90:22: note: candidate: constexpr QChar::QChar(char16_t)
-     Q_DECL_CONSTEXPR QChar(char16_t ch) Q_DECL_NOTHROW : ucs(ushort(ch)) {} // implicit
-                      ^
-/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:86:22: note: candidate: constexpr QChar::QChar(int)
-     Q_DECL_CONSTEXPR QChar(int rc) Q_DECL_NOTHROW : ucs(ushort(rc & 0xffff)) {}
-                      ^
-/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:85:22: note: candidate: constexpr QChar::QChar(uint)
-     Q_DECL_CONSTEXPR QChar(uint rc) Q_DECL_NOTHROW : ucs(ushort(rc & 0xffff)) {}
-                      ^
-/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:84:22: note: candidate: constexpr QChar::QChar(short int)
-     Q_DECL_CONSTEXPR QChar(short rc) Q_DECL_NOTHROW : ucs(ushort(rc)) {} // implicit
-                      ^
-/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:82:22: note: candidate: constexpr QChar::QChar(ushort)
-     Q_DECL_CONSTEXPR QChar(ushort rc) Q_DECL_NOTHROW : ucs(rc) {} // implicit
-                      ^
-In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhashfunctions.h:44:0,
-                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlist.h:47,
-                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qmap.h:44,
-                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QMap:1,
-                 from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.h:11,
-                 from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:8:
-/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:226:5: note:   initializing argument 2 of ‘QString::QString(int, QChar)’
-     QString(int size, QChar c);
-     ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp: In lambda function:
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:133:6: warning: control reaches end of non-void function [-Wreturn-type]
-      });
-      ^
-In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:32:0:
-../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h: At global scope:
+../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp: At global scope:
+../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:93:44: warning: unused parameter ‘fld’ [-Wunused-parameter]
+ void DgDb_Instance::init_from_ntxh(QString fld, u1 code)
+                                            ^
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type-builder.h:14:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:13:
 ../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:543:13: warning: ‘void yajl_set_default_alloc_funcs(yajl_alloc_funcs*)’ declared ‘static’ but never defined [-Wunused-function]
  static void yajl_set_default_alloc_funcs(yajl_alloc_funcs * yaf);
              ^
@@ -165,4 +109,4 @@ In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:32:0:
 ../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:765:1: warning: ‘long long int yajl_parse_integer(const unsigned char*, unsigned int)’ declared ‘static’ but never defined [-Wunused-function]
  yajl_parse_integer(const unsigned char *number, unsigned int length);
  ^
-make: *** [../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/dgdb/release/wdb-manager.o] Error 1
+make: *** [../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/dgdb/release/dgdb-instance.o] Error 1

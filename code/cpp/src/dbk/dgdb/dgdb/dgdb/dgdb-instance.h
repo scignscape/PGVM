@@ -47,6 +47,7 @@ class DgDb_Type;
 class DgDb_Type_Builder;
 class WDB_Manager;
 class WG_Stage_Value;
+class WG_Stage_Queue;
 class WDB_Instance;
 
 
@@ -92,7 +93,7 @@ public:
    u4 qba_index = 0, WDB_Instance* wdbi = nullptr);
 
  void parse_wg_record(void* rec, std::function<void(const QByteArray&, 
-   QMap<u4, WG_Stage_Value>&//, QQueue<void*>&
+   QMap<u4, WG_Stage_Value>&, WG_Stage_Queue& sq//, QQueue<void*>&
    )> cb, u4 qba_index = 0, WDB_Instance* wdbi = nullptr);
 
  void init_from_ntxh(QString fld, u1 code);

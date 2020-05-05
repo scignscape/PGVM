@@ -8,6 +8,7 @@
 #define WG_STAGE_VALUE__H
 
 #include <QVector>
+#include <QQueue>
 
 #include <QDateTime>
 #include <QDate>
@@ -23,6 +24,28 @@
 KANS_(DGDB)
 
 class DgDb_Node;
+
+struct WG_Stage_Queue  
+{
+ QQueue<void*> values;
+ std::function<void(QQueue<void*>&)> callback;
+ WG_Stage_Queue() : callback(nullptr) {}
+ void operator=(std::initializer_list<void*> vs) 
+ { 
+  values.append(QList<void*>(vs)); 
+ }
+ void operator<<(std::function<void(QQueue<void*>&)> cb)
+   { callback = cb; }
+};
+
+template<typename T>
+std::function<void(QQueue<void*>&)> stage_queue_memfnptr(void (T::*fn)(QQueue<void*>&))
+{
+ return [fn](QQueue<void*>& qq)
+ {
+  (((T*) qq.dequeue())->*fn)(qq);
+ };
+}
 
 class WG_Stage_Value  
 {

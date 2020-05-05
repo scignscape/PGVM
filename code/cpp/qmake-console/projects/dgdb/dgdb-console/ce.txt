@@ -1,0 +1,852 @@
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:15:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:12:
+../../../../src/accessors.h:130:1: warning: multi-line comment [-Wcomment]
+ //#define ACCESSORS(type, name) \
+ ^
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:38:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:12:
+../../../../src/flags.h:204:1: warning: multi-line comment [-Wcomment]
+ //#define flags_(byte_count) \
+ ^
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:12:0:
+../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h: In member function ‘KA::DGDB::DgDb_Node* KA::DGDB::DgDb_Instance::add(VERTEX_Type*)’:
+../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:129:2: warning: no return statement in function returning non-void [-Wreturn-type]
+  }
+  ^
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h:14:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:16:
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘void KA::DGDB::WG_Stage_Value::cleanup()’:
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:112:18: warning: deleting ‘void*’ is undefined [-Wdelete-incomplete]
+   delete (void*) data_;
+                  ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘KA::DGDB::WG_Stage_Value& KA::DGDB::WG_Stage_Value::set_fixpoint_data(T)’:
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:191:31: warning: left shift count >= width of type [-Wshift-count-overflow]
+   set_raw_data( ((u8) (lft << 32)) | rgt);
+                               ^
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:16:0:
+../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h: In member function ‘KA::DGDB::DgDb_Type& KA::DGDB::DgDb_Type::set_stage_encoder(PROC_Type)’:
+../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h:67:2: warning: no return statement in function returning non-void [-Wreturn-type]
+  }  
+  ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp: In lambda function:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:111:8: warning: unused variable ‘uu’ [-Wunused-variable]
+    u2* uu = (u2*) qq.dequeue();
+        ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:112:13: warning: unused variable ‘s’ [-Wunused-variable]
+    QString* s = (QString*) qq.dequeue();
+             ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp: In lambda function:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:7: error: no match for ‘operator>>’ (operand types are ‘QDataStream’ and ‘QString*’)
+   qds >> str;
+       ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:150:18: note: candidate: QDataStream& QDataStream::operator>>(qint8&) <near match>
+     QDataStream &operator>>(qint8 &i);
+                  ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:150:18: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: invalid conversion from ‘QString*’ to ‘qint8 {aka signed char}’ [-fpermissive]
+   qds >> str;
+          ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: cannot bind rvalue ‘(qint8)((long int)str)’ to ‘qint8& {aka signed char&}’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:343:21: note: candidate: QDataStream& QDataStream::operator>>(quint8&) <near match>
+ inline QDataStream &QDataStream::operator>>(quint8 &i)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:343:21: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: invalid conversion from ‘QString*’ to ‘quint8 {aka unsigned char}’ [-fpermissive]
+   qds >> str;
+          ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: cannot bind rvalue ‘(quint8)((long int)str)’ to ‘quint8& {aka unsigned char&}’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:152:18: note: candidate: QDataStream& QDataStream::operator>>(qint16&) <near match>
+     QDataStream &operator>>(qint16 &i);
+                  ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:152:18: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: invalid conversion from ‘QString*’ to ‘qint16 {aka short int}’ [-fpermissive]
+   qds >> str;
+          ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: cannot bind rvalue ‘(qint16)((long int)str)’ to ‘qint16& {aka short int&}’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:346:21: note: candidate: QDataStream& QDataStream::operator>>(quint16&) <near match>
+ inline QDataStream &QDataStream::operator>>(quint16 &i)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:346:21: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: invalid conversion from ‘QString*’ to ‘quint16 {aka short unsigned int}’ [-fpermissive]
+   qds >> str;
+          ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: cannot bind rvalue ‘(quint16)((long int)str)’ to ‘quint16& {aka short unsigned int&}’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:154:18: note: candidate: QDataStream& QDataStream::operator>>(qint32&) <near match>
+     QDataStream &operator>>(qint32 &i);
+                  ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:154:18: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: invalid conversion from ‘QString*’ to ‘qint32 {aka int}’ [-fpermissive]
+   qds >> str;
+          ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: cannot bind rvalue ‘(qint32)((long int)str)’ to ‘qint32& {aka int&}’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:349:21: note: candidate: QDataStream& QDataStream::operator>>(quint32&) <near match>
+ inline QDataStream &QDataStream::operator>>(quint32 &i)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:349:21: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: invalid conversion from ‘QString*’ to ‘quint32 {aka unsigned int}’ [-fpermissive]
+   qds >> str;
+          ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: cannot bind rvalue ‘(quint32)((long int)str)’ to ‘quint32& {aka unsigned int&}’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:156:18: note: candidate: QDataStream& QDataStream::operator>>(qint64&) <near match>
+     QDataStream &operator>>(qint64 &i);
+                  ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:156:18: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: invalid conversion from ‘QString*’ to ‘qint64 {aka long long int}’ [-fpermissive]
+   qds >> str;
+          ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: cannot bind rvalue ‘(qint64)str’ to ‘qint64& {aka long long int&}’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:352:21: note: candidate: QDataStream& QDataStream::operator>>(quint64&) <near match>
+ inline QDataStream &QDataStream::operator>>(quint64 &i)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:352:21: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: invalid conversion from ‘QString*’ to ‘quint64 {aka long long unsigned int}’ [-fpermissive]
+   qds >> str;
+          ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: cannot bind rvalue ‘(quint64)str’ to ‘quint64& {aka long long unsigned int&}’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:160:18: note: candidate: QDataStream& QDataStream::operator>>(bool&) <near match>
+     QDataStream &operator>>(bool &i);
+                  ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:160:18: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: invalid initialization of non-const reference of type ‘bool&’ from an rvalue of type ‘bool’
+   qds >> str;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h:44:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:45,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:626:28: note: candidate: QDataStream& operator>>(QDataStream&, QChar&) <near match>
+ Q_CORE_EXPORT QDataStream &operator>>(QDataStream &, QChar &);
+                            ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:626:28: note:   conversion of argument 2 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: conversion from ‘QString*’ to ‘QChar’ is ambiguous
+   qds >> str;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h:44:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:45,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:104:50: note: candidate: constexpr QChar::QChar(uchar) <near match>
+     QT_ASCII_CAST_WARN Q_DECL_CONSTEXPR explicit QChar(uchar c) Q_DECL_NOTHROW : ucs(c) { }
+                                                  ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:104:50: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: invalid conversion from ‘QString*’ to ‘uchar {aka unsigned char}’ [-fpermissive]
+   qds >> str;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h:44:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:45,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:102:50: note: candidate: constexpr QChar::QChar(char) <near match>
+     QT_ASCII_CAST_WARN Q_DECL_CONSTEXPR explicit QChar(char c) Q_DECL_NOTHROW : ucs(uchar(c)) { }
+                                                  ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:102:50: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: invalid conversion from ‘QString*’ to ‘char’ [-fpermissive]
+   qds >> str;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h:44:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:45,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:90:22: note: candidate: constexpr QChar::QChar(char16_t) <near match>
+     Q_DECL_CONSTEXPR QChar(char16_t ch) Q_DECL_NOTHROW : ucs(ushort(ch)) {} // implicit
+                      ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:90:22: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: invalid conversion from ‘QString*’ to ‘char16_t’ [-fpermissive]
+   qds >> str;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h:44:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:45,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:86:22: note: candidate: constexpr QChar::QChar(int) <near match>
+     Q_DECL_CONSTEXPR QChar(int rc) Q_DECL_NOTHROW : ucs(ushort(rc & 0xffff)) {}
+                      ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:86:22: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: invalid conversion from ‘QString*’ to ‘int’ [-fpermissive]
+   qds >> str;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h:44:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:45,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:85:22: note: candidate: constexpr QChar::QChar(uint) <near match>
+     Q_DECL_CONSTEXPR QChar(uint rc) Q_DECL_NOTHROW : ucs(ushort(rc & 0xffff)) {}
+                      ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:85:22: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: invalid conversion from ‘QString*’ to ‘uint {aka unsigned int}’ [-fpermissive]
+   qds >> str;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h:44:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:45,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:84:22: note: candidate: constexpr QChar::QChar(short int) <near match>
+     Q_DECL_CONSTEXPR QChar(short rc) Q_DECL_NOTHROW : ucs(ushort(rc)) {} // implicit
+                      ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:84:22: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: invalid conversion from ‘QString*’ to ‘short int’ [-fpermissive]
+   qds >> str;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h:44:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:45,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:82:22: note: candidate: constexpr QChar::QChar(ushort) <near match>
+     Q_DECL_CONSTEXPR QChar(ushort rc) Q_DECL_NOTHROW : ucs(rc) {} // implicit
+                      ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:82:22: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: invalid conversion from ‘QString*’ to ‘ushort {aka short unsigned int}’ [-fpermissive]
+   qds >> str;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:158:18: note: candidate: QDataStream& QDataStream::operator>>(std::nullptr_t&)
+     QDataStream &operator>>(std::nullptr_t &ptr) { ptr = nullptr; return *this; }
+                  ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:158:18: note:   no known conversion for argument 1 from ‘QString*’ to ‘std::nullptr_t&’
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:161:18: note: candidate: QDataStream& QDataStream::operator>>(qfloat16&)
+     QDataStream &operator>>(qfloat16 &f);
+                  ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:161:18: note:   no known conversion for argument 1 from ‘QString*’ to ‘qfloat16&’
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:162:18: note: candidate: QDataStream& QDataStream::operator>>(float&)
+     QDataStream &operator>>(float &f);
+                  ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:162:18: note:   no known conversion for argument 1 from ‘QString*’ to ‘float&’
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:163:18: note: candidate: QDataStream& QDataStream::operator>>(double&)
+     QDataStream &operator>>(double &f);
+                  ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:163:18: note:   no known conversion for argument 1 from ‘QString*’ to ‘double&’
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:164:18: note: candidate: QDataStream& QDataStream::operator>>(char*&)
+     QDataStream &operator>>(char *&str);
+                  ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:164:18: note:   no known conversion for argument 1 from ‘QString*’ to ‘char*&’
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:372:21: note: candidate: template<class E> QDataStream& operator>>(QDataStream&, QFlags<T>&)
+ inline QDataStream &operator>>(QDataStream &s, QFlags<Enum> &e)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:372:21: note:   template argument deduction/substitution failed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: note:   mismatched types ‘QFlags<T>’ and ‘QString*’
+   qds >> str;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:49:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhashfunctions.h:44,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlist.h:47,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h:46,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:45,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qbytearray.h:696:28: note: candidate: QDataStream& operator>>(QDataStream&, QByteArray&)
+ Q_CORE_EXPORT QDataStream &operator>>(QDataStream &, QByteArray &);
+                            ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qbytearray.h:696:28: note:   no known conversion for argument 2 from ‘QString*’ to ‘QByteArray&’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhashfunctions.h:44:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlist.h:47,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h:46,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:45,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:1416:28: note: candidate: QDataStream& operator>>(QDataStream&, QString&)
+ Q_CORE_EXPORT QDataStream &operator>>(QDataStream &, QString &);
+                            ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:1416:28: note:   no known conversion for argument 2 from ‘QString*’ to ‘QString&’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringlist.h:47:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlist.h:1097,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h:46,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:45,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qregexp.h:125:28: note: candidate: QDataStream& operator>>(QDataStream&, QRegExp&)
+ Q_CORE_EXPORT QDataStream &operator>>(QDataStream &in, QRegExp &regExp);
+                            ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qregexp.h:125:28: note:   no known conversion for argument 2 from ‘QString*’ to ‘QRegExp&’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlocale.h:43:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qtextstream.h:46,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:49,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvariant.h:562:28: note: candidate: QDataStream& operator>>(QDataStream&, QVariant&) <near match>
+ Q_CORE_EXPORT QDataStream& operator>> (QDataStream& s, QVariant& p);
+                            ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvariant.h:562:28: note:   conversion of argument 2 would be ill-formed:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvariant.h:489:12: error: ‘QVariant::QVariant(void*)’ is private
+     inline QVariant(void *) Q_DECL_EQ_DELETE;
+            ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: within this context
+   qds >> str;
+          ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: error: use of deleted function ‘QVariant::QVariant(void*)’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlocale.h:43:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qtextstream.h:46,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:49,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvariant.h:489:12: note: declared here
+     inline QVariant(void *) Q_DECL_EQ_DELETE;
+            ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvariant.h:564:28: note: candidate: QDataStream& operator>>(QDataStream&, QVariant::Type&)
+ Q_CORE_EXPORT QDataStream& operator>> (QDataStream& s, QVariant::Type& p);
+                            ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvariant.h:564:28: note:   no known conversion for argument 2 from ‘QString*’ to ‘QVariant::Type&’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qtextstream.h:46:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:49,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlocale.h:1123:28: note: candidate: QDataStream& operator>>(QDataStream&, QLocale&)
+ Q_CORE_EXPORT QDataStream &operator>>(QDataStream &, QLocale &);
+                            ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlocale.h:1123:28: note:   no known conversion for argument 2 from ‘QString*’ to ‘QLocale&’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:49:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qtextstream.h:227:21: note: candidate: QTextStream& operator>>(QTextStream&, QTextStreamFunction)
+ inline QTextStream &operator>>(QTextStream &s, QTextStreamFunction f)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qtextstream.h:227:21: note:   no known conversion for argument 1 from ‘QDataStream’ to ‘QTextStream&’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:376:21: note: candidate: template<class T> QDataStream& operator>>(QDataStream&, QList<T>&)
+ inline QDataStream &operator>>(QDataStream &s, QList<T> &l)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:376:21: note:   template argument deduction/substitution failed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: note:   mismatched types ‘QList<T>’ and ‘QString*’
+   qds >> str;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:388:21: note: candidate: template<class T> QDataStream& operator>>(QDataStream&, QLinkedList<T>&)
+ inline QDataStream &operator>>(QDataStream &s, QLinkedList<T> &l)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:388:21: note:   template argument deduction/substitution failed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: note:   mismatched types ‘QLinkedList<T>’ and ‘QString*’
+   qds >> str;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:400:21: note: candidate: template<class T> QDataStream& operator>>(QDataStream&, QVector<T>&)
+ inline QDataStream &operator>>(QDataStream &s, QVector<T> &v)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:400:21: note:   template argument deduction/substitution failed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: note:   mismatched types ‘QVector<T>’ and ‘QString*’
+   qds >> str;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:412:21: note: candidate: template<class T> QDataStream& operator>>(QDataStream&, QSet<T>&)
+ inline QDataStream &operator>>(QDataStream &s, QSet<T> &set)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:412:21: note:   template argument deduction/substitution failed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: note:   mismatched types ‘QSet<T>’ and ‘QString*’
+   qds >> str;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:424:21: note: candidate: template<class Key, class T> QDataStream& operator>>(QDataStream&, QHash<K, V>&)
+ inline QDataStream &operator>>(QDataStream &s, QHash<Key, T> &hash)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:424:21: note:   template argument deduction/substitution failed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: note:   mismatched types ‘QHash<K, V>’ and ‘QString*’
+   qds >> str;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:436:21: note: candidate: template<class Key, class T> QDataStream& operator>>(QDataStream&, QMap<K, V>&)
+ inline QDataStream &operator>>(QDataStream &s, QMap<Key, T> &map)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:436:21: note:   template argument deduction/substitution failed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: note:   mismatched types ‘QMap<K, V>’ and ‘QString*’
+   qds >> str;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:449:21: note: candidate: template<class T1, class T2> QDataStream& operator>>(QDataStream&, QPair<T1, T2>&)
+ inline QDataStream& operator>>(QDataStream& s, QPair<T1, T2>& p)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:449:21: note:   template argument deduction/substitution failed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:129:10: note:   mismatched types ‘QPair<T1, T2>’ and ‘QString*’
+   qds >> str;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDateTime:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:13,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h:14,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:16:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatetime.h:397:28: note: candidate: QDataStream& operator>>(QDataStream&, QDate&)
+ Q_CORE_EXPORT QDataStream &operator>>(QDataStream &, QDate &);
+                            ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatetime.h:397:28: note:   no known conversion for argument 2 from ‘QString*’ to ‘QDate&’
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatetime.h:399:28: note: candidate: QDataStream& operator>>(QDataStream&, QTime&)
+ Q_CORE_EXPORT QDataStream &operator>>(QDataStream &, QTime &);
+                            ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatetime.h:399:28: note:   no known conversion for argument 2 from ‘QString*’ to ‘QTime&’
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatetime.h:401:28: note: candidate: QDataStream& operator>>(QDataStream&, QDateTime&)
+ Q_CORE_EXPORT QDataStream &operator>>(QDataStream &, QDateTime &);
+                            ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatetime.h:401:28: note:   no known conversion for argument 2 from ‘QString*’ to ‘QDateTime&’
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:7: error: no match for ‘operator>>’ (operand types are ‘QDataStream’ and ‘QString*’)
+   qds >> str1;
+       ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:150:18: note: candidate: QDataStream& QDataStream::operator>>(qint8&) <near match>
+     QDataStream &operator>>(qint8 &i);
+                  ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:150:18: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: invalid conversion from ‘QString*’ to ‘qint8 {aka signed char}’ [-fpermissive]
+   qds >> str1;
+          ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: cannot bind rvalue ‘(qint8)((long int)str1)’ to ‘qint8& {aka signed char&}’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:343:21: note: candidate: QDataStream& QDataStream::operator>>(quint8&) <near match>
+ inline QDataStream &QDataStream::operator>>(quint8 &i)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:343:21: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: invalid conversion from ‘QString*’ to ‘quint8 {aka unsigned char}’ [-fpermissive]
+   qds >> str1;
+          ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: cannot bind rvalue ‘(quint8)((long int)str1)’ to ‘quint8& {aka unsigned char&}’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:152:18: note: candidate: QDataStream& QDataStream::operator>>(qint16&) <near match>
+     QDataStream &operator>>(qint16 &i);
+                  ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:152:18: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: invalid conversion from ‘QString*’ to ‘qint16 {aka short int}’ [-fpermissive]
+   qds >> str1;
+          ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: cannot bind rvalue ‘(qint16)((long int)str1)’ to ‘qint16& {aka short int&}’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:346:21: note: candidate: QDataStream& QDataStream::operator>>(quint16&) <near match>
+ inline QDataStream &QDataStream::operator>>(quint16 &i)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:346:21: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: invalid conversion from ‘QString*’ to ‘quint16 {aka short unsigned int}’ [-fpermissive]
+   qds >> str1;
+          ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: cannot bind rvalue ‘(quint16)((long int)str1)’ to ‘quint16& {aka short unsigned int&}’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:154:18: note: candidate: QDataStream& QDataStream::operator>>(qint32&) <near match>
+     QDataStream &operator>>(qint32 &i);
+                  ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:154:18: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: invalid conversion from ‘QString*’ to ‘qint32 {aka int}’ [-fpermissive]
+   qds >> str1;
+          ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: cannot bind rvalue ‘(qint32)((long int)str1)’ to ‘qint32& {aka int&}’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:349:21: note: candidate: QDataStream& QDataStream::operator>>(quint32&) <near match>
+ inline QDataStream &QDataStream::operator>>(quint32 &i)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:349:21: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: invalid conversion from ‘QString*’ to ‘quint32 {aka unsigned int}’ [-fpermissive]
+   qds >> str1;
+          ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: cannot bind rvalue ‘(quint32)((long int)str1)’ to ‘quint32& {aka unsigned int&}’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:156:18: note: candidate: QDataStream& QDataStream::operator>>(qint64&) <near match>
+     QDataStream &operator>>(qint64 &i);
+                  ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:156:18: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: invalid conversion from ‘QString*’ to ‘qint64 {aka long long int}’ [-fpermissive]
+   qds >> str1;
+          ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: cannot bind rvalue ‘(qint64)str1’ to ‘qint64& {aka long long int&}’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:352:21: note: candidate: QDataStream& QDataStream::operator>>(quint64&) <near match>
+ inline QDataStream &QDataStream::operator>>(quint64 &i)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:352:21: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: invalid conversion from ‘QString*’ to ‘quint64 {aka long long unsigned int}’ [-fpermissive]
+   qds >> str1;
+          ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: cannot bind rvalue ‘(quint64)str1’ to ‘quint64& {aka long long unsigned int&}’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:160:18: note: candidate: QDataStream& QDataStream::operator>>(bool&) <near match>
+     QDataStream &operator>>(bool &i);
+                  ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:160:18: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: invalid initialization of non-const reference of type ‘bool&’ from an rvalue of type ‘bool’
+   qds >> str1;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h:44:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:45,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:626:28: note: candidate: QDataStream& operator>>(QDataStream&, QChar&) <near match>
+ Q_CORE_EXPORT QDataStream &operator>>(QDataStream &, QChar &);
+                            ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:626:28: note:   conversion of argument 2 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: conversion from ‘QString*’ to ‘QChar’ is ambiguous
+   qds >> str1;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h:44:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:45,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:104:50: note: candidate: constexpr QChar::QChar(uchar) <near match>
+     QT_ASCII_CAST_WARN Q_DECL_CONSTEXPR explicit QChar(uchar c) Q_DECL_NOTHROW : ucs(c) { }
+                                                  ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:104:50: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: invalid conversion from ‘QString*’ to ‘uchar {aka unsigned char}’ [-fpermissive]
+   qds >> str1;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h:44:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:45,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:102:50: note: candidate: constexpr QChar::QChar(char) <near match>
+     QT_ASCII_CAST_WARN Q_DECL_CONSTEXPR explicit QChar(char c) Q_DECL_NOTHROW : ucs(uchar(c)) { }
+                                                  ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:102:50: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: invalid conversion from ‘QString*’ to ‘char’ [-fpermissive]
+   qds >> str1;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h:44:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:45,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:90:22: note: candidate: constexpr QChar::QChar(char16_t) <near match>
+     Q_DECL_CONSTEXPR QChar(char16_t ch) Q_DECL_NOTHROW : ucs(ushort(ch)) {} // implicit
+                      ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:90:22: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: invalid conversion from ‘QString*’ to ‘char16_t’ [-fpermissive]
+   qds >> str1;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h:44:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:45,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:86:22: note: candidate: constexpr QChar::QChar(int) <near match>
+     Q_DECL_CONSTEXPR QChar(int rc) Q_DECL_NOTHROW : ucs(ushort(rc & 0xffff)) {}
+                      ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:86:22: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: invalid conversion from ‘QString*’ to ‘int’ [-fpermissive]
+   qds >> str1;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h:44:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:45,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:85:22: note: candidate: constexpr QChar::QChar(uint) <near match>
+     Q_DECL_CONSTEXPR QChar(uint rc) Q_DECL_NOTHROW : ucs(ushort(rc & 0xffff)) {}
+                      ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:85:22: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: invalid conversion from ‘QString*’ to ‘uint {aka unsigned int}’ [-fpermissive]
+   qds >> str1;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h:44:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:45,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:84:22: note: candidate: constexpr QChar::QChar(short int) <near match>
+     Q_DECL_CONSTEXPR QChar(short rc) Q_DECL_NOTHROW : ucs(ushort(rc)) {} // implicit
+                      ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:84:22: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: invalid conversion from ‘QString*’ to ‘short int’ [-fpermissive]
+   qds >> str1;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h:44:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:45,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:82:22: note: candidate: constexpr QChar::QChar(ushort) <near match>
+     Q_DECL_CONSTEXPR QChar(ushort rc) Q_DECL_NOTHROW : ucs(rc) {} // implicit
+                      ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h:82:22: note:   conversion of argument 1 would be ill-formed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: invalid conversion from ‘QString*’ to ‘ushort {aka short unsigned int}’ [-fpermissive]
+   qds >> str1;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:158:18: note: candidate: QDataStream& QDataStream::operator>>(std::nullptr_t&)
+     QDataStream &operator>>(std::nullptr_t &ptr) { ptr = nullptr; return *this; }
+                  ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:158:18: note:   no known conversion for argument 1 from ‘QString*’ to ‘std::nullptr_t&’
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:161:18: note: candidate: QDataStream& QDataStream::operator>>(qfloat16&)
+     QDataStream &operator>>(qfloat16 &f);
+                  ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:161:18: note:   no known conversion for argument 1 from ‘QString*’ to ‘qfloat16&’
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:162:18: note: candidate: QDataStream& QDataStream::operator>>(float&)
+     QDataStream &operator>>(float &f);
+                  ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:162:18: note:   no known conversion for argument 1 from ‘QString*’ to ‘float&’
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:163:18: note: candidate: QDataStream& QDataStream::operator>>(double&)
+     QDataStream &operator>>(double &f);
+                  ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:163:18: note:   no known conversion for argument 1 from ‘QString*’ to ‘double&’
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:164:18: note: candidate: QDataStream& QDataStream::operator>>(char*&)
+     QDataStream &operator>>(char *&str);
+                  ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:164:18: note:   no known conversion for argument 1 from ‘QString*’ to ‘char*&’
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:372:21: note: candidate: template<class E> QDataStream& operator>>(QDataStream&, QFlags<T>&)
+ inline QDataStream &operator>>(QDataStream &s, QFlags<Enum> &e)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:372:21: note:   template argument deduction/substitution failed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: note:   mismatched types ‘QFlags<T>’ and ‘QString*’
+   qds >> str1;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:49:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhashfunctions.h:44,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlist.h:47,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h:46,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:45,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qbytearray.h:696:28: note: candidate: QDataStream& operator>>(QDataStream&, QByteArray&)
+ Q_CORE_EXPORT QDataStream &operator>>(QDataStream &, QByteArray &);
+                            ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qbytearray.h:696:28: note:   no known conversion for argument 2 from ‘QString*’ to ‘QByteArray&’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhashfunctions.h:44:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlist.h:47,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h:46,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:45,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:1416:28: note: candidate: QDataStream& operator>>(QDataStream&, QString&)
+ Q_CORE_EXPORT QDataStream &operator>>(QDataStream &, QString &);
+                            ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:1416:28: note:   no known conversion for argument 2 from ‘QString*’ to ‘QString&’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringlist.h:47:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlist.h:1097,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h:46,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:45,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qregexp.h:125:28: note: candidate: QDataStream& operator>>(QDataStream&, QRegExp&)
+ Q_CORE_EXPORT QDataStream &operator>>(QDataStream &in, QRegExp &regExp);
+                            ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qregexp.h:125:28: note:   no known conversion for argument 2 from ‘QString*’ to ‘QRegExp&’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlocale.h:43:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qtextstream.h:46,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:49,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvariant.h:562:28: note: candidate: QDataStream& operator>>(QDataStream&, QVariant&) <near match>
+ Q_CORE_EXPORT QDataStream& operator>> (QDataStream& s, QVariant& p);
+                            ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvariant.h:562:28: note:   conversion of argument 2 would be ill-formed:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvariant.h:489:12: error: ‘QVariant::QVariant(void*)’ is private
+     inline QVariant(void *) Q_DECL_EQ_DELETE;
+            ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: within this context
+   qds >> str1;
+          ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: error: use of deleted function ‘QVariant::QVariant(void*)’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlocale.h:43:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qtextstream.h:46,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:49,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvariant.h:489:12: note: declared here
+     inline QVariant(void *) Q_DECL_EQ_DELETE;
+            ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvariant.h:564:28: note: candidate: QDataStream& operator>>(QDataStream&, QVariant::Type&)
+ Q_CORE_EXPORT QDataStream& operator>> (QDataStream& s, QVariant::Type& p);
+                            ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvariant.h:564:28: note:   no known conversion for argument 2 from ‘QString*’ to ‘QVariant::Type&’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qtextstream.h:46:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:49,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlocale.h:1123:28: note: candidate: QDataStream& operator>>(QDataStream&, QLocale&)
+ Q_CORE_EXPORT QDataStream &operator>>(QDataStream &, QLocale &);
+                            ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlocale.h:1123:28: note:   no known conversion for argument 2 from ‘QString*’ to ‘QLocale&’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h:49:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDebug:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qtextstream.h:227:21: note: candidate: QTextStream& operator>>(QTextStream&, QTextStreamFunction)
+ inline QTextStream &operator>>(QTextStream &s, QTextStreamFunction f)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qtextstream.h:227:21: note:   no known conversion for argument 1 from ‘QDataStream’ to ‘QTextStream&’
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:376:21: note: candidate: template<class T> QDataStream& operator>>(QDataStream&, QList<T>&)
+ inline QDataStream &operator>>(QDataStream &s, QList<T> &l)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:376:21: note:   template argument deduction/substitution failed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: note:   mismatched types ‘QList<T>’ and ‘QString*’
+   qds >> str1;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:388:21: note: candidate: template<class T> QDataStream& operator>>(QDataStream&, QLinkedList<T>&)
+ inline QDataStream &operator>>(QDataStream &s, QLinkedList<T> &l)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:388:21: note:   template argument deduction/substitution failed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: note:   mismatched types ‘QLinkedList<T>’ and ‘QString*’
+   qds >> str1;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:400:21: note: candidate: template<class T> QDataStream& operator>>(QDataStream&, QVector<T>&)
+ inline QDataStream &operator>>(QDataStream &s, QVector<T> &v)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:400:21: note:   template argument deduction/substitution failed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: note:   mismatched types ‘QVector<T>’ and ‘QString*’
+   qds >> str1;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:412:21: note: candidate: template<class T> QDataStream& operator>>(QDataStream&, QSet<T>&)
+ inline QDataStream &operator>>(QDataStream &s, QSet<T> &set)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:412:21: note:   template argument deduction/substitution failed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: note:   mismatched types ‘QSet<T>’ and ‘QString*’
+   qds >> str1;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:424:21: note: candidate: template<class Key, class T> QDataStream& operator>>(QDataStream&, QHash<K, V>&)
+ inline QDataStream &operator>>(QDataStream &s, QHash<Key, T> &hash)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:424:21: note:   template argument deduction/substitution failed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: note:   mismatched types ‘QHash<K, V>’ and ‘QString*’
+   qds >> str1;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:436:21: note: candidate: template<class Key, class T> QDataStream& operator>>(QDataStream&, QMap<K, V>&)
+ inline QDataStream &operator>>(QDataStream &s, QMap<Key, T> &map)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:436:21: note:   template argument deduction/substitution failed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: note:   mismatched types ‘QMap<K, V>’ and ‘QString*’
+   qds >> str1;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:10:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:449:21: note: candidate: template<class T1, class T2> QDataStream& operator>>(QDataStream&, QPair<T1, T2>&)
+ inline QDataStream& operator>>(QDataStream& s, QPair<T1, T2>& p)
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h:449:21: note:   template argument deduction/substitution failed:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:130:10: note:   mismatched types ‘QPair<T1, T2>’ and ‘QString*’
+   qds >> str1;
+          ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDateTime:1:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:13,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h:14,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:16:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatetime.h:397:28: note: candidate: QDataStream& operator>>(QDataStream&, QDate&)
+ Q_CORE_EXPORT QDataStream &operator>>(QDataStream &, QDate &);
+                            ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatetime.h:397:28: note:   no known conversion for argument 2 from ‘QString*’ to ‘QDate&’
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatetime.h:399:28: note: candidate: QDataStream& operator>>(QDataStream&, QTime&)
+ Q_CORE_EXPORT QDataStream &operator>>(QDataStream &, QTime &);
+                            ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatetime.h:399:28: note:   no known conversion for argument 2 from ‘QString*’ to ‘QTime&’
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatetime.h:401:28: note: candidate: QDataStream& operator>>(QDataStream&, QDateTime&)
+ Q_CORE_EXPORT QDataStream &operator>>(QDataStream &, QDateTime &);
+                            ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatetime.h:401:28: note:   no known conversion for argument 2 from ‘QString*’ to ‘QDateTime&’
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp: At global scope:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:117:30: warning: unused parameter ‘qm’ [-Wunused-parameter]
+    QMap<u4, WG_Stage_Value>& qm, WG_Stage_Queue& sq)
+                              ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp: In function ‘int main(int, char**)’:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:88:13: warning: unused variable ‘dgn’ [-Wunused-variable]
+  DgDb_Node* dgn = dgi->add(qs);
+             ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:145:13: warning: unused variable ‘dgn1’ [-Wunused-variable]
+  DgDb_Node* dgn1 = dgi->add(test);
+             ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:147:13: warning: unused variable ‘dgn2’ [-Wunused-variable]
+  DgDb_Node* dgn2 = dgi->add(new QVector<u1> {4, 44, 64});
+             ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:149:13: warning: unused variable ‘ty_u1’ [-Wunused-variable]
+  DgDb_Type* ty_u1 = dgi->get_type_by_name("u1");
+             ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp: At global scope:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:54:14: warning: unused parameter ‘argc’ [-Wunused-parameter]
+ int main(int argc, char* argv[])
+              ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:54:31: warning: unused parameter ‘argv’ [-Wunused-parameter]
+ int main(int argc, char* argv[])
+                               ^
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:16:0:
+../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h: In instantiation of ‘KA::DGDB::DgDb_Type& KA::DGDB::DgDb_Type::set_stage_encoder(PROC_Type) [with PROC_Type = void (Test::*)(QByteArray&, std::function<void(unsigned int, KA::DGDB::WG_Stage_Value*)>)]’:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:68:52:   required from here
+../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h:65:18: warning: converting from ‘void (Test::*)(QByteArray&, std::function<void(unsigned int, KA::DGDB::WG_Stage_Value*)>)’ to ‘void (*)(void*, QByteArray&, KA::DGDB::WG_Stage_Value::Callback_type) {aka void (*)(void*, QByteArray&, std::function<void(unsigned int, KA::DGDB::WG_Stage_Value*)>)}’ [-Wpmf-conversions]
+   stage_encoder_ = (void(*)(void*, QByteArray& qba,
+                  ^
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h:16:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:16:
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:543:13: warning: ‘void yajl_set_default_alloc_funcs(yajl_alloc_funcs*)’ declared ‘static’ but never defined [-Wunused-function]
+ static void yajl_set_default_alloc_funcs(yajl_alloc_funcs * yaf);
+             ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:559:17: warning: ‘yajl_buf_t* yajl_buf_alloc(yajl_alloc_funcs*)’ declared ‘static’ but never defined [-Wunused-function]
+ static yajl_buf yajl_buf_alloc(yajl_alloc_funcs * alloc);
+                 ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:562:13: warning: ‘void yajl_buf_free(yajl_buf)’ declared ‘static’ but never defined [-Wunused-function]
+ static void yajl_buf_free(yajl_buf buf);
+             ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:565:13: warning: ‘void yajl_buf_append(yajl_buf, const void*, size_t)’ declared ‘static’ but never defined [-Wunused-function]
+ static void yajl_buf_append(yajl_buf buf, const void * data, size_t len);
+             ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:568:13: warning: ‘void yajl_buf_clear(yajl_buf)’ declared ‘static’ but never defined [-Wunused-function]
+ static void yajl_buf_clear(yajl_buf buf);
+             ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:571:30: warning: ‘const unsigned char* yajl_buf_data(yajl_buf)’ declared ‘static’ but never defined [-Wunused-function]
+ static const unsigned char * yajl_buf_data(yajl_buf buf);
+                              ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:574:15: warning: ‘size_t yajl_buf_len(yajl_buf)’ declared ‘static’ but never defined [-Wunused-function]
+ static size_t yajl_buf_len(yajl_buf buf);
+               ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:623:13: warning: ‘void yajl_string_encode(yajl_print_t, void*, const unsigned char*, size_t, int)’ declared ‘static’ but never defined [-Wunused-function]
+ static void yajl_string_encode(const yajl_print_t printer,
+             ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:629:13: warning: ‘void yajl_string_decode(yajl_buf, const unsigned char*, size_t)’ declared ‘static’ but never defined [-Wunused-function]
+ static void yajl_string_decode(yajl_buf buf, const unsigned char * str,
+             ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:632:12: warning: ‘int yajl_string_validate_utf8(const unsigned char*, size_t)’ declared ‘static’ but never defined [-Wunused-function]
+ static int yajl_string_validate_utf8(const unsigned char * s, size_t len);
+            ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:663:19: warning: ‘yajl_lexer_t* yajl_lex_alloc(yajl_alloc_funcs*, unsigned int, unsigned int)’ declared ‘static’ but never defined [-Wunused-function]
+ static yajl_lexer yajl_lex_alloc(yajl_alloc_funcs * alloc,
+                   ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:667:13: warning: ‘void yajl_lex_free(yajl_lexer)’ declared ‘static’ but never defined [-Wunused-function]
+ static void yajl_lex_free(yajl_lexer lexer);
+             ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:691:17: warning: ‘yajl_tok yajl_lex_lex(yajl_lexer, const unsigned char*, size_t, size_t*, const unsigned char**, size_t*)’ declared ‘static’ but never defined [-Wunused-function]
+ static yajl_tok yajl_lex_lex(yajl_lexer lexer, const unsigned char * jsonText,
+                 ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:709:21: warning: ‘const char* yajl_lex_error_to_string(yajl_lex_error)’ declared ‘static’ but never defined [-Wunused-function]
+ static const char * yajl_lex_error_to_string(yajl_lex_error error);
+                     ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:713:23: warning: ‘yajl_lex_error yajl_lex_get_error(yajl_lexer)’ declared ‘static’ but never defined [-Wunused-function]
+ static yajl_lex_error yajl_lex_get_error(yajl_lexer lexer);
+                       ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:752:1: warning: ‘yajl_status yajl_do_parse(yajl_handle, const unsigned char*, size_t)’ declared ‘static’ but never defined [-Wunused-function]
+ yajl_do_parse(yajl_handle handle, const unsigned char * jsonText,
+ ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:756:1: warning: ‘yajl_status yajl_do_finish(yajl_handle)’ declared ‘static’ but never defined [-Wunused-function]
+ yajl_do_finish(yajl_handle handle);
+ ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:759:1: warning: ‘unsigned char* yajl_render_error_string(yajl_handle, const unsigned char*, size_t, int)’ declared ‘static’ but never defined [-Wunused-function]
+ yajl_render_error_string(yajl_handle hand, const unsigned char * jsonText,
+ ^
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:765:1: warning: ‘long long int yajl_parse_integer(const unsigned char*, unsigned int)’ declared ‘static’ but never defined [-Wunused-function]
+ yajl_parse_integer(const unsigned char *number, unsigned int length);
+ ^
+make: *** [../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/dgdb-console/release/main.o] Error 1

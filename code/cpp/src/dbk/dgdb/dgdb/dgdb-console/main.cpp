@@ -30,15 +30,12 @@ struct Test
  u2 num;
 
  void encode_wg_stage_values(QByteArray& qba,
-    // WG_Stage_Value& wgv, 
-   WG_Stage_Value::Callback_type cb); 
+   WG_Stage_Value::Callback_type cb);
 
- //QMap<u4, WG_Stage_Value*>& indexers);
-
+ void read_stage_queue(QQueue<void*>& vals); 
 };
 
 void Test::encode_wg_stage_values(QByteArray& qba,
-    // WG_Stage_Value& wgv, 
    WG_Stage_Value::Callback_type cb)
 {
  QDataStream qds(&qba, QIODevice::WriteOnly);
@@ -47,14 +44,15 @@ void Test::encode_wg_stage_values(QByteArray& qba,
    << WG_Stage_Value().note_int().set_raw_data(num).run[2](cb);
 }
 
-
-
+void Test::read_stage_queue(QQueue<void*>& vals)
+{
+ title = *(QString*) vals.dequeue();
+ author = *(QString*) vals.dequeue();
+ num = *(u2*) vals.dequeue(); 
+}
 
 int main(int argc, char* argv[])
 {
-// std::function<void(Test*, QByteArray& qba, 
-//   WG_Stage_Value::Callback_type cb)> fn = &Test::encode_wg_stage_value;
-
  DgDb_Instance* dgi = DGEnvironment(
    DEFAULT_DEV_DGDB_FOLDER "/instances/t1");
 
@@ -81,12 +79,6 @@ int main(int argc, char* argv[])
   svals[u] = *v;
  };
 
- //dgi->register_type("Test")
-
- //dgi->register_type_interface("Test", )
-
-// dgi->register_type_name_resolution<QVector<u1>>("(QVector u1)");
-
  dgi->REGISTER_TYPE_NAME_RESOLUTION_2_1(QVector ,u1);
 
  dgi->build_default_types();
@@ -99,44 +91,56 @@ int main(int argc, char* argv[])
  QByteArray qba;
  fn(test, qba, cb);
 
- qDebug() << "Rec ... ";
-
  Test* dtest;
+ Test* dtest1;
  void* rec = dgi->new_wg_record(qba, svals);
+
  dgi->parse_wg_record(rec, [&dtest](const QByteArray& qba, 
-   QMap<u4, WG_Stage_Value>& qm) //, QQueue<void*>& qv)
+   QMap<u4, WG_Stage_Value>& qm, WG_Stage_Queue& sq)
  {
   dtest = new Test;
 
   QDataStream qds(qba);
-  QString str;
   qds >> qm[1](&dtest->title);
-  qds >> str;
+  qds >> dtest->author;
   qds >> qm[2](&dtest->num);
+  
+  sq = {&dtest->num, &dtest->title};
+  sq << [](QQueue<void*> qq)
+  {
+   u2* uu = (u2*) qq.dequeue();
+   QString* s = (QString*) qq.dequeue();
+  };
  });
 
- qDebug() << "dt: num: " << dtest->num;
- qDebug() << "dt: title: " << dtest->title;
+ dgi->parse_wg_record(rec, [&dtest1](const QByteArray& qba, 
+   QMap<u4, WG_Stage_Value>& qm, WG_Stage_Queue& sq)
+ {
+  dtest1 = new Test;
 
+  QDataStream qds(qba);
+  QString* str = new QString;
+  QString* str1 = new QString;
+  
+  u2* num = new u2;
+  qds >> qm[1](str);
+  qds >> *str1;
+  qds >> qm[2](num);
+  
+  sq = {dtest1, str, str1, num};
+  sq << stage_queue_memfnptr<Test>(&Test::read_stage_queue);
+ });
 
- QDataStream qds(qba);
- u1 uuu;
- qds >> uuu;
- QString ttt;
- qds >> ttt;
+ qDebug() << dtest1->title; 
+ qDebug() << dtest1->author;
+ qDebug() << dtest1->num;  
 
  DgDb_Node* dgn1 = dgi->add(test);
 
  DgDb_Node* dgn2 = dgi->add(new QVector<u1> {4, 44, 64});
-
-// DgDb_Node* dgn3 = dgi->add(new u2 {4});
-
  
  DgDb_Type* ty_u1 = dgi->get_type_by_name("u1");
- qDebug() << "OK: " << ty_u1->name();   
 
-
- qDebug() << "OK: " << dgi->db_root_folder();
  return 0;
 }
 

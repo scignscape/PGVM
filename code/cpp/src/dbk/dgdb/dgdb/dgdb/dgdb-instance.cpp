@@ -53,15 +53,16 @@ void* DgDb_Instance::new_wg_record(QByteArray& qba, QMap<u4, WG_Stage_Value>& ws
 }
 
 void DgDb_Instance::parse_wg_record(void* rec, 
-  std::function<void(const QByteArray& qba, QMap<u4, WG_Stage_Value>&//, 
-  //QQueue<void*>&
-  )> cb, u4 qba_index, WDB_Instance* wdbi)
+  std::function<void(const QByteArray& qba, QMap<u4, WG_Stage_Value>&, 
+  WG_Stage_Queue&)> cb, u4 qba_index, WDB_Instance* wdbi)
 {
  QByteArray qba;
  wdb_manager_->get_qba_from_record(rec, qba, qba_index, wdbi);
  QMap<u4, WG_Stage_Value> qm;
  //QQueue<void*> qv;
- cb(qba, qm); //, qv);
+
+ WG_Stage_Queue sq;
+ cb(qba, qm, sq); //, qv);
 
  QMutableMapIterator<u4, WG_Stage_Value> it(qm);
  while(it.hasNext())
@@ -76,11 +77,17 @@ void DgDb_Instance::parse_wg_record(void* rec,
 //  qDebug() << "inf: " << info;
  }
 
- //qDebug() << "QM: " << qm;
- //void* pv = qv.takeFirst();
- 
- //for(
- 
+ if(sq.values.isEmpty())
+ {
+  if(sq.callback)
+    sq.callback(sq.values);
+ }
+ else if(sq.callback)
+   sq.callback(sq.values);
+ else
+ {
+  // // some sort of type default ...
+ }
 }
 
 void DgDb_Instance::init_from_ntxh(QString fld, u1 code)
