@@ -73,6 +73,12 @@ public:
  _run_hold run;
 
  template<typename T>
+ T& data_to_ref()
+ {
+  return *((T*) data_);
+ }
+
+ template<typename T>
  WG_Stage_Value& set_data(const T& data)
  {
   set_ptr_data(new T(data));

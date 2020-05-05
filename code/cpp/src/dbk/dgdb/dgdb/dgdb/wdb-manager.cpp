@@ -291,6 +291,123 @@ void* WDB_Manager::new_wg_record(QMap<u4, WG_Stage_Value>& wsvs,
  return result;
 }
 
+/*
+void WDB_Manager::decode_value(void* rec, u4 index, void* target, 
+  WDB_Instance* wdbi)
+{
+ if(!wdbi)
+   wdbi = current_white_;
+ 
+ void* wh = wdbi->white();
+}
+*/
+
+void WDB_Manager::decode_value(void* rec, u4 index, 
+   WG_Stage_Value& wsv, WDB_Instance* wdbi)
+{
+ if(!wdbi)
+  wdbi = current_white_;
+ 
+ void* wh = wdbi->white();
+
+ u1 et = wsv.get_encoding_type();
+//  u1 et = wsv.get_encoding_type();
+
+ switch(et)
+ {
+ case WG_RECORDTYPE: 
+  {
+  }
+  break; 
+
+ case WG_INTTYPE:
+  {
+   wg_int wi = wg_get_field(wh, rec, index);
+   wsv.data_to_ref<u2>() = wg_decode_int(wh, wi);
+  }
+  break;
+
+ case WG_DOUBLETYPE:
+  {
+   wg_int wi = wg_get_field(wh, rec, index);
+//   wg_int wi = wg_decode_double(wh, *dbl);
+  }
+  break;
+
+ case WG_STRTYPE:
+  {
+   wg_int wi = wg_get_field(wh, rec, index);
+//   wg_int wi = wg_decode_double(wh, *dbl);
+  }
+  break;
+
+ case WG_XMLLITERALTYPE:
+  {
+   wg_int wi = wg_get_field(wh, rec, index);
+//   wg_int wi = wg_decode_double(wh, *dbl);
+  }
+  break;
+
+ case WG_URITYPE:
+  {
+   wg_int wi = wg_get_field(wh, rec, index);
+//   wg_int wi = wg_decode_double(wh, *dbl);
+  }
+  break;
+
+ case WG_BLOBTYPE:
+  {
+   wg_int wi = wg_get_field(wh, rec, index);
+//   wg_int wi = wg_decode_double(wh, *dbl);
+  }
+  break;
+
+ case WG_CHARTYPE:
+  {
+   wg_int wi = wg_get_field(wh, rec, index);
+//   wg_int wi = wg_decode_double(wh, *dbl);
+  }
+  break;
+
+ case WG_FIXPOINTTYPE:
+  {
+   wg_int wi = wg_get_field(wh, rec, index);
+//   wg_int wi = wg_decode_double(wh, *dbl);
+  }
+  break;
+
+ case WG_DATETYPE:
+  {
+   wg_int wi = wg_get_field(wh, rec, index);
+//   wg_int wi = wg_decode_double(wh, *dbl);
+  }
+  break;
+
+ case WG_TIMETYPE:
+  {
+   wg_int wi = wg_get_field(wh, rec, index);
+//   wg_int wi = wg_decode_double(wh, *dbl);
+  }
+  break;
+
+ case 13: // qstring
+  {
+   wg_int wi = wg_get_field(wh, rec, index);
+   const char* cs = wg_decode_str(wh, wi);
+//   wg_int len = wg_decode_str_len(wh, wi);
+   wsv.data_to_ref<QString>() = QString(cs);
+//   wg_int wi = wg_decode_double(wh, *dbl);
+  }
+  break;
+
+  default: 
+   break;
+ }
+
+ 
+}
+
+
 void WDB_Manager::get_qba_from_record(void* rec, QByteArray& qba, 
   u4 qba_index, WDB_Instance* wdbi)
 {
@@ -299,16 +416,10 @@ void WDB_Manager::get_qba_from_record(void* rec, QByteArray& qba,
  
  void* wh = wdbi->white();
 
- qDebug() << "QBA: " << qba; 
-
  wg_int wi = wg_get_field(wh, rec, qba_index);
-
- qDebug() << "QBA: " << qba; 
 
  char* blob = wg_decode_blob(wh, wi);
  wg_int wlen = wg_decode_blob_len(wh, wi);
-
- qDebug() << "len: " << wlen; 
  qba = QByteArray(blob, wlen);
  
 }

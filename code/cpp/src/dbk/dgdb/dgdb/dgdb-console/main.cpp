@@ -100,24 +100,24 @@ int main(int argc, char* argv[])
  fn(test, qba, cb);
 
  qDebug() << "Rec ... ";
+
+ Test* dtest;
  void* rec = dgi->new_wg_record(qba, svals);
- dgi->parse_wg_record(rec, [](const QByteArray& qba, 
+ dgi->parse_wg_record(rec, [&dtest](const QByteArray& qba, 
    QMap<u4, WG_Stage_Value>& qm) //, QQueue<void*>& qv)
  {
-  Test* test = new Test;
+  dtest = new Test;
 
   QDataStream qds(qba);
   QString str;
-  qds >> qm[1](&test->title);
+  qds >> qm[1](&dtest->title);
   qds >> str;
-  qds >> qm[2](&test->num);
-
-  //qv = {test, &test->title, &test->num};
-
-//  qDebug() << "ENC1: " << (enc1 >> 4);
-//  qDebug() << "str: " << str;
-//  qDebug() << "ENC2: " << (enc2 >> 4);
+  qds >> qm[2](&dtest->num);
  });
+
+ qDebug() << "dt: num: " << dtest->num;
+ qDebug() << "dt: title: " << dtest->title;
+
 
  QDataStream qds(qba);
  u1 uuu;

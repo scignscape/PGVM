@@ -63,14 +63,17 @@ void DgDb_Instance::parse_wg_record(void* rec,
  //QQueue<void*> qv;
  cb(qba, qm); //, qv);
 
- QMapIterator<u4, WG_Stage_Value> it(qm);
+ QMutableMapIterator<u4, WG_Stage_Value> it(qm);
  while(it.hasNext())
  {
   it.next();
   u4 index = it.key();
-  u1 info = it.value().get_encoding_type();
-  qDebug() << "inx: " << index;
-  qDebug() << "inf: " << info;
+  //u1 info = it.value().get_encoding_type();
+  
+  wdb_manager_->decode_value(rec, index, it.value(), wdbi);
+
+//  qDebug() << "inx: " << index;
+//  qDebug() << "inf: " << info;
  }
 
  //qDebug() << "QM: " << qm;
