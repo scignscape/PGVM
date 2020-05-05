@@ -291,8 +291,30 @@ void* WDB_Manager::new_wg_record(QMap<u4, WG_Stage_Value>& wsvs,
  return result;
 }
 
-void WDB_Manager::set_qba_data_field(void* rec, u4 qba_index, QByteArray& qba,
-  WDB_Instance* wdbi)
+void WDB_Manager::get_qba_from_record(void* rec, QByteArray& qba, 
+  u4 qba_index, WDB_Instance* wdbi)
+{
+ if(!wdbi)
+   wdbi = current_white_;
+ 
+ void* wh = wdbi->white();
+
+ qDebug() << "QBA: " << qba; 
+
+ wg_int wi = wg_get_field(wh, rec, qba_index);
+
+ qDebug() << "QBA: " << qba; 
+
+ char* blob = wg_decode_blob(wh, wi);
+ wg_int wlen = wg_decode_blob_len(wh, wi);
+
+ qDebug() << "len: " << wlen; 
+ qba = QByteArray(blob, wlen);
+ 
+}
+
+void WDB_Manager::set_qba_data_field(void* rec, QByteArray& qba,
+  u4 qba_index, WDB_Instance* wdbi)
 {
  if(!wdbi)
    wdbi = current_white_;

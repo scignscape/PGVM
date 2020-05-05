@@ -91,6 +91,10 @@ public:
  void* new_wg_record(QByteArray& qba, QMap<u4, WG_Stage_Value>& wsvs,
    u4 qba_index = 0, WDB_Instance* wdbi = nullptr);
 
+ void parse_wg_record(void* rec, std::function<void(const QByteArray&, 
+   QMap<u4, WG_Stage_Value>&//, QQueue<void*>&
+   )> cb, u4 qba_index = 0, WDB_Instance* wdbi = nullptr);
+
  void init_from_ntxh(QString fld, u1 code);
 
  void build_default_types();

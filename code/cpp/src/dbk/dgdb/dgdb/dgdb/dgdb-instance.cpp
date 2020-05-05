@@ -48,9 +48,37 @@ void* DgDb_Instance::new_wg_record(QByteArray& qba, QMap<u4, WG_Stage_Value>& ws
   u4 qba_index, WDB_Instance* wdbi)
 {
  void* pv = wdb_manager_->new_wg_record(wsvs, wdbi);
- wdb_manager_->set_qba_data_field(pv, qba_index, qba);
+ wdb_manager_->set_qba_data_field(pv, qba, qba_index);
+ return pv;
 }
 
+void DgDb_Instance::parse_wg_record(void* rec, 
+  std::function<void(const QByteArray& qba, QMap<u4, WG_Stage_Value>&//, 
+  //QQueue<void*>&
+  )> cb, u4 qba_index, WDB_Instance* wdbi)
+{
+ QByteArray qba;
+ wdb_manager_->get_qba_from_record(rec, qba, qba_index, wdbi);
+ QMap<u4, WG_Stage_Value> qm;
+ //QQueue<void*> qv;
+ cb(qba, qm); //, qv);
+
+ QMapIterator<u4, WG_Stage_Value> it(qm);
+ while(it.hasNext())
+ {
+  it.next();
+  u4 index = it.key();
+  u1 info = it.value().get_encoding_type();
+  qDebug() << "inx: " << index;
+  qDebug() << "inf: " << info;
+ }
+
+ //qDebug() << "QM: " << qm;
+ //void* pv = qv.takeFirst();
+ 
+ //for(
+ 
+}
 
 void DgDb_Instance::init_from_ntxh(QString fld, u1 code)
 {

@@ -10,17 +10,17 @@ In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:38:0,
  ^
 In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:8:0:
 ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h: In member function ‘KA::DGDB::DgDb_Node* KA::DGDB::DgDb_Instance::add(VERTEX_Type*)’:
-../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:124:2: warning: no return statement in function returning non-void [-Wreturn-type]
+../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:128:2: warning: no return statement in function returning non-void [-Wreturn-type]
   }
   ^
 In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h:14:0,
                  from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:14:
 ../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘void KA::DGDB::WG_Stage_Value::cleanup()’:
-../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:84:18: warning: deleting ‘void*’ is undefined [-Wdelete-incomplete]
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:90:18: warning: deleting ‘void*’ is undefined [-Wdelete-incomplete]
    delete (void*) data_;
                   ^
 ../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘KA::DGDB::WG_Stage_Value& KA::DGDB::WG_Stage_Value::set_fixpoint_data(T)’:
-../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:163:31: warning: left shift count >= width of type [-Wshift-count-overflow]
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:169:31: warning: left shift count >= width of type [-Wshift-count-overflow]
    set_raw_data( ((u8) (lft << 32)) | rgt);
                                ^
 In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:14:0:
@@ -28,15 +28,12 @@ In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:14:0:
 ../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h:67:2: warning: no return statement in function returning non-void [-Wreturn-type]
   }  
   ^
-../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp: In member function ‘void* KA::DGDB::DgDb_Instance::new_wg_record(QByteArray&, QMap<unsigned int, KA::DGDB::WG_Stage_Value>&, u4, KA::DGDB::WDB_Instance*)’:
-../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:50:59: error: expected primary-expression before ‘*’ token
-  void* pv = wdb_manager_->new_wg_record(wsvs, WDB_Instance* wdbi);
-                                                           ^
-../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:52:1: warning: no return statement in function returning non-void [-Wreturn-type]
- }
- ^
+../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp: In member function ‘void KA::DGDB::DgDb_Instance::parse_wg_record(void*, std::function<void(const QByteArray&, QMap<unsigned int, KA::DGDB::WG_Stage_Value>&)>, u4, KA::DGDB::WDB_Instance*)’:
+../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:71:24: error: ‘const class KA::DGDB::WG_Stage_Value’ has no member named ‘info’
+   u1 info = it.value().info();
+                        ^
 ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp: At global scope:
-../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:55:44: warning: unused parameter ‘fld’ [-Wunused-parameter]
+../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:83:44: warning: unused parameter ‘fld’ [-Wunused-parameter]
  void DgDb_Instance::init_from_ntxh(QString fld, u1 code)
                                             ^
 In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type-builder.h:14:0,
