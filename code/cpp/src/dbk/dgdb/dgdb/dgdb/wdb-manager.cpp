@@ -232,14 +232,18 @@ wg_int _rec_encode(void* wh, WG_Stage_Value& wsv)
 
  case WG_DATETYPE:
   {
-   wg_int wi = wg_encode_date(wh, wsv.data());
+   QDate qd = QDate::fromJulianDay(wsv.data());
+   int wdate = wg_ymd_to_date(wh, qd.year(), qd.month(), qd.day());
+   wg_int wi = wg_encode_date(wh, wdate);
    return wi;   
   }
   break;
 
  case WG_TIMETYPE:
   {
-   wg_int wi = wg_encode_date(wh, wsv.data());
+   // // data is msecsSinceStartOfDay(); 
+    //   WhiteDB uses 100ths of a second ...
+   wg_int wi = wg_encode_time(wh, wsv.data() / 10);
    return wi;
   }
   break;
@@ -424,6 +428,10 @@ void _rec_decode(void* wh, void* rec, u4 index,
  case WG_DATETYPE:
   {
    wg_int wi = wg_get_field(wh, rec, index);
+   int y, m, d;
+   int wdate = wg_decode_date(wh, wi);
+   wg_date_to_ymd(wh, wdate, &y, &m, &d);
+   wsv.data_to_ref<QDate>() = QDate(y, m, d);
 //   wg_int wi = wg_decode_double(wh, *dbl);
   }
   break;
@@ -431,7 +439,8 @@ void _rec_decode(void* wh, void* rec, u4 index,
  case WG_TIMETYPE:
   {
    wg_int wi = wg_get_field(wh, rec, index);
-//   wg_int wi = wg_decode_double(wh, *dbl);
+   int tm = wg_decode_time(wh, wi);
+   wsv.data_to_ref<QTime>() = QTime::fromMSecsSinceStartOfDay(tm * 10);  
   }
   break;
 

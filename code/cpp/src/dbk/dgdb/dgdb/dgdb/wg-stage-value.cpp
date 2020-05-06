@@ -38,7 +38,15 @@ u1 WG_Stage_Value::_run_hold::operator()(WG_Stage_Value::Callback_type cb)
 u1 WG_Stage_Value::_run(Callback_type cb, u4 field_index)
 {
  cb(field_index, this);
- return info_;
+ return collapse_wg_encoding_type();
+}
+
+u1 WG_Stage_Value::collapse_wg_encoding_type() const
+{
+ u1 result = info_ >> 4;
+ if(result > 2)
+   result = 3;
+ return (info_ & 15) | (result << 4);
 }
 
 WG_Stage_Value& WG_Stage_Value::new_qstring(const QString& qs)

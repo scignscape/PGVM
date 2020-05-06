@@ -9,6 +9,8 @@
 #include <QByteArray>
 #include <QDataStream>
 
+#include <QDate>
+
 #include "dgdb/dgdb-instance.h"
 #include "dgdb/wdb-manager.h"
 #include "dgdb/dgenvironment.h"
@@ -28,6 +30,9 @@ struct Test
  QString title;
  QString author;
  u2 num;
+ QDate publication_date;
+ QTime test_time;
+ 
 
  void encode_wg_stage_values(QByteArray& qba,
    WG_Stage_Value::Callback_type cb);
@@ -41,14 +46,19 @@ void Test::encode_wg_stage_values(QByteArray& qba,
  QDataStream qds(&qba, QIODevice::WriteOnly);
  qds << WG_Stage_Value().new_qstring(title).run[1](cb)
    << author
-   << WG_Stage_Value().set_u2_data(num).run[2](cb);
+   << WG_Stage_Value().set_u2_data(num).run[2](cb)
+   << WG_Stage_Value().set_date_data(publication_date).run[3](cb)
+   << WG_Stage_Value().set_time_data(test_time).run[4](cb)
+ ;
 }
 
 void Test::read_stage_queue(QQueue<void*>& vals)
 {
  title = *(QString*) vals.dequeue();
  author = *(QString*) vals.dequeue();
- num = *(u2*) vals.dequeue(); 
+ num = *(u2*) vals.dequeue();
+ publication_date = *(QDate*) vals.dequeue();
+ test_time = *(QTime*) vals.dequeue();
 }
 
 int main(int argc, char* argv[])
@@ -87,7 +97,8 @@ int main(int argc, char* argv[])
  QString* qs = new QString("OK");
  DgDb_Node* dgn = dgi->add(qs);
 
- Test* test = new Test{"Critique of Pure Reason", "IK", 777};
+ Test* test = new Test{"Critique of Pure Reason", "IK", 777, 
+   QDate(1787, 4, 23), QTime(11,47,22,888)};
  QByteArray qba;
  fn(test, qba, cb);
 
@@ -104,12 +115,18 @@ int main(int argc, char* argv[])
   qds >> qm[1](&dtest->title);
   qds >> dtest->author;
   qds >> qm[2](&dtest->num);
-  
-  sq = {&dtest->num, &dtest->title};
+  qds >> qm[3](&dtest->publication_date);  
+  qds >> qm[4](&dtest->test_time);  
+
+  sq = {&dtest->title, &dtest->num, 
+    &dtest->publication_date, &dtest->test_time};
   sq << [](QQueue<void*> qq)
   {
-   u2* uu = (u2*) qq.dequeue();
    QString* s = (QString*) qq.dequeue();
+   u2* uu = (u2*) qq.dequeue();
+   QDate* qd = (QDate*) qq.dequeue();
+   QTime* qtm = (QTime*) qq.dequeue();
+   qDebug() << *qd << *qtm;
   };
  });
 
@@ -121,19 +138,26 @@ int main(int argc, char* argv[])
   QDataStream qds(qba);
   QString* str = new QString;
   QString* str1 = new QString;
+  QDate* qd = new QDate;
+  QTime* qtm = new QTime;
   
   u2* num = new u2;
   qds >> qm[1](str);
   qds >> *str1;
   qds >> qm[2](num);
-  
-  sq = {dtest1, str, str1, num};
+  qds >> qm[3](qd);
+  qds >> qm[4](qtm);
+
+  sq = {dtest1, str, str1, num, qd, qtm};
   sq << stage_queue_memfnptr<Test>(&Test::read_stage_queue);
  });
 
  qDebug() << dtest1->title; 
  qDebug() << dtest1->author;
  qDebug() << dtest1->num;  
+ qDebug() << dtest1->publication_date;  
+ qDebug() << dtest1->test_time;  
+
 
  DgDb_Node* dgn1 = dgi->add(test);
 

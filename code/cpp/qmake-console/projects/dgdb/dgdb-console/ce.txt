@@ -1,72 +1,76 @@
 In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:15:0,
-                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:12:
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:14:
 ../../../../src/accessors.h:130:1: warning: multi-line comment [-Wcomment]
  //#define ACCESSORS(type, name) \
  ^
 In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:38:0,
-                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:12:
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:14:
 ../../../../src/flags.h:204:1: warning: multi-line comment [-Wcomment]
  //#define flags_(byte_count) \
  ^
-In file included from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:12:0:
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:14:0:
 ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h: In member function ‘KA::DGDB::DgDb_Node* KA::DGDB::DgDb_Instance::add(VERTEX_Type*)’:
-../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:129:2: warning: no return statement in function returning non-void [-Wreturn-type]
+../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:130:2: warning: no return statement in function returning non-void [-Wreturn-type]
   }
   ^
 In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h:14:0,
-                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:16:
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:18:
 ../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘void KA::DGDB::WG_Stage_Value::cleanup()’:
-../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:120:18: warning: deleting ‘void*’ is undefined [-Wdelete-incomplete]
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:132:18: warning: deleting ‘void*’ is undefined [-Wdelete-incomplete]
    delete (void*) data_;
                   ^
 ../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘KA::DGDB::WG_Stage_Value& KA::DGDB::WG_Stage_Value::set_fixpoint_data(T)’:
-../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:229:31: warning: left shift count >= width of type [-Wshift-count-overflow]
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:284:31: warning: left shift count >= width of type [-Wshift-count-overflow]
    set_raw_data( ((u8) (lft << 32)) | rgt);
                                ^
-In file included from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:16:0:
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:18:0:
 ../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h: In member function ‘KA::DGDB::DgDb_Type& KA::DGDB::DgDb_Type::set_stage_encoder(PROC_Type)’:
 ../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h:67:2: warning: no return statement in function returning non-void [-Wreturn-type]
   }  
   ^
-../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp: In function ‘int main(int, char**)’:
-../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:90:63: error: narrowing conversion of ‘777777’ from ‘int’ to ‘u2 {aka short unsigned int}’ inside { } [-Wnarrowing]
-  Test* test = new Test{"Critique of Pure Reason", "IK", 777777};
-                                                               ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp: In member function ‘void Test::encode_wg_stage_values(QByteArray&, KA::DGDB::WG_Stage_Value::Callback_type)’:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:49:7: error: ‘date’ was not declared in this scope
+    << date
+       ^
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp: In member function ‘void Test::read_stage_queue(QQueue<void*>&)’:
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:58:2: error: ‘date’ was not declared in this scope
+  date = *(QDate*) vals.dequeue();
+  ^
 ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp: In lambda function:
-../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:111:8: warning: unused variable ‘uu’ [-Wunused-variable]
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:120:8: warning: unused variable ‘uu’ [-Wunused-variable]
     u2* uu = (u2*) qq.dequeue();
         ^
-../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:112:13: warning: unused variable ‘s’ [-Wunused-variable]
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:121:13: warning: unused variable ‘s’ [-Wunused-variable]
     QString* s = (QString*) qq.dequeue();
              ^
 ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp: In function ‘int main(int, char**)’:
-../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:88:13: warning: unused variable ‘dgn’ [-Wunused-variable]
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:95:13: warning: unused variable ‘dgn’ [-Wunused-variable]
   DgDb_Node* dgn = dgi->add(qs);
              ^
-../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:138:13: warning: unused variable ‘dgn1’ [-Wunused-variable]
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:151:13: warning: unused variable ‘dgn1’ [-Wunused-variable]
   DgDb_Node* dgn1 = dgi->add(test);
              ^
-../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:140:13: warning: unused variable ‘dgn2’ [-Wunused-variable]
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:153:13: warning: unused variable ‘dgn2’ [-Wunused-variable]
   DgDb_Node* dgn2 = dgi->add(new QVector<u1> {4, 44, 64});
              ^
-../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:142:13: warning: unused variable ‘ty_u1’ [-Wunused-variable]
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:155:13: warning: unused variable ‘ty_u1’ [-Wunused-variable]
   DgDb_Type* ty_u1 = dgi->get_type_by_name("u1");
              ^
 ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp: At global scope:
-../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:54:14: warning: unused parameter ‘argc’ [-Wunused-parameter]
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:61:14: warning: unused parameter ‘argc’ [-Wunused-parameter]
  int main(int argc, char* argv[])
               ^
-../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:54:31: warning: unused parameter ‘argv’ [-Wunused-parameter]
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:61:31: warning: unused parameter ‘argv’ [-Wunused-parameter]
  int main(int argc, char* argv[])
                                ^
-In file included from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:16:0:
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:18:0:
 ../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h: In instantiation of ‘KA::DGDB::DgDb_Type& KA::DGDB::DgDb_Type::set_stage_encoder(PROC_Type) [with PROC_Type = void (Test::*)(QByteArray&, std::function<void(unsigned int, KA::DGDB::WG_Stage_Value*)>)]’:
-../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:68:52:   required from here
+../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:75:52:   required from here
 ../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h:65:18: warning: converting from ‘void (Test::*)(QByteArray&, std::function<void(unsigned int, KA::DGDB::WG_Stage_Value*)>)’ to ‘void (*)(void*, QByteArray&, KA::DGDB::WG_Stage_Value::Callback_type) {aka void (*)(void*, QByteArray&, std::function<void(unsigned int, KA::DGDB::WG_Stage_Value*)>)}’ [-Wpmf-conversions]
    stage_encoder_ = (void(*)(void*, QByteArray& qba,
                   ^
 In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h:16:0,
-                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:16:
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb-console/main.cpp:18:
 ../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:543:13: warning: ‘void yajl_set_default_alloc_funcs(yajl_alloc_funcs*)’ declared ‘static’ but never defined [-Wunused-function]
  static void yajl_set_default_alloc_funcs(yajl_alloc_funcs * yaf);
              ^

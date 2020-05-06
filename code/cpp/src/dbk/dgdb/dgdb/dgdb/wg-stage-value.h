@@ -90,6 +90,8 @@ public:
 
  u1 get_prelim_decoding_code() const;
 
+ u1 collapse_wg_encoding_type() const;
+
  bool is_uninit() const
  {
   return info_ == 0;
@@ -290,11 +292,21 @@ public:
   return *this;
  }
 
- WG_Stage_Value& set_time_data(QDateTime qdt)
+ WG_Stage_Value& set_date_data(QDateTime qdt)
+ {
+  return set_date_data(qdt.date());
+ }
+
+ WG_Stage_Value& set_time_data(QTime qtm)
  {
   note_time();
-  set_raw_data(qdt.toMSecsSinceEpoch());
+  set_raw_data(qtm.msecsSinceStartOfDay());
   return *this;
+ }
+
+ WG_Stage_Value& set_time_data(QDateTime qdt)
+ {
+  return set_time_data(qdt.time());
  }
 
  WG_Stage_Value& set_str_data(char* cs, u4 len = 0)

@@ -10,11 +10,11 @@ In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:38:0,
  ^
 In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:12:0:
 ../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘void KA::DGDB::WG_Stage_Value::cleanup()’:
-../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:130:18: warning: deleting ‘void*’ is undefined [-Wdelete-incomplete]
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:132:18: warning: deleting ‘void*’ is undefined [-Wdelete-incomplete]
    delete (void*) data_;
                   ^
 ../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘KA::DGDB::WG_Stage_Value& KA::DGDB::WG_Stage_Value::set_fixpoint_data(T)’:
-../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:282:31: warning: left shift count >= width of type [-Wshift-count-overflow]
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:284:31: warning: left shift count >= width of type [-Wshift-count-overflow]
    set_raw_data( ((u8) (lft << 32)) | rgt);
                                ^
 In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:14:0:
@@ -23,38 +23,65 @@ In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:14:0:
   }
   ^
 ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp: In function ‘void _rec_decode(void*, void*, u4, KA::DGDB::WG_Stage_Value&, u1)’:
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:379:11: warning: unused variable ‘wi’ [-Wunused-variable]
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:381:11: warning: unused variable ‘wi’ [-Wunused-variable]
     wg_int wi = wg_get_field(wh, rec, index);
            ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:386:11: warning: unused variable ‘wi’ [-Wunused-variable]
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:388:11: warning: unused variable ‘wi’ [-Wunused-variable]
     wg_int wi = wg_get_field(wh, rec, index);
            ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:393:11: warning: unused variable ‘wi’ [-Wunused-variable]
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:395:11: warning: unused variable ‘wi’ [-Wunused-variable]
     wg_int wi = wg_get_field(wh, rec, index);
            ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:426:11: warning: unused variable ‘wi’ [-Wunused-variable]
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:431:31: error: no match for ‘operator=’ (operand types are ‘QString’ and ‘QDate’)
+    wsv.data_to_ref<QString>() = QDate(y, m, d);
+                               ^
+In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhashfunctions.h:44:0,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlist.h:47,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qmap.h:44,
+                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QMap:1,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.h:11,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:8:
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:230:14: note: candidate: QString& QString::operator=(QChar)
+     QString &operator=(QChar c);
+              ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:230:14: note:   no known conversion for argument 1 from ‘QDate’ to ‘QChar’
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:231:14: note: candidate: QString& QString::operator=(const QString&)
+     QString &operator=(const QString &) Q_DECL_NOTHROW;
+              ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:231:14: note:   no known conversion for argument 1 from ‘QDate’ to ‘const QString&’
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:232:14: note: candidate: QString& QString::operator=(QLatin1String)
+     QString &operator=(QLatin1String latin1);
+              ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:232:14: note:   no known conversion for argument 1 from ‘QDate’ to ‘QLatin1String’
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:235:21: note: candidate: QString& QString::operator=(QString&&)
+     inline QString &operator=(QString &&other) Q_DECL_NOTHROW
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:235:21: note:   no known conversion for argument 1 from ‘QDate’ to ‘QString&&’
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:705:40: note: candidate: QString& QString::operator=(const char*)
+     inline QT_ASCII_CAST_WARN QString &operator=(const char *ch)
+                                        ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:705:40: note:   no known conversion for argument 1 from ‘QDate’ to ‘const char*’
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:707:40: note: candidate: QString& QString::operator=(const QByteArray&)
+     inline QT_ASCII_CAST_WARN QString &operator=(const QByteArray &a)
+                                        ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:707:40: note:   no known conversion for argument 1 from ‘QDate’ to ‘const QByteArray&’
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:709:40: note: candidate: QString& QString::operator=(char)
+     inline QT_ASCII_CAST_WARN QString &operator=(char c)
+                                        ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:709:40: note:   no known conversion for argument 1 from ‘QDate’ to ‘char’
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:820:21: note: candidate: QString& QString::operator=(const QString::Null&)
+     inline QString &operator=(const Null &) { *this = QString(); return *this; }
+                     ^
+/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h:820:21: note:   no known conversion for argument 1 from ‘QDate’ to ‘const QString::Null&’
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:438:11: warning: unused variable ‘wi’ [-Wunused-variable]
     wg_int wi = wg_get_field(wh, rec, index);
            ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:433:11: warning: unused variable ‘wi’ [-Wunused-variable]
-    wg_int wi = wg_get_field(wh, rec, index);
-           ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp: In member function ‘KA::DGDB::WDB_Instance* KA::DGDB::WDB_Manager::new_white(u2, u8, QString)’:
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:564:75: error: invalid conversion from ‘char*’ to ‘gint {aka long int}’ [-fpermissive]
-    db = wg_attach_local_database(QString::number(num_code).toLatin1().data(), mem); 
-                                                                           ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:564:82: error: too many arguments to function ‘void* wg_attach_local_database(gint)’
-    db = wg_attach_local_database(QString::number(num_code).toLatin1().data(), mem); 
-                                                                                  ^
-In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:32:0:
-../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:1437:7: note: declared here
- void* wg_attach_local_database(gint size);
-       ^
 ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp: In lambda function:
 ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:133:6: warning: control reaches end of non-void function [-Wreturn-type]
       });
       ^
 ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp: In function ‘wg_int _rec_encode(void*, KA::DGDB::WG_Stage_Value&)’:
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:249:1: warning: control reaches end of non-void function [-Wreturn-type]
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:251:1: warning: control reaches end of non-void function [-Wreturn-type]
  }
  ^
 In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:32:0:
