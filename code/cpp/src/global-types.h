@@ -23,6 +23,24 @@ typedef qint16 s2;
 typedef qint32 s4;
 typedef qint64 s8;
 
+typedef char i1;
+
+// //  allows someone to to define 
+ //    integer types either signed 
+ //    by default.  Unless explicitly 
+ //    set, takes signedness from 
+ //    default char ...
+#include <climits>
+#if (CHAR_MIN==0)
+typedef quint16 i2;
+typedef quint32 i4;
+typedef quint64 i8;
+#else
+typedef qint16 i2;
+typedef qint32 i4;
+typedef qint64 i8;
+#endif
+
 static inline QString operator ""_q(const char* cs, size_t size)
 {
  std::string ss(cs, size);

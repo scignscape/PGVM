@@ -83,7 +83,17 @@ public:
 
  WG_Stage_Value& set_ptr_data(void* ptr);
 
- u1 get_encoding_type() const;
+ u1 get_wg_encoding_type() const;
+ u1 get_byte_length() const;
+ u1 get_prelim_encoding_code() const;
+ u1 get_read_encoding_type() const;
+
+ u1 get_prelim_decoding_code() const;
+
+ bool is_uninit() const
+ {
+  return info_ == 0;
+ }
 
  u1& operator()(void* pv)
  {
@@ -122,6 +132,11 @@ public:
  }
 
  WG_Stage_Value& note_unspec();
+ WG_Stage_Value& note_enum();
+ WG_Stage_Value& note_signed_enum();
+ WG_Stage_Value& note_char_enum();
+ WG_Stage_Value& note_qstring();
+ WG_Stage_Value& note_uint();
  WG_Stage_Value& note_null();
  WG_Stage_Value& note_rec();
  WG_Stage_Value& note_int();
@@ -134,8 +149,6 @@ public:
  WG_Stage_Value& note_fixp();
  WG_Stage_Value& note_date();
  WG_Stage_Value& note_time();
- WG_Stage_Value& note_qstring();
- WG_Stage_Value& note_mrec();
  WG_Stage_Value& note_tbd();
 
  WG_Stage_Value& note_data_has_type();
@@ -147,11 +160,67 @@ public:
  WG_Stage_Value& new_qstring(const QString& qs);
 
  template<typename T>
+ WG_Stage_Value& set_uint_data(T t)
+ {
+  note_uint();
+  set_raw_data(t);
+  return *this;
+ }
+
+ template<typename T>
+ WG_Stage_Value& set_u1_data(T t)
+ {
+  return set_uint_data(t).note_byte_length(1);
+ }
+
+ template<typename T>
+ WG_Stage_Value& set_u2_data(T t)
+ {
+  return set_uint_data(t).note_byte_length(2);
+ }
+
+ template<typename T>
+ WG_Stage_Value& set_u4_data(T t)
+ {
+  return set_uint_data(t).note_byte_length(4);
+ }
+
+ template<typename T>
+ WG_Stage_Value& set_u8_data(T t)
+ {
+  return set_uint_data(t).note_byte_length(8);
+ }
+
+ template<typename T>
  WG_Stage_Value& set_int_data(T t)
  {
   note_int();
   set_raw_data(t);
   return *this;
+ }
+
+ template<typename T>
+ WG_Stage_Value& set_s1_data(T t)
+ {
+  return set_int_data(t).note_byte_length(1);
+ }
+
+ template<typename T>
+ WG_Stage_Value& set_s2_data(T t)
+ {
+  return set_int_data(t).note_byte_length(2);
+ }
+
+ template<typename T>
+ WG_Stage_Value& set_s4_data(T t)
+ {
+  return set_int_data(t).note_byte_length(4);
+ }
+
+ template<typename T>
+ WG_Stage_Value& set_s8_data(T t)
+ {
+  return set_int_data(t).note_byte_length(8);
  }
 
  WG_Stage_Value& set_null_data()
@@ -161,7 +230,15 @@ public:
   return *this;
  }
 
- WG_Stage_Value& set_char_data(u1 chr)
+ template<typename T>
+ WG_Stage_Value& set_null_data(T t)
+ {
+  note_null();
+  set_raw_data(t);
+  return *this;
+ }
+
+ WG_Stage_Value& set_char_data(char chr)
  {
   note_char();
   set_raw_data(chr);
@@ -187,6 +264,12 @@ public:
   note_dbl();
   set_ptr_data(tt);
   return *this;
+ }
+
+ template<typename T>
+ WG_Stage_Value& set_float_data(T t)
+ {
+  return set_double_data(t).set_byte_length(4);
  }
 
  template<typename T>

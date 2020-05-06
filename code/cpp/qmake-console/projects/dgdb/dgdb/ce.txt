@@ -1,57 +1,82 @@
-In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:15:0,
-                 from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:8:
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.h:16:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:8:
 ../../../../src/accessors.h:130:1: warning: multi-line comment [-Wcomment]
  //#define ACCESSORS(type, name) \
  ^
 In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:38:0,
-                 from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:8:
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:14:
 ../../../../src/flags.h:204:1: warning: multi-line comment [-Wcomment]
  //#define flags_(byte_count) \
  ^
-In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:8:0:
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:12:0:
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘void KA::DGDB::WG_Stage_Value::cleanup()’:
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:130:18: warning: deleting ‘void*’ is undefined [-Wdelete-incomplete]
+   delete (void*) data_;
+                  ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘KA::DGDB::WG_Stage_Value& KA::DGDB::WG_Stage_Value::set_fixpoint_data(T)’:
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:242:31: warning: left shift count >= width of type [-Wshift-count-overflow]
+   set_raw_data( ((u8) (lft << 32)) | rgt);
+                               ^
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:14:0:
 ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h: In member function ‘KA::DGDB::DgDb_Node* KA::DGDB::DgDb_Instance::add(VERTEX_Type*)’:
 ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:129:2: warning: no return statement in function returning non-void [-Wreturn-type]
   }
   ^
-In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h:14:0,
-                 from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:14:
-../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘void KA::DGDB::WG_Stage_Queue::operator=(std::initializer_list<void*>)’:
-../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:35:51: error: no matching function for call to ‘QQueue<void*>::append(QList<void*>::iterator, std::initializer_list<void*>::const_iterator, std::initializer_list<void*>::const_iterator)’
-   values.append(values.end(), vs.begin(), vs.end()); 
-                                                   ^
-In file included from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qmap.h:44:0,
-                 from /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QMap:1,
-                 from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:13,
-                 from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:8:
-/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlist.h:582:27: note: candidate: void QList<T>::append(const T&) [with T = void*]
- Q_OUTOFLINE_TEMPLATE void QList<T>::append(const T &t)
-                           ^
-/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlist.h:582:27: note:   candidate expects 1 argument, 3 provided
-/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlist.h:965:13: note: candidate: void QList<T>::append(const QList<T>&) [with T = void*]
- inline void QList<T>::append(const QList<T> &t)
-             ^
-/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlist.h:965:13: note:   candidate expects 1 argument, 3 provided
-In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h:14:0,
-                 from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:14:
-../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘void KA::DGDB::WG_Stage_Value::cleanup()’:
-../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:112:18: warning: deleting ‘void*’ is undefined [-Wdelete-incomplete]
-   delete (void*) data_;
-                  ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘KA::DGDB::WG_Stage_Value& KA::DGDB::WG_Stage_Value::set_fixpoint_data(T)’:
-../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:191:31: warning: left shift count >= width of type [-Wshift-count-overflow]
-   set_raw_data( ((u8) (lft << 32)) | rgt);
-                               ^
-In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:14:0:
-../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h: In member function ‘KA::DGDB::DgDb_Type& KA::DGDB::DgDb_Type::set_stage_encoder(PROC_Type)’:
-../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h:67:2: warning: no return statement in function returning non-void [-Wreturn-type]
-  }  
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp: In function ‘void _rec_decode(void*, void*, u4, KA::DGDB::WG_Stage_Value&, u1)’:
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:375:11: warning: unused variable ‘wi’ [-Wunused-variable]
+    wg_int wi = wg_get_field(wh, rec, index);
+           ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:382:11: warning: unused variable ‘wi’ [-Wunused-variable]
+    wg_int wi = wg_get_field(wh, rec, index);
+           ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:389:11: warning: unused variable ‘wi’ [-Wunused-variable]
+    wg_int wi = wg_get_field(wh, rec, index);
+           ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:422:11: warning: unused variable ‘wi’ [-Wunused-variable]
+    wg_int wi = wg_get_field(wh, rec, index);
+           ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:429:11: warning: unused variable ‘wi’ [-Wunused-variable]
+    wg_int wi = wg_get_field(wh, rec, index);
+           ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp: In member function ‘void KA::DGDB::WDB_Manager::decode_value(void*, u4, KA::DGDB::WG_Stage_Value&, KA::DGDB::WDB_Instance*)’:
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:475:2: error: case label ‘3’ not within a switch statement
+  case 3:
   ^
-../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp: At global scope:
-../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:93:44: warning: unused parameter ‘fld’ [-Wunused-parameter]
- void DgDb_Instance::init_from_ntxh(QString fld, u1 code)
-                                            ^
-In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type-builder.h:14:0,
-                 from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:13:
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:479:3: error: break statement not within loop or switch
+   break;
+   ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:481:2: error: case label ‘16’ not within a switch statement
+  case 16: // enum
+  ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:486:3: error: break statement not within loop or switch
+   break;
+   ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:488:2: error: case label ‘17’ not within a switch statement
+  case 17: // signed enum
+  ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:493:3: error: break statement not within loop or switch
+   break;
+   ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:495:2: error: case label ‘18’ not within a switch statement
+  case 18: // signed enum
+  ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:500:3: error: break statement not within loop or switch
+   break;
+   ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp: At global scope:
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:508:1: error: expected declaration before ‘}’ token
+ }
+ ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp: In lambda function:
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:133:6: warning: control reaches end of non-void function [-Wreturn-type]
+      });
+      ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp: In function ‘wg_int _rec_enc(void*, KA::DGDB::WG_Stage_Value&)’:
+../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:249:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:32:0:
+../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h: At global scope:
 ../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:543:13: warning: ‘void yajl_set_default_alloc_funcs(yajl_alloc_funcs*)’ declared ‘static’ but never defined [-Wunused-function]
  static void yajl_set_default_alloc_funcs(yajl_alloc_funcs * yaf);
              ^
@@ -109,4 +134,4 @@ In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type-builder
 ../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:765:1: warning: ‘long long int yajl_parse_integer(const unsigned char*, unsigned int)’ declared ‘static’ but never defined [-Wunused-function]
  yajl_parse_integer(const unsigned char *number, unsigned int length);
  ^
-make: *** [../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/dgdb/release/dgdb-instance.o] Error 1
+make: *** [../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/dgdb/release/wdb-manager.o] Error 1

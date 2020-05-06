@@ -41,7 +41,7 @@ void Test::encode_wg_stage_values(QByteArray& qba,
  QDataStream qds(&qba, QIODevice::WriteOnly);
  qds << WG_Stage_Value().new_qstring(title).run[1](cb)
    << author
-   << WG_Stage_Value().note_int().set_raw_data(num).run[2](cb);
+   << WG_Stage_Value().set_u2_data(num).run[2](cb);
 }
 
 void Test::read_stage_queue(QQueue<void*>& vals)
@@ -87,7 +87,7 @@ int main(int argc, char* argv[])
  QString* qs = new QString("OK");
  DgDb_Node* dgn = dgi->add(qs);
 
- Test* test = new Test{"Critique of Pure Reason", "IK", 77};
+ Test* test = new Test{"Critique of Pure Reason", "IK", 777};
  QByteArray qba;
  fn(test, qba, cb);
 

@@ -140,6 +140,114 @@ void WDB_Manager::init_from_ntxh()
  
 }
 
+
+// // helper function for the method following it ...
+wg_int _rec_encode(void* wh, WG_Stage_Value& wsv)
+{
+ u1 et = wsv.get_wg_encoding_type();
+ switch(et)
+ {
+ case WG_NULLTYPE: 
+  {
+   wg_int wi = wg_encode_null(wh, (char*) wsv.data());
+   return wi;
+  }
+  break; 
+
+ case WG_RECORDTYPE: 
+  {
+   wg_int wi = wg_encode_record(wh, (void*) wsv.data());
+   return wi;
+  }
+  break; 
+
+ case WG_INTTYPE:
+  {
+   wg_int wi = wg_encode_int(wh, wsv.data());
+   return wi;
+  }
+  break;
+
+ case WG_DOUBLETYPE:
+  {
+   double* dbl = (double*) wsv.data();
+   wg_int wi = wg_encode_double(wh, *dbl);
+   wsv.cleanup();
+   return wi;
+  }
+  break;
+
+ case WG_STRTYPE:
+  {
+   char* cs = (char*) wsv.data();
+   wg_int wi = wg_encode_str(wh, cs, nullptr);
+   wsv.cleanup();
+   return wi;
+  }
+  break;
+
+ case WG_XMLLITERALTYPE:
+  {
+   char* cs = (char*) wsv.data();
+   wg_int wi = wg_encode_xmlliteral(wh, cs, nullptr);
+   wsv.cleanup();   
+   return wi;
+  }
+  break;
+
+ case WG_URITYPE:
+  {
+   char* cs = (char*) wsv.data();
+   wg_int wi = wg_encode_uri(wh, cs, nullptr);
+   wsv.cleanup();
+   return wi;
+  }
+  break;
+
+ case WG_BLOBTYPE:
+  {
+   QPair<u4, char*>* pr = (QPair<u4, char*>*) wsv.data();
+   wg_int wi = wg_encode_blob(wh, pr->second, nullptr, pr->first);
+   wsv.cleanup();
+   return wi;
+  }
+  break;
+
+ case WG_CHARTYPE:
+  {
+   wg_int wi = wg_encode_char(wh, wsv.data());
+   return wi;
+  }
+  break;
+
+ case WG_FIXPOINTTYPE:
+  {
+   u4 rgt = wsv.data() & 0xFFFFFFFF;
+   u4 lft = wsv.data() >> 32;
+   double dbl = rgt + (lft/10000);
+   wg_int wi = wg_encode_double(wh, dbl);
+   return wi;
+  }
+  break;
+
+ case WG_DATETYPE:
+  {
+   wg_int wi = wg_encode_date(wh, wsv.data());
+   return wi;   
+  }
+  break;
+
+ case WG_TIMETYPE:
+  {
+   wg_int wi = wg_encode_date(wh, wsv.data());
+   return wi;
+  }
+  break;
+ default: 
+   break;
+ } 
+}
+
 void* WDB_Manager::new_wg_record(QMap<u4, WG_Stage_Value>& wsvs,
   WDB_Instance* wdbi)
 {
@@ -164,118 +272,41 @@ void* WDB_Manager::new_wg_record(QMap<u4, WG_Stage_Value>& wsvs,
 
   WG_Stage_Value& wsv = it.value();
 
-  u1 et = wsv.get_encoding_type();
-
-
-  switch(et)
+  u1 ec = wsv.get_prelim_encoding_code();
+  switch(ec)
   {
-  case WG_RECORDTYPE: 
-   {
-    wg_int wi = wg_encode_record(wh, (void*) wsv.data());
-    wgim[index] = wi;
-   }
-   break; 
-
-  case WG_INTTYPE:
-   {
-    wg_int wi = wg_encode_int(wh, wsv.data());
-    wgim[index] = wi;
-//    int i = wg_decode_int(wh, wi);
-//    qDebug() << "Ti: " << i;
-   }
-   break;
-
-  case WG_DOUBLETYPE:
-   {
-    double* dbl = (double*) wsv.data();
-    wg_int wi = wg_encode_double(wh, *dbl);
-    wgim[index] = wi;
-    wsv.cleanup();
-   }
-   break;
-
-  case WG_STRTYPE:
-   {
-    char* cs = (char*) wsv.data();
-    wg_int wi = wg_encode_str(wh, cs, nullptr);
-    wgim[index] = wi;    
-    wsv.cleanup();
-   }
-   break;
-
-  case WG_XMLLITERALTYPE:
-   {
-    char* cs = (char*) wsv.data();
-    wg_int wi = wg_encode_xmlliteral(wh, cs, nullptr);
-    wgim[index] = wi;
-    wsv.cleanup();
-   }
-   break;
-
-  case WG_URITYPE:
-   {
-    char* cs = (char*) wsv.data();
-    wg_int wi = wg_encode_uri(wh, cs, nullptr);
-    wgim[index] = wi;
-    wsv.cleanup();
-   }
-   break;
-
-  case WG_BLOBTYPE:
-   {
-    QPair<u4, char*>* pr = (QPair<u4, char*>*) wsv.data();
-    wg_int wi = wg_encode_blob(wh, pr->second, nullptr, pr->first);
-    wgim[index] = wi;
-    wsv.cleanup();
-   }
-   break;
-
-  case WG_CHARTYPE:
+  case 0:  // same as char ...
    {
     wg_int wi = wg_encode_char(wh, wsv.data());
     wgim[index] = wi;
    }
    break;
-
-  case WG_FIXPOINTTYPE:
+  case 1:  // uint; same as int in this context ...
    {
-    u4 rgt = wsv.data() & 0xFFFFFFFF;
-    u4 lft = wsv.data() >> 32;
-    double dbl = rgt + (lft/10000);
-    wg_int wi = wg_encode_double(wh, dbl);
+    wg_int wi = wg_encode_int(wh, wsv.data());
     wgim[index] = wi;
    }
    break;
-
-  case WG_DATETYPE:
-   {
-    wg_int wi = wg_encode_date(wh, wsv.data());
-    wgim[index] = wi;   
-   }
-   break;
-
-  case WG_TIMETYPE:
-   {
-    wg_int wi = wg_encode_date(wh, wsv.data());
-    wgim[index] = wi;
-   }
-   break;
-
-  case 13: // qstring
+  case 2:  // qstring
    {
     QString* qs = (QString*) wsv.data();
     wg_int wi = wg_encode_str(wh, qs->toLatin1().data(), nullptr);
     wgim[index] = wi;
-    wsv.cleanup();    
-
-//    char* cs = wg_decode_str(wh, wi);
-//    QString testqs(cs);
-//    qDebug() << "TQS: " << testqs;
+    wsv.cleanup();
    }
    break;
-
-  default: 
-    break;
+  case 3:
+   {
+    wg_int wi = _rec_encode(wh, wsv);
+    wgim[index] = wi;
+   }
+   break;
+  case 15:
+    // // unimplemented ...
+   break;
+  default:
+    // // error ...  
+   break;
   }
  }
 
@@ -302,19 +333,19 @@ void WDB_Manager::decode_value(void* rec, u4 index, void* target,
 }
 */
 
-void WDB_Manager::decode_value(void* rec, u4 index, 
-   WG_Stage_Value& wsv, WDB_Instance* wdbi)
+// // helper function for the method following it ...
+void _rec_decode(void* wh, void* rec, u4 index, 
+  WG_Stage_Value& wsv, u1 ft = 0)
 {
- if(!wdbi)
-  wdbi = current_white_;
- 
- void* wh = wdbi->white();
-
- u1 et = wsv.get_encoding_type();
-//  u1 et = wsv.get_encoding_type();
-
- switch(et)
+ if(ft == 0)
+   ft = wg_get_field_type(wh, rec, index);
+ switch(ft)
  {
+ case 0:
+  {
+   // // error ... uninit 
+  }
+  break;
  case WG_RECORDTYPE: 
   {
   }
@@ -323,14 +354,23 @@ void WDB_Manager::decode_value(void* rec, u4 index,
  case WG_INTTYPE:
   {
    wg_int wi = wg_get_field(wh, rec, index);
-   wsv.data_to_ref<u2>() = wg_decode_int(wh, wi);
+   switch(wsv.get_byte_length())
+   {
+   case 1: wsv.data_to_ref<s1>() = wg_decode_int(wh, wi); break;
+   case 2: wsv.data_to_ref<s2>() = wg_decode_int(wh, wi); break;
+   case 4: wsv.data_to_ref<s4>() = wg_decode_int(wh, wi); break;
+   case 8: wsv.data_to_ref<s8>() = wg_decode_int(wh, wi); break;
+   }
   }
   break;
 
  case WG_DOUBLETYPE:
   {
    wg_int wi = wg_get_field(wh, rec, index);
-//   wg_int wi = wg_decode_double(wh, *dbl);
+   if(wsv.get_byte_length() == 4)
+     wsv.data_to_ref<float>() = wg_decode_double(wh, wi);
+   else
+     wsv.data_to_ref<double>() = wg_decode_double(wh, wi);
   }
   break;
 
@@ -358,21 +398,26 @@ void WDB_Manager::decode_value(void* rec, u4 index,
  case WG_BLOBTYPE:
   {
    wg_int wi = wg_get_field(wh, rec, index);
-//   wg_int wi = wg_decode_double(wh, *dbl);
+   char* blob = wg_decode_blob(wh, wi);
+   wg_int blen = wg_decode_blob_len(wh, wi);
+   wsv.data_to_ref<QByteArray>() = QByteArray::fromRawData(blob, blen);
   }
   break;
 
  case WG_CHARTYPE:
   {
    wg_int wi = wg_get_field(wh, rec, index);
-//   wg_int wi = wg_decode_double(wh, *dbl);
+   wsv.data_to_ref<char>() = wg_decode_char(wh, wi); 
   }
   break;
 
  case WG_FIXPOINTTYPE:
   {
    wg_int wi = wg_get_field(wh, rec, index);
-//   wg_int wi = wg_decode_double(wh, *dbl);
+   if(wsv.get_byte_length() == 4)
+     wsv.data_to_ref<float>() = wg_decode_double(wh, wi);
+   else
+     wsv.data_to_ref<double>() = wg_decode_double(wh, wi);
   }
   break;
 
@@ -390,21 +435,74 @@ void WDB_Manager::decode_value(void* rec, u4 index,
   }
   break;
 
- case 13: // qstring
-  {
-   wg_int wi = wg_get_field(wh, rec, index);
-   const char* cs = wg_decode_str(wh, wi);
-//   wg_int len = wg_decode_str_len(wh, wi);
-   wsv.data_to_ref<QString>() = QString(cs);
-//   wg_int wi = wg_decode_double(wh, *dbl);
-  }
-  break;
-
   default: 
    break;
  }
+}
 
+void WDB_Manager::decode_value(void* rec, u4 index, 
+   WG_Stage_Value& wsv, WDB_Instance* wdbi)
+{
+ if(!wdbi)
+  wdbi = current_white_;
  
+ void* wh = wdbi->white();
+
+// u1 et = wsv.get_decoding_type();
+//  u1 et = wsv.get_encoding_type();
+
+ u1 dc = wsv.get_prelim_decoding_code();
+
+ switch(dc)
+ {
+ case 0: // error
+  break;
+ case 1: // uint 
+  {
+   wg_int wi = wg_get_field(wh, rec, index);
+   switch(wsv.get_byte_length())
+   {
+   case 1: wsv.data_to_ref<u1>() = wg_decode_int(wh, wi); break;
+   case 2: wsv.data_to_ref<u2>() = wg_decode_int(wh, wi); break;
+   case 4: wsv.data_to_ref<u4>() = wg_decode_int(wh, wi); break;
+   case 8: wsv.data_to_ref<u8>() = wg_decode_int(wh, wi); break;
+   }   
+  }
+  break;
+ case 2: // QString 
+  {
+   wg_int wi = wg_get_field(wh, rec, index);
+   const char* cs = wg_decode_str(wh, wi);
+   wsv.data_to_ref<QString>() = QString(cs);
+  }
+  break;
+ case 3:
+  {
+   _rec_decode(wh, rec, index, wsv);
+  }
+  break;
+
+ case 16: // enum
+  {
+   wg_int wi = wg_get_field(wh, rec, index);
+   wsv.data_to_ref<u1>() = wg_decode_char(wh, wi); 
+  }
+  break;
+
+ case 17: // signed enum
+  {
+   wg_int wi = wg_get_field(wh, rec, index);
+   wsv.data_to_ref<s1>() = wg_decode_char(wh, wi); 
+  }
+  break;
+
+ case 18: // signed enum
+  {
+   wg_int wi = wg_get_field(wh, rec, index);
+   wsv.data_to_ref<i1>() = wg_decode_char(wh, wi); 
+  }
+  break;
+ }
 }
 
 
@@ -445,7 +543,14 @@ WDB_Instance* WDB_Manager::new_white(u2 num_code, u8 mem, QString name)
  if(mem == 0)
    mem = default_mem_size_;
 
- void* db = wg_attach_database(QString::number(num_code).toLatin1().data(), mem);
+ void* db;
+
+ if(dgdb_instance_->Config.flags.scratch_mode)
+ {
+
+ }
+ else
+   wg_attach_database(QString::number(num_code).toLatin1().data(), mem);
  WDB_Instance* result = new WDB_Instance(db, name);
  result->set_creation_datetime();
 
