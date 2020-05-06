@@ -535,7 +535,7 @@ void WDB_Manager::set_qba_data_field(void* rec, QByteArray& qba,
 
 WDB_Instance* WDB_Manager::new_white(u2 num_code, u8 mem, QString name)
 {
- if(num_code == 0)
+ if( (num_code == 0) && !dgdb_instance_->Config.flags.local_scratch_mode )
  {
   max_num_code_ += 100;
   num_code = max_num_code_;
@@ -545,12 +545,26 @@ WDB_Instance* WDB_Manager::new_white(u2 num_code, u8 mem, QString name)
 
  void* db;
 
- if(dgdb_instance_->Config.flags.scratch_mode)
+ if(dgdb_instance_->Config.flags.local_scratch_mode)
+   db = wg_attach_local_database(mem); 
+ else if(dgdb_instance_->Config.flags.scratch_mode)
  {
-
+  void* _db = wg_attach_existing_database(
+    QString::number(num_code).toLatin1().data());
+  if(_db)
+  {
+   int ok = wg_delete_database(QString::number(num_code).toLatin1().data());
+   if(ok > 0)
+   {
+    qDebug() << "Failed to delete database: " << num_code;
+    // // error ... throw something?
+   }
+  } 
+  db = wg_attach_database(QString::number(num_code).toLatin1().data(), mem);    
  }
  else
-   wg_attach_database(QString::number(num_code).toLatin1().data(), mem);
+   db = wg_attach_database(QString::number(num_code).toLatin1().data(), mem);
+
  WDB_Instance* result = new WDB_Instance(db, name);
  result->set_creation_datetime();
 

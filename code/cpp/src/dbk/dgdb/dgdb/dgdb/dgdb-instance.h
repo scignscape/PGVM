@@ -73,6 +73,7 @@ public:
  {
   flags_(1)
    bool scratch_mode:1;
+   bool local_scratch_mode:1;
    bool auto_stage:1;
    bool auto_commit:1;
   _flags
