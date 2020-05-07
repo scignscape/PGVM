@@ -44,11 +44,13 @@ void Test::encode_wg_stage_values(QByteArray& qba,
    WG_Stage_Value::Callback_type cb)
 {
  QDataStream qds(&qba, QIODevice::WriteOnly);
- qds << WG_Stage_Value().new_qstring(title).run[1](cb)
+ qds << WG_Stage_Value().new_qstring_pair(title, "English").run[1](cb)
    << author
-   << WG_Stage_Value().set_u2_data(num).run[2](cb)[C_STRING_DECODING_Flag][64]
+   << WG_Stage_Value().set_u2_data(num).run[2](cb)
    << WG_Stage_Value().set_date_data(publication_date).run[3](cb)
    << WG_Stage_Value().set_time_data(test_time).run[4](cb)
+   << WG_Stage_Value().set_xml_data(QString::number(num), "xs:integer")
+     .run[5](cb)[XSD_TYPE_DECODING_Flag];
  ;
 }
 
@@ -59,6 +61,8 @@ void Test::read_stage_queue(QQueue<void*>& vals)
  num = *(u2*) vals.dequeue();
  publication_date = *(QDate*) vals.dequeue();
  test_time = *(QTime*) vals.dequeue();
+ QStringList qsl = *(QStringList*) vals.dequeue();
+ qDebug() << "qsl: " << qsl; 
 }
 
 int main(int argc, char* argv[])
@@ -118,15 +122,21 @@ int main(int argc, char* argv[])
   qds >> qm[3](&dtest->publication_date);  
   qds >> qm[4](&dtest->test_time);  
 
+  QStringList* nn = new QStringList;
+
+  qds >> qm[5](nn);  
+
   sq = {&dtest->title, &dtest->num, 
-    &dtest->publication_date, &dtest->test_time};
+    &dtest->publication_date, &dtest->test_time, nn};
+  
   sq << [](QQueue<void*> qq)
   {
    QString* s = (QString*) qq.dequeue();
    u2* uu = (u2*) qq.dequeue();
    QDate* qd = (QDate*) qq.dequeue();
    QTime* qtm = (QTime*) qq.dequeue();
-   qDebug() << *qd << *qtm;
+   QStringList* qsl = (QStringList*) qq.dequeue();
+   qDebug() << *qsl;
   };
  });
 
@@ -140,15 +150,17 @@ int main(int argc, char* argv[])
   QString* str1 = new QString;
   QDate* qd = new QDate;
   QTime* qtm = new QTime;
-  
+  QStringList* qsl = new QStringList;
+
   u2* num = new u2;
   qds >> qm[1](str);
   qds >> *str1;
   qds >> qm[2](num);
   qds >> qm[3](qd);
   qds >> qm[4](qtm);
+  qds >> qm[5](qsl);
 
-  sq = {dtest1, str, str1, num, qd, qtm};
+  sq = {dtest1, str, str1, num, qd, qtm, qsl};
   sq << stage_queue_memfnptr<Test>(&Test::read_stage_queue);
  });
 

@@ -23,7 +23,9 @@
 
 KANS_(DGDB)
 
-static constexpr u1 C_STRING_DECODING_Flag = 128;
+static constexpr u1 C_STRING_DECODING_Flag = 64;
+static constexpr u1 XSD_TYPE_DECODING_Flag = 128;
+static constexpr u1 URI_PREFIX_DECODING_Flag = 128;
 
 class DgDb_Node;
 
@@ -168,15 +170,23 @@ public:
  WG_Stage_Value& note_time();
  WG_Stage_Value& note_tbd();
 
+ WG_Stage_Value& note_byte_length(u1 len);
+
  WG_Stage_Value& note_data_has_type();
  WG_Stage_Value& clear_data_has_type();
- WG_Stage_Value& note_byte_length(u1 len);
+ bool check_data_has_type() { return info_ & 8; }
+
  WG_Stage_Value& note_no_delete();
  WG_Stage_Value& clear_no_delete();
 
  bool check_no_delete() { return info_ & 16; }
 
  WG_Stage_Value& new_qstring(const QString& qs);
+ WG_Stage_Value& new_qstring_pair(const QString& qs);
+ WG_Stage_Value& new_qstring_pair(const QString& qs1, const QString& qs2);
+
+ WG_Stage_Value& new_qstring_xml_pair(const QString& qs1, const QString& qs2);
+ WG_Stage_Value& new_qstring_uri_pair(const QString& qs1, const QString& qs2);
 
  template<typename T>
  WG_Stage_Value& set_uint_data(T t)
@@ -347,6 +357,11 @@ public:
   return *this;
  }
 
+ WG_Stage_Value& set_xml_data(QString str, QString xsdt) //, QString xsd = {})
+ {
+  return new_qstring_xml_pair(str, xsdt);
+ }
+
  WG_Stage_Value& set_uri_data(QString str, u4 len = 0) //, QString xsd = {})
  {
   const char* cs = str.toLatin1().constData();
@@ -356,6 +371,11 @@ public:
   note_uri();
   set_ptr_data(ncs);
   return *this;
+ }
+
+ WG_Stage_Value& set_uri_data(QString str, QString ns) //, QString xsd = {})
+ {
+  return new_qstring_uri_pair(str, ns);
  }
 
  WG_Stage_Value& set_blob_data(char* blob, u4 len) //, QString xsd = {})

@@ -61,7 +61,31 @@ u1 WG_Stage_Value::_run_result::collapse_wg_encoding_type() const
 
 WG_Stage_Value& WG_Stage_Value::new_qstring(const QString& qs)
 {
- note_qstring().set_data(qs);
+ return note_qstring().set_data(qs);
+}
+
+WG_Stage_Value& WG_Stage_Value::new_qstring_pair(const QString& qs)
+{
+ return note_qstring().note_data_has_type().set_data(
+   QPair<u8, QStringList*> {0, new QStringList {qs, {}}});
+}
+
+WG_Stage_Value& WG_Stage_Value::new_qstring_pair(const QString& qs1, const QString& qs2)
+{
+ return note_qstring().note_data_has_type().set_data(
+   QPair<u8, QStringList*> {0, new QStringList {qs1, qs2}});
+}
+
+WG_Stage_Value& WG_Stage_Value::new_qstring_xml_pair(const QString& qs1, const QString& qs2)
+{
+ return note_xml().note_data_has_type().set_data(
+   QPair<u8, QStringList*> {0, new QStringList {qs1, qs2}});
+}
+
+WG_Stage_Value& WG_Stage_Value::new_qstring_uri_pair(const QString& qs1, const QString& qs2)
+{
+ return note_uri().note_data_has_type().set_data(
+   QPair<u8, QStringList*> {0, new QStringList {qs1, qs2}});
 }
 
 

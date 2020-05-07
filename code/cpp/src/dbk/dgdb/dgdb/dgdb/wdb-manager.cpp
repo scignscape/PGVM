@@ -188,8 +188,34 @@ wg_int _rec_encode(void* wh, WG_Stage_Value& wsv)
 
  case WG_XMLLITERALTYPE:
   {
-   char* cs = (char*) wsv.data();
-   wg_int wi = wg_encode_xmlliteral(wh, cs, nullptr);
+   char* lit, *xsdt;
+   QByteArray qba1, qba2; // //  prevents the toLatin1 temporaries 
+     // from going out of scope too soon ...
+
+   if(wsv.check_data_has_type())
+   {
+    QPair<u8, QStringList*>* pr = (QPair<u8, QStringList*>*) wsv.data();
+    qDebug() << "PR: " << *(pr->second);
+    if(pr->first)
+      break; // //  TODO: special types
+    if(pr->second->isEmpty())
+      break; // //  something's wrong ...
+    qba1 = pr->second->first().toLatin1(); 
+    lit = qba1.data();
+    if(pr->second->size() > 1)
+    {
+     qba2 = pr->second->at(1).toLatin1(); 
+     xsdt = qba2.data();
+    }
+    else
+      xsdt = nullptr;
+   }
+   else
+   {
+    lit = (char*) wsv.data();
+    xsdt = nullptr;
+   }
+   wg_int wi = wg_encode_xmlliteral(wh, lit, xsdt);
    wsv.cleanup();   
    return wi;
   }
@@ -293,8 +319,28 @@ void* WDB_Manager::new_wg_record(QMap<u4, WG_Stage_Value>& wsvs,
    break;
   case 2:  // qstring
    {
-    QString* qs = (QString*) wsv.data();
-    wg_int wi = wg_encode_str(wh, qs->toLatin1().data(), nullptr);
+    char* qdata, *xdata;
+    if(wsv.check_data_has_type())
+    {
+     QPair<u8, QStringList*>* pr = (QPair<u8, QStringList*>*) wsv.data();
+     if(pr->first)
+       break; // //  TODO: special types
+     if(pr->second->isEmpty())
+       break; // //  something's wrong ...
+     qdata = pr->second->first().toLatin1().data();
+     if(pr->second->size() > 1)
+       xdata = pr->second->at(1).toLatin1().data();
+     else
+       xdata = nullptr;
+    }
+    else
+    {
+     QString* qs = (QString*) wsv.data();
+     qdata = qs->toLatin1().data();
+     xdata = nullptr;
+    }
+
+    wg_int wi = wg_encode_str(wh, qdata, xdata);
     wgim[index] = wi;
     wsv.cleanup();
    }
@@ -320,6 +366,10 @@ void* WDB_Manager::new_wg_record(QMap<u4, WG_Stage_Value>& wsvs,
  while(wit.hasNext())
  {
   wit.next();
+   u4 k = wit.key();
+   wg_int wi = wit.value();
+   qDebug() << "wi: " << wi;
+
   wg_set_field(wh, result, wit.key(), wit.value());
  }
 
@@ -407,8 +457,19 @@ void _rec_decode(void* wh, void* rec, u4 index,
  case WG_XMLLITERALTYPE:
   {
    wg_int wi = wg_get_field(wh, rec, index);
-   char* ptr = wg_decode_xmlliteral(wh, wi);
-   wsv.data_to_ref<QString>() = QString(QLatin1String(ptr));
+   u1 dcf = wsv.get_prelim_decoding_flag();
+   if(dcf & 128)
+   {
+    char* ptr = wg_decode_xmlliteral(wh, wi);
+    char* xptr = wg_decode_xmlliteral_xsdtype(wh, wi);
+    wsv.data_to_ref<QStringList>() = QStringList({
+      QString(QLatin1String(ptr)), QString(QLatin1String(xptr))});
+   }
+   else
+   {
+    char* ptr = wg_decode_xmlliteral(wh, wi);
+    wsv.data_to_ref<QString>() = QString(QLatin1String(ptr));
+   }
   }
   break;
 
