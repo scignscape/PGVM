@@ -149,7 +149,7 @@ wg_int _rec_encode(void* wh, WG_Stage_Value& wsv)
  {
  case WG_NULLTYPE: 
   {
-   wg_int wi = wg_encode_null(wh, (char*) wsv.data());
+   wg_int wi = wg_encode_null(wh, nullptr);
    return wi;
   }
   break; 
@@ -350,8 +350,26 @@ void _rec_decode(void* wh, void* rec, u4 index,
    // // error ... uninit 
   }
   break;
+
+ case WG_NULLTYPE: 
+  {
+   wg_int wi = wg_get_field(wh, rec, index);
+   char* c = wg_decode_null(wh, wi);
+   // //  should always be nullptr ...
+   switch(wsv.get_byte_length())
+   {
+   case 1: wsv.data_to_ref<u1>() = 0; break;
+   case 2: wsv.data_to_ref<u2>() = 0; break;
+   case 4: wsv.data_to_ref<u4>() = 0; break;
+   case 8: wsv.data_to_ref<u8>() = 0; break;
+   }
+  }
+  break; 
+
  case WG_RECORDTYPE: 
   {
+   wg_int wi = wg_get_field(wh, rec, index);
+   wsv.set_ptr_data(wg_decode_record(wh, wi));   
   }
   break; 
 
@@ -381,21 +399,24 @@ void _rec_decode(void* wh, void* rec, u4 index,
  case WG_STRTYPE:
   {
    wg_int wi = wg_get_field(wh, rec, index);
-//   wg_int wi = wg_decode_double(wh, *dbl);
+   char* ptr = wg_decode_str(wh, wi);
+   wsv.data_to_ref<QString>() = QString(QLatin1String(ptr));
   }
   break;
 
  case WG_XMLLITERALTYPE:
   {
    wg_int wi = wg_get_field(wh, rec, index);
-//   wg_int wi = wg_decode_double(wh, *dbl);
+   char* ptr = wg_decode_xmlliteral(wh, wi);
+   wsv.data_to_ref<QString>() = QString(QLatin1String(ptr));
   }
   break;
 
  case WG_URITYPE:
   {
    wg_int wi = wg_get_field(wh, rec, index);
-//   wg_int wi = wg_decode_double(wh, *dbl);
+   char* ptr = wg_decode_uri(wh, wi);
+   wsv.data_to_ref<QString>() = QString(QLatin1String(ptr));
   }
   break;
 
@@ -432,7 +453,6 @@ void _rec_decode(void* wh, void* rec, u4 index,
    int wdate = wg_decode_date(wh, wi);
    wg_date_to_ymd(wh, wdate, &y, &m, &d);
    wsv.data_to_ref<QDate>() = QDate(y, m, d);
-//   wg_int wi = wg_decode_double(wh, *dbl);
   }
   break;
 

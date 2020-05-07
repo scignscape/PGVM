@@ -129,6 +129,8 @@ public:
 
  void cleanup()
  {
+  if(check_no_delete())
+    return;
   delete (void*) data_;
   data_ = 0;
  }
@@ -156,8 +158,10 @@ public:
  WG_Stage_Value& note_data_has_type();
  WG_Stage_Value& clear_data_has_type();
  WG_Stage_Value& note_byte_length(u1 len);
- WG_Stage_Value& note_raw();
- WG_Stage_Value& clear_raw();
+ WG_Stage_Value& note_no_delete();
+ WG_Stage_Value& clear_no_delete();
+
+ bool check_no_delete() { return info_ & 16; }
 
  WG_Stage_Value& new_qstring(const QString& qs);
 

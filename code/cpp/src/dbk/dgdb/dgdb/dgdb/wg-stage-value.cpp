@@ -304,13 +304,13 @@ WG_Stage_Value& WG_Stage_Value::note_byte_length(u1 len)
  return *this;
 }
 
-WG_Stage_Value& WG_Stage_Value::note_raw()
+WG_Stage_Value& WG_Stage_Value::note_no_delete()
 {
  info_ |= 16;
  return *this;
 }
 
-WG_Stage_Value& WG_Stage_Value::clear_raw()
+WG_Stage_Value& WG_Stage_Value::clear_no_delete()
 {
  info_ &= (255 - 16);
  return *this;
