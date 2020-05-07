@@ -23,6 +23,8 @@
 
 KANS_(DGDB)
 
+static constexpr u1 C_STRING_DECODING_Flag = 128;
+
 class DgDb_Node;
 
 struct WG_Stage_Queue  
@@ -58,20 +60,32 @@ public:
 
 private:
 
+ struct _run_result
+ {
+  u1 info;
+  u1 extra;
+  u1 collapse_wg_encoding_type() const;
+  operator u1() const;  // { return info; }
+  _run_result operator [](u1 x)
+  {
+   return { info, extra | x };
+  }
+ };
+
  struct _run_hold
  {
   struct _run
   {
    WG_Stage_Value* _this;
    u4 arg;
-   u1 operator()(WG_Stage_Value::Callback_type cb);
+   _run_result operator()(WG_Stage_Value::Callback_type cb);
   };
   WG_Stage_Value* _this;
   _run operator[](u4 field_index)
   {
    return {_this, field_index};
   }
-  u1 operator()(WG_Stage_Value::Callback_type cb);
+  _run_result operator()(WG_Stage_Value::Callback_type cb);
  };
 
 public:
@@ -89,8 +103,7 @@ public:
  u1 get_read_encoding_type() const;
 
  u1 get_prelim_decoding_code() const;
-
- u1 collapse_wg_encoding_type() const;
+ u1 get_prelim_decoding_flag() const;
 
  bool is_uninit() const
  {
@@ -103,7 +116,7 @@ public:
   return info_;
  }
 
- u1 _run(Callback_type cb, u4 field_index = 0);
+ _run_result _run(Callback_type cb, u4 field_index = 0);
 
  _run_hold run;
 

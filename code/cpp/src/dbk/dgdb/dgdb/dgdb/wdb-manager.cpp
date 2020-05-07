@@ -480,6 +480,8 @@ void WDB_Manager::decode_value(void* rec, u4 index,
 // u1 et = wsv.get_decoding_type();
 //  u1 et = wsv.get_encoding_type();
 
+// u1 dcf = wsv.get_prelim_decoding_flag();
+// qDebug() << "dcf: " << dcf;
  u1 dc = wsv.get_prelim_decoding_code();
 
  switch(dc)

@@ -46,7 +46,7 @@ void Test::encode_wg_stage_values(QByteArray& qba,
  QDataStream qds(&qba, QIODevice::WriteOnly);
  qds << WG_Stage_Value().new_qstring(title).run[1](cb)
    << author
-   << WG_Stage_Value().set_u2_data(num).run[2](cb)
+   << WG_Stage_Value().set_u2_data(num).run[2](cb)[C_STRING_DECODING_Flag][64]
    << WG_Stage_Value().set_date_data(publication_date).run[3](cb)
    << WG_Stage_Value().set_time_data(test_time).run[4](cb)
  ;

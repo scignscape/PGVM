@@ -1,49 +1,47 @@
-In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.h:16:0,
-                 from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:8:
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:15:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:8:
 ../../../../src/accessors.h:130:1: warning: multi-line comment [-Wcomment]
  //#define ACCESSORS(type, name) \
  ^
 In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:38:0,
-                 from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:14:
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:8:
 ../../../../src/flags.h:204:1: warning: multi-line comment [-Wcomment]
  //#define flags_(byte_count) \
  ^
-In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:12:0:
-../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘void KA::DGDB::WG_Stage_Value::cleanup()’:
-../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:134:18: warning: deleting ‘void*’ is undefined [-Wdelete-incomplete]
-   delete (void*) data_;
-                  ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘KA::DGDB::WG_Stage_Value& KA::DGDB::WG_Stage_Value::set_fixpoint_data(T)’:
-../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:288:31: warning: left shift count >= width of type [-Wshift-count-overflow]
-   set_raw_data( ((u8) (lft << 32)) | rgt);
-                               ^
-In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:14:0:
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:8:0:
 ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h: In member function ‘KA::DGDB::DgDb_Node* KA::DGDB::DgDb_Instance::add(VERTEX_Type*)’:
 ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.h:130:2: warning: no return statement in function returning non-void [-Wreturn-type]
   }
   ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp: In function ‘void _rec_decode(void*, void*, u4, KA::DGDB::WG_Stage_Value&, u1)’:
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:355:43: error: invalid conversion from ‘void*’ to ‘wg_int {aka long int}’ [-fpermissive]
-    char* c = wg_decode_null(wh, rec, index);
-                                           ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:355:43: error: too many arguments to function ‘char* wg_decode_null(void*, wg_int)’
-In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:32:0:
-../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:1667:7: note: declared here
- char* wg_decode_null(void* db, wg_int data);
-       ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:355:10: warning: unused variable ‘c’ [-Wunused-variable]
-    char* c = wg_decode_null(wh, rec, index);
-          ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp: In lambda function:
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:133:6: warning: control reaches end of non-void function [-Wreturn-type]
-      });
-      ^
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp: In function ‘wg_int _rec_encode(void*, KA::DGDB::WG_Stage_Value&)’:
-../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:253:1: warning: control reaches end of non-void function [-Wreturn-type]
- }
- ^
-In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:32:0:
-../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h: At global scope:
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h:14:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:14:
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: At global scope:
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:26:18: error: ‘C_STRING_DECODING_Flag’ does not name a type
+ static constexpr C_STRING_DECODING_Flag = 128;
+                  ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘KA::DGDB::WG_Stage_Value::_run_result KA::DGDB::WG_Stage_Value::_run_result::operator[](u1)’:
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:71:25: warning: narrowing conversion of ‘(int)(((KA::DGDB::WG_Stage_Value::_run_result*)this)->KA::DGDB::WG_Stage_Value::_run_result::extra | x)’ from ‘int’ to ‘u1 {aka unsigned char}’ inside { } [-Wnarrowing]
+    return { info, extra | x };
+                         ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘void KA::DGDB::WG_Stage_Value::cleanup()’:
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:147:18: warning: deleting ‘void*’ is undefined [-Wdelete-incomplete]
+   delete (void*) data_;
+                  ^
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h: In member function ‘KA::DGDB::WG_Stage_Value& KA::DGDB::WG_Stage_Value::set_fixpoint_data(T)’:
+../../../../src/dbk/dgdb/dgdb/dgdb/wg-stage-value.h:301:31: warning: left shift count >= width of type [-Wshift-count-overflow]
+   set_raw_data( ((u8) (lft << 32)) | rgt);
+                               ^
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:14:0:
+../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h: In member function ‘KA::DGDB::DgDb_Type& KA::DGDB::DgDb_Type::set_stage_encoder(PROC_Type)’:
+../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type.h:67:2: warning: no return statement in function returning non-void [-Wreturn-type]
+  }  
+  ^
+../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp: At global scope:
+../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:93:44: warning: unused parameter ‘fld’ [-Wunused-parameter]
+ void DgDb_Instance::init_from_ntxh(QString fld, u1 code)
+                                            ^
+In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/types/dgdb-type-builder.h:14:0,
+                 from ../../../../src/dbk/dgdb/dgdb/dgdb/dgdb-instance.cpp:13:
 ../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:543:13: warning: ‘void yajl_set_default_alloc_funcs(yajl_alloc_funcs*)’ declared ‘static’ but never defined [-Wunused-function]
  static void yajl_set_default_alloc_funcs(yajl_alloc_funcs * yaf);
              ^
@@ -101,4 +99,4 @@ In file included from ../../../../src/dbk/dgdb/dgdb/dgdb/wdb-manager.cpp:32:0:
 ../../../../src/dbk/dgdb/dgdb/dgdb/_whitedb/_whitedb.h:765:1: warning: ‘long long int yajl_parse_integer(const unsigned char*, unsigned int)’ declared ‘static’ but never defined [-Wunused-function]
  yajl_parse_integer(const unsigned char *number, unsigned int length);
  ^
-make: *** [../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/dgdb/release/wdb-manager.o] Error 1
+make: *** [../../../targets/targets-5-12-3-qmake-console/PROJECT_OBJECTS/dgdb/release/dgdb-instance.o] Error 1

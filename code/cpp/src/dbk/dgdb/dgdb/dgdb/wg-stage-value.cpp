@@ -25,28 +25,38 @@ WG_Stage_Value& WG_Stage_Value::set_ptr_data(void* ptr)
  return *this;
 }
 
-u1 WG_Stage_Value::_run_hold::_run::operator()(WG_Stage_Value::Callback_type cb)
+WG_Stage_Value::_run_result 
+WG_Stage_Value::_run_hold::_run::operator()(WG_Stage_Value::Callback_type cb)
 {
  return _this->_run(cb, arg);
 }
 
-u1 WG_Stage_Value::_run_hold::operator()(WG_Stage_Value::Callback_type cb)
+WG_Stage_Value::_run_result 
+WG_Stage_Value::_run_hold::operator()(WG_Stage_Value::Callback_type cb)
 {
  return _this->_run(cb);
 }
 
-u1 WG_Stage_Value::_run(Callback_type cb, u4 field_index)
+WG_Stage_Value::_run_result 
+WG_Stage_Value::_run(Callback_type cb, u4 field_index)
 {
  cb(field_index, this);
- return collapse_wg_encoding_type();
+ return {info_, 0};
 }
 
-u1 WG_Stage_Value::collapse_wg_encoding_type() const
+WG_Stage_Value::_run_result::operator u1() const
 {
- u1 result = info_ >> 4;
+ u1 result = collapse_wg_encoding_type();
+ result |= extra;
+ return result;
+}
+
+u1 WG_Stage_Value::_run_result::collapse_wg_encoding_type() const
+{
+ u1 result = info >> 4;
  if(result > 2)
    result = 3;
- return (info_ & 15) | (result << 4);
+ return (info & 15) | (result << 4);
 }
 
 WG_Stage_Value& WG_Stage_Value::new_qstring(const QString& qs)
@@ -63,6 +73,11 @@ u1 WG_Stage_Value::get_prelim_encoding_code() const
  if(result == 15)
    return result;
  return 3;
+}
+
+u1 WG_Stage_Value::get_prelim_decoding_flag() const
+{
+ return info_ & 192; // high two bits ...
 }
 
 u1 WG_Stage_Value::get_prelim_decoding_code() const
