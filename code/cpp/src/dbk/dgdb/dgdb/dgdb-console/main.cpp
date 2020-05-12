@@ -62,7 +62,6 @@ void Test::read_stage_queue(QQueue<void*>& vals)
  publication_date = *(QDate*) vals.dequeue();
  test_time = *(QTime*) vals.dequeue();
  QStringList qsl = *(QStringList*) vals.dequeue();
- qDebug() << "qsl: " << qsl; 
 }
 
 int main(int argc, char* argv[])
@@ -101,7 +100,7 @@ int main(int argc, char* argv[])
  QString* qs = new QString("OK");
  DgDb_Node* dgn = dgi->add(qs);
 
- Test* test = new Test{"Critique of Pure Reason", "IK", 777, 
+ Test* test = new Test{"Critique of Pure Reason", "Immanuel Kant", 777, 
    QDate(1787, 4, 23), QTime(11,47,22,888)};
  QByteArray qba;
  fn(test, qba, cb);

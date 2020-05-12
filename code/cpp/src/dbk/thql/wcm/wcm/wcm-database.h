@@ -467,11 +467,6 @@ public:
 
 };
 
-//QString operator "" _q(const char* arr, size_t size)
-//{
-// std::string ss(arr, size);
-// return QString::fromStdString(ss);
-//}
 
 struct WCM_String_Literal_Package
 {

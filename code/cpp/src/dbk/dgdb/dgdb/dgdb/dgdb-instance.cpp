@@ -93,7 +93,6 @@ void DgDb_Instance::parse_wg_record(void* rec,
 void DgDb_Instance::init_from_ntxh(QString fld, u1 code)
 {
  Config.Flags = code;
- qDebug() << "code: " << code;
 }
 
 void DgDb_Instance::init()
@@ -130,9 +129,6 @@ DgDb_Node* DgDb_Instance::_add(void* v, QString tn)
 {
  DgDb_Node* result = new DgDb_Node(v);
  current_frame_->add(result);
-
- qDebug() << "TN is: " << tn;
-
  return result;
 }
 

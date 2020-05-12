@@ -23,8 +23,6 @@
 
 #include "ntxh-parser/ntxh-document.h"
 
-// #include "ntxh/ntxh-parser/ntxh-document.h"
-
 
 USING_KANS(TextIO)
 
@@ -62,13 +60,10 @@ void WDB_Manager::update_ntxh()
 
 void WDB_Manager::to_ntxh(QString& result)
 {
- //QString wty;
-
  QString dty; 
  QString dr;
  dgdb_instance_->to_ntxh(dty, dr);
 
- //result = WDB_Instance::static_to_ntxh();
  result = QString(R"(
 
 %1
@@ -93,8 +88,6 @@ void WDB_Manager::to_ntxh(QString& result)
 
 void WDB_Manager::init_from_ntxh()
 {
- //QString ntxh;
- //load_file(db_root_folder_ + "/" + "manager.ntxh", ntxh);   
  NTXH_Document doc(db_root_folder_ + "/" + "manager.ntxh");
  doc.parse();
 
@@ -109,12 +102,10 @@ void WDB_Manager::init_from_ntxh()
    [this](QVector<QPair<QString, void*>>& prs)
  {
   QString fld = prs[0].first;
-  qDebug() << "fld: " << fld;
   u1 code = prs[1].first.toInt();
   dgdb_instance_->init_from_ntxh(fld, code);
  });
 
- //for(hypernode_type* hn : hns)
  while(it.hasNext())
  {
   hypernode_type* hn = it.next();
@@ -133,9 +124,8 @@ void WDB_Manager::init_from_ntxh()
      });
   });
 
-  qDebug() << "Name: " << name;
-
-  qDebug() << "dts: " << dts;
+  qDebug() << "Database Name: " << name;
+  qDebug() << "Database Datetimes: " << dts;
  }
  
 }
@@ -189,22 +179,21 @@ wg_int _rec_encode(void* wh, WG_Stage_Value& wsv)
  case WG_XMLLITERALTYPE:
   {
    char* lit, *xsdt;
-   QByteArray qba1, qba2; // //  prevents the toLatin1 temporaries 
+   QByteArray qba1, qba2; // //  prevents the toUtf8 temporaries 
      // from going out of scope too soon ...
 
    if(wsv.check_data_has_type())
    {
     QPair<u8, QStringList*>* pr = (QPair<u8, QStringList*>*) wsv.data();
-    qDebug() << "PR: " << *(pr->second);
     if(pr->first)
       break; // //  TODO: special types
     if(pr->second->isEmpty())
       break; // //  something's wrong ...
-    qba1 = pr->second->first().toLatin1(); 
+    qba1 = pr->second->first().toUtf8(); 
     lit = qba1.data();
     if(pr->second->size() > 1)
     {
-     qba2 = pr->second->at(1).toLatin1(); 
+     qba2 = pr->second->at(1).toUtf8(); 
      xsdt = qba2.data();
     }
     else
@@ -223,8 +212,33 @@ wg_int _rec_encode(void* wh, WG_Stage_Value& wsv)
 
  case WG_URITYPE:
   {
-   char* cs = (char*) wsv.data();
-   wg_int wi = wg_encode_uri(wh, cs, nullptr);
+   char* uri, *prefix;
+   QByteArray qba1, qba2; // //  prevents the toUtf8 temporaries 
+     // from going out of scope too soon ...
+
+   if(wsv.check_data_has_type())
+   {
+    QPair<u8, QStringList*>* pr = (QPair<u8, QStringList*>*) wsv.data();
+    if(pr->first)
+      break; // //  TODO: special types
+    if(pr->second->isEmpty())
+      break; // //  something's wrong ...
+    qba1 = pr->second->first().toLatin1(); 
+    uri = qba1.data();
+    if(pr->second->size() > 1)
+    {
+     qba2 = pr->second->at(1).toUtf8(); 
+     prefix = qba2.data();
+    }
+    else
+      prefix = nullptr;
+   }
+   else
+   {
+    uri = (char*) wsv.data();
+    prefix = nullptr;
+   }
+   wg_int wi = wg_encode_uri(wh, uri, prefix);
    wsv.cleanup();
    return wi;
   }
@@ -320,6 +334,9 @@ void* WDB_Manager::new_wg_record(QMap<u4, WG_Stage_Value>& wsvs,
   case 2:  // qstring
    {
     char* qdata, *xdata;
+    QByteArray qba1, qba2;  // //  prevents the toUtf8 temporaries 
+     // from going out of scope too soon ...
+
     if(wsv.check_data_has_type())
     {
      QPair<u8, QStringList*>* pr = (QPair<u8, QStringList*>*) wsv.data();
@@ -327,16 +344,20 @@ void* WDB_Manager::new_wg_record(QMap<u4, WG_Stage_Value>& wsvs,
        break; // //  TODO: special types
      if(pr->second->isEmpty())
        break; // //  something's wrong ...
-     qdata = pr->second->first().toLatin1().data();
+     qba1 = pr->second->first().toUtf8();
+     qdata = qba1.data();
      if(pr->second->size() > 1)
-       xdata = pr->second->at(1).toLatin1().data();
+     {
+      qba2 = pr->second->at(1).toUtf8();       
+      xdata = qba2.data();
+     }
      else
        xdata = nullptr;
     }
     else
     {
      QString* qs = (QString*) wsv.data();
-     qdata = qs->toLatin1().data();
+     qdata = qs->toUtf8().data();
      xdata = nullptr;
     }
 
@@ -366,26 +387,12 @@ void* WDB_Manager::new_wg_record(QMap<u4, WG_Stage_Value>& wsvs,
  while(wit.hasNext())
  {
   wit.next();
-   u4 k = wit.key();
-   wg_int wi = wit.value();
-   qDebug() << "wi: " << wi;
-
   wg_set_field(wh, result, wit.key(), wit.value());
  }
 
  return result;
 }
 
-/*
-void WDB_Manager::decode_value(void* rec, u4 index, void* target, 
-  WDB_Instance* wdbi)
-{
- if(!wdbi)
-   wdbi = current_white_;
- 
- void* wh = wdbi->white();
-}
-*/
 
 // // helper function for the method following it ...
 void _rec_decode(void* wh, void* rec, u4 index, 
@@ -463,12 +470,12 @@ void _rec_decode(void* wh, void* rec, u4 index,
     char* ptr = wg_decode_xmlliteral(wh, wi);
     char* xptr = wg_decode_xmlliteral_xsdtype(wh, wi);
     wsv.data_to_ref<QStringList>() = QStringList({
-      QString(QLatin1String(ptr)), QString(QLatin1String(xptr))});
+      QString::fromUtf8(ptr), QString::fromUtf8(xptr)});
    }
    else
    {
     char* ptr = wg_decode_xmlliteral(wh, wi);
-    wsv.data_to_ref<QString>() = QString(QLatin1String(ptr));
+    wsv.data_to_ref<QString>() = QString::fromUtf8(ptr);
    }
   }
   break;
@@ -476,8 +483,19 @@ void _rec_decode(void* wh, void* rec, u4 index,
  case WG_URITYPE:
   {
    wg_int wi = wg_get_field(wh, rec, index);
-   char* ptr = wg_decode_uri(wh, wi);
-   wsv.data_to_ref<QString>() = QString(QLatin1String(ptr));
+   u1 dcf = wsv.get_prelim_decoding_flag();
+   if(dcf & 128)
+   {
+    char* ptr = wg_decode_uri(wh, wi);
+    char* xptr = wg_decode_uri_prefix(wh, wi);
+    wsv.data_to_ref<QStringList>() = QStringList({
+      QString::fromUtf8(ptr), QString::fromUtf8(xptr)});
+   }
+   else
+   {
+    char* ptr = wg_decode_uri(wh, wi);
+    wsv.data_to_ref<QString>() = QString::fromUtf8(ptr);
+   }
   }
   break;
 
@@ -538,11 +556,6 @@ void WDB_Manager::decode_value(void* rec, u4 index,
  
  void* wh = wdbi->white();
 
-// u1 et = wsv.get_decoding_type();
-//  u1 et = wsv.get_encoding_type();
-
-// u1 dcf = wsv.get_prelim_decoding_flag();
-// qDebug() << "dcf: " << dcf;
  u1 dc = wsv.get_prelim_decoding_code();
 
  switch(dc)

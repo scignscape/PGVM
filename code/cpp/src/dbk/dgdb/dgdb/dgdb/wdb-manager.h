@@ -53,9 +53,6 @@ public:
 
  void init_from_ntxh();
 
-// void decode_value(void* rec, u4 index, void* target, 
-//   WDB_Instance* wdbi = nullptr);
-
  void decode_value(void* rec, u4 index, 
    WG_Stage_Value& wgsv, WDB_Instance* wdbi = nullptr);
 

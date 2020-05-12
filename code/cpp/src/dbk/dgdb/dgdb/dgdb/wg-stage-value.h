@@ -67,7 +67,7 @@ private:
   u1 info;
   u1 extra;
   u1 collapse_wg_encoding_type() const;
-  operator u1() const;  // { return info; }
+  operator u1() const;  
   _run_result operator [](u1 x)
   {
    return { info, extra | x };
@@ -95,7 +95,6 @@ public:
  WG_Stage_Value();
 
  ACCESSORS(u8 ,data)
-// ACCESSORS(u1 ,info)
 
  WG_Stage_Value& set_ptr_data(void* ptr);
 
@@ -357,12 +356,12 @@ public:
   return *this;
  }
 
- WG_Stage_Value& set_xml_data(QString str, QString xsdt) //, QString xsd = {})
+ WG_Stage_Value& set_xml_data(QString str, QString xsdt) 
  {
   return new_qstring_xml_pair(str, xsdt);
  }
 
- WG_Stage_Value& set_uri_data(QString str, u4 len = 0) //, QString xsd = {})
+ WG_Stage_Value& set_uri_data(QString str, u4 len = 0)
  {
   const char* cs = str.toLatin1().constData();
   if(len == 0) len = strlen(cs) + 1;

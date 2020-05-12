@@ -103,7 +103,6 @@ void Dataset::load_from_file(QString path)
 
  typedef NTXH_Graph::hypernode_type hypernode_type;
 
-//? NTXH_Graph& g = *doc.graph();
 
  QVector<NTXH_Graph::hypernode_type*>& hns = doc.top_level_hypernodes();
 

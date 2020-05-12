@@ -292,13 +292,6 @@ WG_Stage_Value& WG_Stage_Value::note_time()
  return *this;
 }
 
-//WG_Stage_Value& WG_Stage_Value::note_mrec()
-//{
-// info_ &= 15;
-// info_ |= (14 << 4);
-// return *this;
-//}
-
 WG_Stage_Value& WG_Stage_Value::note_tbd()
 {
  info_ &= 15;

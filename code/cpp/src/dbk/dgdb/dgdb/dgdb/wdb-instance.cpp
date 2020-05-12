@@ -8,7 +8,6 @@
 #include "wdb-instance.h"
 
 
-
 USING_KANS(DGDB)
 
 
