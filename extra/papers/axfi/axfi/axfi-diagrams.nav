@@ -27,8 +27,18 @@
 \headcommand {\sectionentry {5}{Event\\Model}{5}{Event\\Model}{1}}
 \headcommand {\slideentry {5}{0}{0}{5/5}{}{1}}
 \headcommand {\beamer@framepages {5}{5}}
-\headcommand {\beamer@partpages {1}{5}}
-\headcommand {\beamer@subsectionpages {1}{5}}
 \headcommand {\beamer@sectionpages {1}{5}}
-\headcommand {\beamer@documentpages {5}}
-\headcommand {\gdef \inserttotalframenumber {5}}
+\headcommand {\beamer@subsectionpages {1}{5}}
+\headcommand {\sectionentry {6}{Plugins\\1}{6}{Plugins\\1}{1}}
+\headcommand {\slideentry {6}{0}{0}{6/6}{}{1}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\beamer@sectionpages {1}{6}}
+\headcommand {\beamer@subsectionpages {1}{6}}
+\headcommand {\sectionentry {7}{Plugins\\2}{7}{Plugins\\2}{1}}
+\headcommand {\slideentry {7}{0}{0}{7/7}{}{1}}
+\headcommand {\beamer@framepages {7}{7}}
+\headcommand {\beamer@partpages {1}{7}}
+\headcommand {\beamer@subsectionpages {1}{7}}
+\headcommand {\beamer@sectionpages {1}{7}}
+\headcommand {\beamer@documentpages {7}}
+\headcommand {\gdef \inserttotalframenumber {7}}

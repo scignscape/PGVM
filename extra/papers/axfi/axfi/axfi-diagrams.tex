@@ -624,9 +624,11 @@ drop shadow={top color=logoBlue!50!logoCyan,
 \newcommand{\cframedboxpanda}[1]{\begin{mdframed}
 		[linecolor=yellow!70!blue,linewidth=0.8mm]#1\end{mdframed}}
 
+\newcommand{\cframedboxblue}[1]{\begin{mdframed}
+		[linecolor=blue!70!black,linewidth=0.8mm]#1\end{mdframed}}
 
-\newcommand{\lsAXFI}{\resizebox{!}{9.5pt}{{AXF%
-\hspace{-2pt}{\fontfamily{qcr}\fontseries{b}\selectfont{}\Huge\textit{i}}%
+\newcommand{\lsAXFI}{\resizebox{!}{15pt}{{AXF%
+\hspace{-2pt}{\fontfamily{qcr}\fontseries{b}\selectfont{}\LARGE\textit{i}}%
 }}}
 
 \begin{document}
@@ -640,5 +642,9 @@ drop shadow={top color=logoBlue!50!logoCyan,
 \input{slide2}
 \input{slide3}
 \input{slide4}
+
+\input{slide-rad2}
+\input{slide-rad3}
+
 
 \end{document}
