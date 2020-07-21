@@ -1,0 +1,5 @@
+\beamer@sectionintoc {1}{Cover}{1}{1}{1}
+\beamer@sectionintoc {2}{GTagML}{2}{1}{2}
+\beamer@sectionintoc {3}{Extensions}{3}{1}{3}
+\beamer@sectionintoc {4}{Host\\Libraries}{4}{1}{4}
+\beamer@sectionintoc {5}{Event\\Model}{5}{1}{5}
