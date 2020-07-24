@@ -1,0 +1,298 @@
+\part{MOSAIC Components}
+
+\p{In recent years --- as publishing has become more \q{digitized} --- 
+many online platforms have emerged for scientists to share and publish
+their research work, including both raw data and scientific papers.
+These portals generally provide an index/search feature where readers
+can locate research based on the name of the author, title of 
+the publication, keywords, or subject matter, along with a document 
+viewer where readers can view the abstract of each 
+publication (and sometimes full text of the article) and other
+publication details (such as co-authors, date of 
+publication, bibliographic references, etc.).
+However, these portals offer only limited features for interactively
+exploring publications, particularly when it comes to examining data
+sets and/or browsing multimedia assets associated with publications,
+such as audio, video, interactive diagrams, or \ThreeD{} graphics.}
+
+\p{The \MOSAIC{} system is envisioned, over all, 
+as a suite of code libraries developed by LTS allowing 
+institutions to host publication repositories --- and 
+for individual users to access publication repositories --- 
+free of the limitations of existing scientific document portals.  
+In the immediate future, LTS is focused on the more modest 
+goal of implementing software to access existing  
+portals (via \MdsX{}) and to create individual 
+data sets (via \dsC{}).  With \MOSAIC{}, each publication can be
+linked to a \text{supplemental archive} that contains information about
+the author's research methods, data sets, and focal topics.  If desired, 
+these archives can include machine-readable representations of 
+full publication text, to support advanced text-mining techniques 
+across the repository.  The supplemental 
+archive can be explisitly linked to publications within 
+their host repository, or it may be maintained 
+in a decentralized manner external to the hosting platform.}
+
+\p{Using \MOSAIC{}, developers can implement a hosting platform 
+and/or a client platform 
+for this supplemental material, in addition to the publications 
+themselves, where the platform provides software
+enabling readers to browse and access supplemental archives and 
+their data sets and/or methodological 
+descriptions.\footnote{A \MOSAIC{} 
+publication repository or \q{portal} 
+is a structured collection of data and documents which can be 
+hosted via web servers (including fully encapsulated and 
+containerizable cloud services) using technology related 
+to \ConceptsDB{}. \MOSAIC{} repositories can 
+serve as general-purpose portals, hosting academic papers covering a broad range 
+of topics.  Alternatively, \sMOSAIC{} repositories 
+can serve as targeted portals hosting papers focused 
+on more narrowly focused subject domains.  
+Organizations can utilize \sMOSAIC{} internally as the 
+basis of a private document management system (\sDMS{}), or 
+to provide (public) open access to 
+complete publications, including human-readable and machine-readable 
+full text and all supplemental content, with no restrictions.  
+Excepting sensitive/private information which might be provided via 
+a dedicated component within the portal with specific features 
+for authors, editors, and administrators.  
+Any project which \textit{does} restrict 
+access to some part of any document requires a commercial 
+\sMOSAIC{} license.} \lMOSAIC{} can be customized 
+for different subject areas by incorporating domain-specific 
+ontologies into document-search features as well as 
+machine-readable document-text annotations.}
+
+\p{\lMOSAIC{} is designed so that the software to access 
+publications and publications' supplemental archives can be embedded in 
+scientific-computing applications via \MOSAIC{} \textit{plugins}.  
+This ensures that publications and data sets can be 
+examined interactively with the same software that scientists 
+employ to conduct research.  \lMOSAIC{} also introduces a 
+\textit{structured reporting system} (\MOSAICSR{}) for describing 
+research/experimental/lab methods/protocols.  Supplemental archives, 
+plugins, and the structured reporting system 
+are outlined below.}
+
+
+\section{Supplemental Archives} 
+\p{\lMOSAIC{} supplemental archives are additional resources 
+paired with \MOSAIC{} publications.  In general, supplemental archives 
+may include raw data, descriptions of research methods, 
+or annotated data linked to publication texts.  Each supplemental archive 
+could have any of the following resources:
+
+\begin{enumerate}
+\item Interactive versions of the publication, with annotations
+indicating important concepts and phrases, perhaps aggregated into a
+\q{glossary} defining technical terms;
+
+\item Machine-readable representations of document texts, with 
+special-purpose character encodings designed to facilitate 
+Text and Data Mining (\TDM{});
+
+\item Structured files containing raw data discussed in the publication,
+along with interactive software allowing scientists to access and
+reuse the data;
+
+\item Detailed reports of the author's research methods and experimental
+setup and/or protocols, conforming to the relevant standards with
+respect to the publication's subject classification --- for instance,
+the \q{Minimum Information for Biological and Biomedical Investigations}
+(\MIBBI{}) includes about 40 specific standards for different branches of
+biology and medicine;
+
+\item Representations of analytic methods and algorithms underlying 
+the research findings, which are provided directly via computer code or
+indirectly via formal descriptions of computational workflows;
+
+\item Self-contained computer software which demonstrates code that the
+author developed and/or used for analyzing/curating research data; and 
+
+\item Multi-media assets such as audio or video files, annotated images,
+\ThreeD{} graphics, interactive \TwoD/\ThreeD{} plots and diagrams, 
+or other kinds of non-textual content which needs to be 
+viewed with special multi-media software.
+
+\end{enumerate}
+}
+
+\p{The contents of a supplemental archive will be different 
+for different publications, depending on whether the archive 
+contains specific raw data or just a summary of the methods 
+used to obtain the raw data.  In the former case, a typical 
+archive will include a \textit{data-set application}, or 
+a semi-autonomous software component allowing 
+researchers to study and visualize 
+the data set, typically provided in turn via data files that are 
+also located in the archive.  The data-set application will, in 
+general, provide both a visual interface for raw data and code 
+libraries for computationally manipulating this data; typically 
+raw data files will encode serialized data structures that 
+can be deserialized by code (e.g., \Cpp{} classes) included 
+in the data-set application.  \lMOSAIC{} includes generic 
+implementations of a data-set explorer (\q{\MdsX{}}), which 
+can be adopted to the specific kind of information that needs 
+to be serialized for a given publication.  As a result, 
+data-set application can then be packaged as a plugin to 
+existing scientific software within the 
+relevant scientific discipline.}
+
+\section{\protect\llMOSAIC{} Plugins}
+\p{By design, \lMOSAIC{} Portals will provide a suite of plugins
+for existing scientific software, allowing publications and
+supplemental archives hosted on the portal to be read and examined
+within computer software associated with each publication's subject
+matter.  For example, articles about chemistry could be read within
+\IQmol{}, a molecular visualization program; articles about cellular
+biology and bioimaging could be read within \CaPTk{} 
+(the Cancer Imaging and Phenomics Toolkit), an image-processing
+application; articles discussing novel computer code could be read
+within \Qt{} Creator, an Integrated Development Environment (\IDE{}) for
+programming; etc.  The advantage of accessing 
+a publication and a supplemental archive within actual scientific
+software is that it allows research work to be understood, evaluated, 
+and reused within the computing environments which scientists typically use to 
+conduct professional research.  This is different 
+than existing science publication portals, which 
+generally rely on web browsers to
+access supplemental materials like data sets and multimedia files ---
+in this standard setup the software ecosystem wherein readers examine
+published research is fundamentally separate from the software
+platforms where research is actually conducted.  This example 
+demonstrates how existing portals are \textit{limited} 
+in their ability to share research
+in rigorously reusable and replicable ways --- and how \MOSAIC{} 
+offers an improvement.}
+
+\p{Embedding presentations of their research within existing
+scientific software has the added benefit for authors of making their work 
+more practically and immediately useful for the scientific community.  
+Such presentations establish the computational framework for pragmatically 
+deploying their techniques in real-world scientific contexts, 
+accelerating the pace at which research work can be translated to 
+concrete scientific (and clinical/lab/experimental) practice.
+As one example, research involving novel image analysis techniques 
+could be packaged so as to target a \MOSAIC{} plugin for bioimaging
+software such as \CaPTk{}, so that 
+readers could actually run the author's code as a \CaPTk{} 
+module.\footnote{This toolkit provides a good case-study for research 
+publication because it has an innovative \Qt{} and Common Workflow 
+Language based extension mechanism; cf. \bhref{https://cbica.github.io/CaPTk/tr_integration.html}.}  This is important because such 
+functional assessment and adoption of novel contributions is harder to carry
+out if a body of research work is described indirectly within article
+text, as opposed to being concretely implemented within a
+specific scientific application.}
+
+\p{Another benefit of using plugins to 
+access supplemental archives is that the host application will usually
+provide more sophisticated multimedia and data visualization
+capabilities, compared to static \PDF{} images or even interactive web
+portals.  Publishers have begun to develop online platforms for
+browsing research papers in conjunction with multimedia content such
+as interactive diagrams and \ThreeD{} graphics --- a physical model of a
+protein or a chemical compound, for instance, can be 
+viewed online via \WebGL{};
+such graphics could even be embedded as an \q{\textbf{iframe}} within an \HTML{}
+version of the publications.  Publishers consider this to be
+cutting-edge technology.  However, the same molecular \ThreeD{} model, when
+viewed in \IQmol{}, can be enhanced with many additional visual features,
+representing bonds, orbitals, torsion angles, etc.  The multimedia
+experience of exploring chemistry data in custom software like \IQmol{} 
+is therefore much greater than the experience of generic web
+multimedia, which means that the scientific software is a better 
+forum for showcasing novel research.}
+
+\section{\protect\llMOSAIC{} Structured Reporting (\protect\lsMOSAICSR{})}
+
+\p{The \MOSAIC{} structured reporting framework (\MOSAICSR{}) 
+includes tools to help authors develop interactive 
+presentations supplementing academic documents, and specifically 
+to use supplemental archives to document how their research 
+has been conducted.  With \MOSAICSR{}, authors can implement or 
+reuse code libraries that report on 
+research/experiment methods, workflows, and 
+protocols.  The \MOSAICSR{} information may be structured 
+as a \q{minimum information checklist} conformant 
+to standards such as those collectively 
+gathered into the \MIBBI{} recommendations;  
+in this case \MOSAICSR{} would be applied by  
+implementing object models instantiating \MIBBI{} 
+policies.  Alternatively, \MOSAICSR{} reports can be 
+derived from actual computer programs simulating 
+research workflows, similar to \BioCoder{}\footnote{See 
+\bhref{https://jbioleng.biomedcentral.com/articles/10.1186/1754-1611-4-13}.} (which is included by LTS, in an updated \Cpp{} version, as one 
+\MOSAIC{} library).  Finally, \MOSAICSR{} presentations 
+may be based on annotations applied to research/analytic 
+code.  For example, in the context of image analysis, 
+the \Pandore{} project (an image-processing application) 
+provides an \q{Image Processing 
+Objectives} Ontology as well as a suite of image-processing 
+operations that can be called from computer code.  
+Image-analysis pipelines can therefore be explained 
+by annotating the pertinent function-calls 
+(which \Pandore{} calls \q{operators}) with terms from 
+the \Pandore{} controlled vocabulary, providing 
+annotation targets for \MOSAICSR{} presentations.}
+
+\p{\lMOSAICSR{} can express both computational 
+workflows that are fully encapsulated by published 
+code and real-world protocols concerning 
+laboratory equipment and physical materials 
+or samples under investigation.  In the latter 
+guise, \MOSAICSR{} code can employ or instantiate 
+standardized terminologies and data structures 
+for describing experiments --- such as 
+\MIBBI{} policies or \BioCoder{} functions.  
+In this case, the role of \MOSAICSR{} code is 
+to serve as a serialization/deserialization 
+endpoint for sharing research metadata.  
+Conversely, when workflows are fully implemented 
+within software developed as part of a body 
+of research, \MOSAICSR{} can provide a functional 
+interface allowing this code to be embedded 
+in scientific software.  For the latter,  
+\MOSAICSR{} provides a framework for modeling 
+how a software component specific to a given 
+research project exposes its functionality to 
+host and/or networked peer applications.  There 
+are also instances where both scenarios are 
+relevant --- the \MOSAICSR{} code would simultaneously 
+document real-world experimental protocols and 
+construct a digital interface as part of 
+a workflow which is part digital (\q{\textit{in silico}}) and part 
+\q{real-world} (\q{in the lab}).}
+
+\section{\protect\llMOSAIC{} Annotations}
+\p{Included in any \MOSAIC{} plugin would be specially-designed 
+\PDF{} viewers for interactively 
+reading authors' papers.  In particular, these \PDF{}
+applications would recognize cross-references linking between 
+publications and their associated supplemental archives.  This would
+allow authors to identify concepts which are discussed and/or
+represented both in the research paper and in the archive, annotating
+their papers accordingly.  For example, 
+the concept \q{\RNA{} Extraction} may be discussed in a
+publication text, and also formally declared as one step in the lab
+processing as represented via \BioCoder{}, summarized in a
+\BioCoder{}-generated chart, and included in the supplemental archive 
+(a similar example is used in the documentation for \BioCoder{}).
+The \PDF{} viewer would then ensure that the phrase \q{\RNA{} Extraction} in
+the text is interactively linked to the concordant step in the
+experimental process, so that readers would then be able 
+to view the \BioCoder{} summary as a context-menu action associated 
+with the phrase where it appears in the \PDF{} file.  For a different 
+example, the phrase \q{Oxygenated Airflow} refers to airflow in 
+assisted-breathing devices, such as
+ventilators; to ensure that the device is working properly, the
+equipment must be monitored to check that a steady stream of oxygen
+reaches the patient.  Research into the design and manufacturing of
+ventilators and similar devices may then include \q{Oxygenated Airflow}
+both as a phrase within the article text and as a parameter in data
+sets evaluating the device's performance.  In this situation, the
+publication-text location of the \q{Oxygenated Airflow} phrase should once
+again be annotated with links to the relevant part of the data set
+(e.g., a table column) where measurements of airflow levels are
+recorded.}
+

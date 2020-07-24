@@ -26,10 +26,10 @@
 \vspace{-.5em}}
 
 \titlespacing*{\section}
-{0pt}{4.8ex plus 1ex minus .1ex}{-0.2ex plus .2ex}
+{0pt}{4.1ex plus 1ex minus .1ex}{-0.2ex plus .2ex}
 
 \titlespacing*{\subsection}
-{0pt}{3.5ex plus 1ex minus .1ex}{-.8ex plus .2ex}
+{0pt}{3.1ex plus 1ex minus .1ex}{-.8ex plus .2ex}
 
 %\usepackage{mathptmx}
 
@@ -43,7 +43,7 @@
 \AtTextUpperLeft{
 \makebox[20.5cm][r]{
 \raisebox{-2.45cm}{%
-{\transparent{0.3}{\includegraphics[width=0.29\textwidth]{../e-logo.png}}	}} } }
+{\transparent{0.3}{\includegraphics[width=0.29\textwidth]{e-logo.png}}	}} } }
 }\fi
 }
 
@@ -62,7 +62,7 @@
 \ifnum\value{page}=1
 \put(257.5,942){%
 	\transparent{0.7}{
-		\includegraphics[width=0.2\textwidth]{../logo.png}}}
+		\includegraphics[width=0.2\textwidth]{logo.png}}}
 \put(59,953){\textbf{{\fontfamily{phv}\fontsize{14}{14}\selectfont{}WHITE PAPER}}}
 \fi
 }	
@@ -70,9 +70,22 @@
 
 
 \AddToShipoutPicture{%
+\ifnum\value{page}>1
+{\color{blGreen!70!red}\transparent{0.9}{\put(300,8){\rule{0.5\paperwidth}{.3cm}}}}%
+{\color{inOne}\transparent{0.8}{\put(300,10){\rule{0.5\paperwidth}{.3cm}}}}%
+{\color{inTwo}\transparent{0.3}\put(300,13){{\rule{0.5\paperwidth}{.3cm}}}}
 
-\ifnum\value{page}=16   %\pgfmathresult>0\relax
-\put(182,100){
+%\ifnum\value{page}<39
+\put(301,16){%
+\transparent{0.7}{
+\includegraphics[width=0.2\textwidth]{logo.png}}
+}
+%\fi
+
+%\pgfmathparse{equal(\value{page},15)||equal(\value{page},20)?int(1):int(0)}
+
+\ifnum\value{page}=10   %\pgfmathresult>0\relax
+\put(182,123){
  {\setlength{\fboxsep}{.65em}\fontsize{9}{10}\selectfont
 
    {\color{white}{\parbox{11cm}{\vspace{7pt}\framebox{\begin{minipage}{.46\textwidth}
@@ -82,23 +95,6 @@
 	 \end{minipage}}}}}}
 }
 \fi
-
-
-
-\ifnum\value{page}>1
-{\color{blGreen!70!red}\transparent{0.9}{\put(300,8){\rule{0.5\paperwidth}{.3cm}}}}%
-{\color{inOne}\transparent{0.8}{\put(300,10){\rule{0.5\paperwidth}{.3cm}}}}%
-{\color{inTwo}\transparent{0.3}\put(300,13){{\rule{0.5\paperwidth}{.3cm}}}}
-
-%\ifnum\value{page}<39
-\put(301,16){%
-\transparent{0.7}{
-\includegraphics[width=0.2\textwidth]{../logo.png}}
-}
-%\fi
-
-%\pgfmathparse{equal(\value{page},15)||equal(\value{page},20)?int(1):int(0)}
-
 
 {\color{blGreen!70!red}\transparent{0.9}{\put(5.6,5){\rule{0.5\paperwidth}{.4cm}}}}%
 {\color{inOne}\transparent{1}{\put(5.6,10){\rule{0.5\paperwidth}{.4cm}}}}%
@@ -199,10 +195,6 @@
 \definecolor{logoRed}{rgb}{.3,0,0}
 
 \newcommand{\colorq}[1]{{\color{logoOrange!70!black}{\q{\small\textbf{#1}}}}}
-
-\newcommand{\lpageref}[1]{\raisebox{-2pt}{\pageref{#1}}}
-
-%\raisebox{-4pt}{
 
 \definecolor{inOne}{rgb}{0.122, 0.435, 0.698}% Rule colour
 \definecolor{inTwo}{rgb}{0.122, 0.698, 0.435}% Rule colour
@@ -313,7 +305,6 @@
 \newcommand{\lsHTXN}{\resizebox{!}{9.5pt}{\ATexttclr{HTXN}}}
 
 \newcommand{\LAF}{\resizebox{!}{7pt}{\AcronymText{LAF}}}
-\newcommand{\sLAF}{\resizebox{!}{6pt}{\AcronymText{LAF}}}
 
 \newcommand{\UDpipe}{\resizebox{!}{7pt}{\AcronymText{UDpipe}}}
 
@@ -338,12 +329,12 @@
 \newcommand{\PVD}{\resizebox{!}{7pt}{\AcronymText{PVD}}}
 
 \newcommand{\TAGML}{\resizebox{!}{7pt}{\AcronymText{TAGML}}}
-\newcommand{\BSPLINE}{\resizebox{!}{7pt}{\AcronymText{B-SPLINE}}}
+\newcommand{\GTagML}{\resizebox{!}{7pt}{\AcronymText{GTagML}}}
 
-\newcommand{\TagML}{\resizebox{!}{7pt}{\AcronymText{TAGML}}}
+\newcommand{\lGTagML}{\resizebox{!}{7.5pt}{\AcronymText{GTagML}}}
 
 
-\newcommand{\HCI}{\resizebox{!}{7pt}{\AcronymText{HCI}}}
+
 
 \newcommand{\SDK}{\resizebox{!}{7pt}{\AcronymText{SDK}}}
 \newcommand{\NLP}{\resizebox{!}{7pt}{\AcronymText{NLP}}}
@@ -356,53 +347,9 @@
 
 \newcommand{\Grakenai}{\resizebox{!}{7pt}{\AcronymText{Graken.ai}}}
 
-\newcommand{\sAIM}{\resizebox{!}{6pt}{\AcronymText{AIM}}}  
-\newcommand{\sCVAT}{\resizebox{!}{6pt}{\AcronymText{CVAT}}}  
-\newcommand{\sXML}{\resizebox{!}{6pt}{\AcronymText{XML}}}  
-\newcommand{\sDICOMSR}{\resizebox{!}{6pt}{\AcronymText{DICOM-SR}}}  
-\newcommand{\sPASCAL}{\resizebox{!}{6pt}{\AcronymText{PASCAL}}}  
-\newcommand{\sVOC}{\resizebox{!}{6pt}{\AcronymText{VOC}}}  
-\newcommand{\sCOCO}{\resizebox{!}{6pt}{\AcronymText{COCO}}}  
-\newcommand{\sJSON}{\resizebox{!}{6pt}{\AcronymText{JSON}}} 
-
-\newcommand{\sQt}{\resizebox{!}{6pt}{\AcronymText{Qt}}}  
-
-\newcommand{\DICOMSR}{\resizebox{!}{7pt}{\AcronymText{DICOM-SR}}} 
-
 
 \newcommand{\lAXF}{\resizebox{!}{7.5pt}{\ATexttclr{A}}%
 \resizebox{!}{6.5pt}{\ATexttclr{XF}}}
-
-\newcommand{\AXFI}{\resizebox{!}{7pt}{\ATexttclr{AXF%
-\hspace{-2pt}{\fontfamily{qcr}\fontseries{b}\selectfont{}\Large\textit{i}}%
-}}}
-
-%\newcommand{\lsAXFI}{\resizebox{!}{9.5pt}{\ATexttclr{AXFI}}}
-
-\newcommand{\lsAXFI}{\resizebox{!}{9.5pt}{\ATexttclr{AXF%
-\hspace{-2pt}{\fontfamily{qcr}\fontseries{b}\selectfont{}\Large\textit{i}}%
-}}}
-
-\newcommand{\lAXFI}{\resizebox{!}{7.5pt}{\ATexttclr{A}}%
-\resizebox{!}{6.5pt}{\ATexttclr{XF%
-\hspace{-2pt}{\fontfamily{qcr}\fontseries{b}\selectfont{}\Large\textit{i}}%
-}}}
-
-%\lt{AXFI}
-\newcommand{\ltAXFI}{\resizebox{!}{9.5pt}{AXF%
-\hspace{-2pt}{\fontfamily{qcr}\fontseries{b}\selectfont{}\Large\textit{i}}%
-}}}
-
-
-%\newcommand{\lAXFI}{\resizebox{!}{7.5pt}{\ATexttclr{A}}%
-%\resizebox{!}{6.5pt}{\ATexttclr{XFI}}}
-
-\newcommand{\sAXFI}{\resizebox{!}{6pt}{\ATexttclr{AXFi}}}
-
-\newcommand{\GTagML}{\resizebox{!}{7pt}{\ATexttclr{GTagML}}}
-\newcommand{\lGTagML}{\resizebox{!}{7.5pt}{\ATexttclr{GTagML}}}
-
-
 
 
 \newcommand{\lsAXF}{\resizebox{!}{8.5pt}{\ATexttclr{AXF}}}
@@ -448,8 +395,6 @@
 \newcommand{\OMETIFF}{\resizebox{!}{7pt}{\AcronymText{OME-TIFF}}}
 \newcommand{\OME}{\resizebox{!}{7pt}{\AcronymText{OME}}}
 
-\newcommand{\QtJambi}{\resizebox{!}{7pt}{\AcronymText{Qt Jambi}}}
-
 
 \newcommand{\CT}{\resizebox{!}{7pt}{\AcronymText{CT}}}
 
@@ -488,8 +433,6 @@
 
 \newcommand{\ePub}{\resizebox{!}{7pt}{\AcronymText{ePub}}}
 
-\newcommand{\AIM}{\resizebox{!}{7pt}{\AcronymText{AIM}}}
-
 %\lsLPF
 
 
@@ -511,7 +454,7 @@
 \newcommand{\AIMConc}{\resizebox{!}{7.5pt}{\ATextCClr{AIM-Concepts}}}
 \newcommand{\lAIMConc}{\resizebox{!}{8pt}{\ATextCClr{AIM-Concepts}}}
 
-\newcommand{\HGXF}{{\resizebox{!}{7pt}{\ATexttclr{HGXF}}}}
+\newcommand{\HGXF}{{\resizebox{!}{7.5pt}{\ATexttclr{HGXF}}}}
 \newcommand{\lHGXF}{{\resizebox{!}{8pt}{\ATexttclr{HGXF}}}}
 \newcommand{\sHGXF}{{\resizebox{!}{6pt}{\ATexttclr{HGXF}}}}
 
@@ -520,7 +463,6 @@
 \newcommand{\sCRtwo}{{\resizebox{!}{6pt}{\ATextCClr{CR2}}}}
 
 
-%\newcommand{\ConceptsDB}{{\resizebox{!}{7.5pt}{\ATextCClr{ConceptsDB}}}}
 
 \newcommand{\THQL}{\resizebox{!}{7.5pt}{\ATexttclr{THQL}}}
 \newcommand{\lTHQL}{\resizebox{!}{8pt}{\ATexttclr{THQL}}}
@@ -566,10 +508,6 @@
 \newcommand{\TIFF}{\resizebox{!}{7pt}{\AcronymText{TIFF}}}
 \newcommand{\REPL}{\resizebox{!}{7pt}{\AcronymText{REPL}}}
 
-\newcommand{\IO}{\resizebox{!}{7pt}{\AcronymText{IO}}}
-
-
-
 \newcommand{\Pandore}{\resizebox{!}{7pt}{\AcronymText{Pandore}}}
 
 \newcommand{\MIFlowCyt}{\resizebox{!}{7pt}{\AcronymText{MIFlowCyt}}}
@@ -613,6 +551,13 @@
 \resizebox{!}{8.5pt}{\ATexttclr{MOSAIC}}}
 
 \newcommand{\ConceptsDB}{\resizebox{!}{7pt}{\ATexttclr{ConceptsDB}}}
+
+\newcommand{\lConceptsDB}{\resizebox{!}{8pt}{\ATexttclr{C}}%
+\resizebox{!}{7.5pt}{\ATexttclr{onceptsDB}}}
+
+\newcommand{\CsAF}{\resizebox{!}{7pt}{\ATexttclr{CsAF}}}
+\newcommand{\lCsAF}{\resizebox{!}{8pt}{\ATexttclr{C}}%
+\resizebox{!}{7.5pt}{\ATexttclr{sAF}}}
 
 
 \newcommand{\XML}{\resizebox{!}{7pt}{\AcronymText{XML}}}
@@ -709,8 +654,6 @@
 
 
 \newcommand{\ViSion}{\resizebox{!}{7pt}{\AcronymText{ViSion}}}
-
-\newcommand{\ITK}{\resizebox{!}{7pt}{\AcronymText{ITK}}}
 
 \newcommand{\CWL}{\resizebox{!}{7pt}{\AcronymText{CWL}}}
 
@@ -872,6 +815,7 @@
 
 \newcommand{\DMS}{\resizebox{!}{7pt}{\AcronymText{DMS}}}
 
+\newcommand{\sDMS}{\resizebox{!}{6pt}{\AcronymText{DMS}}}
 
 
 \newcommand{\MIBBI}{\resizebox{!}{7pt}{\AcronymText{MIBBI}}}
@@ -902,11 +846,9 @@
 
 \newcommand{\p}[1]{
 
-\vspace{.75em}#1}
+\vspace{.9em}#1}
 
 \newcommand{\q}[1]{{\fontfamily{qcr}\selectfont ``}#1{\fontfamily{qcr}\selectfont ''}} 
-
-\newcommand{\sq}[1]{{\fontfamily{qcr}\selectfont `}#1{\fontfamily{qcr}\selectfont '}} 
 
 %\newcommand{\deconum}[1]{{\textcircled{#1}}}
 
@@ -916,9 +858,6 @@
 
 \newcommand{\llMOSAIC}{\mbox{{\LARGE MOSAIC}}}
 %\newcommand{\lfMOSAIC}{\mbox{M\small{OSAIC}}}
-
-\newcommand{\llAXFI}{\mbox{{\LARGE AXFI}}}
-
 
 \newcommand{\llMosaic}{\llMOSAIC}
 \newcommand{\lMosaic}{\lMOSAIC}
@@ -1132,8 +1071,6 @@
 
 %\setmainfont{QTChanceryType}
 
-\usepackage{csquotes}
-
 \begin{document}
 
 \setlength{\skip\footins}{18pt}	
@@ -1178,18 +1115,19 @@ drop shadow=logoPurple!50!darkRed,
 \begin{center}	
 {\setlength{\fboxsep}{32pt}
 	\relscale{1.2}{{\fontfamily{qcr}\fontseries{b}\selectfont%
-{The Annotation Exchange Format for Images (\ltAXFI{})}}
-}}}
+{}}}
 \end{center}
 \end{minipage}
 \end{tcolorbox}
 \end{center}
 
-\input{axfi-document}
-\input{axfi-s1}
-\input{axfi-s2}
-\input{axfi-s3}
-\input{axfi-s4}
+\vspace{-3pt}
+%\textcolor{darkRed}{\hrule}
+
+%\section{Overview}
+
+\input{csaf-document}
+\input{section1}
 
 \end{document}
 

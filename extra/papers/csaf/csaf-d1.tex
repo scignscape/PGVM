@@ -1,0 +1,969 @@
+
+
+\part{MOSAIC Components}
+
+\p{In recent years --- as publishing has become more \q{digitized} --- 
+many online platforms have emerged for scientists to share and publish
+their research work, including both raw data and scientific papers.
+These portals generally provide an index/search feature where readers
+can locate research based on the name of the author, title of 
+the publication, keywords, or subject matter, along with a document 
+viewer where readers can view the abstract of each 
+publication (and sometimes full text of the article) and other
+publication details (such as co-authors, date of 
+publication, bibliographic references, etc.).
+However, these portals offer only limited features for interactively
+exploring publications, particularly when it comes to examining data
+sets and/or browsing multimedia assets associated with publications,
+such as audio, video, interactive diagrams, or \ThreeD{} graphics.}
+
+\p{The \MOSAIC{} system is envisioned, over all, 
+as a suite of code libraries developed by LTS allowing 
+institutions to host publication repositories --- and 
+for individual users to access publication repositories --- 
+free of the limitations of existing scientific document portals.  
+In the immediate future, LTS is focused on the more modest 
+goal of implementing software to access existing  
+portals (via \MdsX{}) and to create individual 
+data sets (via \dsC{}).  With \MOSAIC{}, each publication can be
+linked to a \text{supplemental archive} that contains information about
+the author's research methods, data sets, and focal topics.  If desired, 
+these archives can include machine-readable representations of 
+full publication text, to support advanced text-mining techniques 
+across the repository.  The supplemental 
+archive can be explisitly linked to publications within 
+their host repository, or it may be maintained 
+in a decentralize manner external to the hosting platform.}
+
+\p{Using \MOSAIC{}, developers can implement a hosting platform 
+and/or a client platform 
+for this supplemental material, in addition to the publications 
+themselves, where the platform provides software
+enabling readers to browse and access supplemental archives and 
+their data sets and/or methodological descriptions.  A \MOSAIC{} 
+publication repository, also called a \MOSAIC{} \q{portal,} 
+is a structured collection of data and documents which can be 
+hosted via web servers (including fully encapsulated and 
+containerizable cloud services) implemented with the help of 
+\MOSAIC{} libraries.\footnote{\MOSAIC{} repositories can serve as general-purpose portals, 
+hosting academic papers covering a broad range 
+of topics.  Alternatively, \sMOSAIC{} repositories 
+can serve as targeted portals hosting papers focused 
+on more narrowly focused subject domains.  
+Organizations can utilize \sMOSAIC{} internally as the 
+basis of a private document management system (\sDMS{}), or 
+to provide (public) open access to 
+complete publications, including human-readable and machine-readable 
+full text and all supplemental content, with no restrictions\footnote{
+Excepting sensitive/private information which might be provided via 
+a dedicated component within the portal with specific features 
+for authors, editors, and administrators.  
+Any project which \textit{does} restrict 
+access to some part of any document requires a commercial 
+\MOSAIC{} license.}.  \lMOSAIC{} can be customized 
+for different subject areas by incorporating domain-specific 
+ontologies into document-search features as well as 
+machine-readable document-text annotations.}
+
+\p{\lMOSAIC{} is designed so that the software to access 
+publications and publications' supplemental archives can be embedded in 
+scientific-computing applications via \MOSAIC{} \textit{plugins}.  
+This ensures that publications and data sets can be 
+examined interactively with the same software that scientists 
+employ to conduct research.  \lMOSAIC{} also introduces a 
+\textit{structured reporting system} (\MOSAICSR{}) for describing 
+research/experimental/lab methods/protocols.  Supplemental archives, 
+plugins, and the structured reporting system 
+are outlined below.}
+
+
+\section{Supplemental Archives} 
+\p{\lMOSAIC{} supplemental archives are additional resources 
+paired with \MOSAIC{} publications.  In general, supplemental archives 
+may include raw data, descriptions of research methods, 
+or annotated data linked to publication texts.  Each supplemental archive 
+could have any of the following resources:
+
+\begin{enumerate}
+\item Interactive versions of the publication, with annotations
+indicating important concepts and phrases, perhaps aggregated into a
+\q{glossary} defining technical terms;
+
+\item Machine-readable representations of document texts, with 
+special-purpose character encodings designed to facilitate 
+Text and Data Mining (\TDM{});
+
+\item Structured files containing raw data discussed in the publication,
+along with interactive software allowing scientists to access and
+reuse the data;
+
+\item Detailed reports of the author's research methods and experimental
+setup and/or protocols, conforming to the relevant standards with
+respect to the publication's subject classification --- for instance,
+the \q{Minimum Information for Biological and Biomedical Investigations}
+(\MIBBI{}) includes about 40 specific standards for different branches of
+biology and medicine;
+
+\item Representations of analytic methods and algorithms underlying 
+the research findings, which are provided directly via computer code or
+indirectly via formal descriptions of computational workflows;
+
+\item Self-contained computer software which demonstrates code that the
+author developed and/or used for analyzing/curating research data; and 
+
+\item Multi-media assets such as audio or video files, annotated images,
+\ThreeD{} graphics, interactive \TwoD/\ThreeD{} plots and diagrams, 
+or other kinds of non-textual content which needs to be 
+viewed with special multi-media software.
+
+\end{enumerate}
+}
+
+\p{The contents of a supplemental archive will be different 
+for different publications, depending on whether the archive 
+contains specific raw data or just a summary of the methods 
+used to obtain the raw data.  In the former case, a typical 
+archive will include a \textit{data-set application}, or 
+a semi-autonomous software component allowing 
+researchers to study and visualize 
+the data set, typically provided in turn via data files that are 
+also located in the archive.  The data-set application will, in 
+general, provide both a visual interface for raw data and code 
+libraries for computationally manipulating this data; typically 
+raw data files will encode serialized data structures that 
+can be deserialized by code (e.g., \Cpp{} classes) included 
+in the data-set application.  \lMOSAIC{} includes generic 
+implementations of a data-set explorer (\q{\MdsX{}}), which 
+can be adopted to the specific kind of information that needs 
+to be serialized for a given publication.  As a result, 
+data-set application can then be packaged as a plugin to 
+existing scientific software within the 
+relevant scientific discipline.}
+
+\section{\protect\llMOSAIC{} Plugins}
+\p{By design, \lMOSAIC{} Portals will provide a suite of plugins
+for existing scientific software, allowing publications and
+supplemental archives hosted on the portal to be read and examined
+within computer software associated with each publication's subject
+matter.  For example, articles about chemistry could be read within
+\IQmol{}, a molecular visualization program; articles about cellular
+biology and bioimaging could be read within \CaPTk{} 
+(the Cancer Imaging and Phenomics Toolkit), an image-processing
+application; articles discussing novel computer code could be read
+within \Qt{} Creator, an Integrated Development Environment (\IDE{}) for
+programming; etc.  The advantage of accessing 
+a publication and a supplemental archive within actual scientific
+software is that it allows research work to be understood, evaluated, 
+and reused within the computing environments which scientists typically use to 
+conduct professional research.  This is different 
+than existing science publication portals, which 
+generally rely on web browsers to
+access supplemental materials like data sets and multimedia files ---
+in this standard setup the software ecosystem wherein readers examine
+published research is fundamentally separate from the software
+platforms where research is actually conducted.  This example 
+demonstrates how existing portals are \textit{limited} 
+in their ability to share research
+in rigorously reusable and replicable ways --- and how \MOSAIC{} 
+offers an improvement.}
+
+\p{Embedding presentations of their research within existing
+scientific software has the added benefit for authors of making their work 
+more practically and immediately useful for the scientific community.  
+Such presentations establish the computational framework for pragmatically 
+deploying their techniques in real-world scientific contexts, 
+accelerating the pace at which research work can be translated to 
+concrete scientific (and clinical/lab/experimental) practice.
+As one example, research involving novel image analysis techniques 
+could be packaged so as to target a \MOSAIC{} plugin for bioimaging
+software such as \CaPTk{}, so that 
+readers could actually run the author's code as a \CaPTk{} 
+module.\footnote{This toolkit provides a good case-study for research 
+publication because it has an innovative \Qt{} and Common Workflow 
+Language based extension mechanism; cf. \bhref{https://cbica.github.io/CaPTk/tr_integration.html}.}  This is important because such 
+functional assessment and adoption of novel contributions is harder to carry
+out if a body of research work is described indirectly within article
+text, as opposed to being concretely implemented within a
+specific scientific application.}
+
+\p{Another benefit of using plugins to 
+access supplemental archives is that the host application will usually
+provide more sophisticated multimedia and data visualization
+capabilities, compared to static \PDF{} images or even interactive web
+portals.  Publishers have begun to develop online platforms for
+browsing research papers in conjunction with multimedia content such
+as interactive diagrams and \ThreeD{} graphics --- a physical model of a
+protein or a chemical compound, for instance, can be 
+viewed online via \WebGL{};
+such graphics could even be embedded as an \q{\textbf{iframe}} within an \HTML{}
+version of the publications.  Publishers consider this to be
+cutting-edge technology.  However, the same molecular \ThreeD{} model, when
+viewed in \IQmol{}, can be enhanced with many additional visual features,
+representing bonds, orbitals, torsion angles, etc.  The multimedia
+experience of exploring chemistry data in custom software like \IQmol{} 
+is therefore much greater than the experience of generic web
+multimedia, which means that the scientific software is a better 
+forum for showcasing novel research.}
+
+\section{\protect\llMOSAIC{} Structured Reporting (\protect\lsMOSAICSR{})}
+
+\p{The \MOSAIC{} structured reporting framework (\MOSAICSR{}) 
+includes tools to help authors develop interactive 
+presentations supplementing academic documents, and specifically 
+to use supplemental archives to document how their research 
+has been conducted.  With \MOSAICSR{}, authors can implement or 
+reuse code libraries that report on 
+research/experiment methods, workflows, and 
+protocols.  The \MOSAICSR{} information may be structured 
+as a \q{minimum information checklist} conformant 
+to standards such as those collectively 
+gathered into the \MIBBI{} recommendations;  
+in this case \MOSAICSR{} would be applied by  
+implementing object models instantiating \MIBBI{} 
+policies.  Alternatively, \MOSAICSR{} reports can be 
+derived from actual computer programs simulating 
+research workflows, similar to \BioCoder{}\footnote{See 
+\bhref{https://jbioleng.biomedcentral.com/articles/10.1186/1754-1611-4-13}.} (which is included by LTS, in an updated \Cpp{} version, as one 
+\MOSAIC{} library).  Finally, \MOSAICSR{} presentations 
+may be based on annotations applied to research/analytic 
+code.  For example, in the context of image analysis, 
+the \Pandore{} project (an image-processing application) 
+provides an \q{Image Processing 
+Objectives} Ontology as well as a suite of image-processing 
+operations that can be called from computer code.  
+Image-analysis pipelines can therefore be explained 
+by annotating the pertinent function-calls 
+(which \Pandore{} calls \q{operators}) with terms from 
+the \Pandore{} controlled vocabulary, providing 
+annotation targets for \MOSAICSR{} presentations.}
+
+\p{\lMOSAICSR{} can express both computational 
+workflows that are fully encapsulated by published 
+code and real-world protocols concerning 
+laboratory equipment and physical materials 
+or samples under investigation.  In the latter 
+guise, \MOSAICSR{} code can employ or instantiate 
+standardized terminologies and data structures 
+for describing experiments --- such as 
+\MIBBI{} policies or \BioCoder{} functions.  
+In this case, the role of \MOSAICSR{} code is 
+to serve as a serialization/deserialization 
+endpoint for sharing research metadata.  
+Conversely, when workflows are fully implemented 
+within software developed as part of a body 
+of research, \MOSAICSR{} can provide a functional 
+interface allowing this code to be embedded 
+in scientific software.  For the latter,  
+\MOSAICSR{} provides a framework for modeling 
+how a software component specific to a given 
+research project exposes its functionality to 
+host and/or networked peer applications.  There 
+are also instances where both scenarios are 
+relevant --- the \MOSAICSR{} code would simultaneously 
+document real-world experimental protocols and 
+construct a digital interface as part of 
+a workflow which is part digital (\q{\textit{in silico}}) and part 
+\q{real-world} (\q{in the lab}).}
+
+\section{\protect\llMOSAIC{} Annotations}
+\p{Included in any \MOSAIC{} plugin would be specially-designed 
+\PDF{} viewers for interactively 
+reading authors' papers.  In particular, these \PDF{}
+applications would recognize cross-references linking between 
+publications and their associated supplemental archives.  This would
+allow authors to identify concepts which are discussed and/or
+represented both in the research paper and in the archive, annotating
+their papers accordingly.  For example, 
+the concept \q{\RNA{} Extraction} may be discussed in a
+publication text, and also formally declared as one step in the lab
+processing as represented via \BioCoder{}, summarized in a
+\BioCoder{}-generated chart, and included in the supplemental archive 
+(a similar example is used in the documentation for \BioCoder{}).
+The \PDF{} viewer would then ensure that the phrase \q{\RNA{} Extraction} in
+the text is interactively linked to the concordant step in the
+experimental process, so that readers would then be able 
+to view the \BioCoder{} summary as a context-menu action associated 
+with the phrase where it appears in the \PDF{} file.  For a different 
+example, the phrase \q{Oxygenated Airflow} refers to airflow in 
+assisted-breathing devices, such as
+ventilators; to ensure that the device is working properly, the
+equipment must be monitored to check that a steady stream of oxygen
+reaches the patient.  Research into the design and manufacturing of
+ventilators and similar devices may then include \q{Oxygenated Airflow}
+both as a phrase within the article text and as a parameter in data
+sets evaluating the device's performance.  In this situation, the
+publication-text location of the \q{Oxygenated Airflow} phrase should once
+again be annotated with links to the relevant part of the data set
+(e.g., a table column) where measurements of airflow levels are
+recorded.}
+
+\part{Concrete Applications}
+\section{\protect\llMOSAIC{} in the context of Image Analysis}
+\p{This section will focus on one specific application 
+of \MOSAICSR{} in the context of image analysis 
+and bioimaging --- specifically, what we term \DSPIN{} 
+(\q{Data Structure 
+Protocol for Image-Analysis Networking}).   
+\lDSPIN{} adds a narrower focus by 
+extending \MOSAICSR{}.  Software that uses the \DSPIN{} 
+protocol is able to provide a description of image 
+processing capabilities which have been 
+utilized and/or are functionally exposed 
+by code and data associated with a research 
+project.  This includes \q{structured reporting} 
+of research objectives as well as a concrete 
+interface for invoking analyses associated 
+with the relevant research (either new algorithms or 
+techniques used to obtain reported findings).
+\lDSPIN{}, in turn, is based on \CaPTk{} and 
+\Pandore{} (which includes both data models and interactive 
+software) and the \Pandore{} \q{Image Processing Objectives} 
+Ontology, mentioned above.  
+\DSPIN{} adopts protocols from \CaPTk{} 
+in order to accept information about how different objectives 
+are merged into workflows, particularly 
+with respect to implementating 
+image-analysis capabilities as 
+extensions to a core application, and 
+with respect to \CaPTk{}'s implementation of the 
+Common Workflow Language (\CWL{}).  In effect, 
+\DSPIN{} formalizes the data models and 
+prototypes adopted by \Pandore{} and 
+\CaPTk{} so as to concretize \MOSAICSR{} 
+for the specific domain of image processing 
+and Computer Vision.  The sections below 
+will therefore outline \DSPIN{} features 
+in the context of \MOSAICSR{} design principles 
+and objectives.}
+
+\section{Meta-Procedural Modeling in 
+\protect\lsDSPIN{} and \protect\lsMOSAICSR{}}
+
+\p{When developed as a systematic outline of 
+computational workflows --- not just a digital 
+summary of real-world (e.g. lab) protocols --- 
+\MOSAICSR{} reports can be formalized 
+using a \MOSAIC{} component which we call 
+\q{Hypergraph Multi-Application Configuration 
+Language} (\HMCL{}).  Most approaches to modeling research workflows 
+involve some concept of \q{meta-objects},\footnote{See 
+the \sVISSION{} system: \bhref{https://pdfs.semanticscholar.org/1ad7/c459dc4f89f87719af1d7a6f30e6f58dff17.pdf}.} 
+\q{tools} (in the terminology of \CWL{}), 
+or \q{transitions} (in the language of Petri Net 
+theory).  In \HMCL{}, the equivalent concept is 
+that of \textit{metaprocedures}, which are analogous 
+to ordinary computational procedures but 
+add extra sources of information concerning 
+input and output parameters.  In general, 
+rather than simply passing an input value 
+into an executable routine, metaprocedures 
+define steps which can be taken to 
+acquire the proper values when needed.  
+Aside from ordinary runtime values, the 
+most important input sources are methods 
+defined on \GUI{} components; command-line 
+parameters; file contents; and 
+not-yet-evaluated expressions (perhaps 
+encapsulated in scripts or function pointers).  
+A metaprocedure formulation abstracts the 
+acquisition of input arguments (or the consumption of 
+values within \q{channels} via which a procedure sends and 
+receives data) 
+from the concrete procedure or procedures 
+which are eventually executed.  Therefore, 
+an \HMCL{} metaprocedure definition 
+has two separate parts: a preamble where 
+input sources are described; and an 
+executive sequence where concrete procedures 
+are indicated.  A \textit{meta-evaluator} 
+then operates in accord with these 
+definitions, concretizing the input values 
+and launching the actual procedure(s).  
+For \DSPIN{}, metaprocedures can be defined 
+using a framework based on \BioCoder{}, 
+but adopted to the imaging and Computer Vision 
+context.}
+
+\p{Image analysis methods are often 
+described in academic literature in 
+terms of mathematical formulae and/or 
+characterizations of computing environments 
+(such as Graphical Processing Units). 
+It requires additional construction to 
+translate these overviews into actual 
+computer code.  Once 
+Computer Vision innovations are in fact 
+concretely implemented, there is then 
+an additional stage of development 
+requisite for users to enact in practice  
+the computations described in the 
+research.  Although it is theoretically 
+possible to demonstrate novel methods 
+within fully self-contained autonomous 
+applications, it is more convenient for 
+users if research code is integrated 
+with existing imaging software.  
+Along these lines, the \DSPIN{} interface can help 
+connect new code to existing applications, 
+allowing users to access the new code's functionality 
+through \GUI{} actions, command-line invocations, 
+or inter-application messaging.}
+
+\p{In addition to pragmatically enabling 
+application embedding, \DSPIN{} models 
+represent research methods and theories, 
+contributing to transparency and 
+reusability according to the 
+\MIBBI{} and \FAIR{} (Findable, Accessible, 
+Interoperable, Reusable) standards.\footnote{See 
+\bhref{https://www.researchgate.net/publication/331775411_FAIRness_in_Biomedical_Data_Discovery}.}
+This can be achieved, in part, by implementing 
+data structures conforming to \Pandore{} 
+Image Processing Objectives.  However, \DSPIN{} 
+embeds this logic in an Object-Oriented 
+context which allows imaging-specific workflow 
+notations to be paired with specifications 
+outside of image-processing in the narrowest 
+sense.  This allows \DSPIN{} to be available 
+for hybrid computational-objectives representations 
+which are only partially covered by the imaging 
+domain --- analogous to the \MIAPEGI{} 
+(Gel Electrophoresis Informatics) component 
+of \MIAPE{} (Minimum Information About a Proteomics 
+Experiment).  The following section will 
+discuss several domains where \DSPIN{} has 
+been explicitly integrated with code 
+libraries codifying \MIBBI{}-style research protocols.}
+
+%\vspace{-1em}
+\section{\protect\lsDSPIN{} in Contexts Supplemental to Image Processing}
+\vspace{2em}
+\subsection{Image Flow Cytometry}
+\p{One important use-case for biomedical image processing 
+is to analyze cellular microscopy in conjunction with 
+cytometric experiments which indirectly investigate cells and 
+cellular-scale entities (such as proteins).  
+Conceptually, image analysis and flow cytometry 
+(\FCM{}) analysis 
+are mathematically similar, and some commercial 
+cytometry software has been extended with 
+image-processing capabilities.  The overlap 
+between cytometric and image analysis has also 
+inspired attempts to merge cytometry standards, 
+such as \MIFlowCyt{} (the Minimum Information about a Flow Cytometry Experiment policy within \MIBBI{}), with bioimaging 
+standards such as \DICOM{} (Digital Imaging and 
+Communications in Medicine).  One such proposal is 
+due to Robert Leif, who argues that \q{The large overlap between imaging and flow cytometry provides strong evidence that both modalities should be covered by the same standard} 
+and has formalized an \XML{} language 
+(\CytometryML{}) to serve as that 
+overarching bridge.\footnote{See 
+\bhref{https://spie.org/Publications/Proceedings/Paper/10.1117/12.2295220?SSO=1}.}  The \DSPIN{} project builds 
+off this work by introducing its own \FCM{}/\DICOM{} 
+hybrid, although in an object-oriented rather 
+than \XML{}-based context, although it also 
+incoporates an expanded 
+\XML{}-oriented schema (discussed in 
+the next part of this paper).  As a reference implementation 
+for this \DSPIN{} extension, the project 
+also provides a pure-\Cpp{} cytometry 
+library based on the \openCyto{} (see \bhref{https://www.bioconductor.org/packages/release/bioc/html/cytolib.html}) and 
+\FACSanadu{} (see \bhref{https://www.biorxiv.org/content/biorxiv/early/2017/10/13/201897.full.pdf}) libraries, while eliminating 
+external dependencies such as \R{} and 
+\Java{}.\footnote{Upon request, LTS can provide 
+a detailed summary of this project reconciling 
+\sopenCyto{} and \sFACSanadu{}.  Specifically, 
+although \sopenCyto{} as a whole uses \sR{} for its 
+visual layer, \sopenCyto{} contains \scytoLib{}, a \sCpp{} 
+library for cytometric analysis, which LTS employs 
+as the basis for a standalone pure-\sCpp{} flow 
+cytometry application.  Meanwhile, \sFACSanadu{} 
+is a \sJava{} application which uses a \sQt{} front-end 
+that LTS is migrating to \sCpp{}.  The supplemental 
+information supplied by LTS about the \sFACSanadu{}/\scytoLib{} integration 
+identifies the specific data types where \scytoLib{} 
+code (different kinds of gates, for instances) can 
+be incorporated as alternatives to the \sFACSanadu{} 
+\sJava{} equivalents, while still using \sFACSanadu{} 
+\sGUI{} classes.}  The \FCM{}/\DICOM{} bridge is 
+implemented in this context via a 
+\DSPIN{} supplement to \DICOM{} based 
+on \q{Semantic \DICOM{},} which is an 
+effort to standardize query processing 
+within \PACS{} (Picture Archiving and 
+Communications Service) workstations and 
+to more effectively integrate \DICOM{} with 
+clinical data.}
+
+\subsection{A Semantic \protect\lsDICOM{} Object Model}
+
+\p{As a formal representation of imaging workflows, 
+\DSPIN{} would reasonably be paired in 
+many contexts with \DICOM{}, insofar as \DICOM{} 
+represents the canonical standard for exchanging 
+medical image data.  For its applications within 
+the medical-imaging context, \DSPIN{}, therefore, 
+provides object-oriented accessors 
+to \DICOM{} data such that image-objectives and 
+\DICOM{} object models can interoperate.  
+This object-oriented foundation also provides a 
+basis on which to further integrate clinical 
+data in the form of \q{Semantic} \PACS{} 
+models.\footnote{See \bhref{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5119276/}.}  The original Semantic \PACS{} implementation 
+draws clinical data from \DICOM{} headers, and 
+represents this extracted information via \RDF{}.  
+In keeping with \MOSAIC{}'s more object-oriented 
+focus, the \MOSAIC{}-Semantic \DICOM{} (\MOSAICSD{}) 
+integration is engineered instead as an 
+extension to the \DICOM{} Toolkit (\DCMTK{}) 
+library, though it imports many constructs 
+within Semantic \DICOM{} in the guise 
+of a \q{Hypergraph Ontology} --- one example of a 
+system \MOSAIC{} uses to merge Semantic Web 
+schema with Object-Oriented code.  In short, \MOSAICSD{} 
+extends \DSPIN{} by defining  a central \DICOM{} object model 
+affixed to both clinical and 
+image-processing object models.}
+
+\p{The \MOSAICSD{} object system applies 
+not only to \DICOM{} integrated with 
+statements of image-processing objectives, 
+but also to other biomedical contexts where 
+image analysis should be integrated 
+with other analytic modalities as well as with clinical or 
+epidemiological information.  For example, Flow 
+Cytometry overlaps with clinical data tracking because 
+one of \FCM{}'s essential investigative roles 
+is to examine patients' immunological 
+response to diseases and/or interventions.  
+In the context of Covid-19, say --- with respect to 
+achieving a deeper understanding of how 
+and why SARS-CoV-2 symptoms present differently 
+in different patients --- \q{The starting point will likely be a deep characterization of the immune system in patients with different stages of the disease.}\footnote{See \bhref{https://onlinelibrary.wiley.com/doi/full/10.1002/cyto.a.24002}.}  
+That is, \FCM{} observations need to be 
+matched with clinical data in order to 
+classify (and consider statistical correlations 
+between) immunological findings and clinical facts: 
+risk factors, sociodemographics, disease 
+progression, and so forth.  This analysis 
+intrinsically assumes that \FCM{} data can 
+be transparently linked with all relevant 
+clinical data, but such integration is 
+difficult even in \DICOM{}, where \DICOM{} 
+headers are specifically designed for preserving 
+patient data across picture-sharing networks  
+(there is no analogous \q{header} 
+component in the Flow Cytometry Standard, \FCS{}).  
+In brief, \DSPIN{} extensions to 
+non-imaging domains can promote 
+data integration insofar as \DSPIN{} 
+Clinical Object Models, based on 
+Semantic \DICOM{}, provide 
+an affixation point for clinical data 
+in analytic contexts which are 
+operationally related to image analysis, 
+and not just to image analysis by itself.}
+
+\subsection{Semantic \protect\lsDICOM{} via \protect\lsDCMTK{} Extensions}
+\p{As a concrete example of how a Semantic \DICOM{} Object Model could be 
+implemented, consider the process of developing \DICOM{} extensions 
+by modifying existing \DICOM{} client libraries, such as 
+\DCMTK{}.  As a file \textit{standard}, \DICOM{} itself is 
+an abstraction; the \DICOM{} protocol only becomes a concrete 
+phenomenon insofar as \PACS{} workstations, radiology software, 
+and other applications employ \DICOM{} client libraries.  Therefore, 
+any \DICOM{} \textit{extension} is similarly concretized only 
+by an application which links against modified \DICOM{} libraries 
+that recognize the extended syntax and/or semantics.  When implementing 
+\DICOM{}, accordingly, we can assume that the modified client libraries 
+exist in an ambient context which provides capabilities that can 
+be leveraged by the extension as it becomes formalized.  For example, 
+if a \DICOM{} extension provides a unified \FCM{}/\DICOM{} format, 
+we can assume that the workstation linking against modified 
+\DCMTK{} libraries supports \FCM{} features, such as the ability 
+to construct geometric gating models (that is, rectangular or 
+ellipsoid segments on \FCM{} images) and to consume information 
+about the cytometric equipment used to 
+derive the current \FCM{} data.}
+
+\p{In the case of Semantic \DICOM{}, we can similarly 
+assume that the host application which loads 
+an enhanced \q{Semantic} version of a \DICOM{} client library 
+has the ability to consume more complex clinical data models 
+than are incorporated into conventional \DICOM{}.  In the 
+case of \DCMTK{}, patient information is accessed through a 
+\textbf{DcmDataset} object, which in turn contains multiple 
+\textbf{DcmObject} values spanning several more specific 
+types.  A \DICOM{} extension can, accordingly, be concretized by 
+expanding the range of object types subsumed under \textbf{DcmObject}, 
+as well as modifying the \textbf{DcmDataset} code so that 
+instances of these extended types could be identified and 
+passed off to the appropriate handlers.  Developers can then 
+bundle files serializing these extended types within the 
+overall collection of files zipped into a single 
+\DICOM{} resource.}
+
+\p{The steps outlined above allow an extension object model to 
+be embedded in \DICOM{} by hooking extra processing code 
+into the procedures whereby conventional \textbf{DcmDataset}s  
+are extracted from \DICOM{} files.  It is then necessary to 
+ensure that the \DICOM{} client application can properly 
+manipulate the extension object data.  This could be handled 
+simply by linking all necessary libraries into the \DICOM{} client 
+itself, but a more flexible solution is to employ some 
+form of multi-application networking.  In the case 
+of non-standard clinical data, a flexible approach would be 
+to pair client libraries for serializations of such data 
+with a standalone application that can parse these 
+serializations and respond to requests about the encoded 
+information.  With such an application in place, the 
+\DCMTK{} host application would not need to implement 
+all logic related to the extension object model; it 
+would simply need to be able to launch and/or communicate 
+with a secondary application tailored to each individual extension 
+in particular.}
+
+\p{As a concrete example, consider a specialized data model and 
+self-contained application specifically devoted to tracking 
+immunological responses and post-recovery symptomology 
+for Covid-19.  The goal would be to develop more sophisticated 
+technology for modeling the progression of active Covid-19 
+infections, as well as the lingering effects of the disease 
+for patients who experience adverse reactions (such 
+as lasting neurological damage or lung impairment) even after their 
+ostensive recovery.  Detailed models of Covid-19 affliction could then 
+be matched against epidemiological, treatment, and sociodemographic 
+data to determine whether there are predictors that determine which 
+patients may experience more severe or long-lasting symptoms, 
+and whether these symptoms can be mitigated by different treatment 
+options.  The data consumed by such a Covid-specific application 
+might be bundled into \DICOM{} files even if \DICOM{} clients 
+cannot directly process this data.  In such a case, they could, 
+instead, be programmed to launch the Covid-specific application 
+and query that application for select pieces of information 
+that \textit{are} relevant for a \DICOM{} workstation 
+(e.g., an immunological profile of the patient adding 
+layers of detail to cytological imaging).  In short, 
+a Covid-specific application would potentially be accessed by 
+several different peer applications addressing 
+several different biomedical domains (bioimaging, cytometry, 
+epidemiology, genomics), and could provide different 
+sorts of information from a Covid-specific data model 
+for different contexts: given an overall information 
+package about a patient's SARS-CoV-2 immunology and symptomology, 
+some categories of data will be relevant for bioimaging, 
+while others will be relevant for 
+genomics and so forth.  The file formats employed by 
+these various peer applications (such as \DICOM{}, in the 
+bioimaging context) may then be extended only as much 
+as is needed to seed shared data packages with enough 
+information to launch the Covid-specific application and 
+request information specific to the peer application's 
+specific biomedical domain.}
+
+\subsection{Geo-Imaging and Geographic Information Systems}
+\p{Another area where \DSPIN{} provides structured 
+object models is that of Geographic Information Systems 
+(\GIS{}) annotations.  There is a direct link between image processing 
+and \GIS{} insofar as identifying geotaggable 
+features is one dimension or application of 
+Computer Vision.  Effectively manipulating 
+geoimaging data requires mathematical 
+translations between several different 
+coordinate systems, in both two and 
+three dimensions.  These coordinate 
+transforms --- as well as semantic interpretations 
+of geoimage segments (buildings, land features, 
+roads, etc.) --- can serve as the basis for 
+an object model attaching image-processing 
+objectives to \GIS{} workflows.}
+
+\p{In conventional \GIS{} annotation, 
+data structures are linked to both 
+geospatial coordinates and to 
+visual cues or icons  
+allowing locations of interest to be 
+indicated on maps.  The actual geotagged 
+data structures could be derived from 
+any domain; as such any object model 
+may be integrated with \GIS{} annotations 
+so long as one can assign spatial interpretations 
+to the phenomena computationally encapsulated 
+by the domain in question.  In a medical 
+context, for instance, geotagged data 
+might represent the scope of a vaccination campaign, 
+or the extent of an epidemic, along with 
+relevant geographic or civic features 
+(villages, medical clinics, national borders, 
+and so on).  The actual map as a visible 
+digital artifact therefore serves as a 
+virtual glue where clinical, geographical, 
+governmental, and \GUI{} data are all 
+sutured together.  Insofar as geoimaging 
+involves analysis of photographed land 
+features and/or urban environments, 
+image processing information represents a 
+further object model that can be 
+added to the mix.  Even when dealing solely 
+with virtual maps, however --- rather 
+than with satellite images or other geospatial 
+photography --- the analysis and application-level 
+rendering of map features is sufficiently 
+similar to image processing that a rigorous 
+model of \GIS{} integration belongs 
+properly within \DSPIN{}, specifically 
+within a \MOSAICGIS{} extension.}
+
+%\part{Markup Serialization and \protect\q{Grounding}} %MOSAIC Data Models}
+
+%\section{Conceptual Space Models and Hypergraph Database Implementation}
+%\p{\lMOSAIC{} repositories need to model data  }
+
+\vspace{-9pt}
+\part{MOSAIC Data Models}
+\vspace{-6pt}
+\section{Hypergraph Database Models for Publication Data}
+\p{At the core of any \MOSAIC{} portal is a collection of 
+distinct files, representing individual publications and 
+supplemental archives.  However, in a typical case it 
+becomes necessary to ground the system of files in a 
+database that hosts publication information, so that 
+readers could search the portal for specific authors, 
+keywords/phrases, titles, subject areas, and so forth.  
+Searches within publication metadata are the simplest 
+example of this functionality.  However, searches within publication 
+texts themselves are more complex, because what seems like a 
+straightforward keyword search from a user's point of 
+view might be more complicated at the processing level by 
+documents' markup structure.  That is, technical terms or acronyms 
+which readers simply see as single words/phrases might be 
+defined in a more complicated way within the document, 
+such as by internally structured text 
+segments rather than raw character streams.  In addition, 
+keyword searches might also be tripped up by 
+ligatures, footnote interruptions, and 
+other visual features wherein the document in human-readable 
+formats like \PDF{} markedly diverges  
+from machine-readable raw text.}
+
+\p{To address these potential search complications, \MOSAIC{} 
+provides a \q{Hypergraph Text Encoding Protocol} (\HTXN{}) 
+which effectively separates document text into different layers, 
+dividing presentation-related content from textual content and 
+making search capabilities more reliable.  Each publication can have 
+an \HTXN{} representation, essentially a machine-readable structure 
+encapsulating document text, as part of its supplemental archive.  
+These \HTXN{} resources can then be used to support 
+robust searching among text publication sets.}
+
+\p{Apart from metadata and keyword searches within texts, \MOSAIC{} 
+allows an additional layer of search functionality: the option to 
+search across supplemental archive contents such as data sets 
+and research protocol descriptions.  
+\lMOSAIC{} provides a hypergraph-based database engine that 
+can be used, at a minimum, for publication info; in 
+addition, developers 
+have the option of including supplemental content  
+within this central database.  Each supplemental archive 
+encompasses raw data and/or methodological descriptions 
+via files internal to the archive; these assets are not 
+necessarily shared with the host \MOSAIC{} repository 
+database (except via operations that directly 
+examine archive files).  However, those who create or 
+maintain a repository could choose to model some or all archive 
+content within its publication database, either directly storing 
+archives' data sets or importing certain select information 
+(such as object/type schema or representative data samples).  
+In this case, some such data in the supplemental archives will be 
+mirrored in the central database, so that it is accessible 
+for user-facing searches.  To accommodate 
+many different kinds of data models (from \q{\SQL{}-like} 
+tables to graphs and hierarchical collections types) \lMOSAIC{} employs 
+a flexible Hypergraph Database engine.  
+Thus, the publication database within a \MOSAIC{} 
+portal would have the flexibility to import most data 
+which is present in supplemental content associated 
+with given publications.} 
+
+\p{In some contexts, however, authors are given the option to 
+structure their shared research data in a format that 
+can be exported to a \MOSAIC{} publication database.  
+This is possible because \MOSAIC{}'s hypergraph data model 
+supplies a rigorous framework for documenting how 
+a data set is organized, which in turn can provide a 
+formal overview of the theoretical or methodological 
+commitments informing the research.  The \MOSAIC{} database 
+engine --- called \ConceptsDB{} --- represents an expanded 
+hypergraph metamodel built around different paradigms 
+for expressing scientific knowledge, such as Conceptual 
+Space Theory and Conceptual Role Semantics.\footnote{Or at least 
+a variation of Conceptual Roles consistent with \AI{} tools 
+such as \Grakenai{}, and formalizations of Conceptual 
+Spaces such as those described in \bhref{https://arxiv.org/abs/1706.06366}.}}
+
+\section{Markup Serialization and \protect\q{Grounding} in 
+\protect\lsMOSAIC{} Portals}
+%\vspace{-1em}
+\p{The data-integration mechanisms discussed up 
+to now have focused on 
+object models and object-oriented programming 
+techniques.  It is understood that while composing 
+special-purpose object-based libraries 
+specifically tailored to individual  
+data-integration problems is a powerful 
+tool for solving such problems, data integration initiatives 
+in practice are often organized around standards 
+for sharing or serializing conformant 
+data structures.  Therefore, an important 
+aspect of data integration is implementing 
+proper data-serialization technology 
+that is sufficiently rigorous to 
+serve as a \textit{proxy} for formal interface 
+definitions.  \lXML{} formats present a good case-study 
+for such formalizations because 
+most serialization in 
+the biomedical and bioimaging context 
+operates through 
+\XML{} languages.}
+
+\p{Standardizing a data 
+format by stipulating how \XML{} files 
+may encode the data is much simpler than 
+defining an analogous specification 
+in terms of executable computer code: 
+one way to document the shape of any 
+relevant data is simply to explain how an \XML{} 
+document will be structured insofar as 
+it encodes data accordingly.  Potentially, 
+such specification can be a single 
+\XML{} \DTD{} file, or an \XML{} sample, 
+providing a convenient reference point 
+for developers to grasp the underlying 
+data model.  However, the structure of an \XML{} document 
+does not, in and of itself, present a clear picture of 
+how the information which the document 
+represents is semantically organized.  Even 
+though \XML{} is processed by computer programs, 
+one cannot even determine from an \XML{} document or 
+schema which \XML{} elements (if any) correspond 
+to data types recognized by applications which 
+read and/or write the corresponding \XML{} code.  
+For example, the \XML{} portion of \OMETIFF{} 
+(the principal Open Microscopy Environment imaging 
+format) includes an explicit \textbf{Image} element 
+(which gathers up all significant image metadata); 
+an application reading \OMETIFF{} files 
+might, therefore, introduce a single datatype 
+--- analogous to (and maybe wrapping an) \textbf{itk::Image} from 
+the Insight Toolkit imaging libraries --- 
+bundling the data in that part of the \OME{} \XML{}.  
+In this case, there will be a one-to-one correspondence 
+between \XML{} structure and application-level 
+data types, at least for that one \textbf{Image} node.  
+On the other hand, software reading \OMETIFF{} 
+information might not manipulate images directly, 
+but rather pull out other kinds of metadata, 
+such as an experimenter's name or description 
+of the microscopic setup.  In this case, 
+the application might not have an explicit 
+\q{object} representing the image itself, 
+but it may still read information about the 
+image from child nodes of the \XML{} \textbf{Image} 
+element.}
+
+\p{In short, because applications can read or use data 
+from an \XML{} document in different ways, 
+the document's structure does not itself 
+provide a clear picture of how the specific code that 
+reads the \XML{} is organized.  Such uncertainty 
+becomes significant when one wishes to use 
+\XML{} specifications as an indirect strategy 
+for documenting parameters and features 
+of the data structures which are serialized 
+via the relevant \XML{} language.  In effect, 
+\XML{} serialization operates on two levels: 
+on the one hand, the specific \XML{} document 
+provides an encoding of data conforming to a 
+given structure; but, at a more abstract 
+level, one can model the relationship 
+between the surface-level \XML{} node 
+structure and the application-level data structures 
+thereby serialized.  This second level of detail 
+is usually implicit and unstated, but in the \MOSAIC{} 
+technology, such \q{meta-serialization} --- a term we are using 
+to suggest the idea of providing meta-data 
+\textit{about} a serialization --- is directly 
+formulated through a notion of 
+\q{grounding,} which involves adding supplemental 
+markup clarifying how documents instantiating a 
+serialization format (such as \XML{}) relate 
+to the coding protocols and data types of 
+software that reads or creates these documents.}
+
+\p{For maximum expressivity, \MOSAIC{} introduces a 
+meta-serialization system that can be applied 
+to languages more flexible than \XML{} --- notably 
+\TAGML{} --- as well as to \XML{} 
+proper.\footnote{See \bhref{http://www.balisage.net/Proceedings/vol21/print/HaentjensDekker01/BalisageVol21-HaentjensDekker01.html}.}
+In effect, \MOSAIC{} provides parsers for an 
+extended version of \TAGML{} which includes 
+an additional \q{grounding} layer.  Grounding, 
+in this context, means describing how 
+elements in the markip --- nodes, attributes, 
+and character sequences --- are \q{grounded} 
+in application-level types, data fields, 
+and other programming constructs.  \lMOSAIC{} 
+provides parsers for this \q{Grounded \TAGML{}} 
+(\GTagML{}) language as well as converters 
+to output serialized data as conventional 
+\XML{}, so that \GTagML{} specifications can 
+be used in contexts (\MIFlowCyt{}, for instance) 
+where ordinary \XML{} is expected and serves 
+as a basis of standardization.  \lMOSAIC{} also 
+provides code libraries 
+for extracting data from \GTagML{} documents.}
+
+\p{\lGTagML{} documents, 
+with certain restrictions enforced, are structurally 
+isomorphic to \XML{} and can be rendered as 
+pure \XML{}; as such, \GTagML{} schemata can 
+be used to define norms for \XML{} languages, 
+although the logical role and operations of such requirements 
+is not identical to \XML{} schema definitions.  
+By design, \GTagML{} schemata operate on 
+two levels: first, they constrain 
+the organization of \GTagML{} files themselves; 
+and second, they stipulate how \GTagML{} document 
+structure relates to the type systems of 
+code libraries serializing and deserializing 
+\GTagML{} files.  To model the second level of 
+metadata, \GTagML{} introduces a hypergraph-based 
+type model organized around \q{infosets,} which 
+are structured overviews of application-level 
+data types.  To fully utilize \GTagML{} features, 
+programmers may consequently compose \q{infoset classes} 
+as wrappers around ordinary data types 
+(e.g., \Cpp{} classes), whose instances are 
+serialized via nodes or character strings 
+within \GTagML{} documents.  Infoset classes 
+provide hypergraph \q{views} onto type-instances, 
+and act as a bridge between data types and 
+their associated \GTagML{} schema.  In particular, 
+infoset classes (rather than the types 
+they encapsulate) are the basis for schematizing 
+the relation between \GTagML{} document elements 
+and type instances (and the data they contain).}
+
+\p{The hypergraph-based modeling incorporated 
+into \GTagML{} reuses much of the code associated 
+with \ConceptsDB{}, the new hypergraph database 
+being developed alongside \MOSAIC{}.  More information 
+about \ConceptsDB{} --- and on the 
+\HTXN{} text encoding protocol for \MOSAIC{} portal 
+manuscripts, mentioned earlier --- can be found on 
+the guthub project page for Linguistic 
+Technology Systems (\bhref{https://github.com/Mosaic-DigammaDB/LingTechSys}).}
+
+\end{document}
+
+
+
