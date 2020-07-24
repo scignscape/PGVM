@@ -1,0 +1,59 @@
+
+\part{Interoperating with Data Sets and Scientific Repositories}
+
+\p{Systematic use of published scientific data requires 
+accessing information on several different levels, 
+including outlines of research methods and protocols 
+as well as raw research data.  Several standard 
+models exist for how research data sets 
+should be described, including Research Objects\footnote{See 
+\bhref{https://eprints.soton.ac.uk/271587/1/research-objects-final.pdf}}, 
+the \FAIR{} (Findable, Accessible, 
+Interoperable, Reusable) initiative\footnote{See \bhref{https://www.researchgate.net/publication/331775411_FAIRness_in_Biomedical_Data_Discovery}.}, 
+\SciXML{},\footnote{See \bhref{http://able.myspecies.info/scixml} } 
+and \SciData{}\footnote{See \bhref{https://stuchalk.github.io/scidata/}.}.  
+Also relevant to scientific data sharing, though less general 
+in scope, are formats for composing and/or annotaging scientific 
+publications, such as 
+\IeXML{}\footnote{See \bhref{https://www.semanticscholar.org/paper/IeXML\%3A-towards-an-annotation-framework-for-semantic-Rebholz-Schuhmann-Kirsch/1d72a56b6576117c62f388a5f2193965e4c7e293}.} and \JATS{} (Journal Article Tag Suite).  Despite (or perhaps beause of) this diversity of 
+representational possibilities, guidelines for construsting 
+and annotating scentific data remain open-ended: researchers 
+who want to rigorously annotate/document their published 
+data can do so in many different ways, which 
+presents challenges to software that interacts with research 
+data.}
+
+\p{Several different kinds of applications interface with 
+scientific data, including software where such data 
+is \textit{created}; web services (and potentially \API{}s) where 
+data is \textit{hosted}; and programs which researchers 
+use to find and download (or otherwise access) scientific 
+data.  Because data-representation paradigms vary, 
+these applications need to be flexible enough to 
+manipulate data and metadata packages structured in 
+divergent ways.  For example, each \MdsX{} module 
+is designed around a particular scientific 
+repository/portal's protocols, so the structure 
+of distinct \MdsX{} modules may be noticeably 
+different.  Nevertheless, some general structuring 
+principles can be developed with respect 
+to querying and consuming repositories' resources.  
+This motivates the idea of a general 
+\q{Scientific Data Repository Model,} 
+(\SDRM{}) which 
+is concretized within code implementing 
+clients for individual portals (e.g., 
+\MdsX{} modules).  The following section 
+will present an overview of this 
+\SDRM{} representation, and subsequent 
+sections will specify how \SDRM{} 
+is related to \ConceptsDB{} and other 
+technologies discussed here.}
+
+\section{Interoperating with Science Portals via 
+the Scientific Data Repository Model}
+
+\p{}
+
+
+
