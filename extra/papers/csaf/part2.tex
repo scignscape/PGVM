@@ -53,6 +53,93 @@ technologies discussed here.}
 \section{Interoperating with Science Portals via 
 the Scientific Data Repository Model}
 
+\p{According to the \SDRM{} representation, each 
+data set is accompanied/constituted by a collection 
+of \q{assets.}  These include raw data files; 
+publication texts; research method descriptions; 
+code for accessing/examining/analyzing research 
+data; and annotations defining interconnections 
+between these different elements.  
+All material within or associated with a data set 
+is classified into one of \SDRM{} \q{units,} including 
+the five just enumerated and several 
+others.\footnote{For instance, data in some fields --- such 
+as genomics --- sometimes becomes too large to 
+be conveniently downloaded to an ordinary computer; 
+in this case, portals such as GenBank offer query services 
+to restrict vary large data sets into small result-sets 
+that researchers can examine directly.  In these 
+cases, the steps required to obtain information via 
+large, remotely-hosted data steps would potentially be 
+encapsulated into a distinct \sSDRM{} unit classified 
+outside the main \sSDRM{} categories.  Another 
+potential example of \sSDRM{} would be 
+statements related to funding, potential conflicts 
+of interest, and so forth.}  
+\lSDRM{} units represent both serializations of 
+data-set information, as well as \GUI{} components 
+(such as Dialog Boxes) allowing readers of 
+publicatons (and users of corresponding data sets) 
+to view the unit's information.   Moreover, 
+\SDRM{} units, by design, encapsulate their 
+data in type-instances (e.g., objects of 
+\Cpp{} classes) that can be manipulated at 
+runtime by computer code.  In short, each 
+unit has at least three representations 
+(serial, \GUI{}, runtime), giving rise to a 
+spectrum of \SDRM{} data that can be 
+summarized in a table (see Table~\hyperref[tab:sdrm]{1}).}  
+
+\begin{table}
+\renewcommand{\arraystretch}{2}
+\label{tab:sdrm}
+\begin{scriptsize}
+\begin{center}
+\begin{tabular}{|p{.1\textwidth}|p{.25\textwidth}|p{.25\textwidth}|p{.2\textwidth}|}
+\multicolumn{1}{c}{\textbf{\sSDRM{} Unit}} &%
+\multicolumn{1}{c}{\textbf{Runtime Object}} &% 
+\multicolumn{1}{c}{\textbf{Serialization}} &%
+\multicolumn{1}{c}{\textbf{\sGUI{} Component}} \\%
+\midrule
+\RaggedRight{}Raw Data Files &\RaggedRight{} File and archive objects identifying file types, 
+preferred applications, software prerequisites, etc. 
+&\RaggedRight{} Structured review of archive layout (e.g., the Research Object 
+Bundle \textbf{manifest} file) 
+&\RaggedRight{} Filesystem archive view plus information on file types and sizes  \\%
+Publication &\RaggedRight{} Machine-Readable Text (e.g., \sHTXN{}) 
+&\RaggedRight{}  
+Machine-Readable Serializaton (e.g., \sHTXN{}-compatible \LaTeX{}) 
+&\RaggedRight{} \sPDF{} Viewer  \\%
+\RaggedRight{}Research Method &\RaggedRight{} Research Protocol Encoding (e.g., \sBioCoder{}) 
+&\RaggedRight{} Research Protocol Serialization (e.g., an \sMIBBI{}-based markup language) 
+&\RaggedRight{} Dialog Box to view \q{Minimum Information} checklist   \\
+\midrule
+\RaggedRight{}Dataset-Specific Code Library &\RaggedRight{} Descriptions of library dependencies, compile 
+steps, inter-type relations (e.g. corresponences between data object and 
+\sGUI{} types), etc. 
+&\RaggedRight{} Serialized build information  
+&\RaggedRight{} Dialog to set compile/user options; \sIDE{} integration  \\
+\midrule
+\RaggedRight{}Annotations on Data, Code, and Text &\RaggedRight{} Integrated Annotation Object 
+Model &\RaggedRight{} Annotation Encoding (e.g. LTS's \q{Annotation Exchange Format}   
+&\RaggedRight{} Annotation-related context menus within \sPDF{} viewers and 
+dataset \sGUI{} elements 
+\bottomrule
+\end{tabular}
+\end{center}
+\end{scriptsize}
+\caption{Representations for \SDRM{} Units}
+\end{table}
+
+\p{In general, the data within \SDRM{} units might be 
+obtained from different sources, depending on the 
+module --- e.g., from publishers' \API{}s, or 
+from downloaded data sets, or some combination.  
+It is better to make at least part of the \SDRM{} data available 
+without having to download data sets as a whole, because 
+a useful overview of the data set may factor 
+in whether users choose to download it to begin with.} 
+ 
 \p{}
 
 
