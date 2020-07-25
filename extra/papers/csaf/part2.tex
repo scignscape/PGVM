@@ -140,7 +140,172 @@ without having to download data sets as a whole, because
 a useful overview of the data set may factor 
 in whether users choose to download it to begin with.} 
  
-\p{}
+\p{When \SDRM{} information is provided as part of a 
+dataset (rather than indirectly through an \API{} or 
+some other remotely-accessed resource), the \SDRM{} \GUI{} 
+components can be integrated with the data set's 
+overall front-end.  In particular, if the data set 
+provides its own, customized \GUI{} code 
+--- yielding what LTS calls a \q{Data-Set Application} 
+--- then such \GUI{}s may include dialog boxes 
+and similar components representing \SDRM{} data.  
+Data-Set Applications (which may be implemented 
+with the aid of \MdsX{} libraries) are discussed in 
+the next section.}
 
+\section{Data-Set Applications}
+
+\p{Dataset Creator (\dsC{}) is a framework for 
+constructing data sets which include computer code based on the 
+\Qt{} application-development platform.  
+Dataset Creator takes advantage of the \Qt{} platform 
+to construct Research Objects with exceptional 
+\GUI{} and data-mining capabilities.  \lQt{}, the 
+leading native cross-platform development toolkit, 
+is a comprehensive framework encompassing 
+a thorough inventory of programming features 
+--- networking, \GUI{} implementation, file 
+management, data visualization, \ThreeD{} graphics, 
+and so forth.  Data sets based on \Qt{} require 
+users to obtain a copy of the \Qt{} platform, but 
+\Qt{} is free for non-commercial use and easy to 
+install --- importantly, \Qt{} is wholly contained 
+in its own folder and does not affect any other 
+files on the user's computers (in this manner \Qt{} is 
+different than most software packages, which usually 
+demand a \q{system install}).}
+
+\p{By leveraging the \Qt{} platform, \dsC{} enables 
+standalone, self-contained, and full-featured 
+native/ desktop applications to be uniquely implemented 
+for each data set, distributed in source-code fashion 
+along with raw research data.  Adopting such a 
+data-curation method makes data sets easier to 
+use across a wide range of scientific disciplines, 
+because the data sets are freed from having to rely on domain-specific 
+software (software which may be commonly used in one scientific 
+field but is unfamiliar outside that field).  
+In addition, Research Objects composed with \dsC{} can 
+be integrated into Multi-Application Networks  
+(which are described above) because 
+the dataset applications are autonomous native \GUI{} applications that 
+can easily interoperate via \Qt{} messaging protocols.}
+
+\p{Because every data set is unique, each Dataset Application 
+will necessarily include some code specific to that one 
+Research Object.  However, \dsC{} will provide a core 
+code base and file layout which is shared by all 
+\dsC{} data sets by default.  This common core is 
+structured in part by the goal of developing 
+Dataset Applications in a \Qt{} context; for 
+instance, \dsC{} projects are structured to use \Qt{}'s \q{qmake} 
+build system as the primary tool for compiling 
+data-set code.  The common \dsC{} code therefore 
+includes qmake project files which support 
+compiling application with several build configurations.  
+In this framework, data-set users are classified into several 
+different roles --- in addition to ordinary users 
+(specifically, researchers who want to work with 
+and draw information from 
+data sets but have no development connection to 
+these data sets themselves), \dsC{} recognizes 
+roles for authors, editors, testers, and other 
+users who are responsible for bringing data 
+sets into publication-ready form to begin with.  
+Depending on the administrative role, data set 
+code can be compiled with additional 
+features (e.g., unit testing features).}
+
+\p{Another core component of \dsC{} is \LaTeX{} 
+code that authors may use when preparing documents 
+accompanying their data set.  These \LaTeX{} files 
+encompass special functionality for defining code 
+annotations and semantically significant points in 
+article text, such as sentence and paragraph 
+boundaries.  This \LaTeX{} code can be used 
+in conjunction with a pre-processor that 
+generates \LaTeX{} files from a special input 
+language.  The goal of these text-processing 
+technologies is to improve the interoperability 
+between research papers and data sets.  In particular, 
+the \LaTeX{} pre-processors (and subsequent 
+\LaTeX{}-to-\PDF{} converters) generate \HGXF{} 
+files which store information about textual and 
+\PDF{} viewport coordinates specifying the location of semantically 
+meaningful elements such as sentences and annotations.  
+These files are then zipped and embedded in 
+\PDF{} files.  With \dsC{}, the resulting \PDF{} files can 
+then be loaded into a customized \PDF{} viewer capable of 
+reading the embedded \HGXF{} data.  This allows the 
+\PDF{} application to utilize the embedded information 
+so as to provide a more interactive reading 
+experience --- for instance, viewing annotations 
+or copying sentences via context menus, where viewport 
+data maps cursor position to textual elements visible 
+on the \PDF{} page.  These features provide an 
+application-level interface between the \PDF{} viewers 
+(considered as \GUI{} components) and the corresponding 
+\GUI{} components in Dataset Applications.}
+
+\p{With proper customization, both the \PDF{} viewers 
+and the \dsC{} Dataset Applications can interoperate, 
+with \PDF{} context menus calling up windows in 
+the Dataset Application's \GUI{} implementation, 
+and vice-versa.  For example, researchers reading 
+the \PDF{} version of a scientific article can 
+launch the Dataset Application to explore some 
+detail mentioned in the text.  This is an example of 
+where micro-citations are practically useful: 
+any microcitable element in a document (such as a table, 
+column, row/record, or analytic procedure formalized as a 
+procedural asset associated with a data set) 
+can be linked to a corresponding \GUI{} element 
+in the Dataset Application.  For example, a statistical 
+parameter --- mentioned by name in the text, and perhaps 
+represented in serialization within raw data --- can 
+be mapped to a \GUI{} table column, and specifically 
+the column header; this is then an annotation target, 
+in the sense that for readers to gain more information it 
+is proper to link mentions of the relevant scientific 
+concept in article text to the column header as a 
+graphical element that can be made visible.  The 
+link is operationalized by implementing a procedure 
+to show the \GUI{} window where the table is located, 
+and ensure that the column header lies in the visible 
+portion of the screen, as a response to readers on the 
+\PDF{} side signaling a desire for information on 
+the annotated text element.  In the opposite direction, 
+database elements can be annotated with 
+links that can used by the Dataset Application to launch 
+a \PDF{} window opened to the page and location where 
+the corresponding concept is discussed in the article.}
+
+\p{In order to properly model this semantic, 
+viewport, and data set data integration, 
+\dsC{} uses \HTXN{}, described earlier, for document representation.  
+With \dsC{}, \HTXN{} files are not only associated 
+with data set assets; they are also machine-readable 
+document encodings that can be introduced into 
+publication repositories and other corpora 
+oriented toward machine-readability.  Authors can 
+host \HTXN{} files within data sets and link to 
+them via services such as CrossRef, thereby 
+ensuring that a highly structured, machine-readable 
+version of their papers is available for 
+text and data mining.  The \HTXN{} protocol is 
+also useful for encoding natural-language content 
+which becomes part of a data set as data assets 
+in themselves; for example, linguistic case-studies, or 
+(in the biomedical context) patient narratives.} 
+
+\p{In order to establish annotation cross-references 
+between publications and data-set code, \dsC{} 
+provides a code-annotation system based 
+on hypergraphs.  Further documentation of hypergraph 
+structuring principles and how they apply to 
+representing computer code can be found 
+in the LTS paper reviewing \ConceptsDB{}.}
+
+%\p{}
 
 
