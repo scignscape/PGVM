@@ -84,8 +84,8 @@
 
 %\pgfmathparse{equal(\value{page},15)||equal(\value{page},20)?int(1):int(0)}
 
-\ifnum\value{page}=8   %\pgfmathresult>0\relax
-\put(182,99){
+\ifnum\value{page}=10   %\pgfmathresult>0\relax
+\put(182,260){
  {\setlength{\fboxsep}{.65em}\fontsize{9}{10}\selectfont
 
    {\color{white}{\parbox{11cm}{\vspace{7pt}{\begin{minipage}{.46\textwidth}
@@ -397,6 +397,10 @@
 \newcommand{\OMETIFF}{\resizebox{!}{7pt}{\AcronymText{OME-TIFF}}}
 \newcommand{\OME}{\resizebox{!}{7pt}{\AcronymText{OME}}}
 
+\newcommand{\sOMETIFF}{\resizebox{!}{6pt}{\AcronymText{OME-TIFF}}}
+\newcommand{\sOME}{\resizebox{!}{6pt}{\AcronymText{OME}}}
+
+\newcommand{\sXML}{\resizebox{!}{6pt}{\AcronymText{XML}}}
 
 \newcommand{\CT}{\resizebox{!}{7pt}{\AcronymText{CT}}}
 
@@ -557,6 +561,9 @@
 \newcommand{\lConceptsDB}{\resizebox{!}{8pt}{\ATexttclr{C}}%
 \resizebox{!}{7.5pt}{\ATexttclr{onceptsDB}}}
 
+\newcommand{\llConceptsDB}{\resizebox{!}{8pt}{\ATexttclr{C}}%
+\resizebox{!}{8.5pt}{\ATexttclr{onceptsDB}}}
+
 \newcommand{\CsAF}{\resizebox{!}{7pt}{\ATexttclr{CsAF}}}
 \newcommand{\lCsAF}{\resizebox{!}{8pt}{\ATexttclr{C}}%
 \resizebox{!}{7.5pt}{\ATexttclr{sAF}}}
@@ -626,6 +633,7 @@
 
 \newcommand{\URI}{\resizebox{!}{7pt}{\AcronymText{URI}}}
 \newcommand{\DTD}{\resizebox{!}{7pt}{\AcronymText{DTD}}}
+\newcommand{\sDTD}{\resizebox{!}{6pt}{\AcronymText{sDTD}}}
 
 \newcommand{\API}{\resizebox{!}{7pt}{\AcronymText{API}}}
 
@@ -871,7 +879,7 @@
 
 \newcommand{\p}[1]{
 
-\vspace{.8em}#1}
+\vspace{.7em}#1}
 
 \newcommand{\q}[1]{{\fontfamily{qcr}\selectfont ``}#1{\fontfamily{qcr}\selectfont ''}} 
 
@@ -1146,7 +1154,8 @@ drop shadow=logoPurple!50!darkRed,
 \begin{center}	
 {\setlength{\fboxsep}{32pt}
 	\relscale{1.2}{{\fontfamily{qcr}\fontseries{b}\selectfont%
-{}}}
+{\llConceptsDB{} and the Scientific Research Data-Set Model:\\%
+\textit{Supplemental Archives/Structured Research Reporting/Plugins}}}}
 \end{center}
 \end{minipage}
 \end{tcolorbox}
@@ -1160,6 +1169,7 @@ drop shadow=logoPurple!50!darkRed,
 \input{csaf-document}
 \input{section1}
 \input{part2}
+\input{secsupp}
 
 \end{document}
 
