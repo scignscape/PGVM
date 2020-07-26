@@ -1,4 +1,4 @@
-\vspace{-2em}
+\vspace{-1.5em}
 \section{Overview}
 \p{\lConceptsDB{} is a hypergraph database engine being developed 
 by Linguistic Technology Systems (LTS).  \lConceptsDB{} features 
@@ -21,9 +21,9 @@ are necessary for application-level capabilites.}
 
 \p{Preliminary to the commercial release of 
 \ConceptsDB{}, LTS is deploying a version of \ConceptsDB{} 
-as part of the \q{\ConceptsDB{} Application Framework} 
-(\CsAF{}) which is oriented to scientific 
-software and computing.  \lCsAF{} database instances 
+as part of the \q{\lConceptsDB{} Application Framework} 
+(\CsAF{}) which is oriented to scientific computing 
+and software.  \lCsAF{} database instances 
 can be employed at several sites within a 
 scientific-computing and/or data-sharing platform, 
 included as an embedded component of published 
@@ -39,7 +39,7 @@ using \ConceptsDB{} in publishing contexts.
 A \MOSAIC{} \q{Portal} is a data/publication 
 repository where users can query and download 
 resources following a protocol associated 
-with \ConceptsDB{}.  The \q{\MOSAIC{} Dataset Explorer} 
+with \ConceptsDB{}.  The \q{\lMOSAIC{} Dataset Explorer} 
 (\MdsX{}) libraries are designed for applications 
 which interoperate with data/publication 
 archives (including but not limited to \MOSAIC{} Portals).  
@@ -102,14 +102,19 @@ pre-existing software or custom-built for an individual data set.
 
 The \MdsX{} libraries include code for interoperating 
 with data structures documenting each of these 
-aspects of scientific resourcing, which may involve 
+aspects of scientific resources, which may involve 
 querying data sets themselves or querying 
 \APIs{} of scientific repositories where 
-data sets and publications are hosted.}
-
-\p{In order to interoperate seamlessly with a 
-diverse range of scientific resources, \MdsX{} 
-is divided into distinct modules organized 
+data sets and publications are hosted.  
+In order to work with a variety of different 
+corpora, each with their own structures and 
+protocol, \MdsX{} is built around a 
+\q{Scientific Data Repository Model} 
+(\SDRM{}) which is concretized 
+separataly for each corpus or repository 
+connected with a given \MdsX{} application.  
+\lSDRM{} is divided into distinct concretizations, 
+or \q{modules,} organized 
 around the \API{}s and data profiles of 
 individual scientific portals/repositories.  
 Therefore, LTS seeks to collaborate with 
