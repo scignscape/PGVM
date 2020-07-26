@@ -61,8 +61,8 @@ code for accessing/examining/analyzing research
 data; and annotations defining interconnections 
 between these different elements.  
 All material within or associated with a data set 
-is classified into one of \SDRM{} \q{units,} including 
-the five just enumerated and several 
+is classified into one of several \SDRM{} \q{units,} including 
+the five just enumerated and potentially 
 others.\footnote{For instance, data in some fields --- such 
 as genomics --- sometimes becomes too large to 
 be conveniently downloaded to an ordinary computer; 
@@ -77,7 +77,7 @@ potential example of \sSDRM{} would be
 statements related to funding, potential conflicts 
 of interest, and so forth.}  
 \lSDRM{} units represent both serializations of 
-data-set information, as well as \GUI{} components 
+data-set information and \GUI{} components 
 (such as Dialog Boxes) allowing readers of 
 publicatons (and users of corresponding data sets) 
 to view the unit's information.   Moreover, 
@@ -88,7 +88,15 @@ runtime by computer code.  In short, each
 unit has at least three representations 
 (serial, \GUI{}, runtime), giving rise to a 
 spectrum of \SDRM{} data that can be 
-summarized in a table (see Table~\hyperref[tab:sdrm]{1}).}  
+summarized schematically (see Table~\hyperref[tab:sdrm]{1}).
+In general, the data within \SDRM{} units might be 
+obtained from different sources, depending on the 
+module --- e.g., from publishers' \API{}s, or 
+from downloaded data sets, or some combination.  
+It is better to make at least part of the \SDRM{} data available 
+without having to download data sets as a whole, because 
+a useful overview of the data set may factor 
+in whether users choose to download it to begin with.}
 
 \begin{table}
 \renewcommand{\arraystretch}{2}
@@ -130,15 +138,6 @@ dataset \sGUI{} elements
 \end{scriptsize}
 \caption{Representations for \SDRM{} Units}
 \end{table}
-
-\p{In general, the data within \SDRM{} units might be 
-obtained from different sources, depending on the 
-module --- e.g., from publishers' \API{}s, or 
-from downloaded data sets, or some combination.  
-It is better to make at least part of the \SDRM{} data available 
-without having to download data sets as a whole, because 
-a useful overview of the data set may factor 
-in whether users choose to download it to begin with.} 
  
 \p{When \SDRM{} information is provided as part of a 
 dataset (rather than indirectly through an \API{} or 
@@ -149,18 +148,22 @@ provides its own, customized \GUI{} code
 --- yielding what LTS calls a \q{Data-Set Application} 
 --- then such \GUI{}s may include dialog boxes 
 and similar components representing \SDRM{} data.  
-Data-Set Applications (which may be implemented 
+Dataset Applications (which may be implemented 
 with the aid of \MdsX{} libraries) are discussed in 
 the next section.}
 
-\section{Data-Set Applications}
+\section{Dataset Applications and the LTS Dataset Creator}
 
 \p{Dataset Creator (\dsC{}) is a framework for 
 constructing data sets which include computer code based on the 
 \Qt{} application-development platform.  
-Dataset Creator takes advantage of the \Qt{} platform 
-to construct Research Objects with exceptional 
-\GUI{} and data-mining capabilities.  \lQt{}, the 
+Dataset Creator allows scientists to publish research 
+data in conformance with standards such as Research Objects, 
+while also equipping those using the data 
+with code libraries and interactive software, 
+to stimulate adoption and reuse of the data 
+(and the methods or perspectives which inform 
+it).  \lQt{}, the 
 leading native cross-platform development toolkit, 
 is a comprehensive framework encompassing 
 a thorough inventory of programming features 
@@ -184,12 +187,7 @@ data-curation method makes data sets easier to
 use across a wide range of scientific disciplines, 
 because the data sets are freed from having to rely on domain-specific 
 software (software which may be commonly used in one scientific 
-field but is unfamiliar outside that field).  
-In addition, Research Objects composed with \dsC{} can 
-be integrated into Multi-Application Networks  
-(which are described above) because 
-the dataset applications are autonomous native \GUI{} applications that 
-can easily interoperate via \Qt{} messaging protocols.}
+field but is unfamiliar outside that field).}
 
 \p{Because every data set is unique, each Dataset Application 
 will necessarily include some code specific to that one 

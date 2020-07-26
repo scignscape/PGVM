@@ -82,7 +82,7 @@ or scientific background)
 
 \item{} Full-text publications, potentially including 
 both machine-readable and human-readable (e.g. \PDF{}) 
-formats, annotates so as to link parts of the text 
+formats, annotated so as to link parts of a text 
 document with corresponding parts/elements within its 
 associated data set(s);
 
@@ -91,27 +91,24 @@ methods, protocols, and (if applicable)
 equipment, such as may be formally 
 expressed by standards like 
 \MIBBI{} (Minimum Information for Biological and Biomedical Investigations), 
-\BioCoder{}, or \Pandore{} (a bioimaging 
+\BioCoder{} (see below), or \Pandore{} (a bioimaging 
 library that contains an \q{Image Processing Objectives} 
 Ontology);
 
 \item{} Applications for viewing data sets, which may be 
 pre-existing software or custom-built for an individual data set.
+\end{enumerate}}
 
-\end{enumerate}
-
-The \MdsX{} libraries include code for interoperating 
+\p{The \MdsX{} libraries include code for interoperating 
 with data structures documenting each of these 
 aspects of scientific resources, which may involve 
 querying data sets themselves or querying 
-\APIs{} of scientific repositories where 
+\API{}s of scientific corpora where 
 data sets and publications are hosted.  
-In order to work with a variety of different 
-corpora, each with their own structures and 
-protocol, \MdsX{} is built around a 
+\lMdsX{} is built around a 
 \q{Scientific Data Repository Model} 
 (\SDRM{}) which is concretized 
-separataly for each corpus or repository 
+separately for each corpus or repository 
 connected with a given \MdsX{} application.  
 \lSDRM{} is divided into distinct concretizations, 
 or \q{modules,} organized 
