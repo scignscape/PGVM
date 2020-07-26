@@ -15,7 +15,7 @@ exploring publications, particularly when it comes to examining data
 sets and/or browsing multimedia assets associated with publications,
 such as audio, video, interactive diagrams, or \ThreeD{} graphics.}
 
-\p{The \MOSAIC{} system is envisioned, over all, 
+\p{The \MOSAIC{} system is envisioned, in its totality, 
 as a suite of code libraries developed by LTS allowing 
 institutions to host publication repositories --- and 
 for individual users to access publication repositories --- 
@@ -39,12 +39,12 @@ for this supplemental material, in addition to the publications
 themselves, where the platform provides software
 enabling readers to browse and access supplemental archives and 
 their data sets and/or methodological 
-descriptions.\footnote{A \MOSAIC{} 
+descriptions.\footnote{A \sMOSAIC{} 
 publication repository or \q{portal} 
 is a structured collection of data and documents which can be 
 hosted via web servers (including fully encapsulated and 
 containerizable cloud services) using technology related 
-to \ConceptsDB{}. \MOSAIC{} repositories can 
+to \sConceptsDB{}. \sMOSAIC{} repositories can 
 serve as general-purpose portals, hosting academic papers covering a broad range 
 of topics.  Alternatively, \sMOSAIC{} repositories 
 can serve as targeted portals hosting papers focused 
@@ -59,7 +59,7 @@ a dedicated component within the portal with specific features
 for authors, editors, and administrators.  
 Any project which \textit{does} restrict 
 access to some part of any document requires a commercial 
-\sMOSAIC{} license.} \lMOSAIC{} can be customized 
+\sMOSAIC{} license.}  \lMOSAIC{} can be customized 
 for different subject areas by incorporating domain-specific 
 ontologies into document-search features as well as 
 machine-readable document-text annotations.}
@@ -83,7 +83,7 @@ may include raw data, descriptions of research methods,
 or annotated data linked to publication texts.  Each supplemental archive 
 could have any of the following resources:
 
-\begin{enumerate}[leftmargin=-2pt]
+\begin{enumerate}[leftmargin=12pt]
 \item Interactive versions of the publication, with annotations
 indicating important concepts and phrases, perhaps aggregated into a
 \q{glossary} defining technical terms;
@@ -122,27 +122,29 @@ viewed with special multi-media software.
 for different publications, depending on whether the archive 
 contains specific raw data or just a summary of the methods 
 used to obtain the raw data.  In the former case, a typical 
-archive will include a \textit{data-set application}, or 
+archive will include a \textit{Dataset Application}, or 
 a semi-autonomous software component allowing 
 researchers to study and visualize 
 the data set, typically provided in turn via data files that are 
-also located in the archive.  The data-set application will, in 
+also located in the archive.  The Dataset Application will, in 
 general, provide both a visual interface for raw data and code 
 libraries for computationally manipulating this data; typically 
 raw data files will encode serialized data structures that 
-can be deserialized by code (e.g., \Cpp{} classes) included 
-in the data-set application.  \lMOSAIC{} includes generic 
-implementations of a data-set explorer (\q{\MdsX{}}), which 
-can be adopted to the specific kind of information that needs 
-to be serialized for a given publication.  As a result, 
-data-set application can then be packaged as a plugin to 
-existing scientific software within the 
-relevant scientific discipline.}
+can be deserialized by functionality (e.g., \Cpp{} classes) included 
+in the application code (Dataset Applications are 
+discussed further in Part II, Page~\lpageref{sec:dsa}).  
+The \MOSAIC{} Dataset Explorer 
+(\MdsX{}) libraries  
+can be adapted to whatever specific kinds of information must 
+be serialized for a given publication, providing an 
+implementational starting-point for Dataset Applications.}
 
 \section{\protect\llMOSAIC{} Plugins}
-\p{By design, \lMOSAIC{} Portals will provide a suite of plugins
+\p{As an alternative to fully self-contained and 
+autonomous Dataset Applications, \MdsX{} explorers 
+can also be deployed as plugins 
 for existing scientific software, allowing publications and
-supplemental archives hosted on the portal to be read and examined
+supplemental archives to be read and examined 
 within computer software associated with each publication's subject
 matter.  For example, articles about chemistry could be read within
 \IQmol{}, a molecular visualization program; articles about cellular
@@ -157,14 +159,14 @@ and reused within the computing environments which scientists typically use to
 conduct professional research.  This is different 
 than existing science publication portals, which 
 generally rely on web browsers to
-access supplemental materials like data sets and multimedia files ---
+access such supplemental materials as data sets and multimedia files ---
 in this standard setup the software ecosystem wherein readers examine
 published research is fundamentally separate from the software
 platforms where research is actually conducted.  This example 
-demonstrates how existing portals are \textit{limited} 
+demonstrates how existing portals are limited 
 in their ability to share research
-in rigorously reusable and replicable ways --- and how \MOSAIC{} 
-offers an improvement.}
+in rigorously reusable and replicable ways, motivating 
+\MOSAIC{}'s contrarian design.}
 
 \p{Embedding presentations of their research within existing
 scientific software has the added benefit for authors of making their work 
