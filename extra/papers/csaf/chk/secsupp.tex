@@ -1,0 +1,252 @@
+\section{Hypergraph Data Serialization and 
+\protect\q{Grounding}/\protect\q{Meta-Serialization} 
+}
+%\vspace{-1em}
+
+\p{As a database engine, \ConceptsDB{} is focused 
+on data persistence --- that is, storing information 
+so that it may be shared among different instances of 
+one or several applications; and preserving information 
+between application-sessions, where each \q{session} 
+refers to the time during which one user launches, 
+uses, and ultimately exits an application.  
+In addition to data persistence, however, \ConceptsDB{} 
+also encapsulates theoretical research into 
+optimal strategies for data \textit{modeling}, 
+which includes representations during application 
+runtimes and serializations for sharing data 
+between heterogeneous end-points.  
+\lConceptsDB{} introduces the idea 
+of \textit{infoset classes}, which are 
+intermediate structurations of data type-instances, 
+organized so that interconnected clusters 
+of infoset class objects can be modeled 
+as hypergraphs.  Infoset classes 
+are guidelines for marshaling runtime values into 
+structures that can be persisted in \ConceptsDB{}.  
+At the same time, infoset classes can also 
+be used as preliminary encodings for data 
+sharing and serialization.}
+ 
+\p{\lCsAF{} (the \ConceptsDB{} Application Framework) 
+is designed around the premise that the 
+primary goal of any data modeling system (and, as a 
+surface-level encoding of data to be shared, 
+any markup language) is to encapsulate data 
+which is used by and present in one application, 
+to be subsequently re-used by a different 
+application --- or the same application at a future 
+time.  There is an application which 
+\textit{creates} a data structure, and a (not 
+necessarily different) application which 
+\textit{consumes} that structure.  \q{Consuming} 
+in this context means reading the data 
+so that it may be incorporated into some computational 
+process and/or rendering the data 
+so that it may be viewed by a human user.  
+Of course, the consumer-application 
+may also be a creator, adding new data 
+or revising that which it has consumed.}
+
+\p{Data sharing is 
+\q{correct} insofar as the consumer-application 
+reads, understands, displays, and allows 
+human users (as well as, potentially, 
+computer algorithms) to manipulate the 
+data in ways which are functionally 
+equivalent to the creator-application.  
+When this functional equivalence 
+is achieved, the two applications 
+can be said to be \textit{aligned}.  
+Creator-to-consumer alignment can happen in 
+one of two ways.  One option is that the 
+data model shared between the two applications is 
+formalized so that different applications 
+are naturally interoperable because they are 
+implemented according to similar guidelines.  
+This may be called \q{coincidental alignment.}  
+There are, in turn, two pathways toward 
+coincidental alignment.  On the one hand, 
+data-model formalization may stipulate criteria 
+on creator and consumer applications to ensure 
+that any creator is aligned with any 
+consumer.  Such a data model would essentially 
+provide a \q{checklist} of requirements 
+to be satisfied, procedures to be implemented, 
+and so forth, so that applications are 
+only considered to be creators and/or consumers 
+by fulfilling the checklist contract.}
+
+\p{On the other hand, the formalization may 
+focus on the medium through which 
+data shared between creator and consumer 
+is structured and encoded.  This second mode of 
+standardization --- coincidental 
+alignment based on data-serialization formats --- 
+is arguably the most common strategy for 
+enforcing alignment (even if it is not 
+identified in these terms).  For example, 
+\XML{} schemata represent constraints 
+on any creator of information encoded by 
+conformant \XML{} documents; given these 
+constraints, the \XML{} \textit{consumers} 
+can guarantee alignment with creators 
+by incorporating the schema as a contract 
+the creator obeys.  The consumers need 
+not have any knowledge of the creators 
+\q{apart from} the fact the \XML{} they 
+create conforms to the schema.}
+
+\p{Whether by explicit application-level requirements 
+or via contracts on the medium by which shared 
+data is encoded (e.g., \XML{} schemata), 
+coincidental alignment can occur without 
+any explicit coordination between the 
+code used by creator and consumer applications, 
+respectively.  As an alternative model, 
+however, we can identify \textit{deliberate} 
+alignment, wherein the consumer aligns with 
+a creator by explicitly referring to and 
+mimicking the creator's data models and 
+procedures.  To facilitate deliberate 
+alignment in this sense, creator 
+applications can architect the relevant 
+code to prioritize transparency and reuse --- 
+e.g., factoring this code into a 
+semi-autonomous library which the 
+consumer application can use directly, 
+or use as the basis for its own library.}
+
+\p{In contrast to many data models, 
+\CsAF{} openly embraces deliberate 
+rather than coincidental alignment in this sense.  
+Data-sharing protocols are not only necessary 
+application features; they are also 
+proxies for a scientific/technical 
+formalization of the principles underlying 
+a given data profile.  Standardizing only a 
+surface-level realization (e.g.,  
+\XML{} schemata)  
+fails to rigorously capture this 
+scientific dimensions.  One way to document the shape of any 
+relevant data is simply to explain how an \XML{} 
+document will be structured insofar as 
+it encodes data accordingly\footnotemark{}; 
+however, the structure of an \XML{} document 
+does not, in and of itself, present a clear picture of 
+how the information which the document 
+represents is semantically organized.\footnotetext{Potentially, 
+such specification can be a single 
+\sXML{} \sDTD{} file, or an \sXML{} sample, 
+providing a convenient reference point 
+for developers to grasp the underlying 
+data model.}  Even 
+though \XML{} is processed by computer programs, 
+one cannot even determine from an \XML{} document or 
+schema which \XML{} elements (if any) correspond 
+to data types recognized by applications which 
+read and/or write the corresponding \XML{} 
+code.\footnote{For example, the \sXML{} portion of \sOMETIFF{} 
+(the principal Open Microscopy Environment imaging 
+format) includes an explicit \textbf{Image} element 
+(which gathers up all significant image metadata); 
+an application reading \sOMETIFF{} files 
+might, therefore, introduce a single datatype 
+--- analogous to (and maybe wrapping an) \textbf{itk::Image} from 
+the Insight Toolkit imaging libraries --- 
+bundling the data in that part of the \sOME{} \sXML{}.  
+In this case, there will be a one-to-one correspondence 
+between \sXML{} structure and application-level 
+data types, at least for that one \textbf{Image} node.  
+On the other hand, software reading \sOMETIFF{} 
+information might not manipulate images directly, 
+but rather pull out other kinds of metadata, 
+such as an experimenter's name or description 
+of the microscopic setup.  In this case, 
+the application might not have an explicit 
+\q{object} representing the image itself, 
+but it may still read information about the 
+image from child nodes of the \sXML{} \textbf{Image} 
+element.}  In short, because applications can read or use data 
+from an \XML{} document in different ways, 
+the document's structure does not itself 
+provide a clear picture of how the specific code that 
+reads the \XML{} is organized.  Such uncertainty 
+becomes significant when one wishes to use 
+markup specifications as an indirect strategy 
+for documenting parameters and features 
+of the data structures which are serialized 
+via the relevant markup language.  In effect, 
+markup/text-based serialization operates on two levels: 
+on the one hand, the specific document 
+provides an encoding of data conforming to a 
+given structure; but, at a more abstract 
+level, one can model the relationship 
+between the surface-level document  
+structure and the application-level data structures 
+thereby serialized.  This second level of detail 
+is usually implicit and unstated, but in \CsAF{} 
+technology, such \q{meta-serialization} --- a term we are using 
+to suggest the idea of providing meta-data 
+\textit{about} a serialization --- is directly 
+formulated through a notion of 
+\q{grounding,} which involves adding supplemental 
+markup clarifying how documents instantiating a 
+serialization format relate 
+to the coding protocols and data types of 
+software that reads or creates these documents.}
+
+\p{For maximum expressivity, \CsAF{} introduces a 
+meta-serialization system that can be applied 
+to languages more flexible than \XML{}, notably 
+\TAGML{}.\footnote{See \bhref{http://www.balisage.net/Proceedings/vol21/print/HaentjensDekker01/BalisageVol21-HaentjensDekker01.html}.}
+In effect, \CsAF{} provides parsers for an 
+extended version of \TAGML{} which includes 
+an additional \q{grounding} layer.  Grounding, 
+in this context, means describing how 
+elements in the markup --- nodes, attributes, 
+and character sequences --- are \q{grounded} 
+in application-level types, data fields, 
+and other programming constructs.  \lCsAF{} 
+provides parsers for this \q{Grounded \TAGML{}} 
+(\GTagML{}) language as well as converters 
+to output serialized data in more conventional 
+formats (e.g., \XML{}).  \lCsAF{} also 
+provides code libraries 
+for extracting data from \GTagML{} documents.}
+
+\p{By design, \GTagML{} schemata operate on 
+two levels: first, they constrain 
+the organization of \GTagML{} files themselves; 
+and second, they stipulate how \GTagML{} document 
+structure relates to the type systems of 
+code libraries serializing and deserializing 
+\GTagML{} files.  To model the second level of 
+metadata, \GTagML{} introduces a hypergraph-based 
+type model organized around \q{infosets,} which 
+are structured overviews of application-level 
+data types.  To fully utilize \GTagML{} features, 
+programmers may consequently compose infoset classes 
+(described earlier), as wrappers around ordinary data types 
+(e.g., \Cpp{} classes), whose instances are 
+serialized via nodes or character strings 
+within \GTagML{} documents.  Infoset classes 
+provide hypergraph \q{views} onto type-instances, 
+and act as a bridge between data types and 
+their associated \GTagML{} schema.}
+
+\p{Because \GTagML{} is not only a hypergraph-serialization 
+format, but also a representational paradigm for 
+\q{meta-serializaton} data, \GTagML{} is closely 
+interconnected with \DgDb{} data models.  \lDgDb{} 
+recognizes numerous forms of hypergraph structuring 
+elements and levels of organization; each of 
+these can be annotated via \GTagML{} to document 
+the relation between \GTagML{} node patterns 
+and \ConceptsDB{} hypergraph formations (or 
+any construction which can be mapped to 
+\DgDb{}).  More information on the 
+structural principles underlying \DgDb{} 
+hypergraph categories can be found in 
+the \DgDb{} documentation.}  
+
