@@ -22,11 +22,11 @@ for individual users to access publication repositories ---
 free of the limitations of existing scientific document portals.  
 In the immediate future, LTS is focused on the more modest 
 goal of implementing software to access existing  
-portals (via \MdsX{}) and to create individual 
+corpora (via \MdsX{}) and to create individual 
 data sets (via \dsC{}).  With \MOSAIC{}, each publication can be
 linked to a \text{supplemental archive} that contains information about
 the author's research methods, data sets, and focal topics.  If desired, 
-these archives can include machine-readable representations of 
+these archives could include machine-readable representations of 
 full publication text, to support advanced text-mining techniques 
 across the repository.  The supplemental 
 archive can be explicitly linked to publications within 
@@ -150,7 +150,7 @@ matter.  For example, articles about chemistry could be read within
 \IQmol{}, a molecular visualization program; articles about cellular
 biology and bioimaging could be read within \CaPTk{} 
 (the Cancer Imaging and Phenomics Toolkit), an image-processing
-application; articles discussing novel computer code could be read
+application; articles discussing novel computer code might be read
 within \Qt{} Creator, an Integrated Development Environment (\IDE{}) for
 programming; etc.  The advantage of accessing 
 a publication and a supplemental archive within actual scientific
@@ -225,7 +225,7 @@ policies.  Alternatively, \MOSAICSR{} reports can be
 derived from actual computer programs simulating 
 research workflows, similar to \BioCoder{}\footnote{\label{fnt:bioc}See 
 \bhref{https://jbioleng.biomedcentral.com/articles/10.1186/1754-1611-4-13}.} (which is included by LTS, in an updated \Cpp{} version, as one 
-\MOSAIC{} library).  Finally, \MOSAICSR{} presentations 
+\CsAF{} library).  Finally, \MOSAICSR{} presentations 
 may be based on annotations applied to research/analytic 
 code.  For example, in the context of image analysis, 
 the \Pandore{} project (an image-processing application) 
@@ -287,8 +287,8 @@ the text is interactively linked to the concordant step in the
 experimental process, so that readers would then be able 
 to view the \BioCoder{} summary as a context-menu action associated 
 with the phrase, precisely where it appears in the \PDF{} file 
-(in other words, the annotation ground is a granular 
-location in the text).  Another 
+(in other words, the annotation ground is a fine-grained 
+location-designation in the text).  Another 
 example would be the phrase \q{Oxygenated Airflow}, which refers to airflow 
 in assisted-breathing devices, such as
 ventilators.  To ensure that the device works properly, the
@@ -303,7 +303,7 @@ again be annotated with links to the relevant part of the data set
 recorded.}
 
 \p{In order to establish granular links between 
-publication texts and data sets, \MOSAIC{} introduces 
+publication texts and data sets, \CsAF{} introduces 
 a novel \q{Hypergraph Text Encoding} (\HTXN{}) 
 system.  This includes \LaTeX{} code generators 
 which output both \LaTeX{} and \HTXN{} representations 
@@ -311,10 +311,10 @@ of manuscripts, where the \LaTeX{} files are
 provisioned with processing steps during \PDF{} 
 creation that generates geometric mappings between 
 \PDF{} viewport coordinates and \HTXN{} annotations.  
-Such information is then used by \MOSAIC{} \PDF{} 
-viewers to cross-references publications 
+Such information is then used by \CsAF{} \PDF{} 
+viewers to cross-reference publications 
 and data sets according to a protocol which 
-allows users to convenient switch back and 
+allows users to conveniently switch back and 
 forth between reading documents and visualizing 
 data.}
 
@@ -338,8 +338,12 @@ to discourse-grounding models based on
 Cognitive Grammar; at the sentence level 
 and larger, the primary model is 
 Sequence Package Analysis, a discourse-representation 
-methodology pioneered by LTS's founder Amy Neustein.  
-[Recommend here giving links to refs on HTXN and SPA]}
+methodology pioneered by LTS's founder Amy Neustein.
+\phantomsection\label{ph:axf}  
+(More information about \HTXN{} and annotations 
+is provided in a separate LTS White Paper: 
+\bhref{http://raw.githubusercontent.com/Mosaic-DigammaDB/CRCR/master/digamma/axf.pdf}.) 
+}
 
 
 

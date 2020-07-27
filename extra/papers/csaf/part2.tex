@@ -30,7 +30,7 @@ data is \textit{hosted}; and programs which researchers
 use to find and download (or otherwise access) scientific 
 data.  Because data-representation paradigms vary, 
 these applications need to be flexible enough to 
-manipulate data and metadata packages structured in 
+manipulate data and metadata structured in 
 divergent ways.  For example, each \MdsX{} module 
 is designed around a particular scientific 
 repository/portal's protocols, so the structure 
@@ -38,10 +38,8 @@ of distinct \MdsX{} modules may be noticeably
 different.  Nevertheless, some general structuring 
 principles can be developed with respect 
 to querying and consuming repositories' resources.  
-This motivates the idea of a general 
-\q{Scientific Data Repository Model,} 
-(\SDRM{}) which 
-is concretized within code implementing 
+This motivates the idea of a \q{Scientific Data Repository Model} 
+(\SDRM{}), concretized within code implementing 
 clients for individual portals (e.g., 
 \MdsX{} modules).  The following section 
 will present an overview of this 
@@ -97,7 +95,7 @@ from downloaded data sets, or some combination thereof.
 (It is better to make at least part of the \SDRM{} data available 
 without having to download data sets as a whole, because 
 a useful overview of the data set may contribute to  
-whether users choose to download it to \textit{ab initio}.)}
+whether users choose to download it \textit{ab initio}.)}
 
 \begin{table}
 \renewcommand{\arraystretch}{2}
@@ -138,12 +136,15 @@ dataset \sGUI{} elements
 \end{center}
 \end{scriptsize}
 \caption{Representations for \SDRM{} Units}
+\vspace{-9pt}
 \end{table}
  
 \p{When \SDRM{} information is provided as part of a 
 dataset (rather than indirectly through an \API{} or 
 some other remotely-accessed resource), the \SDRM{} \GUI{} 
-components can be integrated with the data set's 
+components can be integrated with the data set's
+%
+%\vspace{-9pt}
 overall front-end.  In particular, if the data set 
 provides its own customized \GUI{} code 
 --- as is the case with Dataset Applications
@@ -186,7 +187,12 @@ data-curation method makes data sets easier to
 use across a wide range of scientific disciplines, 
 because the data sets are freed from having to rely on domain-specific 
 software (software which may be commonly used in one scientific 
-field but is unfamiliar outside that field).}
+field but is unfamiliar outside that field).  
+Ideally, dataset code may be distributed both 
+via plugins to domain-specific software 
+popular for a given research field, 
+and also via standalone Dataset Applications 
+accessible to researchers coming from other disciplines.}
 
 \p{Because every data set is unique, each Dataset Application 
 will necessarily include some code specific to that one 
@@ -195,10 +201,10 @@ code base and file layout which is shared by all
 \dsC{} data sets by default.  This common core is 
 structured in part by the goal of developing 
 Dataset Applications in a \Qt{} context; for 
-instance, \dsC{} projects are structured to use \Qt{}'s \q{qmake} 
+instance, \dsC{} projects are structured to use \Qt{}'s \q{\textbf{qmake}} 
 build system as the primary tool for compiling 
 data-set code.  The common \dsC{} code therefore 
-includes qmake project files which support 
+includes \textbf{qmake} project files which support 
 compiling application with several build configurations.  
 In this framework, data-set users are classified into several 
 different roles --- in addition to ordinary users 
@@ -226,8 +232,10 @@ language.  The goal of these text-processing
 technologies is to improve the interoperability 
 between research papers and data sets.  In particular, 
 the \LaTeX{} pre-processors (and subsequent 
-\LaTeX{}-to-\PDF{} converters) generate \HGXF{} 
-files which store information about textual and 
+\LaTeX{}-to-\PDF{} converters) generate files 
+in a custom \CsAF{} hypergraph-serialization format 
+(\HGXF{}, for \q{Hypergraph Exchange Format,})  
+which store information about textual and 
 \PDF{} viewport coordinates specifying the location of semantically 
 meaningful elements such as sentences and annotations.  
 These files are then zipped and embedded in 
@@ -293,15 +301,13 @@ text and data mining.  The \HTXN{} protocol is
 also useful for encoding natural-language content 
 which becomes part of a data set as data assets 
 in themselves; for example, linguistic case-studies, or 
-(in the biomedical context) patient narratives.} 
-
-\p{In order to establish annotation cross-references 
+(in the biomedical context) patient narratives.  To establish 
+annotation targets for cross-references 
 between publications and data-set code, \dsC{} 
-provides a code-annotation system based 
-on hypergraphs.  Further documentation of hypergraph 
-structuring principles and how they apply to 
-representing computer code can be found 
-in the LTS paper reviewing \ConceptsDB{}.}
+employs a code-annotation system based 
+on hypergraphs, along with (on the manuscript side) the Annotation 
+Exchange Format (\AXF{}) cited above (see 
+Page~\lpageref{ph:axf}).}
 
 %\p{}
 
