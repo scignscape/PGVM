@@ -1,29 +1,29 @@
 \vspace{-1.5em}
 \section{Overview}
-\p{\lConceptsDB{} is a hypergraph database engine being developed 
-by Linguistic Technology Systems (LTS).  \lConceptsDB{} features 
-a multi-paradigm data representation strategy which 
+\p{Linguistic Technology Systems (LTS) is developing a new 
+database engine called \lConceptsDB{}, which is based on hypergraph data
+modeling.  This new database engine features 
+a multi-paradigm data representation strategy, which 
 is informed by contemporary research into \AI{} and 
 information semantics, allowing theoretical frameworks 
 such as Conceptual Spaces, Conceptual Role Semantics, 
 and Petri Nets to be applied toward the computational 
 modeling of information spaces.  In addition, 
-\ConceptsDB{} is designed to prioritize application 
-development --- particularly native, desktop-style applications: 
-data about application/session/user state can be 
+\ConceptsDB{} prioritizes application 
+development --- particularly native/desktop-style applications. 
+Data about application/session/user state can be 
 directly stored in the database, so that \ConceptsDB{} 
-provides a convenient scaffolding for implementing 
+can provide a convenient scaffolding for implementing 
 desktop software.  Hypergraph-based data modeling 
 ensures that information needed by the application 
-can be conveniently marshaled between runtime formats 
-and whatever persistent/serial/\GUI{} representations that 
+can be readily marshaled between runtime formats 
+and whichever persistent/serial/\GUI{} representations 
 are necessary for application-level capabilites.}
 
-\p{Preliminary to the commercial release of 
-\ConceptsDB{}, LTS is deploying a version of \ConceptsDB{} 
-as part of the \q{\lConceptsDB{} Application Framework} 
-(\CsAF{}) which is oriented to scientific computing 
-and software.  \lCsAF{} database instances 
+\p{LTS is currently working on a prototype \ConceptsDB{} 
+which is part of our \q{\lConceptsDB{} Application Framework} 
+(\CsAF{}).  This framework is oriented to scientific computing 
+and scientific software.  That is, \CsAF{} database instances 
 can be employed at several sites within a 
 scientific-computing and/or data-sharing platform: 
 as an embedded component of published 
@@ -32,11 +32,11 @@ publication repositories; or as a tool for
 individual or institutional users to 
 track data sets and publications.  
 Our \q{\MOSAIC{}} code libraries 
-(which stands for \q{Multi-Paradigm 
+(\q{Multi-Paradigm 
 Ontologies for Scientific and Technical Publications}) 
 encapsulate functionality applicable to 
 using \ConceptsDB{} in publishing contexts.  
-A \MOSAIC{} \q{Portal} is a data/publication 
+A \MOSAIC{} Portal is a data/publication 
 repository where users can query and download 
 resources following a protocol associated 
 with \ConceptsDB{}.  The \q{\lMOSAIC{} Dataset Explorer} 
@@ -47,13 +47,15 @@ Individual data sets may also embed a version of
 \ConceptsDB{} --- specifically, \q{DigammaDB} 
 (\DgDb{}), which is a light-weight, self-contained 
 \ConceptsDB{}-compatible engine suitable to be distributed 
-as source code within a data set/code repository.  
-LTS's \q{Dataset Creator} (\dsC{}) is a technology 
-that can help researchers deploy data sets 
-with customized desktop software, potentially 
-using \DgDb{}.  In short, \MdsX{}, \DgDb{}, 
-and \dsC{} form a trio of libraries 
-helpful for the implementation of published 
+as source code within a data set/code repository.}
+
+\p{To help researchers deploy data sets 
+with customized desktop software, 
+LTS has developed a \q{Dataset Creator} (\dsC{}) 
+designed to be used with \DgDb{}.  This 
+database engine and data-modeling technology 
+(\MdsX{}, \DgDb{}, and \dsC{}) form a trio of libraries, 
+which are helpful for the implementation of published 
 data sets with special-purpose applications that are 
 customized for viewing and examining information 
 specific to the research methods and paradigms 
@@ -62,10 +64,9 @@ for the implementation of tools to
 acquire and keep track of data sets and their 
 associated publications.}
 
-\p{Collectively, then \MdsX{}, \DgDb{}, and \dsC{} form 
-the basis of a \CsAF{} implementation --- that 
-is, an Application Framework centered on \ConceptsDB{} --- 
-which prioritizes deploying and 
+\p{Collectively, this trio of libraries form 
+the basis of a \CsAF{} implementation --- i.e., an Application Framework centered 
+on \ConceptsDB{} --- which prioritizes deploying and 
 accessing scientific data sets.  The information and 
 assets included within a data set, and modeled 
 via \CsAF{} components, can span several different 
@@ -73,14 +74,14 @@ requirements, including:
 
 \begin{enumerate}[leftmargin=12pt]
 
-\item{} Data sets, which may include raw data files 
+\item{} Data sets --- these may include raw data files 
 and/or code for accessing this data as well 
 as demonstrations/implementations of algorithms 
 for analyzing or otherwise processing the data 
 (or data having a similar format/structure 
-or scientific background)  
+or scientific background);  
 
-\item{} Full-text publications, potentially including 
+\item{} Full-text publications --- potentially including 
 both machine-readable and human-readable (e.g. \PDF{}) 
 formats, annotated so as to link parts of a text 
 document with corresponding parts/elements within its 
@@ -95,17 +96,19 @@ expressed by standards like
 library that contains an \q{Image Processing Objectives} 
 Ontology);
 
-\item{} Applications for viewing data sets, which may be 
-pre-existing software or custom-built for an individual data set.
+\item{} Applications for viewing data sets --- applications which 
+may be in the form of pre-existing software, 
+or custom-built for an individual data set.
 \end{enumerate}}
 
-\p{The \MdsX{} libraries include code for interoperating 
+\p{The \MOSAIC{} Dataset Explorer (\MdsX{}) libraries include 
+code for interoperating 
 with data structures documenting each of these 
 aspects of scientific resources, which may involve 
 querying data sets themselves or querying 
 \API{}s of scientific corpora where 
 data sets and publications are hosted.  
-\lMdsX{} is built around a 
+\lMdsX{} is built around what we call a 
 \q{Scientific Data Repository Model} 
 (\SDRM{}) which is concretized 
 separately for each corpus or repository 
@@ -114,13 +117,13 @@ connected with a given \MdsX{} application.
 or \q{modules,} organized 
 around the \API{}s and data profiles of 
 individual scientific portals/repositories.  
-Therefore, LTS seeks to collaborate with 
+For this reason, LTS seeks to collaborate with 
 organizations who maintain scientific portals 
-so that open-access \SDRM{} modules 
-may be made available to the general public 
-targeted those specific scientific resources.}
+so that we can make open-access \SDRM{} modules 
+available to the general public, 
+targeting those specific scientific resources.}
 
-\p{The following sections with discuss \MdsX{}, 
+\p{The following sections will describe \MdsX{}, 
 \dsC{}, and \DgDb{} in greater detail 
 as well as provide more information about 
 \SDRM{} modules.}

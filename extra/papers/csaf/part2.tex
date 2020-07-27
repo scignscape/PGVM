@@ -63,8 +63,8 @@ data; and annotations defining interconnections
 between these different elements.  
 All material within or associated with a data set 
 is classified into one of several \SDRM{} \q{units,} including 
-the five just enumerated and potentially 
-others.\footnote{For instance, data in some fields --- such 
+those just enumerated and potentially 
+other groupings.\footnote{For instance, data in some fields --- such 
 as genomics --- sometimes becomes too large to 
 be conveniently downloaded to an ordinary computer; 
 in this case, portals such as GenBank offer query services 
@@ -93,18 +93,18 @@ summarized schematically (see Table~\hyperref[tab:sdrm]{1}).
 In general, the data within \SDRM{} units might be 
 obtained from different sources, depending on the 
 module --- e.g., from publishers' \API{}s, or 
-from downloaded data sets, or some combination.  
-It is better to make at least part of the \SDRM{} data available 
+from downloaded data sets, or some combination thereof. 
+(It is better to make at least part of the \SDRM{} data available 
 without having to download data sets as a whole, because 
-a useful overview of the data set may factor 
-in whether users choose to download it to begin with.}
+a useful overview of the data set may contribute to  
+whether users choose to download it to \textit{ab initio}.)}
 
 \begin{table}
 \renewcommand{\arraystretch}{2}
 \label{tab:sdrm}
 \begin{scriptsize}
 \begin{center}
-\begin{tabular}{|p{.1\textwidth}|p{.25\textwidth}|p{.25\textwidth}|p{.2\textwidth}|}
+\begin{tabular}{|p{.12\textwidth}|p{.23\textwidth}|p{.25\textwidth}|p{.2\textwidth}|}
 \multicolumn{1}{c}{\textbf{\sSDRM{} Unit}} &%
 \multicolumn{1}{c}{\textbf{Runtime Object}} &% 
 \multicolumn{1}{c}{\textbf{Serialization}} &%
@@ -117,7 +117,7 @@ Bundle \textbf{manifest} file)
 &\RaggedRight{} Filesystem archive view plus information on file types and sizes  \\%
 Publication &\RaggedRight{} Machine-Readable Text (e.g., \sHTXN{}) 
 &\RaggedRight{}  
-Machine-Readable Serialization (e.g., \sHTXN{}-compatible \LaTeX{}) 
+Machine-Readable Serialization (e.g., \sHTXN{}-compatible \sLaTeX{}) 
 &\RaggedRight{} \sPDF{} Viewer  \\%
 \RaggedRight{}Research Method &\RaggedRight{} Research Protocol Encoding (e.g., \sBioCoder{}) 
 &\RaggedRight{} Research Protocol Serialization (e.g., an \sMIBBI{}-based markup language) 
@@ -145,7 +145,7 @@ dataset (rather than indirectly through an \API{} or
 some other remotely-accessed resource), the \SDRM{} \GUI{} 
 components can be integrated with the data set's 
 overall front-end.  In particular, if the data set 
-provides its own, customized \GUI{} code 
+provides its own customized \GUI{} code 
 --- as is the case with Dataset Applications
 (discussed in the next section) --- then such 
 \GUI{}s may include dialog boxes 

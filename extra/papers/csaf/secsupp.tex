@@ -17,7 +17,7 @@ which includes representations during application
 runtimes and serializations for sharing data 
 between heterogeneous end-points.  
 \lConceptsDB{} introduces the idea 
-of \textit{infoset classes}, which are 
+of \q{infoset classes,} which are 
 intermediate structurations of data type-instances, 
 organized so that interconnected clusters 
 of infoset class objects can be modeled 
@@ -28,30 +28,29 @@ At the same time, infoset classes can also
 be used as preliminary encodings for data 
 sharing and serialization.}
  
-\p{\lCsAF{} (the \ConceptsDB{} Application Framework) 
+\p{The \ConceptsDB{} Application Framework (\CsAF{}) 
 is designed around the premise that the 
 primary goal of any data modeling system (and, as a 
 surface-level encoding of data to be shared, 
 any markup language) is to encapsulate data 
 which is used by and present in one application, 
 to be subsequently re-used by a different 
-application --- or the same application at a future 
-time.  There is an application which 
-\textit{creates} a data structure, and a (not 
-necessarily different) application which 
-\textit{consumes} that structure.  \q{Consuming} 
+application --- or by the same application at a future 
+time.  In any data-modeling scenario there is an application 
+which \textit{creates} a data structure, and an application 
+(which may be the same) that 
+\textit{consumes} that data structure.  \q{Consuming} 
 in this context means reading the data 
 so that it may be incorporated into some computational 
 process and/or rendering the data 
 so that it may be viewed by a human user.  
-Of course, the consumer-application 
-may also be a creator, adding new data 
+Of course, any consumer-application 
+may double as a creator, adding new data 
 or revising that which it has consumed.}
 
-\p{Data sharing is 
-\q{correct} insofar as the consumer-application 
-reads, understands, displays, and allows 
-human users (as well as, potentially, 
+\p{Data sharing is \q{correct} insofar as the 
+consumer-application reads, understands, displays, and allows 
+human users (as well as potentially 
 computer algorithms) to manipulate the 
 data in ways which are functionally 
 equivalent to the creator-application.  
@@ -94,7 +93,7 @@ can guarantee alignment with creators
 by incorporating the schema as a contract 
 the creator obeys.  The consumers need 
 not have any knowledge of the creators 
-\q{apart from} the fact the \XML{} they 
+\textit{apart from} the fact the \XML{} they 
 create conforms to the schema.}
 
 \p{Whether by explicit application-level requirements 
@@ -115,10 +114,10 @@ code to prioritize transparency and reuse ---
 e.g., factoring this code into a 
 semi-autonomous library which the 
 consumer application can use directly, 
-or use as the basis for its own library.}
+or use as the basis of its own library.}
 
-\p{In contrast to many data models, 
-\CsAF{} openly embraces deliberate 
+\p{In contrast to many standard data meta-models, 
+\CsAF{} openly embraces \textit{deliberate} 
 rather than coincidental alignment in this sense.  
 Data-sharing protocols are not only necessary 
 application features; they are also 
@@ -128,7 +127,7 @@ a given data profile.  Standardizing only a
 surface-level realization (e.g.,  
 \XML{} schemata)  
 fails to rigorously capture this 
-scientific dimensions.  One way to document the shape of any 
+scientific dimension.  One way to document the shape of any 
 relevant data is simply to explain how an \XML{} 
 document will be structured insofar as 
 it encodes data accordingly\footnotemark{}; 
@@ -184,7 +183,7 @@ given structure; but, at a more abstract
 level, one can model the relationship 
 between the surface-level document  
 structure and the application-level data structures 
-thereby serialized.  This second level of detail 
+that are thereby serialized.  This second level of detail 
 is usually implicit and unstated, but in \CsAF{} 
 technology, such \q{meta-serialization} --- a term we are using 
 to suggest the idea of providing meta-data 
@@ -200,8 +199,8 @@ software that reads or creates these documents.}
 meta-serialization system that can be applied 
 to languages more flexible than \XML{}, notably 
 \TAGML{}.\footnote{See \bhref{http://www.balisage.net/Proceedings/vol21/print/HaentjensDekker01/BalisageVol21-HaentjensDekker01.html}.}
-In effect, \CsAF{} provides parsers for an 
-extended version of \TAGML{} which includes 
+In effect, \CsAF{} will implement parsers for an 
+extended version of \TAGML{}, one that includes 
 an additional \q{grounding} layer.  Grounding, 
 in this context, means describing how 
 elements in the markup --- nodes, attributes, 
@@ -211,8 +210,8 @@ and other programming constructs.  \lCsAF{}
 provides parsers for this \q{Grounded \TAGML{}} 
 (\GTagML{}) language as well as converters 
 to output serialized data in more conventional 
-formats (e.g., \XML{}).  \lCsAF{} also 
-provides code libraries 
+formats (e.g., \XML{}).  \lCsAF{} will also 
+provide code libraries 
 for extracting data from \GTagML{} documents.}
 
 \p{By design, \GTagML{} schemata operate on 
@@ -233,7 +232,7 @@ serialized via nodes or character strings
 within \GTagML{} documents.  Infoset classes 
 provide hypergraph \q{views} onto type-instances, 
 and act as a bridge between data types and 
-their associated \GTagML{} schema.}
+their associated \GTagML{} schemata.}
 
 \p{Because \GTagML{} is not only a hypergraph-serialization 
 format, but also a representational paradigm for 
