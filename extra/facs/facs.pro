@@ -10,6 +10,7 @@ HEADERS += \
 
 
 SOURCES +=  \
+ ./stubs.cpp \
  ./gui/MainWindow.cpp  \
  ./gui/ViewsListWidget.cpp  \
  ./gui/QtProgramInfo.cpp  \
@@ -30,6 +31,7 @@ SOURCES +=  \
  ./gui/view/gate/GateRendererRoot.cpp \
  ./gui/view/gate/GateRendererRect.cpp \
  ./gui/view/gate/GateRendererEllipse.cpp \
+ ./gui/panes/CompensationPane.cpp \
 
 
 

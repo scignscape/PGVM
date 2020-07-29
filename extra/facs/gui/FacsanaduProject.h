@@ -50,6 +50,11 @@ public:
 
  FacsanaduProject();
 
+ Compensation* compensation()
+ {
+  return compensation_;
+ }
+
  GatingResult* get_GatingResult(Dataset* ds)
  {
   return gatingResult_.value(ds);

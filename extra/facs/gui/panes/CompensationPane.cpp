@@ -3,69 +3,86 @@
 
 #include "CompensationPane.h"
 
+#include "../qt/QTableWidgetWithCSVcopy.h"
+
+#include "FacsanaduProject.h"
+#include "MainWindow.h"
+
+#include <QVBoxLayout>
+
+#include <QHeaderView>
+
 
 // package facsanadu.gui.panes;
 
 
 // //
 
-CompensationPane::CompensationPane(MainWindow* mw);
+CompensationPane::CompensationPane(MainWindow* mw)
 {
- mw_=mw;  
+ mw_= mw;  
   
- QVBoxLayout lay = new QVBoxLayout();
- lay.addWidget(tableMatrix);
+ QVBoxLayout* lay = new QVBoxLayout();
+ lay->addWidget(tableMatrix_);
   //lay.addStretch();
- lay.setMargin(0);
+ lay->setMargin(0);
  setLayout(lay);
  updateForm();
 }
  
 void CompensationPane::updateForm()
 {
- updating=true;
- tableMatrix.clear();
+ updating_ = true;
+ tableMatrix_->clear();
   
- tableMatrix.horizontalHeader().setResizeMode(ResizeMode.ResizeToContents);
- tableMatrix.horizontalHeader().setStretchLastSection(true);  
+ tableMatrix_->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+ tableMatrix_->horizontalHeader()->setStretchLastSection(true);  
 
- Compensation comp=mw.project.compensation;
+ Compensation* comp = mw_->project()->compensation();
   
- LinkedList<String> header=new LinkedList<String>();
- LinkedList<String> headerFrom=new LinkedList<String>();
- for(String s:comp.cnames)
+// LinkedList<String> header = new LinkedList<String>();
+// LinkedList<String> headerFrom=new LinkedList<String>();
+
+ QStringList header;
+ QStringList headerFrom;
+
+ for(QString s : comp->cnames() )
  {
-  header.add(s);
-  headerFrom.add(tr("To: ")+s);
+  header.push_back(s);
+  headerFrom.push_back(tr("To: ") + s);
  }
   
   //ROW is TO. COL is FROM
   
- tableMatrix.setColumnCount(comp.getSize());
- tableMatrix.setRowCount(comp.getSize());
- tableMatrix.setHorizontalHeaderLabels(header);
- tableMatrix.setVerticalHeaderLabels(headerFrom);
+ tableMatrix_->setColumnCount(comp->getSize());
+ tableMatrix_->setRowCount(comp->getSize());
+ tableMatrix_->setHorizontalHeaderLabels(header);
+ tableMatrix_->setVerticalHeaderLabels(headerFrom);
   
- for(int row=0;row<comp.getSize();row++)
+ for(int row=0; row < comp->getSize(); row++)
  {
-  for(int col=0;col<comp.getSize();col++)
+  for(int col=0; col< comp->getSize(); col++)
   {
-   QTableWidgetItem it=new QTableWidgetItem(""+comp.get(row,col));
-   it.setFlags(new ItemFlags(ItemFlag.ItemIsSelectable, ItemFlag.ItemIsEnabled,  ItemFlag.ItemIsEditable));
-   tableMatrix.setItem(row, col, it);
+   QTableWidgetItem* it = new QTableWidgetItem("" + comp.get(row,col));
+
+//   it.setFlags(new ItemFlags(ItemFlag.ItemIsSelectable, ItemFlag.ItemIsEnabled,  ItemFlag.ItemIsEditable));
+
+   tableMatrix_->setItem(row, col, it);
   }
  }
- tableMatrix.itemChanged.connect(this,"dataChanged(QTableWidgetItem)");
- updating=false;
+  //? tableMatrix_->itemChanged.connect(this,"dataChanged(QTableWidgetItem)");
+ updating = false;
 }
  
  
-void CompensationPane::dataChanged(QTableWidgetItem it)
+void CompensationPane::dataChanged(QTableWidgetItem* it)
 {
  if(!updating)
  {
-  Compensation comp=mw.project.compensation;
-  comp.set(it.row(),it.column(),Double.parseDouble(it.text()));
-  mw.handleEvent(new EventCompensationChanged());
+//  Compensation comp=mw.project.compensation;
+//  comp.set(it.row(),it.column(),Double.parseDouble(it.text()));
+//  mw.handleEvent(new EventCompensationChanged());
  }
 }
+
+

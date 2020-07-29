@@ -604,11 +604,13 @@ void MainWindow::actionWebsite()
 // // Set number of CPU cores
 void MainWindow::actionSetNumCores()
 {
- int th = QInputDialog::getInt(this, QtProgramInfo::programName, 
-   tr("Number of cores: "), calcthread_->getNumCores());
+//?
+// int th = QInputDialog::getInt(this, QtProgramInfo::programName, 
+//   tr("Number of cores: "), calcthread_->getNumCores());
 
- if( (th >= 1) && (th <= 128) )
-   calcthread_->setNumCores(th);
+// if( (th >= 1) && (th <= 128) )
+//   calcthread_->setNumCores(th);
+
 }
 
 

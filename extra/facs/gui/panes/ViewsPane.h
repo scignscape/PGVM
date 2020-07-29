@@ -19,6 +19,9 @@
 class ViewsMatrix;
 class ViewToolChoice;
 
+class MainWindow;
+
+
 // //
 class ViewsPane : public QWidget
 {

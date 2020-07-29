@@ -10,6 +10,8 @@
 
 #include <QWidget>
 
+class QTableWidgetWithCSVcopy;
+
 // package facsanadu.gui.panes;
 
 

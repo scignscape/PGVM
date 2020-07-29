@@ -7,6 +7,12 @@
 
 #include <QWidget>
 
+#include <QTableWidgetItem>
+
+class MainWindow;
+
+
+
 // package facsanadu.gui.panes;
 
 class QTableWidgetWithCSVcopy;

@@ -7,27 +7,32 @@
 
 #include <QString>
 
+#include <QTableWidget>
+#include <QSet>
 
 // package facsanadu.gui.qt;
 
 
 // //Much of code inspired from stack overflow
 
-class QTableWidgetWithCSVcopy : //extends QTableWidget
+class QTableWidgetWithCSVcopy : public QTableWidget
 {
+
 protected: 
 
- void keyPressEvent(com.trolltech.qt.gui.QKeyEvent event);
+ void keyPressEvent(QKeyEvent event);
 
 public:
 
  QString allToCSV();
- void copy(TreeSet<Integer> whichcol, TreeSet<Integer> whichrow);
+// void copy(TreeSet<Integer> whichcol, TreeSet<Integer> whichrow);
+
+ void copy(QSet<int> whichcol, QSet<int> whichrow);
  
  /**
   * Export selection to CSV
   */
- QString toCSV(TreeSet<Integer> whichcol, TreeSet<Integer> whichrow);
+ QString toCSV(QSet<int>  whichcol, QSet<int>  whichrow);
 
  /**
   * Export everything to CSV. Can return null if no
