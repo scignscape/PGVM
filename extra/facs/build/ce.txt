@@ -1,0 +1,238 @@
+/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+build/objects/MainWindow.o: In function `MainWindow::dothelayout()':
+MainWindow.cpp:(.text+0x2bc): undefined reference to `ViewsPane::updateViews()'
+MainWindow.cpp:(.text+0x2c8): undefined reference to `GateStatsPane::updateStats()'
+MainWindow.cpp:(.text+0x2d4): undefined reference to `ProfilePane::updateViews()'
+build/objects/MainWindow.o: In function `MainWindow::updateall()':
+MainWindow.cpp:(.text+0x330): undefined reference to `CompensationPane::updateForm()'
+build/objects/MainWindow.o: In function `MainWindow::handleEvent(FacsanaduEvent*)':
+MainWindow.cpp:(.text+0x431): undefined reference to `ViewsPane::invalidateCache()'
+MainWindow.cpp:(.text+0x471): undefined reference to `ViewsPane::invalidateCache()'
+build/objects/MainWindow.o: In function `MainWindow::actionSetNumCores()':
+MainWindow.cpp:(.text+0x6c7): undefined reference to `GateCalcThread::getNumCores()'
+MainWindow.cpp:(.text+0x750): undefined reference to `GateCalcThread::setNumCores(int)'
+build/objects/MainWindow.o: In function `MainWindow::MainWindow()':
+MainWindow.cpp:(.text+0x949): undefined reference to `CompensationPane::CompensationPane(MainWindow*)'
+MainWindow.cpp:(.text+0x965): undefined reference to `DatasetInfoPane::DatasetInfoPane(MainWindow*)'
+MainWindow.cpp:(.text+0x9b2): undefined reference to `GateCalcThread::GateCalcThread()'
+MainWindow.cpp:(.text+0xb31): undefined reference to `ImgResource::setWindowIcon(QWidget*)'
+MainWindow.cpp:(.text+0xb49): undefined reference to `ViewsPane::ViewsPane(MainWindow*)'
+MainWindow.cpp:(.text+0xb6b): undefined reference to `GateStatsPane::GateStatsPane(MainWindow*)'
+MainWindow.cpp:(.text+0xb8d): undefined reference to `ProfilePane::ProfilePane(MainWindow*)'
+MainWindow.cpp:(.text+0x1263): undefined reference to `DatasetListWidget::selectionChanged()'
+MainWindow.cpp:(.text+0x12d5): undefined reference to `DatasetListWidget::staticMetaObject'
+build/objects/MainWindow.o: In function `MainWindow::actionDsChanged()':
+MainWindow.cpp:(.text+0x1b1c): undefined reference to `ViewsPane::invalidateCache()'
+MainWindow.cpp:(.text+0x1b35): undefined reference to `DatasetInfoPane::updateForm()'
+build/objects/MainWindow.o: In function `MainWindow::actionExportGraphs()':
+MainWindow.cpp:(.text+0x2bb7): undefined reference to `GraphExporter::render(QFile&, FacsanaduProject*, QList<Dataset*>, QList<ViewSettings*>, bool, bool, int, int)'
+build/objects/MainWindow.o: In function `MainWindow::actionExportCSV()':
+MainWindow.cpp:(.text+0x31a0): undefined reference to `Dataset::getName()'
+MainWindow.cpp:(.text+0x3254): undefined reference to `ExportFcsToCSV::save(Dataset*, QFile&)'
+MainWindow.cpp:(.text+0x347c): undefined reference to `ExportFcsToCSV::save(Dataset*, QFile&)'
+build/objects/MainWindow.o: In function `MainWindow::actionExportStatistics()':
+MainWindow.cpp:(.text+0x1c8): undefined reference to `GateStatsPane::actionExportCSV()'
+build/objects/MainWindow.o: In function `MainWindow::dogating()':
+MainWindow.cpp:(.text+0x298): undefined reference to `GateCalcThread::wakeup()'
+build/objects/MainWindow.o: In function `MainWindow::handleEvent(FacsanaduEvent*)':
+MainWindow.cpp:(.text+0x488): undefined reference to `DatasetInfoPane::updateForm()'
+build/objects/ViewsListWidget.o: In function `ViewsListWidget::updateViewsList()':
+ViewsListWidget.cpp:(.text+0x2be): undefined reference to `MainWindow::getProject()'
+ViewsListWidget.cpp:(.text+0x58f): undefined reference to `Dataset::getChannelInfo()'
+ViewsListWidget.cpp:(.text+0x5bc): undefined reference to `ChannelInfo::getShortestName()'
+ViewsListWidget.cpp:(.text+0x5cd): undefined reference to `Dataset::getChannelInfo()'
+ViewsListWidget.cpp:(.text+0x5fa): undefined reference to `ChannelInfo::getShortestName()'
+ViewsListWidget.cpp:(.text+0x76b): undefined reference to `QTutil::createReadOnlyItem(QString)'
+ViewsListWidget.cpp:(.text+0xa67): undefined reference to `Dataset::getChannelInfo()'
+ViewsListWidget.cpp:(.text+0xa9e): undefined reference to `ChannelInfo::getShortestName()'
+build/objects/ViewsListWidget.o: In function `ViewsListWidget::actionRemoveView()':
+ViewsListWidget.cpp:(.text+0xe2b): undefined reference to `MainWindow::getProject()'
+build/objects/ViewsListWidget.o: In function `ViewsListWidget::actionNewView()':
+ViewsListWidget.cpp:(.text+0xfe0): undefined reference to `MainWindow::getProject()'
+build/objects/ViewsListWidget.o: In function `ViewsListWidget::ViewsListWidget(MainWindow*)':
+ViewsListWidget.cpp:(.text+0x12cd): undefined reference to `ImgResource::icon_delete'
+ViewsListWidget.cpp:(.text+0x15b6): undefined reference to `QTutil::layoutHorizontal(QList<QObject*>)'
+build/objects/ProfileChannelWidget.o: In function `ProfileChannelWidget::updateChannelList()':
+ProfileChannelWidget.cpp:(.text+0xf6): undefined reference to `MainWindow::getProject()'
+ProfileChannelWidget.cpp:(.text+0x20b): undefined reference to `ProfChannel::getName()'
+ProfileChannelWidget.cpp:(.text+0x213): undefined reference to `QTutil::createReadOnlyItem(QString)'
+build/objects/ProfileChannelWidget.o: In function `ProfileChannelWidget::actionAddChannel()':
+ProfileChannelWidget.cpp:(.text+0x2cb): undefined reference to `MainWindow::getProject()'
+ProfileChannelWidget.cpp:(.text+0x2da): undefined reference to `ProfilePane::getSelChans()'
+build/objects/ProfileChannelWidget.o: In function `ProfileChannelWidget::actionRemoveChannel()':
+ProfileChannelWidget.cpp:(.text+0x5fb): undefined reference to `MainWindow::getProject()'
+build/objects/ProfileChannelWidget.o: In function `ProfileChannelWidget::actionSelectionChanged()':
+ProfileChannelWidget.cpp:(.text+0x7fc): undefined reference to `ProfilePane::setCurChan(ProfChannel*)'
+build/objects/ProfileChannelWidget.o: In function `ProfileChannelWidget::ProfileChannelWidget(MainWindow*)':
+ProfileChannelWidget.cpp:(.text+0x8e4): undefined reference to `ProfilePane::ProfilePane(MainWindow*)'
+ProfileChannelWidget.cpp:(.text+0xadb): undefined reference to `ImgResource::icon_delete'
+ProfileChannelWidget.cpp:(.text+0xdb9): undefined reference to `QTutil::layoutHorizontal(QList<QObject*>)'
+build/objects/GraphExportWindow.o: In function `GraphExportWindow::GraphExportWindow()':
+GraphExportWindow.cpp:(.text+0x45d): undefined reference to `QTutil::withLabel(QString, QWidget*)'
+GraphExportWindow.cpp:(.text+0x49e): undefined reference to `QTutil::withLabel(QString, QWidget*)'
+GraphExportWindow.cpp:(.text+0x577): undefined reference to `QTutil::layoutHorizontal(QList<QObject*>)'
+GraphExportWindow.cpp:(.text+0x5f8): undefined reference to `QTutil::layoutVertical(QList<QObject*>)'
+build/objects/GatesListWidget.o: In function `GatesListWidget::actionRenameGate()':
+GatesListWidget.cpp:(.text+0x19c): undefined reference to `MainWindow::getProject()'
+GatesListWidget.cpp:(.text+0x1e1): undefined reference to `GatesListWidget::staticMetaObject'
+GatesListWidget.cpp:(.text+0x203): undefined reference to `GatesListWidget::staticMetaObject'
+GatesListWidget.cpp:(.text+0x2bd): undefined reference to `GatesListWidget::staticMetaObject'
+GatesListWidget.cpp:(.text+0x2e4): undefined reference to `QTutil::showNotice(QWidget const&, QString)'
+GatesListWidget.cpp:(.text+0x4b0): undefined reference to `GateSet::getGateNames()'
+build/objects/GatesListWidget.o: In function `GatesListWidget::getSelectedGates()':
+GatesListWidget.cpp:(.text+0x68f): undefined reference to `Gate::staticMetaObject'
+build/objects/GatesListWidget.o: In function `GatesListWidget::getSelectedMeasures()':
+GatesListWidget.cpp:(.text+0x89f): undefined reference to `GateMeasure::staticMetaObject'
+build/objects/GatesListWidget.o: In function `GatesListWidget::addGate(Gate*, Gate*)':
+GatesListWidget.cpp:(.text+0xb01): undefined reference to `MainWindow::getProject()'
+GatesListWidget.cpp:(.text+0xb0f): undefined reference to `GateSet::getFreeName()'
+GatesListWidget.cpp:(.text+0xb61): undefined reference to `Gate::children() const'
+GatesListWidget.cpp:(.text+0xc47): undefined reference to `Gate::attachChild(Gate*)'
+build/objects/GatesListWidget.o: In function `GatesListWidget::addMeasures(QTreeWidgetItem*, Gate*, QList<GateMeasure*>)':
+GatesListWidget.cpp:(.text+0xe99): undefined reference to `MainWindow::getProject()'
+GatesListWidget.cpp:(.text+0x105b): undefined reference to `GateMeasure::staticMetaObject'
+build/objects/GatesListWidget.o: In function `GatesListWidget::updateGatesListRecursive(QTreeWidgetItem*, Gate const*, QList<Gate*>, QList<GateMeasure*>)':
+GatesListWidget.cpp:(.text+0x13fb): undefined reference to `QColorCombo::QColorCombo()'
+GatesListWidget.cpp:(.text+0x1453): undefined reference to `QColorCombo::setCurrentColor(GateColor)'
+GatesListWidget.cpp:(.text+0x1555): undefined reference to `Gate::children() const'
+build/objects/GatesListWidget.o: In function `GatesListWidget::actionRemoveGates()':
+GatesListWidget.cpp:(.text+0x1930): undefined reference to `MainWindow::getProject()'
+GatesListWidget.cpp:(.text+0x19fa): undefined reference to `Gate::setUpdated()'
+GatesListWidget.cpp:(.text+0x1a54): undefined reference to `Gate::detachParent()'
+GatesListWidget.cpp:(.text+0x1ab4): undefined reference to `GateMeasure::detachFromGate()'
+build/objects/GatesListWidget.o: In function `GatesListWidget::GatesListWidget(MainWindow*)':
+GatesListWidget.cpp:(.text+0x1e35): undefined reference to `vtable for GatesListWidget'
+GatesListWidget.cpp:(.text+0x1e75): undefined reference to `GatesListWidget::staticMetaObject'
+GatesListWidget.cpp:(.text+0x20d2): undefined reference to `ImgResource::icon_delete'
+GatesListWidget.cpp:(.text+0x24bd): undefined reference to `QTutil::layoutHorizontal(QList<QObject*>)'
+build/objects/GatesListWidget.o: In function `GatesListWidget::actionAddMeasure()':
+GatesListWidget.cpp:(.text+0x2869): undefined reference to `MainWindow::getProject()'
+GatesListWidget.cpp:(.text+0x2967): undefined reference to `Gate::attachMeasure(GateMeasure*)'
+GatesListWidget.cpp:(.text+0x29dd): undefined reference to `GatesListWidget::staticMetaObject'
+GatesListWidget.cpp:(.text+0x2a00): undefined reference to `QTutil::showNotice(QWidget const&, QString)'
+build/objects/GatesListWidget.o: In function `int qRegisterNormalizedMetaType<GateMeasure*>(QByteArray const&, GateMeasure**, QtPrivate::MetaTypeDefinedHelper<GateMeasure*, QMetaTypeId2<GateMeasure*>::Defined&&(!QMetaTypeId2<GateMeasure*>::IsBuiltIn)>::DefinedType)':
+GatesListWidget.cpp:(.text._Z27qRegisterNormalizedMetaTypeIP11GateMeasureEiRK10QByteArrayPT_N9QtPrivate21MetaTypeDefinedHelperIS5_Xaasr12QMetaTypeId2IS5_E7DefinedntsrSA_9IsBuiltInEE11DefinedTypeE[_Z27qRegisterNormalizedMetaTypeIP11GateMeasureEiRK10QByteArrayPT_N9QtPrivate21MetaTypeDefinedHelperIS5_Xaasr12QMetaTypeId2IS5_E7DefinedntsrSA_9IsBuiltInEE11DefinedTypeE]+0x2c): undefined reference to `GateMeasure::staticMetaObject'
+GatesListWidget.cpp:(.text._Z27qRegisterNormalizedMetaTypeIP11GateMeasureEiRK10QByteArrayPT_N9QtPrivate21MetaTypeDefinedHelperIS5_Xaasr12QMetaTypeId2IS5_E7DefinedntsrSA_9IsBuiltInEE11DefinedTypeE[_Z27qRegisterNormalizedMetaTypeIP11GateMeasureEiRK10QByteArrayPT_N9QtPrivate21MetaTypeDefinedHelperIS5_Xaasr12QMetaTypeId2IS5_E7DefinedntsrSA_9IsBuiltInEE11DefinedTypeE]+0xab): undefined reference to `GateMeasure::staticMetaObject'
+build/objects/FacsanaduProject.o: In function `FacsanaduProject::getChannelInfo()':
+FacsanaduProject.cpp:(.text+0x398): undefined reference to `Dataset::getChannelInfo()'
+build/objects/FacsanaduProject.o: In function `FacsanaduProject::recalcProfChan(ProfChannel*)':
+FacsanaduProject.cpp:(.text+0x46e): undefined reference to `Dataset::computeProfChannel(FacsanaduProject*, ProfChannel*)'
+build/objects/FacsanaduProject.o: In function `FacsanaduProject::getNumChannels()':
+FacsanaduProject.cpp:(.text+0x72b): undefined reference to `Dataset::getChannelInfo()'
+build/objects/DialogAbout.o: In function `DialogAbout::DialogAbout()':
+DialogAbout.cpp:(.text+0x80a): undefined reference to `ImgResource::setWindowIcon(QWidget*)'
+build/objects/DatasetListWidget.o: In function `DatasetListWidget::actionMoveUp()':
+DatasetListWidget.cpp:(.text+0x376): undefined reference to `MainWindow::getProject()'
+build/objects/DatasetListWidget.o: In function `DatasetListWidget::actionMoveDown()':
+DatasetListWidget.cpp:(.text+0x4ff): undefined reference to `MainWindow::getProject()'
+build/objects/DatasetListWidget.o: In function `DatasetListWidget::updateDatasetList()':
+DatasetListWidget.cpp:(.text+0x63d): undefined reference to `MainWindow::getProject()'
+DatasetListWidget.cpp:(.text+0x6db): undefined reference to `Dataset::get_file_source_name()'
+DatasetListWidget.cpp:(.text+0x6e3): undefined reference to `QTutil::createReadOnlyItem(QString)'
+build/objects/DatasetListWidget.o: In function `DatasetListWidget::actionRemoveDataset()':
+DatasetListWidget.cpp:(.text+0x989): undefined reference to `MainWindow::getProject()'
+build/objects/DatasetListWidget.o: In function `DatasetListWidget::DatasetListWidget(MainWindow*)':
+DatasetListWidget.cpp:(.text+0xaac): undefined reference to `vtable for DatasetListWidget'
+DatasetListWidget.cpp:(.text+0xb24): undefined reference to `DatasetListWidget::staticMetaObject'
+DatasetListWidget.cpp:(.text+0xd76): undefined reference to `ImgResource::icon_delete'
+DatasetListWidget.cpp:(.text+0xded): undefined reference to `ImgResource::moveUp'
+DatasetListWidget.cpp:(.text+0xe60): undefined reference to `ImgResource::moveDown'
+DatasetListWidget.cpp:(.text+0x128a): undefined reference to `QTutil::layoutHorizontal(QList<QObject*>)'
+build/objects/DatasetListWidget.o: In function `DatasetListWidget::actionAddDatasets()':
+DatasetListWidget.cpp:(.text+0x16d3): undefined reference to `DatasetListWidget::staticMetaObject'
+build/objects/DatasetListWidget.o: In function `DatasetListWidget::dothelayout()':
+DatasetListWidget.cpp:(.text+0x11): undefined reference to `DatasetListWidget::selectionChanged()'
+build/objects/AddMeasureDialog.o: In function `AddMeasureDialog::updatechanlist()':
+AddMeasureDialog.cpp:(.text+0x1b9): undefined reference to `ChannelInfo::formatName()'
+AddMeasureDialog.cpp:(.text+0x1c1): undefined reference to `QTutil::createReadOnlyItem(QString)'
+build/objects/AddMeasureDialog.o: In function `AddMeasureDialog::getMeasures()':
+AddMeasureDialog.cpp:(.text+0x5c7): undefined reference to `GateMeasure::GateMeasure()'
+AddMeasureDialog.cpp:(.text+0x5ce): undefined reference to `vtable for GateMeasureMean'
+build/objects/AddMeasureDialog.o: In function `AddMeasureDialog::AddMeasureDialog(FacsanaduProject*)':
+AddMeasureDialog.cpp:(.text+0xb6e): undefined reference to `QTutil::layoutHorizontal(QList<QObject*>)'
+AddMeasureDialog.cpp:(.text+0xc0a): undefined reference to `QTutil::layoutVertical(QList<QObject*>)'
+build/objects/AddMeasureDialog.o: In function `GateMeasureUnivariate::~GateMeasureUnivariate()':
+AddMeasureDialog.cpp:(.text._ZN21GateMeasureUnivariateD2Ev[_ZN21GateMeasureUnivariateD5Ev]+0x3): undefined reference to `vtable for GateMeasure'
+build/objects/AddMeasureDialog.o: In function `GateMeasureUnivariate::~GateMeasureUnivariate()':
+AddMeasureDialog.cpp:(.text._ZN21GateMeasureUnivariateD0Ev[_ZN21GateMeasureUnivariateD5Ev]+0x3): undefined reference to `vtable for GateMeasure'
+build/objects/ViewWidget.o: In function `ViewWidget::mousePressEvent(QMouseEvent*)':
+ViewWidget.cpp:(.text+0x92c): undefined reference to `MainWindow::getProject()'
+ViewWidget.cpp:(.text+0xaff): undefined reference to `Dataset::getChannelInfo()'
+ViewWidget.cpp:(.text+0xc07): undefined reference to `ChannelInfo::formatName()'
+ViewWidget.cpp:(.text+0xdc6): undefined reference to `ChannelInfo::formatName()'
+ViewWidget.cpp:(.text+0xf5f): undefined reference to `GateSet::getGates()'
+build/objects/ViewWidget.o: In function `ViewWidget::CallbackSetBins::~CallbackSetBins()':
+ViewWidget.cpp:(.text._ZN10ViewWidget15CallbackSetBinsD2Ev[_ZN10ViewWidget15CallbackSetBinsD5Ev]+0x3): undefined reference to `vtable for ViewWidget::Callback'
+build/objects/ViewWidget.o: In function `ViewWidget::CallbackSetBins::~CallbackSetBins()':
+ViewWidget.cpp:(.text._ZN10ViewWidget15CallbackSetBinsD0Ev[_ZN10ViewWidget15CallbackSetBinsD5Ev]+0x3): undefined reference to `vtable for ViewWidget::Callback'
+build/objects/ViewWidget.o: In function `ViewWidget::CallbackSetZoom::~CallbackSetZoom()':
+ViewWidget.cpp:(.text._ZN10ViewWidget15CallbackSetZoomD2Ev[_ZN10ViewWidget15CallbackSetZoomD5Ev]+0x3): undefined reference to `vtable for ViewWidget::Callback'
+build/objects/ViewWidget.o: In function `ViewWidget::CallbackSetZoom::~CallbackSetZoom()':
+ViewWidget.cpp:(.text._ZN10ViewWidget15CallbackSetZoomD0Ev[_ZN10ViewWidget15CallbackSetZoomD5Ev]+0x3): undefined reference to `vtable for ViewWidget::Callback'
+build/objects/ViewWidget.o: In function `ViewWidget::CallbackSetGate::~CallbackSetGate()':
+ViewWidget.cpp:(.text._ZN10ViewWidget15CallbackSetGateD2Ev[_ZN10ViewWidget15CallbackSetGateD5Ev]+0x3): undefined reference to `vtable for ViewWidget::Callback'
+build/objects/ViewWidget.o:ViewWidget.cpp:(.text._ZN10ViewWidget15CallbackSetGateD0Ev[_ZN10ViewWidget15CallbackSetGateD5Ev]+0x3): more undefined references to `vtable for ViewWidget::Callback' follow
+build/objects/ViewWidget.o:(.data.rel.ro._ZTIN10ViewWidget18CallbackSetChannelE[_ZTIN10ViewWidget18CallbackSetChannelE]+0x10): undefined reference to `typeinfo for ViewWidget::Callback'
+build/objects/ViewWidget.o:(.data.rel.ro._ZTIN10ViewWidget20CallbackSetHistogramE[_ZTIN10ViewWidget20CallbackSetHistogramE]+0x10): undefined reference to `typeinfo for ViewWidget::Callback'
+build/objects/ViewWidget.o:(.data.rel.ro._ZTIN10ViewWidget15CallbackSetGateE[_ZTIN10ViewWidget15CallbackSetGateE]+0x10): undefined reference to `typeinfo for ViewWidget::Callback'
+build/objects/ViewWidget.o:(.data.rel.ro._ZTIN10ViewWidget25CallbackSetTransformationE[_ZTIN10ViewWidget25CallbackSetTransformationE]+0x10): undefined reference to `typeinfo for ViewWidget::Callback'
+build/objects/ViewWidget.o:(.data.rel.ro._ZTIN10ViewWidget15CallbackSetZoomE[_ZTIN10ViewWidget15CallbackSetZoomE]+0x10): undefined reference to `typeinfo for ViewWidget::Callback'
+build/objects/ViewWidget.o:(.data.rel.ro._ZTIN10ViewWidget15CallbackSetBinsE[_ZTIN10ViewWidget15CallbackSetBinsE]+0x10): more undefined references to `typeinfo for ViewWidget::Callback' follow
+build/objects/ViewToolChoice.o: In function `ViewToolChoice::getTool(ViewWidget*, ViewToolChoice::Enum)':
+ViewToolChoice.cpp:(.text+0x3d): undefined reference to `ViewToolDrawEllipse::ViewToolDrawEllipse(ViewWidget*)'
+ViewToolChoice.cpp:(.text+0x64): undefined reference to `ViewToolDrawSelect::ViewToolDrawSelect(ViewWidget*)'
+ViewToolChoice.cpp:(.text+0x84): undefined reference to `ViewToolDrawRange::ViewToolDrawRange(ViewWidget*)'
+ViewToolChoice.cpp:(.text+0xb4): undefined reference to `ViewToolDrawPoly::ViewToolDrawPoly(ViewWidget*)'
+ViewToolChoice.cpp:(.text+0xd4): undefined reference to `ViewToolDrawRect::ViewToolDrawRect(ViewWidget*)'
+build/objects/ViewTransform.o: In function `ViewTransform::mapScreenToFcs(QPointF const&)':
+ViewTransform.cpp:(.text+0x122): undefined reference to `TransformationStack::invert(double, int)'
+ViewTransform.cpp:(.text+0x142): undefined reference to `TransformationStack::invert(double, int)'
+build/objects/ViewTransform.o: In function `ViewTransform::mapFcsToScreenX(double)':
+ViewTransform.cpp:(.text+0x190): undefined reference to `TransformationStack::perform(double, int)'
+build/objects/ViewTransform.o: In function `ViewTransform::mapFcsToScreenY(double)':
+ViewTransform.cpp:(.text+0x1e0): undefined reference to `TransformationStack::perform(double, int)'
+build/objects/ViewSettings.o: In function `ViewSettings::computeHistogram(Dataset*, GatingResult*)':
+ViewSettings.cpp:(.text+0x13a): undefined reference to `GatingResult::getAcceptedFromGate(Gate*)'
+ViewSettings.cpp:(.text+0x16a): undefined reference to `Dataset::getAsFloatCompensated(int, int)'
+ViewSettings.cpp:(.text+0x176): undefined reference to `TransformationStack::perform(double, int)'
+build/objects/ViewSettings.o: In function `ViewSettings::getMinForChannel(Dataset*)':
+ViewSettings.cpp:(.text+0x844): undefined reference to `Dataset::getNumChannels()'
+ViewSettings.cpp:(.text+0x8de): undefined reference to `Dataset::getNumObservations()'
+ViewSettings.cpp:(.text+0x937): undefined reference to `Dataset::getAsFloatCompensated(int, int)'
+ViewSettings.cpp:(.text+0xa6c): undefined reference to `TransformationStack::perform(QVector<double>)'
+build/objects/ViewSettings.o: In function `ViewSettings::getMaxForChannel(Dataset*)':
+ViewSettings.cpp:(.text+0xc84): undefined reference to `Dataset::getNumChannels()'
+ViewSettings.cpp:(.text+0xd1e): undefined reference to `Dataset::getNumObservations()'
+ViewSettings.cpp:(.text+0xd77): undefined reference to `Dataset::getAsFloatCompensated(int, int)'
+ViewSettings.cpp:(.text+0xeac): undefined reference to `TransformationStack::perform(QVector<double>)'
+build/objects/ViewSettings.o: In function `ViewSettings::getMinForChannels(QList<Dataset*>)':
+ViewSettings.cpp:(.text+0x1204): undefined reference to `Dataset::getNumChannels()'
+build/objects/ViewSettings.o: In function `ViewSettings::getMaxForChannels(QList<Dataset*>)':
+ViewSettings.cpp:(.text+0x15f2): undefined reference to `Dataset::getNumChannels()'
+build/objects/ViewRenderer.o: In function `ViewRenderer::renderHistogram(ViewSettings*, Dataset*, GatingResult*, ViewTransform*, QPainter&)':
+ViewRenderer.cpp:(.text+0x29b): undefined reference to `Dataset::getChannelInfo()'
+ViewRenderer.cpp:(.text+0x463): undefined reference to `ChannelInfo::formatName()'
+build/objects/ViewRenderer.o: In function `ViewRenderer::renderXY(ViewSettings*, Dataset*, GatingResult*, ViewTransform*, QPainter&, int)':
+ViewRenderer.cpp:(.text+0x6b1): undefined reference to `Dataset::getChannelInfo()'
+ViewRenderer.cpp:(.text+0x6c9): undefined reference to `GatingResult::getIdGates()'
+ViewRenderer.cpp:(.text+0x9b3): undefined reference to `GatingResult::getAcceptedFromGate(Gate*)'
+ViewRenderer.cpp:(.text+0xa17): undefined reference to `Dataset::getAsFloatCompensated(int, int)'
+ViewRenderer.cpp:(.text+0xa2c): undefined reference to `Dataset::getAsFloatCompensated(int, int)'
+ViewRenderer.cpp:(.text+0xa65): undefined reference to `GatingResult::getGateIntIDForObs(int)'
+ViewRenderer.cpp:(.text+0xbe1): undefined reference to `ChannelInfo::formatName()'
+ViewRenderer.cpp:(.text+0xc0a): undefined reference to `ChannelInfo::formatName()'
+build/objects/ViewRenderer.o: In function `ViewRenderer::drawgatesRecursive(QPainter&, ViewTransform*, Gate*, ViewSettings*, QList<GateHandle*>)':
+ViewRenderer.cpp:(.text+0x1084): undefined reference to `Gate::children() const'
+build/objects/GateRendererManager.o: In function `GateRendererManager::getGateRenderer(Gate*)':
+GateRendererManager.cpp:(.text+0x169): undefined reference to `vtable for GateRendererPoly'
+GateRendererManager.cpp:(.text+0x1a5): undefined reference to `vtable for GateRendererRange'
+build/objects/GateRendererRect.o: In function `GateRendererRect::render(Gate const*, QPainter&, ViewTransform*, ViewSettings const*, QList<GateHandle*>)':
+GateRendererRect.cpp:(.text+0x364): undefined reference to `vtable for GateHandle_1'
+GateRendererRect.cpp:(.text+0x3a7): undefined reference to `vtable for GateHandle_2'
+build/objects/GateRendererEllipse.o: In function `GateRendererEllipse::render(Gate const*, QPainter&, ViewTransform*, ViewSettings const*, QList<GateHandle*>)':
+GateRendererEllipse.cpp:(.text+0x75c): undefined reference to `vtable for GateHandle_Mid'
+GateRendererEllipse.cpp:(.text+0x7a2): undefined reference to `vtable for GateHandle_R'
+GateRendererEllipse.cpp:(.text+0x7e3): undefined reference to `vtable for GateHandle_B'
+collect2: error: ld returned 1 exit status
+make: *** [build/dest/facs] Error 1

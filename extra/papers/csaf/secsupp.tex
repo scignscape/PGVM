@@ -38,7 +38,7 @@ to be subsequently re-used by a different
 application --- or by the same application at a future 
 time.  In any data-modeling scenario there is an application 
 which \textit{creates} a data structure, and an application 
-(which may be the same) that 
+(not necessarily a different one) that 
 \textit{consumes} that data structure.  \q{Consuming} 
 in this context means reading the data 
 so that it may be incorporated into some computational 
@@ -76,7 +76,7 @@ and so forth, so that applications are
 only considered to be creators and/or consumers 
 by fulfilling the checklist contract.}
 
-\p{On the other hand, the formalization may 
+\p{On the other hand, protocol formalization may 
 focus on the medium through which 
 data shared between creator and consumer 
 is structured and encoded.  This second mode of 
@@ -87,14 +87,14 @@ enforcing alignment (even if it is not
 identified in these terms).  For example, 
 \XML{} schemata represent constraints 
 on any creator of information encoded by 
-conformant \XML{} documents; given these 
-constraints, the \XML{} \textit{consumers} 
+conformant \XML{} documents.  Given these 
+constraints, \XML{} \textit{consumers} 
 can guarantee alignment with creators 
 by incorporating the schema as a contract 
 the creator obeys.  The consumers need 
 not have any knowledge of the creators 
 \textit{apart from} the fact the \XML{} they 
-create conforms to the schema.}
+create conforms to that applicable schema.}
 
 \p{Whether by explicit application-level requirements 
 or via contracts on the medium by which shared 
