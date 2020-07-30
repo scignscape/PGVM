@@ -35,6 +35,7 @@ SOURCES +=  \
  ./gui/panes/DatasetInfoPane.cpp \
  ./gui/panes/ViewsPane.cpp \
  ./gui/panes/GateStatsPane.cpp \
+ ./gui/lengthprofile/ProfilePane.cpp \
 
 
 #

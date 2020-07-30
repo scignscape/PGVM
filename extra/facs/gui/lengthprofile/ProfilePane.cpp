@@ -3,90 +3,103 @@
 
 #include "ProfilePane.h"
 
+#include "ProfileView.h"
+
+#include "FacsanaduProject.h"
+
+#include "../gates/GateSet.h"
+
+
+#include "MainWindow.h"
+
+#include "../resource/ImgResource.h"
+
+#include "../data/ProfChannel.h"
 
 // package facsanadu.gui.lengthprofile;
 
-ProfilePane::ProfilePane()
+ProfilePane::ProfilePane(MainWindow* mw)
+ :  mw_(mw)
 {
- bPrevProf_ = new QPushButton(new QIcon(ImgResource.moveLeft), "");
- bNextProf_ = QPushButton(new QIcon(ImgResource.moveRight), "");
- tfID_ = QLineEdit("0");
- cbNormalizeLength_ = QCheckBox();
- cbShowAll_ = QCheckBox();
+ bPrevProf_ = new QPushButton(QIcon(ImgResource::moveLeft), "");
+ bNextProf_ = new QPushButton(QIcon(ImgResource::moveRight), "");
+ tfID_ = new QLineEdit("0");
+ cbNormalizeLength_ = new QCheckBox();
+ cbShowAll_ = new QCheckBox();
   
- QGridLayout* laychans_ = QGridLayout();
- LinkedList<QCheckBox>* cbShowChannel_ = LinkedList<QCheckBox>();
- LinkedList<QSlider>* sScaleChannel_ = LinkedList<QSlider>();
+ QGridLayout* laychans = new QGridLayout();
+ cbShowChannel_ = new QList<QCheckBox*>;
+ sScaleChannel_ = new QList<QSlider*>;
 
- mw_ = mw;
  view_ = new ProfileView(mw);
   
- tfID.setValidator(new QIntValidator(this));
- tfID.setMaximumWidth(100);
+  //? tfID.setValidator(new QIntValidator(this));
+ tfID_->setMaximumWidth(100);
   
- for(int i=0;i<10;i++)
+ for(int i=0; i<10; i++)
  {
-  QCheckBox cb=new QCheckBox();
-  cb.stateChanged.connect(this,"updateViews()");
-  cb.setChecked(true);
-  cbShowChannel.add(cb);
-  laychans.addWidget(cb,i,0);
+  QCheckBox* cb = new QCheckBox();
+  //cb.stateChanged.connect(this,"updateViews()");
+  cb->setChecked(true);
+  cbShowChannel_->push_back(cb);
+  laychans->addWidget(cb, i, 0);
    
-  QSlider s=new QSlider();
-  s.setOrientation(Orientation.Horizontal);
-  s.setMaximum(10000);
-  s.setValue(2000);
-  laychans.addWidget(s, i, 1);
-  sScaleChannel.add(s);
-  s.sliderMoved.connect(this,"updateViews()");
+  QSlider* s = new QSlider();
+  s->setOrientation(Qt::Horizontal);
+  s->setMaximum(10000);
+  s->setValue(2000);
+  laychans_->addWidget(s, i, 1);
+  sScaleChannel_->append(s);
+   //?s.sliderMoved.connect(this,"updateViews()");
  }
 
- QHBoxLayout blay=new QHBoxLayout();
- blay.addWidget(new QLabel(tr("Show all")));
- blay.addWidget(cbShowAll);
- blay.addWidget(new QLabel(tr("Normalize length")));
- blay.addWidget(cbNormalizeLength);
- blay.addStretch();
- blay.addWidget(new QLabel(tr("Event ID:")));
- blay.addWidget(tfID);
- blay.addWidget(bPrevProf);
- blay.addWidget(bNextProf);
+ QHBoxLayout* blay = new QHBoxLayout();
+ blay->addWidget(new QLabel(tr("Show all")));
+ blay->addWidget(cbShowAll_);
+ blay->addWidget(new QLabel(tr("Normalize length")));
+ blay->addWidget(cbNormalizeLength_);
+ blay->addStretch();
+ blay->addWidget(new QLabel(tr("Event ID:")));
+ blay->addWidget(tfID_);
+ blay->addWidget(bPrevProf_);
+ blay->addWidget(bNextProf_);
   
- QVBoxLayout lay=new QVBoxLayout();
- lay.addLayout(blay);
- lay.addWidget(view);
- lay.addLayout(laychans);
+ QVBoxLayout* lay = new QVBoxLayout();
+ lay->addLayout(blay);
+ lay->addWidget(view_);
+ lay->addLayout(laychans);
  
- tfID.editingFinished.connect(this,"updateViews()");
- bNextProf.clicked.connect(this,"actionNextProf()");
- bPrevProf.clicked.connect(this,"actionPrevProf()");
- cbNormalizeLength.stateChanged.connect(this,"cbNormalizeLength()");
- cbShowAll.stateChanged.connect(this,"updateViews()");
+  //tfID_->editingFinished.connect(this,"updateViews()");
+  //bNextProf.clicked.connect(this,"actionNextProf()");
+  //bPrevProf.clicked.connect(this,"actionPrevProf()");
+  //cbNormalizeLength.stateChanged.connect(this,"cbNormalizeLength()");
+  //cbShowAll.stateChanged.connect(this,"updateViews()");
  
  setLayout(lay);
 }
 
 void ProfilePane::cbNormalizeLength()
-  {
-  if(view.curchannel!=null)
-   view.curchannel.forNormalized=cbNormalizeLength.isChecked();
-  updateViews();
-  }
+{
+ if(view_->curchannel())
+   view_->curchannel()->set_forNormalized( cbNormalizeLength_->isChecked() );
+ updateViews();
+}
  
  
 Gate* ProfilePane::getCurrentGate()
-  {
-  List<Gate> gates=mw.getSelectedGates();
-  Gate g;
-  if(gates.isEmpty())
-   g=mw.project.gateset.getRootGate();
-  else
-   g=gates.get(0);
-  return g;
-  }
- 
+{
+ QList<Gate*> gates = mw_->getSelectedGates();
+ Gate* g;
+ if(gates.isEmpty())
+   g = mw_->project()->gateset()->getRootGate();
+ else
+   g = gates.first();
+ return g;
+}
+
+/* 
 void ProfilePane::actionPrevProf()
-  {
+{
   int id=getCurrentID();
   Dataset ds=getCurrentDataset();
   if(ds!=null)
@@ -163,9 +176,11 @@ int ProfilePane::getCurrentID()
    }
   return id;
   }
- 
+*/
+
 void ProfilePane::updateViews()
-  {
+{
+/*
   Dataset ds=getCurrentDataset();
   if(ds!=null)
    {
@@ -208,10 +223,10 @@ void ProfilePane::updateViews()
     cb.setText(ds.lengthprofsInfo.get(i).name);
    }
    
-
-  }
+*/
+}
  
- 
+/* 
 ArrayList<Integer> ProfilePane::getSelChans()
   {
   Dataset ds=getCurrentDataset();
@@ -231,5 +246,5 @@ void ProfilePane::setCurChan(ProfChannel pc)
   view.curchannel=pc;
   view.repaint();
   }
-
+*/
 

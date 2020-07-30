@@ -18,6 +18,8 @@ class Gate;
 class Dataset;
 class ProfChannel;
 
+class MainWindow;
+
 // // temp
 #include<QList>
 #define LinkedList QList
@@ -38,8 +40,8 @@ class ProfilePane : public QWidget // extends QWidget
  MainWindow* mw_;
  
  QGridLayout* laychans_; //= QGridLayout();
- LinkedList<QCheckBox*> cbShowChannel_; //= LinkedList<QCheckBox>();
- LinkedList<QSlider*> sScaleChannel_; //= LinkedList<QSlider>();
+ QList<QCheckBox*>* cbShowChannel_; //= LinkedList<QCheckBox>();
+ QList<QSlider*>* sScaleChannel_; //= LinkedList<QSlider>();
  
 public:
 

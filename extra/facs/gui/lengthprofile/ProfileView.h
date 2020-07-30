@@ -9,15 +9,22 @@
 #include <QMouseEvent>
 #include <QWidget>
 
+#include <QPaintEvent>
+
+
 // package facsanadu.gui.lengthprofile;
 
 
+class Dataset;
+class MainWindow;
+class ProfChannel;
+
 // // View showing one length profile
-class ProfileView : QWidget
+class ProfileView : public QWidget
 {
- Dataset ds_;
+ Dataset* ds_;
  MainWindow* mw_; 
- ArrayList<Integer> eventid_; // = new ArrayList<Integer>();
+ QList<int> eventid_; // = new ArrayList<Integer>();
 
  QPointF pointLast_; // =new QPointF();
  int moveBoundary_; // =-1;
@@ -27,31 +34,37 @@ class ProfileView : QWidget
 
  int clamp(int x, int from, int to);
 
+ bool normalizeLength_;
+ QList<bool> showchan_; //=new ArrayList<Boolean>();
+ QList<bool> scale_; // =new ArrayList<Double>();
+ 
+ ProfChannel* curchannel_; // =null;
+
 public:
 
- bool normalizeLength_;
- ArrayList<Boolean> showchan_; //=new ArrayList<Boolean>();
- ArrayList<Double> scale_; // =new ArrayList<Double>();
- 
- ProfChannel curchannel_; // =null;
+ ProfChannel* curchannel()
+ {
+  return curchannel_;
+ }
 
- ProfileView(MainWindow mw);
+ ProfileView(MainWindow* mw);
 
 protected:
- void paintEvent(QPaintEvent e) Q_DECLARE_OVERRIDE;
 
- void mousePressEvent(QMouseEvent event) Q_DECLARE_OVERRIDE;
+ void paintEvent(QPaintEvent* e) Q_DECL_OVERRIDE;
 
- void mouseDoubleClickEvent(QMouseEvent e) Q_DECLARE_OVERRIDE;
+ void mousePressEvent(QMouseEvent* event) Q_DECL_OVERRIDE;
+
+ void mouseDoubleClickEvent(QMouseEvent* e) Q_DECL_OVERRIDE;
  
- void mouseReleaseEvent(QMouseEvent ev) Q_DECLARE_OVERRIDE;
+ void mouseReleaseEvent(QMouseEvent* ev) Q_DECL_OVERRIDE;
    
- void mouseMoveEvent(QMouseEvent event) Q_DECLARE_OVERRIDE;
+ void mouseMoveEvent(QMouseEvent* event) Q_DECL_OVERRIDE;
  
 public:
 
- void setevent(Dataset ds, int i);
- void setevent(Dataset ds, List<Integer> ids);
+ void setevent(Dataset* ds, int i);
+ void setevent(Dataset* ds, QList<int> ids);
  
 };
 

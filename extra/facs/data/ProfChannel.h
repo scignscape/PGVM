@@ -25,6 +25,8 @@ public:
  QString getName();
 
  void set_channel(int channel) { channel_ = channel; }
+ void set_forNormalized(bool b) { forNormalized_ = b; }
+
 
  double calc(LengthProfileData* data);
 
