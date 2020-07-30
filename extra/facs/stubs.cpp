@@ -19,12 +19,25 @@
 #include "gates/measure/GateMeasure.h"
 
 
+#include "gui/view/tool/ViewToolDrawEllipse.h"
+#include "gui/view/tool/ViewToolDrawSelect.h"
+#include "gui/view/tool/ViewToolDrawRange.h"
+#include "gui/view/tool/ViewToolDrawPoly.h"
+#include "gui/view/tool/ViewToolDrawRect.h"
+
 #include <QList>
 
 class QFile; 
 class FacsanaduProject;
 class Dataset; 
 class ViewSettings;
+
+
+ViewToolDrawEllipse::ViewToolDrawEllipse(ViewWidget*){}
+ViewToolDrawSelect::ViewToolDrawSelect(ViewWidget*){}
+ViewToolDrawRange::ViewToolDrawRange(ViewWidget*){}
+ViewToolDrawPoly::ViewToolDrawPoly(ViewWidget*){}
+ViewToolDrawRect::ViewToolDrawRect(ViewWidget*){}
 
 
 QList<Gate*> Gate::children() const
@@ -42,6 +55,16 @@ void Gate::detachParent() {}
 
 void GateMeasure::detachFromGate() {}
 void Gate::attachMeasure(GateMeasure*) {}
+
+GateMeasure::GateMeasure()
+{
+}
+
+QList<Gate*> GateSet::getGates()
+{
+ return {};
+}
+
 
 void Dataset::computeProfChannel(FacsanaduProject*, ProfChannel*)
 {

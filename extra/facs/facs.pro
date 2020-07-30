@@ -11,6 +11,14 @@ HEADERS += \
  ./gui/GatesListWidget.h \
  ./gates/gate-info.h \
  ./gates/measure/GateMeasure.h \
+ ./gates/measure/GateMeasureMean.h \
+ ./gui/view/ViewWidget.h \
+ ./gui/view/tool/ViewToolDrawEllipse.h \
+ ./gui/view/tool/ViewToolDrawSelect.h \
+ ./gui/view/tool/ViewToolDrawRange.h \
+ ./gui/view/tool/ViewToolDrawRect.h \
+ ./gui/view/tool/ViewToolDrawPoly.h \
+
 
 
 

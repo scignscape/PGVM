@@ -18,10 +18,14 @@
 // // Tool to draw polygon gates
 
 class GatePolygon;
+class Gate;
+class ViewWidget;
 
 
 class ViewToolDrawPoly :  public ViewTool
 {
+ Q_OBJECT
+
  GatePolygon* isDrawing_;// = null;
 
  ViewWidget* vw_;

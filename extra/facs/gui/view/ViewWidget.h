@@ -40,10 +40,22 @@ class Gate;
 class TransformationType;
 
 
+class ViewWidget_Callback : public QObject
+{
+ Q_OBJECT
+public:
+
+ ViewWidget* vw;
+ virtual void actionSet() {};
+};
+
+
 class ViewWidget : public QWidget
 {
+ Q_OBJECT
+
 public:
- class Callback;
+ typedef ViewWidget_Callback Callback;
 
 private:
 
@@ -96,14 +108,7 @@ public:
 //  }
 
 //*
- class Callback : public QObject
- {
-//  Q_OBJECT
- public:
 
-  ViewWidget* vw;
-  virtual void actionSet();
- };
 //*/
 
  // //

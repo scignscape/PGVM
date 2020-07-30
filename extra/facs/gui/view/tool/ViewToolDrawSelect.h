@@ -7,6 +7,8 @@
 
 #include "ViewTool.h"
 
+class Gate;
+class ViewWidget;
 
 #include <QMouseEvent>
 
@@ -17,6 +19,8 @@
 // //Tool to do nothing except selecting
 class ViewToolDrawSelect : public ViewTool //implements ViewTool
 {
+ Q_OBJECT
+
  ViewWidget* vw_;
 
 public:

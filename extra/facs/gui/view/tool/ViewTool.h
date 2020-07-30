@@ -8,6 +8,7 @@
 
 #include <QMouseEvent>
 
+#include <QObject>
 
 
 // package facsanadu.gui.view.tool;
@@ -16,8 +17,11 @@
 
 // // Tool for the view widget
 
-class ViewTool
+class ViewTool : public QObject
 {
+ Q_OBJECT
+
+
 public:
 
  virtual void mousePressEvent(QMouseEvent* event) = 0;

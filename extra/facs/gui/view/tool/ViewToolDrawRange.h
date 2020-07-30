@@ -13,6 +13,9 @@
 
 #include <QMouseEvent>
 
+class Gate;
+class ViewWidget;
+
 
 // package facsanadu.gui.view.tool;
 
@@ -20,6 +23,8 @@
 // // Tool to draw range gates
 class ViewToolDrawRange : public ViewTool
 {
+ Q_OBJECT
+
  Gate* isDrawing_; //null;
 
  ViewWidget* vw_;

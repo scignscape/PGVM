@@ -13,6 +13,7 @@
 #include <QMouseEvent>
 
 class Gate;
+class ViewWidget;
 
 // package facsanadu.gui.view.tool;
 
@@ -25,6 +26,8 @@ class Gate;
  */
 class ViewToolDrawRect : public ViewTool
 {
+ Q_OBJECT
+
  Gate* isDrawing_;// = nullptr;
 
  ViewWidget* vw_;

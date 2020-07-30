@@ -6,15 +6,23 @@
 #define ViewToolDrawEllipse__H
 
 
+#include "ViewTool.h"
+
 #include <QMouseEvent>
 
+class FacsanaduEvent;
 
 // package facsanadu.gui.view.tool;
+
+class Gate;
+class ViewWidget;
 
 // // Tool to draw ellipse gates
 
 class ViewToolDrawEllipse : public ViewTool
 {
+ Q_OBJECT
+
  Gate* isDrawing_;// = null;
 
  ViewWidget* vw_;
@@ -28,7 +36,7 @@ public:
   */
  void mouseReleaseEvent(QMouseEvent* ev) Q_DECL_OVERRIDE;
 
- void emitEvent(FacsanaduEvent e);
+ void emitEvent(FacsanaduEvent& e);
 
  /**
   * Mouse moved

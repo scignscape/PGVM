@@ -111,9 +111,9 @@ QList<GateMeasure*> AddMeasureDialog::getMeasures()
    int i = chans.indexOf(info);
    if(cbMean_->isChecked())
    {
-    GateMeasureMean* c = new GateMeasureMean();
-    c->channelIndex = i;
-    list.append(c);
+//?    GateMeasureMean* c = new GateMeasureMean();
+//?    c->channelIndex = i;
+//?    list.append(c);
    }
   }
  }
