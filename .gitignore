@@ -11,7 +11,7 @@ cpp/src/qt-reprozip/bin/*
 cpp/src/qt-reprozip/export/*
 cpp/qmake-console/targets/*
 
-extra/facs/build/*.*
+extra/facs/build/*
 
 *.zip
 *.gz
