@@ -8,8 +8,7 @@
 //
 #include "../gates/gate-info.h"
 
-
-
+#include <QPushButton>
 #include <QPixmap>
 
 
@@ -36,9 +35,9 @@ public:
  QColorCombo();
  
  void updateColorIcon();
- static QPixmap makeColPM(GateColor col, int size);
- void setCurrentColor(GateColor c);
- GateColor getCurrentColor();
+ static QPixmap* makeColPM(GateColor& col, int size);
+ void setCurrentColor(GateColor& c);
+ GateColor* getCurrentColor();
  void actionClick();
 };
 

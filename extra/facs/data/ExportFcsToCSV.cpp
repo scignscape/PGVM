@@ -3,6 +3,8 @@
 
 #include "ExportFcsToCSV.h"
 
+#include <QtGlobal>
+
 // package facsanadu.data;
 
 
@@ -10,6 +12,8 @@
 
 void ExportFcsToCSV::save(Dataset* dataset, QFile& file) // throws IOException
 {
+ Q_UNUSED(dataset)
+ Q_UNUSED(file)
 /*
   PrintWriter pw=new PrintWriter(new FileWriter(file));
   

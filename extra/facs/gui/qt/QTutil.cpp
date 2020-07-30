@@ -3,6 +3,14 @@
 
 #include "QTutil.h"
 
+#include "QtProgramInfo.h"
+
+
+#include <QLabel>
+#include <QGroupBox>
+
+#include <QMessageBox>
+
 
 // package facsanadu.gui.qt;
 
@@ -10,67 +18,68 @@
 
 // // QT utility functions
 
-QLayout QTutil::withLabel(String s, QWidget w)
-  {
-  QHBoxLayout layout=new QHBoxLayout();
-  QLabel l=new QLabel(s);
-  l.setSizePolicy(Policy.Fixed, Policy.Fixed);
-  layout.addWidget(l);
-  layout.addWidget(w);
-  layout.setSpacing(0);
-  layout.setMargin(0);
+QLayout* QTutil::withLabel(QString s, QWidget* w)
+{
+ QHBoxLayout* layout = new QHBoxLayout();
+ QLabel* l = new QLabel(s);
+ l->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+ layout->addWidget(l);
+ layout->addWidget(w);
+ layout->setSpacing(0);
+ layout->setMargin(0);
 
-  return layout;
-  }
+ return layout;
+}
 
  
  /**
   * Return a widget with a label to the right of it
   */
-QLayout QTutil::withLabel(String s, QWidget w, String sRight)
-  {
-  QHBoxLayout layout=new QHBoxLayout();
-  if(s!=null)
-   {
-   QLabel lLeft=new QLabel(s);
-   lLeft.setSizePolicy(Policy.Minimum, Policy.Minimum);
-   layout.addWidget(lLeft);
-   }
-  layout.addWidget(w);
-  if(sRight!=null)
-   {
-   QLabel lRight=new QLabel(sRight);
-   lRight.setSizePolicy(Policy.Minimum, Policy.Minimum);
-   layout.addWidget(lRight);
-   }
-  return layout;
-  }
+QLayout* QTutil::withLabel(QString s, QWidget* w, QString sRight)
+{
+ QHBoxLayout* layout = new QHBoxLayout();
+ if(!s.isEmpty())
+ {
+  QLabel* lLeft = new QLabel(s);
+  lLeft->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+  layout->addWidget(lLeft);
+ }
+ layout->addWidget(w);
+ if(!sRight.isEmpty())
+ {
+  QLabel* lRight = new QLabel(sRight);
+  lRight->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+  layout->addWidget(lRight);
+ }
+ return layout;
+}
 
 
  /**
   * Place widget within a titled frame
   */
-QWidget QTutil::withinTitledFrame(String title, QWidget w)
-  {
-  QVBoxLayout layout=new QVBoxLayout();
-  layout.addWidget(w);
-  layout.setMargin(0);
-  return QTutil.withinTitledFrame(title,layout);
-  }
+QWidget* QTutil::withinTitledFrame(QString title, QWidget* w)
+{
+ QVBoxLayout* layout = new QVBoxLayout();
+ layout->addWidget(w);
+ layout->setMargin(0);
+ return QTutil::withinTitledFrame(title,layout);
+}
 
  /**
   * Place layout within a titled frame
   */
-QWidget QTutil::withinTitledFrame(String title, QLayout layout)
-  {
-  QGroupBox b=new QGroupBox(title);
-  b.setLayout(layout);
-  return b;
-  }
+QWidget* QTutil::withinTitledFrame(QString title, QLayout* layout)
+{
+ QGroupBox* b = new QGroupBox(title);
+ b->setLayout(layout);
+ return b;
+}
 
  /**
   * Convert QT date to Java date
   */
+#ifdef HIDE 
 Date QTutil::convertToJavaDate(QDate qd, QTime qt)
   {
   Calendar c=Calendar.getInstance();
@@ -86,15 +95,15 @@ Date QTutil::convertToJavaDate(QDate qd, QTime qt)
    }
   return c.getTime();
   }
- 
+
 QDate QTutil::convertToQDate(Calendar calendar)
   {
   return new QDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH)+1, calendar.get(Calendar.DAY_OF_MONTH));
   }
  
- 
+#endif //def HIDE  
 
-
+/*
 QFileDialog.Filter QTutil::buildFileDialogSupportedFormatsFilter(String fileType, Collection<String> formatsList)
   {
   String formats="";
@@ -106,7 +115,7 @@ QFileDialog.Filter QTutil::buildFileDialogSupportedFormatsFilter(String fileType
    }
   return new QFileDialog.Filter(fileType+" ("+formats+")");
   }
-
+*/
 
  /**
   * Request an open-file dialog
@@ -116,6 +125,7 @@ QFileDialog.Filter QTutil::buildFileDialogSupportedFormatsFilter(String fileType
   * @param filter  Filter for the files
   * @return        The file, or null if none opened
   */
+/*
 File QTutil::openFileDialog(QWidget parent, String title, Filter filter)
   {
     String fileName = QFileDialog.getOpenFileName(parent, title, lastQtDir, filter);
@@ -128,10 +138,11 @@ File QTutil::openFileDialog(QWidget parent, String title, Filter filter)
     else
      return null;
   }
-
+*/
  /**
   * Open multiple files dialog. Never returns null
   */
+/*
 Collection<File> QTutil::openFilesDialog(QWidget parent, String title, Filter filter)
   {
     List<String> fileName = QFileDialog.getOpenFileNames(parent, title, lastQtDir, filter);
@@ -149,7 +160,7 @@ Collection<File> QTutil::openFilesDialog(QWidget parent, String title, Filter fi
     else
      return new LinkedList<File>();
   }
-
+*/
  /**
   * Request a save-file dialog
   * 
@@ -159,6 +170,7 @@ Collection<File> QTutil::openFilesDialog(QWidget parent, String title, Filter fi
   * @param filter       Filter for the files
   * @return             The file, or null if none opened
   */
+/*
 File QTutil::saveFileDialog(QWidget parent, String title, String suggestName, String defaultSuffix, QFileDialog.Filter filter)
   {
   QFileDialog dia=new QFileDialog(parent, title, lastQtDir);
@@ -183,14 +195,17 @@ File QTutil::saveFileDialog(QWidget parent, String title, String suggestName, St
     else
      return null;
   }
-
+*/
+/*
 File QTutil::saveFileDialog(QWidget parent, String title, Filter filter)
   {
   return saveFileDialog(parent, title, null, null, filter);
   }
+*/
  /**
   * Last directory where a file was opened from
   */
+
 // privateQString lastQtDir="";
 
  /**
@@ -199,6 +214,8 @@ File QTutil::saveFileDialog(QWidget parent, String title, Filter filter)
   * @param title   Title to show
   * @return        Directory if selected, otherwise null
   */
+
+/*
 File QTutil::openExistingDirectoryDialog(QWidget parent, String title, String acceptText)
   {
   QFileDialog dia=new QFileDialog(parent, title, lastQtDir);
@@ -231,13 +248,14 @@ List<String> QTutil::getSupportedImageFormats()
    formats.add(arr.toString());
   return formats;
   }
-
+*/
 
  /**
   * Executes the QApplication::exec() method, which has different names in different versions of QTJambi, using reflection
   * 
   * @return The value from QApplication::exec()
   */
+/*
 int QTutil::execStaticQApplication()
   {
   //New name
@@ -265,37 +283,40 @@ QString QTutil::formatDateTime(long t)
   DateFormat df=new SimpleDateFormat("yyyy-MM-dd kk:mm");
   return df.format(t);
   }
+*/
 
+QLayout* QTutil::layoutHorizontal(QList<QObject*> widgets)
+{
+ QHBoxLayout* layout=new QHBoxLayout();
+ for(QObject* w : widgets)
+ {
+  if(QWidget* qw = qobject_cast<QWidget*>(w))
+    layout->addWidget(qw);
+ }
+ return layout;
+}
 
-QLayout QTutil::layoutHorizontal(QWidget... widgets)
-  {
-  QHBoxLayout layout=new QHBoxLayout();
-  for(QWidget w:widgets)
-   layout.addWidget(w);
-  return layout;
-  }
-
-QLayout QTutil::layoutVertical(Object... widgets)
-  {
-  QVBoxLayout layout=new QVBoxLayout();
-  for(Object w:widgets)
-   {
-   if(w instanceof QWidget)
-    layout.addWidget((QWidget)w);
-   else if(w instanceof QLayout)
-    layout.addLayout((QLayout)w);
-   else
-    throw new RuntimeException("Neither widget nor layout");
-   }
-  return layout;
-  }
+QLayout* QTutil::layoutVertical(QList<QObject*> widgets)
+{
+ QVBoxLayout* layout = new QVBoxLayout();
+ for(QObject* w : widgets)
+ {
+  if(QWidget* qw = qobject_cast<QWidget*>(w))
+    layout->addWidget(qw);
+  else if(QLayout* ql = qobject_cast<QLayout*>(w))
+    layout->addLayout(ql);
+  //else
+  //  throw new RuntimeException("Neither widget nor layout");
+ }
+ return layout;
+}
  
 
-void QTutil::showNotice(final QWidget parent, final String text)
-  {
-  QMessageBox.information(parent, QtProgramInfo.programName, text);
-  }
-
+void QTutil::showNotice(QWidget* parent, QString text)
+{
+ QMessageBox::information(parent, QtProgramInfo::programName, text);
+}
+/*
  
 void QTutil::printError(final QWidget parent, final String text)
   {
@@ -320,11 +341,12 @@ bool QTutil::checkIsSigned(boolean isSigned, QWidget parent)
   else
    return false;
   }
- 
+ */
 
  /**
   * Fit number of rows
   */
+/*
 void QTutil::setProperHeightOfTable(QTableView listTables)
   {
   int nNumRows = listTables.model().rowCount();
@@ -371,14 +393,16 @@ bool QTutil::addingKey(QMouseEvent event)
   {
   return event.modifiers().isSet(KeyboardModifier.ShiftModifier) || event.modifiers().isSet(KeyboardModifier.ControlModifier);
   }
+*/
 
  /**
   * Create a read-only list item
   */
-QTableWidgetItem QTutil::createReadOnlyItem(String s)
-  {
-  QTableWidgetItem it=new QTableWidgetItem(s);
-  it.setFlags(new ItemFlags(ItemFlag.ItemIsSelectable, ItemFlag.ItemIsEnabled));
-  return it;
-  }
+QTableWidgetItem* QTutil::createReadOnlyItem(QString s)
+{
+ QTableWidgetItem* it = new QTableWidgetItem(s);
+ it->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
+ return it;
+}
+
 

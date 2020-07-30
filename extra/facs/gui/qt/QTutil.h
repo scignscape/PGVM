@@ -12,6 +12,9 @@
 #include <QFile>
 #include <QDate>
 #include <QValidator>
+#include <QTableView>
+#include <QTableWidgetItem>
+
 
 // package facsanadu.gui.qt;
 
@@ -35,12 +38,12 @@ public:
  /**
   * Place widget within a titled frame
   */
- static QWidget* withinTitledFrame(QString title, QWidget& w);
+ static QWidget* withinTitledFrame(QString title, QWidget* w);
 
  /**
   * Place layout within a titled frame
   */
- static QWidget* withinTitledFrame(QString title, QLayout& layout);
+ static QWidget* withinTitledFrame(QString title, QLayout* layout);
 
  /**
   * Convert QT date to Java date
@@ -111,7 +114,7 @@ public:
  static QLayout* //QLayout
    layoutVertical(QList<QObject*> widgets);  
 
- static void showNotice(const QWidget& parent, const QString text);
+ static void showNotice(QWidget* parent, const QString text);
 
  static void printError(const QWidget& parent, const QString text);
  

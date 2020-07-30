@@ -161,7 +161,9 @@ void GatesListWidget::updateGatesListRecursive(QTreeWidgetItem* parentItem,
 
  QColorCombo* combocolor = new QColorCombo();
  treeGates_->setItemWidget(item, 1, combocolor);
- combocolor->setCurrentColor(g->color());
+
+ GateColor gc( g->color() );
+ combocolor->setCurrentColor(gc);
 
 /*
  CallbackColor cb=new CallbackColor()
@@ -215,7 +217,7 @@ void GatesListWidget::actionAddMeasure()
 {
  LinkedList<Gate*> gates = getSelectedGates();
  if(gates.isEmpty())
-   QTutil::showNotice(*mw_, tr("First select some gates"));
+   QTutil::showNotice(mw_, tr("First select some gates"));
  else
  {
   AddMeasureDialog* w = new AddMeasureDialog(mw_->project());
@@ -249,7 +251,7 @@ void GatesListWidget::actionRenameGate()
    emitEvent(EventGatesChanged());
   }
   else
-    QTutil::showNotice(*mw_, tr("Invalid name"));
+    QTutil::showNotice(mw_, tr("Invalid name"));
  } 
 }
 

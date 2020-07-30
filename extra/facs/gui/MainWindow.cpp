@@ -50,6 +50,8 @@ struct Facs_Exception {};
 
 //?
 GateCalcThread::GateCalcThread(){}
+void GateCalcThread::wakeup(){}
+
 
 std::function<QList<Dataset*>()> do_MainWindow_GateCalcThread_getCurrentDatasets;
 
@@ -201,6 +203,10 @@ MainWindow::MainWindow()
  show();
 }
 
+FacsanaduProject* MainWindow::getProject()
+{
+ return project_;
+}
  
 void MainWindow::updateall()
 {

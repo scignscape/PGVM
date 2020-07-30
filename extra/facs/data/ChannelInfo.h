@@ -4,6 +4,8 @@
 #ifndef ChannelInfo__H
 #define ChannelInfo__H
 
+#include <QString>
+
 // // package facsanadu.data;
 
 class ProfChannel;

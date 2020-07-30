@@ -225,6 +225,11 @@ void ProfilePane::updateViews()
    
 */
 }
+
+QList<int> ProfilePane::getSelChans()
+{
+ return {};
+}
  
 /* 
 ArrayList<Integer> ProfilePane::getSelChans()
@@ -247,4 +252,13 @@ void ProfilePane::setCurChan(ProfChannel pc)
   view.repaint();
   }
 */
+
+void ProfilePane::setCurChan(ProfChannel* pc)
+{
+ view_->set_curchannel(pc);
+ view_->repaint();
+}
+
+
+
 

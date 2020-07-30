@@ -47,6 +47,11 @@ public:
   return curchannel_;
  }
 
+ void set_curchannel(ProfChannel* c)
+ {
+  curchannel_ = c;
+ }
+
  ProfileView(MainWindow* mw);
 
 protected:

@@ -11,15 +11,16 @@
 
 ColorSet::ColorSet()
 {
- colors_ = new LinkedList<GateColor>();
+// colors_ = new LinkedList<GateColor>();
 
 }
 
-static ColorSet colorset = new ColorSet();
+ColorSet* colorset = new ColorSet();
 
-
-void ColorSet::parseStandardColors() throws IOException
+void ColorSet::parseStandardColors() //throws IOException
 {
+
+/*
  BufferedReader br=new BufferedReader(new InputStreamReader
    (ColorSet.class.getResourceAsStream("commoncolors.txt")));
 
@@ -33,9 +34,10 @@ void ColorSet::parseStandardColors() throws IOException
   colors.add(c);
  }
  br.close();
+*/
 }
 
-GateColor ColorSet::get(int curcol)
+GateColor* ColorSet::get(int curcol)
 {
  return colors.get(curcol);
 }

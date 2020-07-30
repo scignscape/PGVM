@@ -7,6 +7,13 @@ INCLUDEPATH += \
 
 HEADERS += \
  ./gui/MainWindow.h  \
+ ./gui/DatasetListWidget.h  \
+ ./gui/GatesListWidget.h \
+ ./gates/gate-info.h \
+ ./gates/measure/GateMeasure.h \
+
+
+
 
 
 SOURCES +=  \
@@ -36,7 +43,14 @@ SOURCES +=  \
  ./gui/panes/ViewsPane.cpp \
  ./gui/panes/GateStatsPane.cpp \
  ./gui/lengthprofile/ProfilePane.cpp \
+ ./data/ExportFcsToCSV.cpp \
+ ./data/ChannelInfo.cpp \
+ ./gui/qt/QTutil.cpp \
+ ./gui/resource/ImgResource.cpp \
+ ./gui/colors/QColorCombo.cpp \
 
+
+DEFINES += DEFAULT_ICON_FOLDER=\\\"$$PWD/gui/resource\\\"
 
 #
 

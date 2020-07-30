@@ -6,15 +6,20 @@
 #define ColorSet__H
 
 
+#include <QList>
+#include <QSet>
+
+
 // package facsanadu.gui.colors;
+
+class GateColor;
 
 
 // // Set of colors
 class ColorSet
 {
- LinkedList<GateColor> colors_; //= new LinkedList<GateColor>();
+ QList<GateColor*> colors_; //= new LinkedList<GateColor>();
  
- static ColorSet colorset_; //= new ColorSet();
  
 /*
  static
@@ -30,15 +35,19 @@ class ColorSet
   }
 */
  
- void parseStandardColors() throws IOException;
+ void parseStandardColors(); // throws IOException;
 
- GateColor get(int curcol);
+public:
+
+ static ColorSet* colorset; //= new ColorSet();
+
+ GateColor* get(int curcol);
 
  int size();
 
- GateColor getRandomColor();
+ GateColor* getRandomColor();
 
- GateColor getUnusedColor(HashSet<GateColor> colset);
+ GateColor* getUnusedColor(QSet<GateColor*> colset);
 
 };
 

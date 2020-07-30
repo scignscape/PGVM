@@ -3,6 +3,8 @@
 
 #include "ImgResource.h"
 
+#include <QIcon>
+
 
 // package facsanadu.gui.resource;
 
@@ -14,6 +16,7 @@
  *
  */
 
+/*
 byte[] ImgResource::readStreamIntoArray(InputStream is) throws IOException
 {
  if(is==null)
@@ -22,49 +25,56 @@ byte[] ImgResource::readStreamIntoArray(InputStream is) throws IOException
  is.close();
  return arr;
 }
+*/
 
-static QPixmap ImgResource::getIcon(String name)
+QPixmap* ImgResource::getIcon(QString name)
 {
+ QPixmap* pm = new QPixmap(QString("%1/%2.png").arg(DEFAULT_ICON_FOLDER).arg(name));  
+ return pm;
+/*
  try 
  {
-  QPixmap pm=new QPixmap();
+
+  QPixmap pm; //=new QPixmap();
   pm.loadFromData(readStreamIntoArray(ImgResource.class.getResourceAsStream(name)));
   return pm;
  }  
- catch (IOException e) 
+
+ catch (...) //IOException e) 
  {
-  System.err.println("Unable to read "+name+" "+e.getMessage());
+  //System.err.println("Unable to read "+name+" "+e.getMessage());
   return nullptr;
  }
+*/
 }
 
 
-QPixmap ImgResource::imgWindowIcon= getIcon("programIcon.png");
+QPixmap& ImgResource::imgWindowIcon = *getIcon("programIcon.png");
 
-QPixmap ImgResource::moveRight=getIcon("tango-go-next.png");
-QPixmap ImgResource::moveLeft=getIcon("tango-go-previous.png");
+QPixmap& ImgResource::moveRight = *getIcon("tango-go-next.png");
+QPixmap& ImgResource::moveLeft = *getIcon("tango-go-previous.png");
 
-QPixmap ImgResource::moveUp=getIcon("tango-go-up.png");
-QPixmap ImgResource::moveDown=getIcon("tango-go-down.png");
+QPixmap& ImgResource::moveUp = *getIcon("tango-go-up.png");
+QPixmap& ImgResource::moveDown = *getIcon("tango-go-down.png");
 
-QPixmap ImgResource::icon_delete=getIcon("tango-trash.png");
+QPixmap& ImgResource::icon_delete = *getIcon("tango-trash.png");
 
-QPixmap ImgResource::gateEllipse=getIcon("fugue-shape-ellipse.png");
-QPixmap ImgResource::gateRect=getIcon("fugue-shape-rect.png");
-QPixmap ImgResource::gatePolygon=getIcon("fugue-shape-polygon.png");
-QPixmap ImgResource::gateRange=getIcon("shape-interval.png");
-QPixmap ImgResource::gateSelect=getIcon("drawSelect.png");
+QPixmap& ImgResource::gateEllipse = *getIcon("fugue-shape-ellipse.png");
+QPixmap& ImgResource::gateRect = *getIcon("fugue-shape-rect.png");
+QPixmap& ImgResource::gatePolygon = *getIcon("fugue-shape-polygon.png");
+QPixmap& ImgResource::gateRange = *getIcon("shape-interval.png");
+QPixmap& ImgResource::gateSelect = *getIcon("drawSelect.png");
 
 
-void ImgResource::setWindowIcon(QWidget w)
+void ImgResource::setWindowIcon(QWidget* w)
 {
- w.setWindowIcon(new QIcon(imgWindowIcon));
+ w->setWindowIcon(QIcon(imgWindowIcon));
 }
 
-QLabel ImgResource::label(QPixmap p)
+QLabel* ImgResource::label(QPixmap* p)
 {
- QLabel lab=new QLabel();
- lab.setPixmap(p);
+ QLabel* lab = new QLabel();
+ lab->setPixmap(*p);
  return lab;
 }
 

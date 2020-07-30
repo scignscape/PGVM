@@ -8,6 +8,10 @@
 
 // //
 
+class Dataset;
+class QFile;
+
+
 class ExportFcsToCSV
 {
 public:
