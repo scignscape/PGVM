@@ -34,6 +34,7 @@ SOURCES +=  \
  ./gui/panes/CompensationPane.cpp \
  ./gui/panes/DatasetInfoPane.cpp \
  ./gui/panes/ViewsPane.cpp \
+ ./gui/panes/GateStatsPane.cpp \
 
 
 #

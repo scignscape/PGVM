@@ -12,6 +12,8 @@
 
 class QTableWidgetWithCSVcopy;
 
+class MainWindow;
+
 // package facsanadu.gui.panes;
 
 

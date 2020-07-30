@@ -19,7 +19,7 @@ void ImgResource::setWindowIcon(QWidget*){}
 
 //void CompensationPane::updateForm(){}
 
-void ViewsPane::invalidateCache(){}
+// void ViewsPane::invalidateCache(){}
 
 //?int GateCalcThread::getNumCores(){ return 1; }
 //?void GateCalcThread::setNumCores(int){ }
