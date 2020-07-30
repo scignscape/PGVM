@@ -73,7 +73,9 @@ SOURCES       = ../stubs.cpp \
 		../gui/view/gate/GateRendererRoot.cpp \
 		../gui/view/gate/GateRendererRect.cpp \
 		../gui/view/gate/GateRendererEllipse.cpp \
-		../gui/panes/CompensationPane.cpp moc_MainWindow.cpp
+		../gui/panes/CompensationPane.cpp \
+		../gui/panes/DatasetInfoPane.cpp \
+		../gui/panes/ViewsPane.cpp moc_MainWindow.cpp
 OBJECTS       = build/objects/stubs.o \
 		build/objects/MainWindow.o \
 		build/objects/ViewsListWidget.o \
@@ -96,6 +98,8 @@ OBJECTS       = build/objects/stubs.o \
 		build/objects/GateRendererRect.o \
 		build/objects/GateRendererEllipse.o \
 		build/objects/CompensationPane.o \
+		build/objects/DatasetInfoPane.o \
+		build/objects/ViewsPane.o \
 		build/objects/moc_MainWindow.o
 DIST          = /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/mkspecs/common/unix.conf \
@@ -304,7 +308,9 @@ DIST          = /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/mkspecs/features/spec_p
 		../gui/view/gate/GateRendererRoot.cpp \
 		../gui/view/gate/GateRendererRect.cpp \
 		../gui/view/gate/GateRendererEllipse.cpp \
-		../gui/panes/CompensationPane.cpp
+		../gui/panes/CompensationPane.cpp \
+		../gui/panes/DatasetInfoPane.cpp \
+		../gui/panes/ViewsPane.cpp
 QMAKE_TARGET  = facs
 DESTDIR       = build/dest/
 TARGET        = build/dest/facs
@@ -714,7 +720,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../gui/MainWindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../stubs.cpp ../gui/MainWindow.cpp ../gui/ViewsListWidget.cpp ../gui/QtProgramInfo.cpp ../gui/ProfileChannelWidget.cpp ../gui/GraphExportWindow.cpp ../gui/GatesListWidget.cpp ../gui/FacsanaduProject.cpp ../gui/DialogAbout.cpp ../gui/DatasetListWidget.cpp ../gui/AddMeasureDialog.cpp ../gui/view/ViewWidget.cpp ../gui/view/tool/ViewToolChoice.cpp ../gui/view/ViewTransform.cpp ../gui/view/ViewSettings.cpp ../gui/view/ViewRenderer.cpp ../gui/view/Histogram.cpp ../gui/view/gate/GateRendererManager.cpp ../gui/view/gate/GateRendererRoot.cpp ../gui/view/gate/GateRendererRect.cpp ../gui/view/gate/GateRendererEllipse.cpp ../gui/panes/CompensationPane.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../stubs.cpp ../gui/MainWindow.cpp ../gui/ViewsListWidget.cpp ../gui/QtProgramInfo.cpp ../gui/ProfileChannelWidget.cpp ../gui/GraphExportWindow.cpp ../gui/GatesListWidget.cpp ../gui/FacsanaduProject.cpp ../gui/DialogAbout.cpp ../gui/DatasetListWidget.cpp ../gui/AddMeasureDialog.cpp ../gui/view/ViewWidget.cpp ../gui/view/tool/ViewToolChoice.cpp ../gui/view/ViewTransform.cpp ../gui/view/ViewSettings.cpp ../gui/view/ViewRenderer.cpp ../gui/view/Histogram.cpp ../gui/view/gate/GateRendererManager.cpp ../gui/view/gate/GateRendererRoot.cpp ../gui/view/gate/GateRendererRect.cpp ../gui/view/gate/GateRendererEllipse.cpp ../gui/panes/CompensationPane.cpp ../gui/panes/DatasetInfoPane.cpp ../gui/panes/ViewsPane.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -1075,7 +1081,13 @@ build/objects/stubs.o: ../stubs.cpp ../gui/panes/ViewsPane.h \
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qstyle.h \
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qtabbar.h \
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qtabwidget.h \
-		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qrubberband.h
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qrubberband.h \
+		../gui/resource/ImgResource.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QLabel \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qlabel.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/QPixmap \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QByteArray \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDataStream
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/objects/stubs.o ../stubs.cpp
 
 build/objects/MainWindow.o: ../gui/MainWindow.cpp ../gui/MainWindow.h \
@@ -3936,8 +3948,340 @@ build/objects/CompensationPane.o: ../gui/panes/CompensationPane.cpp ../gui/panes
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qstyle.h \
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qtabbar.h \
 		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qtabwidget.h \
-		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qrubberband.h
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qrubberband.h \
+		../gui/qt/QTableWidgetWithCSVcopy.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QString \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QTableWidget \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QSet \
+		../data/Compensation.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/QList \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QMap \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QStringList \
+		../gui/FacsanaduProject.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QDialog \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qlayout.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QCheckBox \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qcheckbox.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QPushButton \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QMutex \
+		../gui/MainWindow.h \
+		../gui/GateCalcThread.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QThread \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qthread.h \
+		../gui/events/FacsanaduEvent.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QMainWindow \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qmainwindow.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/QResizeEvent \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/QDropEvent \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QMetaObject \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/QDragEnterEvent \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QFile \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDir \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdir.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qfileinfo.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QTabWidget \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QMenuBar \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qmenubar.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qmenu.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qaction.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qactiongroup.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QHeaderView \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qheaderview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/objects/CompensationPane.o ../gui/panes/CompensationPane.cpp
+
+build/objects/DatasetInfoPane.o: ../gui/panes/DatasetInfoPane.cpp ../gui/panes/DatasetInfoPane.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QWidget \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qwidget.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qglobal.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qconfig.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qtcore-config.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsysinfo.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlogging.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qflags.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qatomic.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qmutex.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qnumeric.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qversiontagging.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qtgui-config.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qnamespace.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qobject.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qbytearray.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qrefcount.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qarraydata.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringliteral.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringview.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlist.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qalgorithms.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qiterator.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qpair.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringlist.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qregexp.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qcoreevent.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qmetatype.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qobject_impl.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qmargins.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qrect.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsize.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qpoint.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qpalette.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qcolor.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qrgb.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qrgba64.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qbrush.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvector.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qmatrix.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qpolygon.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qregion.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qiodevice.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qline.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qtransform.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qpainterpath.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qimage.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qpixelformat.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qpixmap.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qshareddata.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qfont.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qfontinfo.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qcursor.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qkeysequence.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qevent.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvariant.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qmap.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qtextstream.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlocale.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qset.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qurl.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qurlquery.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qfile.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qfiledevice.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qvector2d.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QTableWidget \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qtablewidget.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qtableview.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qframe.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qvalidator.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qregularexpression.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qicon.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qslider.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qstyle.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QTableWidgetItem \
+		../gui/MainWindow.h \
+		../gui/GateCalcThread.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QThread \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qthread.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QSet \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QMutex \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/QList \
+		../gui/events/FacsanaduEvent.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QDialog \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qlayout.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QCheckBox \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qcheckbox.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QPushButton \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QMainWindow \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qmainwindow.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/QResizeEvent \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/QDropEvent \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QMetaObject \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/QDragEnterEvent \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QFile \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QDir \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdir.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qfileinfo.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QTabWidget \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QMenuBar \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qmenubar.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qmenu.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qaction.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qactiongroup.h \
+		../data/Dataset.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/QMap \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QHeaderView \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qheaderview.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/objects/DatasetInfoPane.o ../gui/panes/DatasetInfoPane.cpp
+
+build/objects/ViewsPane.o: ../gui/panes/ViewsPane.cpp ../gui/panes/ViewsPane.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QWidget \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qwidget.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qglobal.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qconfig.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qtcore-config.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsysinfo.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlogging.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qflags.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qatomic.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qmutex.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qnumeric.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qversiontagging.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qtgui-config.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qnamespace.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qobject.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstring.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qchar.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qbytearray.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qrefcount.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qarraydata.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringliteral.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringview.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlist.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qalgorithms.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qiterator.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qpair.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringlist.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qregexp.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qcoreevent.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qmetatype.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qobject_impl.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qmargins.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qrect.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsize.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qpoint.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qpalette.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qcolor.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qrgb.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qrgba64.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qbrush.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvector.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qmatrix.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qpolygon.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qregion.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdatastream.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qiodevice.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qline.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qtransform.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qpainterpath.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qimage.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qpixelformat.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qpixmap.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qshareddata.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qhash.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qfont.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qfontinfo.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qcursor.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qkeysequence.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qevent.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qvariant.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qmap.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qdebug.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qtextstream.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qlocale.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qset.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qurl.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qurlquery.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qfile.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qfiledevice.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qvector2d.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QCheckBox \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qcheckbox.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qicon.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QSpinBox \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qspinbox.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/qvalidator.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtCore/qregularexpression.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QPushButton \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/QButtonGroup \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/home/nlevisrael/Qt5123/qt/5.12.3/gcc_64/include/QtGui/QList
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/objects/ViewsPane.o ../gui/panes/ViewsPane.cpp
 
 build/objects/moc_MainWindow.o: moc_MainWindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/objects/moc_MainWindow.o moc_MainWindow.cpp

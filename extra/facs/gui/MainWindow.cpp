@@ -48,6 +48,9 @@ struct Facs_IOException {};
 struct Facs_RuntimeException {};
 struct Facs_Exception {};
 
+//?
+GateCalcThread::GateCalcThread(){}
+
 std::function<QList<Dataset*>()> do_MainWindow_GateCalcThread_getCurrentDatasets;
 
 QList<Dataset*> _MainWindow_GateCalcThread::getCurrentDatasets()

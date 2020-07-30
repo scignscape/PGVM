@@ -5,6 +5,8 @@
 
 #include "../qt/QTableWidgetWithCSVcopy.h"
 
+#include "../data/Compensation.h"
+
 #include "FacsanaduProject.h"
 #include "MainWindow.h"
 
@@ -63,21 +65,23 @@ void CompensationPane::updateForm()
  {
   for(int col=0; col< comp->getSize(); col++)
   {
-   QTableWidgetItem* it = new QTableWidgetItem("" + comp.get(row,col));
+   QTableWidgetItem* it = new QTableWidgetItem( 
+     QString::number( comp->get(row,col) ) );
 
 //   it.setFlags(new ItemFlags(ItemFlag.ItemIsSelectable, ItemFlag.ItemIsEnabled,  ItemFlag.ItemIsEditable));
+   it->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsEditable);
 
    tableMatrix_->setItem(row, col, it);
   }
  }
   //? tableMatrix_->itemChanged.connect(this,"dataChanged(QTableWidgetItem)");
- updating = false;
+ updating_ = false;
 }
  
  
 void CompensationPane::dataChanged(QTableWidgetItem* it)
 {
- if(!updating)
+ if(!updating_)
  {
 //  Compensation comp=mw.project.compensation;
 //  comp.set(it.row(),it.column(),Double.parseDouble(it.text()));

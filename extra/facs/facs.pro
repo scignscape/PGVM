@@ -32,8 +32,8 @@ SOURCES +=  \
  ./gui/view/gate/GateRendererRect.cpp \
  ./gui/view/gate/GateRendererEllipse.cpp \
  ./gui/panes/CompensationPane.cpp \
-
-
+ ./gui/panes/DatasetInfoPane.cpp \
+ ./gui/panes/ViewsPane.cpp \
 
 
 #

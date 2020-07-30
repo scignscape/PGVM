@@ -12,8 +12,6 @@ Dataset::Dataset()
 }
 
 
-public:
-
 QList<ChannelInfo*> Dataset::getChannelInfo()
 {
  return channelInfo_;
@@ -148,4 +146,3 @@ void Dataset::resizeEvents(int newsize)
 }
 
 
-#endif // Dataset__H

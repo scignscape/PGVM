@@ -3,123 +3,131 @@
 
 #include "ViewsPane.h"
 
+#include "ViewsMatrix.h"
+
+#include "../resource/ImgResource.h"
+
+#include <QHBoxLayout>
 
 // package facsanadu.gui.panes;
 
 
 // //
 
-ViewsPane::ViewsPane()
+ViewsPane::ViewsPane(MainWindow* mw)
+// :  mw_(mw)
 {
  spMaxEvents_ = new QSpinBox();
  cbMaxEvents_ = new QCheckBox(tr("Show max events:"));
 
- ViewsMatrix matrix;
+ matrix_ = new ViewsMatrix(mw);
  bgroup_ = new QButtonGroup(this);
 
- bGateSelect_ = new QPushButton(new QIcon(ImgResource.gateSelect),"");
- bGatePoly_ = new QPushButton(new QIcon(ImgResource.gatePolygon),"");
- bGateRect_ = new QPushButton(new QIcon(ImgResource.gateRect),"");
- bGateEllipse_ = new QPushButton(new QIcon(ImgResource.gateEllipse),"");
- bGateRange_ = new QPushButton(new QIcon(ImgResource.gateRange),"");
- tb=new QList<QPushButton>({bGateSelect, bGatePoly, bGateRect, bGateEllipse, bGateRange});
+ bGateSelect_ = new QPushButton(QIcon(ImgResource::gateSelect),"");
+ bGatePoly_ = new QPushButton(QIcon(ImgResource::gatePolygon),"");
+ bGateRect_ = new QPushButton(QIcon(ImgResource::gateRect),"");
+ bGateEllipse_ = new QPushButton(QIcon(ImgResource::gateEllipse),"");
+ bGateRange_ = new QPushButton(QIcon(ImgResource::gateRange),"");
+ QList<QPushButton*> tb {bGateSelect_, bGatePoly_, 
+   bGateRect_, bGateEllipse_, bGateRange_};
 
  matrix_ = new ViewsMatrix(mw);
   
  for(QPushButton* t : tb)
  {
-  bgroup.addButton(t);
+  bgroup_->addButton(t);
  }
 
  for(QPushButton* t : tb)
  {
-  t.setCheckable(true);
+  t->setCheckable(true);
  }
 
- bGateSelect.setChecked(true);
+ bGateSelect_->setChecked(true);
  
- for(QPushButton t:tb)
- {
-  t.toggled.connect(this,"actionSetTool()");
- }
+// for(QPushButton* t : tb)
+// {
+  //t.toggled.connect(this,"actionSetTool()");
+// }
   
- spMaxEvents.setMinimum(100);
- spMaxEvents.setMaximum(10000000);
- spMaxEvents.setValue(100000);
- cbMaxEvents.setChecked(true);
+ spMaxEvents_->setMinimum(100);
+ spMaxEvents_->setMaximum(10000000);
+ spMaxEvents_->setValue(100000);
+ cbMaxEvents_->setChecked(true);
   
  QHBoxLayout* laytop = new QHBoxLayout();
  
- for(QPushButton t:tb)
+ for(QPushButton* t : tb)
  {
-  laytop.addWidget(t);
+  laytop->addWidget(t);
  }
 
- laytop.addStretch();
- laytop.addWidget(cbMaxEvents);
- laytop.addWidget(spMaxEvents);
- laytop.setMargin(2);
- laytop.setSpacing(2);  
+ laytop->addStretch();
+ laytop->addWidget(cbMaxEvents_);
+ laytop->addWidget(spMaxEvents_);
+ laytop->setMargin(2);
+ laytop->setSpacing(2);  
   
- scrollArea = new QScrollArea();
- scrollArea.setWidgetResizable(true);
- scrollArea.setWidget(matrix);
- scrollArea.setSizePolicy(Policy.Expanding, Policy.Expanding);
- scrollArea.setVerticalScrollBarPolicy(ScrollBarPolicy.ScrollBarAlwaysOn);
+ scrollArea_ = new QScrollArea();
+ scrollArea_->setWidgetResizable(true);
+ scrollArea_->setWidget(matrix_);
+ scrollArea_->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+ scrollArea_->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
 
- lay = new QVBoxLayout();
- lay.addLayout(laytop);
- lay.addWidget(scrollArea);
- lay.setMargin(0);
- lay.setSpacing(2);
+ QVBoxLayout* lay = new QVBoxLayout();
+ lay->addLayout(laytop);
+ lay->addWidget(scrollArea_);
+ lay->setMargin(0);
+ lay->setSpacing(2);
  setLayout(lay);
   
- spMaxEvents.valueChanged.connect(this,"valuesupdated()");
- cbMaxEvents.stateChanged.connect(this,"valuesupdated()");
+//? spMaxEvents.valueChanged.connect(this,"valuesupdated()");
+//? cbMaxEvents.stateChanged.connect(this,"valuesupdated()");
  valuesupdated();
 }
 
 void ViewsPane::updateViews()
 {
- matrix.updateViews();
+ matrix_->updateViews();
 }
 
 void ViewsPane::valuesupdated()
 {
- int maxevents=Integer.MAX_VALUE;
- if(cbMaxEvents.isChecked())
-   maxevents=spMaxEvents.value();
- matrix.setMaxEvents(maxevents);
+ int maxevents = std::numeric_limits<int>::max();
+ if(cbMaxEvents_->isChecked())
+   maxevents = spMaxEvents_->value();
+ matrix_->setMaxEvents(maxevents);
 }
 
 void ViewsPane::actionSetTool()
 {
- if(bgroup.checkedButton()==bGatePoly)
-   setTool(ViewToolChoice.POLY);
- else if(bgroup.checkedButton()==bGateSelect)
-   setTool(ViewToolChoice.SELECT);
- else if(bgroup.checkedButton()==bGateRect)
-   setTool(ViewToolChoice.RECT);
- else if(bgroup.checkedButton()==bGateEllipse)
-   setTool(ViewToolChoice.ELLIPSE);
- else if(bgroup.checkedButton()==bGateRange)
-   setTool(ViewToolChoice.RANGE);
+ if(bgroup_->checkedButton() == bGatePoly_)
+   setTool(ViewToolChoice::POLY);
+ else if(bgroup_->checkedButton() == bGateSelect_)
+   setTool(ViewToolChoice::SELECT);
+ else if(bgroup_->checkedButton() == bGateRect_)
+   setTool(ViewToolChoice::RECT);
+ else if(bgroup_->checkedButton() == bGateEllipse_)
+   setTool(ViewToolChoice::ELLIPSE);
+ else if(bgroup_->checkedButton() == bGateRange_)
+   setTool(ViewToolChoice::RANGE);
 }
 
-void ViewsPane::setTool(ViewToolChoice t)
+void ViewsPane::setTool(ViewToolChoice::Enum t)
 {
- if(t==ViewToolChoice.SELECT)
-   bGateSelect.setChecked(true);
- else if(t==ViewToolChoice.POLY)
-   bGatePoly.setChecked(true);
- else if(t==ViewToolChoice.RECT)
-   bGateRect.setChecked(true);
- matrix.setTool(t);
+ if(t == ViewToolChoice::SELECT)
+   bGateSelect_->setChecked(true);
+ else if(t == ViewToolChoice::POLY)
+   bGatePoly_->setChecked(true);
+ else if(t == ViewToolChoice::RECT)
+   bGateRect_->setChecked(true);
+ matrix_->setTool(t);
 }
 
  
 void ViewsPane::invalidateCache()
 {
- matrix.invalidateCache();
+ matrix_->invalidateCache();
 }
+
 

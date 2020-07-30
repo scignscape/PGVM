@@ -5,12 +5,16 @@
 #ifndef ViewsPane__H
 #define ViewsPane__H
 
+#include "view/tool/ViewToolChoice.h"
+
+
 #include <QWidget>
 #include <QCheckBox>
 #include <QSpinBox>
 #include <QPushButton>
 #include <QButtonGroup>
 #include <QList>
+#include <QScrollArea>
 
 #include <QWidget>
 
@@ -29,6 +33,8 @@ class ViewsPane : public QWidget
  QCheckBox* cbMaxEvents_; // =new QCheckBox(tr("Show max events:"));
 
  ViewsMatrix* matrix_;
+
+ QScrollArea* scrollArea_;
 
  QButtonGroup* bgroup_; //  =new QButtonGroup(this);
 
@@ -50,7 +56,7 @@ public:
  void updateViews();
  void valuesupdated();
  void actionSetTool();
- void setTool(ViewToolChoice t);
+ void setTool(ViewToolChoice::Enum t);
  void invalidateCache();
 };
 

@@ -9,6 +9,8 @@
 #include <QTableWidget>
 #include <QTableWidgetItem>
 
+class MainWindow;
+
 // package facsanadu.gui.panes;
 
 
@@ -17,7 +19,7 @@ class DatasetInfoPane : public QWidget
 {
  QTableWidget* tableMatrix_; // =new QTableWidget();
  MainWindow* mw_;
- bool updating; // =false;
+ bool updating_; // =false;
   
  public: 
   DatasetInfoPane(MainWindow* mw);

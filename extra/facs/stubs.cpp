@@ -7,15 +7,17 @@
 #include "gui/panes/GateStatsPane.h"
 #include "gui/lengthprofile/ProfilePane.h"
 #include "gui/panes/CompensationPane.h"
+#include "resource/ImgResource.h"
 
+void ImgResource::setWindowIcon(QWidget*){}
 
-void ViewsPane::updateViews(){}
+//void ViewsPane::updateViews(){}
 
-void GateStatsPane::updateStats() {}
+//void GateStatsPane::updateStats() {}
 
-void ProfilePane::updateViews(){}
+//void ProfilePane::updateViews(){}
 
-void CompensationPane::updateForm(){}
+//void CompensationPane::updateForm(){}
 
 void ViewsPane::invalidateCache(){}
 
