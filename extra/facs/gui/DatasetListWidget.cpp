@@ -71,6 +71,8 @@ DatasetListWidget::DatasetListWidget(MainWindow* mw)
    bMoveUp, bMoveDown, bAddDataset, bSelectAllDataset, bRemoveDataset}));
 
  tableDatasets_->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+ setLayout(main_layout_);
 }
 
 void DatasetListWidget::dothelayout()
@@ -124,6 +126,7 @@ void DatasetListWidget::actionAddDatasets()
   {
    for(QString sf : dia.selectedFiles())
    {
+    mw_->load_selected_file(sf);
 //?    File f=new File(sf);
 //?    mw.lastDirectory=f.getParentFile();
 //?    mw.loadFile(f);

@@ -12,8 +12,10 @@ cpp/src/qt-reprozip/export/*
 cpp/qmake-console/targets/*
 
 extra/facs/build/*
+extra/facs/cytolib/build/*
+extra/facs/cytolib/armadillo/*
 
-#extra/facs/build_qtc/*
+*.fcs
 
 *.zip
 *.gz

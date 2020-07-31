@@ -2,6 +2,7 @@
 
 #include "MainWindow.h"
 
+
 #include "GatesListWidget.h"
 #include "ProfileChannelWidget.h"
 #include "ViewsListWidget.h"
@@ -39,6 +40,8 @@
 #include <QApplication>
 
 #include <QDesktopServices>
+#include <QDebug>
+
 
 #include <functional>
 
@@ -124,26 +127,26 @@ MainWindow::MainWindow()
  pc_->set_paneProfile(paneProfile_);
  
  QMenu* mFile = menubar_->addMenu(tr("File"));
- mFile->addAction(tr("New project"), this, "actionNewProject()");
- mFile->addAction(tr("Open project"), this, "actionOpenProject()");
- mFile->addAction(tr("Save project"), this, "actionSaveProject()");
- mFile->addAction(tr("Save project as"), this, "actionSaveProjectAs()");
+ mFile->addAction(tr("New project"), this, SLOT(actionNewProject()) );
+ mFile->addAction(tr("Open project"), this, SLOT(actionOpenProject()) );
+ mFile->addAction(tr("Save project"), this, SLOT(actionSaveProject()) );
+ mFile->addAction(tr("Save project as"), this, SLOT(actionSaveProjectAs()) );
  mFile->addSeparator();
  mFile->addAction(tr("Exit"), this, "close()");
 
  
  QMenu* mExport = menubar_->addMenu(tr("Export"));
- mExport->addAction(tr("Graphs"), this, "actionExportGraphs()");
- mExport->addAction(tr("Statistics"), this, "actionExportStatistics()");
- mExport->addAction(tr("Dataset as CSV"), this, "actionExportCSV()");
+ mExport->addAction(tr("Graphs"), this, SLOT(actionExportGraphs()));
+ mExport->addAction(tr("Statistics"), this, SLOT(actionExportStatistics()));
+ mExport->addAction(tr("Dataset as CSV"), this, SLOT(actionExportCSV()));
 
  QMenu* mSettings = menubar_->addMenu(tr("Settings"));
- mSettings->addAction(tr("Set number of CPU cores"), this, "actionSetNumCores()");
+ mSettings->addAction(tr("Set number of CPU cores"), this, SLOT(actionSetNumCores()));
  menubar_->addSeparator();
  
  QMenu* mHelp = menubar_->addMenu(tr("Help"));
- mHelp->addAction(tr("About"), this, "actionAbout()");
- mHelp->addAction(tr("Website"), this, "actionWebsite()");
+ mHelp->addAction(tr("About"), this, SLOT(actionAbout()) );
+ mHelp->addAction(tr("Website"), this, SLOT(actionWebsite()) );
 
  //? datasetsw.selectionChanged.connect(this,"actionDsChanged()");
  
@@ -152,9 +155,11 @@ MainWindow::MainWindow()
  QVBoxLayout* layLeft = new QVBoxLayout();
 
  layLeft->addWidget(datasetsw_);
- layLeft->addWidget(viewsw_);
- layLeft->addWidget(gatesw_);
- layLeft->addWidget(pc_);
+//? layLeft->addWidget(viewsw_);
+//? layLeft->addWidget(gatesw_);
+//? layLeft->addWidget(pc_);
+
+
 //? layLeft->addLayout(datasetsw_);
 //? layLeft->addLayout(viewsw_);
 //? layLeft->addLayout(gatesw_);
@@ -189,6 +194,15 @@ MainWindow::MainWindow()
  tabwidget_->addTab(paneMetadata_, tr("Dataset info"));
 
  QHBoxLayout* lay = new QHBoxLayout();
+
+ QPushButton* b1 = new QPushButton("XXX", this);
+
+ QPushButton* b2 = new QPushButton("yyy", this);
+
+ layLeft->addWidget(b2);
+
+ lay->addWidget(b1);
+
  lay->addLayout(layLeft);
  lay->addWidget(tabwidget_);
  
@@ -202,6 +216,21 @@ MainWindow::MainWindow()
  adjustSize();
  resize(1000, size().height());
  show();
+}
+
+void MainWindow::load_selected_file(QString sf)
+{
+ qDebug() << "sf: " << sf;
+
+ QFileInfo qfi(sf);
+ lastDirectory_ = qfi.absoluteDir();
+ QFile qf(sf);
+ loadFile(qf);
+
+ //?    File f=new File(sf);
+//?    mw.lastDirectory=f.getParentFile();
+//?    mw.loadFile(f);
+
 }
 
 FacsanaduProject* MainWindow::getProject()

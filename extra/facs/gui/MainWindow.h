@@ -64,6 +64,8 @@ class _MainWindow_GateCalcThread;
 
 class MainWindow : public QMainWindow
 {
+ Q_OBJECT
+
  //private 
   //? Collection<Dataset> selDatasetsCache=new LinkedList<Dataset>();
 
@@ -124,6 +126,8 @@ public:
   return getProject();
  }
 
+ void load_selected_file(QString sf);
+
 
  // // Constructor
  MainWindow();
@@ -132,27 +136,7 @@ public:
  {
   return lastDirectory_;
  }
- 
- // // Action: New project
- void actionNewProject();
- 
- // // Open a project
- void actionOpenProject();
- 
- // // Action: Save project
- void actionSaveProject();
- 
- // // Action: Save as... file
- void actionSaveProjectAs();
- 
- // // Action: Export graphs
- void actionExportGraphs();
- 
- // // Export everything to CSV
- void actionExportStatistics();
- 
- void actionExportCSV();
- 
+  
  // // Load one file
  void loadFile(QFile& path); // throws IOException;
 
@@ -161,8 +145,6 @@ public:
  
  // // Get selected datasets
  LinkedList<Dataset*> getSelectedDatasets();
-
- void actionDsChanged();
  
  // // Get selected gates
  LinkedList<Gate*> getSelectedGates();
@@ -197,6 +179,18 @@ public:
  // // Get currently selected measures
  LinkedList<GateMeasure*> getSelectedMeasures();
 
+ void recalcProfChan(ProfChannel* chChanged);
+
+public Q_SLOTS:
+
+ // // Open a project
+ void actionOpenProject();
+
+ // // Action: New project
+ void actionNewProject();
+
+ void actionDsChanged();
+
  // // Show About-information
  void actionAbout();
  
@@ -205,8 +199,22 @@ public:
  
  // // Set number of CPU cores
  void actionSetNumCores();
+ 
+ // // Action: Save project
+ void actionSaveProject();
+ 
+ // // Action: Save as... file
+ void actionSaveProjectAs();
+ 
+ // // Action: Export graphs
+ void actionExportGraphs();
+ 
+ // // Export everything to CSV
+ void actionExportStatistics();
+ 
+ void actionExportCSV();
+ 
 
- void recalcProfChan(ProfChannel* chChanged);
 
  // // Ensure proper exit
 // @Override
