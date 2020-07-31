@@ -3,6 +3,8 @@
 
 #include "ViewsMatrix.h"
 
+#include "view/ViewWidget.h"
+
 
 // package facsanadu.gui.panes;
 
@@ -13,23 +15,25 @@ ViewsMatrix::ViewsMatrix(MainWindow* mw)
   : mw_(mw)
 { 
  layViews_ = new QGridLayout();
- headerHorizontal = new LinkedList<QLabel>();
- headerVertical = new LinkedList<QVLabel>();
- ArrayList<ArrayList<ViewWidget>> prevChanWidget = new ArrayList<ArrayList<ViewWidget>>();
- bool orderDataset = false;
- int maxevents;
 
- ViewToolChoice currentTool = ViewToolChoice.SELECT;
+// headerHorizontal = new LinkedList<QLabel>();
+// headerVertical = new LinkedList<QVLabel>();
+// ArrayList<ArrayList<ViewWidget>> prevChanWidget = new ArrayList<ArrayList<ViewWidget>>();
+
+ orderDataset_ = false;
+
+ currentTool_ = ViewToolChoice::SELECT;
  
- layViews.setMargin(2);
- layViews.setSpacing(2);
- setLayout(layViews);
+ layViews_->setMargin(2);
+ layViews_->setSpacing(2);
+ setLayout(layViews_);
  setStyleSheet("QWidget {background: white;}");
 }
 
 // // Update the layout of everything
 void ViewsMatrix::updateViews()
 {
+/*
  //FacsanaduProject project=mw.project;
  LinkedList<Dataset> selds=mw.getSelectedDatasets();
  LinkedList<ViewSettings> selviews=mw.getSelectedViews();
@@ -196,6 +200,7 @@ void ViewsMatrix::updateViews()
    w.render();
   }
  }
+*/
 }
 
 void ViewsMatrix::setMaxEvents(int maxevents)
@@ -205,25 +210,25 @@ void ViewsMatrix::setMaxEvents(int maxevents)
 }
 
  
-void ViewsMatrix::setTool(ViewToolChoice choice)
+void ViewsMatrix::setTool(ViewToolChoice::Enum choice)
 {
  currentTool_ = choice;
- for(ArrayList<ViewWidget> row:prevChanWidget)
+ for(QList<ViewWidget*> row : prevChanWidget_)
  {
-  for(ViewWidget w:row)
+  for(ViewWidget* w : row)
   {
-   w.setTool(currentTool);
+   w->setTool(currentTool_);
   }
  }
 }
 
 void ViewsMatrix::invalidateCache()
 {
- for(ArrayList<ViewWidget> list:prevChanWidget)
+ for(QList<ViewWidget*> list : prevChanWidget_)
  {
-  for(ViewWidget w:list)
+  for(ViewWidget* w : list)
   {
-   w.invalidateCache();
+   w->invalidateCache();
   }
  }
 }

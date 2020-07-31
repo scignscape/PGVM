@@ -21,6 +21,11 @@ class ChannelInfo
 public:
 
  ChannelInfo(QString label, QString name);
+
+ ProfChannel* pc()
+ {
+  return pc_;
+ }
  
  QString formatName();
 

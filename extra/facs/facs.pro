@@ -13,14 +13,12 @@ HEADERS += \
  ./gates/measure/GateMeasure.h \
  ./gates/measure/GateMeasureMean.h \
  ./gui/view/ViewWidget.h \
+ ./gui/view/tool/ViewTool.h \
  ./gui/view/tool/ViewToolDrawEllipse.h \
  ./gui/view/tool/ViewToolDrawSelect.h \
  ./gui/view/tool/ViewToolDrawRange.h \
  ./gui/view/tool/ViewToolDrawRect.h \
  ./gui/view/tool/ViewToolDrawPoly.h \
-
-
-
 
 
 
@@ -46,17 +44,32 @@ SOURCES +=  \
  ./gui/view/gate/GateRendererRoot.cpp \
  ./gui/view/gate/GateRendererRect.cpp \
  ./gui/view/gate/GateRendererEllipse.cpp \
+ ./gui/view/gate/GateRendererPoly.cpp \
+ ./gui/view/gate/GateRendererRange.cpp \
  ./gui/panes/CompensationPane.cpp \
  ./gui/panes/DatasetInfoPane.cpp \
  ./gui/panes/ViewsPane.cpp \
  ./gui/panes/GateStatsPane.cpp \
  ./gui/lengthprofile/ProfilePane.cpp \
+ ./gui/lengthprofile/ProfileView.cpp \
  ./data/ExportFcsToCSV.cpp \
  ./data/ChannelInfo.cpp \
  ./gui/qt/QTutil.cpp \
  ./gui/resource/ImgResource.cpp \
  ./gui/colors/QColorCombo.cpp \
+ ./gui/colors/ColorSet.cpp \
  ./transformations/TransformationStack.cpp \
+ ./data/Dataset.cpp  \
+ ./data/Compensation.cpp  \
+ ./gui/panes/ViewsMatrix.cpp \
+ ./gui/qt/QTableWidgetWithCSVcopy.cpp \
+ ./gui/view/tool/ViewToolDrawEllipse.cpp \
+ ./gui/view/tool/ViewToolDrawSelect.cpp \
+ ./gui/view/tool/ViewToolDrawRange.cpp \
+ ./gui/view/tool/ViewToolDrawRect.cpp \
+ ./gui/view/tool/ViewToolDrawPoly.cpp \
+
+
 
 
 

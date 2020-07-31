@@ -15,7 +15,7 @@ ColorSet::ColorSet()
 
 }
 
-ColorSet* colorset = new ColorSet();
+ColorSet* ColorSet::colorset = new ColorSet();
 
 void ColorSet::parseStandardColors() //throws IOException
 {
@@ -39,33 +39,41 @@ void ColorSet::parseStandardColors() //throws IOException
 
 GateColor* ColorSet::get(int curcol)
 {
- return colors.get(curcol);
+ return colors_.value(curcol);
 }
 
 int ColorSet::size()
 {
- return colors.size();
+ return colors_.size();
 }
 
 
 
-GateColor ColorSet::getRandomColor()
+GateColor* ColorSet::getRandomColor()
 {
- return new GateColor(colors.get((int)(Math.random()*colors.size())));
+ return nullptr;
+ //return new GateColor(colors.get((int)(Math.random()*colors.size())));
 }
 
-GateColor ColorSet::getUnusedColor(HashSet<GateColor> colset)
+GateColor* ColorSet::getUnusedColor(QSet<GateColor*> colset)
 {
- for(GateColor c:colors)
+ for(GateColor* c : colors_)
  {
   if(!colset.contains(c))
     return c;
-  //Fallback - any random color
+
  }
- return new GateColor(
-  (int)(Math.random()*255), 
-  (int)(Math.random()*255), 
-  (int)(Math.random()*255));
+
+ return nullptr;
+
+  //Fallback - any random color
+
+//? return new GateColor(
+//?  (int)(Math.random()*255), 
+//?  (int)(Math.random()*255), 
+//?  (int)(Math.random()*255)
+//? );
+
 }
 
 

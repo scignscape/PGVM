@@ -1,7 +1,11 @@
 
 // // license___here_h
 
-#include "dataset.h"
+#include "Dataset.h"
+
+#include "ChannelInfo.h"
+
+#include <algorithm>
 
 Dataset::Dataset()
 {
@@ -42,24 +46,34 @@ QString Dataset::getName()
  return source_.fileName();
 }
 
+QString Dataset::get_file_source_name()
+{
+ // // ok?
+ return source_.fileName();
+}
+
 
 double Dataset::getAsFloatCompensated(int obs, int indexChan)
 {
- return eventsFloatCompensated_.get(obs)[indexChan];
+ return eventsFloatCompensated_.at(obs)[indexChan];
   //return eventsFloat.get(obs)[indexChan];
 }
 
 
 QList<double> Dataset::getAsFloatCompensated(int obs)
 {
- return eventsFloatCompensated.get(obs);
+ return eventsFloatCompensated_.at(obs);
 //  return eventsFloat.get(obs);
 }
  
 
 // // Compute profile channels. or only one if not null
-void Dataset::computeProfChannel(FacsanaduProject proj, ProfChannel forPc)
+void Dataset::computeProfChannel(FacsanaduProject* proj, ProfChannel* forPc)
 {
+ Q_UNUSED(proj)
+ Q_UNUSED(forPc)
+
+
  /*
   //If deleting or adding a channel... I find it fine enough to recompute everything. But this should
   //not be done if just modifying a gate
@@ -114,35 +128,38 @@ void Dataset::computeProfChannel(FacsanaduProject proj, ProfChannel forPc)
 */
 }
 
-ChannelInfo* Dataset::getChannelInfoForProf(ProfChannel pc)
+ChannelInfo* Dataset::getChannelInfoForProf(ProfChannel* pc)
 {
- for(ChannelInfo ci:channelInfo)
+ for(ChannelInfo* ci : channelInfo_)
  {
-  if(ci.pc==pc)
+  if(ci->pc() == pc)
     return ci;
  }
- throw new RuntimeException("No channel info for prof channel");
+ //throw new RuntimeException("No channel info for prof channel");
+ return nullptr;
 }
 
 void Dataset::setEvents(QList<QList<double>> e)
 {
- eventsFloat=e;
- numChannel=0;
- if(getNumObservations()>0)
-   numChannel=eventsFloat.get(0).length;
+ eventsFloat_ = e;
+ numChannel_ = 0;
+ if(getNumObservations() > 0)
+   numChannel_ = eventsFloat_.first().length();
 }
 
  // // Resize the events. Used to make space for virtual channels
 void Dataset::resizeEvents(int newsize)
 {
  QList<QList<double>> newEventsFloat; // =new ArrayList<double[]>(eventsFloat.size());
- for(QList<double> o : eventsFloat)
+ for(QList<double> o : eventsFloat_)
  {
-  QList<double> n; // =new double[newsize];
+  QVector<double> n(newsize); // =new double[newsize];
+  std::copy_n(o.begin(), numChannel_, n.begin());
+
   //?System.arraycopy(o, 0, n, 0, numChannel);
-  newEventsFloat.add(n);
+  newEventsFloat.push_back(n.toList());
  }
- eventsFloat=newEventsFloat;
+ eventsFloat_ = newEventsFloat;
 }
 
 

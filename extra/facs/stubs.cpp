@@ -17,7 +17,7 @@
 #include "gates/GateSet.h"
 #include "gates/gate-info.h"
 #include "gates/measure/GateMeasure.h"
-
+#include "gates/GatingResult.h"
 
 #include "gui/view/tool/ViewToolDrawEllipse.h"
 #include "gui/view/tool/ViewToolDrawSelect.h"
@@ -31,6 +31,11 @@ class QFile;
 class FacsanaduProject;
 class Dataset; 
 class ViewSettings;
+
+QList<int> GatingResult::getAcceptedFromGate(Gate*)
+{
+ return {};
+}
 
 
 ViewToolDrawEllipse::ViewToolDrawEllipse(ViewWidget*){}
@@ -60,12 +65,34 @@ GateMeasure::GateMeasure()
 {
 }
 
+QString GateMeasure::getDesc(FacsanaduProject*)
+{
+ return {};
+}
+
 QList<Gate*> GateSet::getGates()
 {
  return {};
 }
 
+QList<Gate*> GatingResult::getIdGates()
+{
+ return {};
+}
 
+int GatingResult::getGateIntIDForObs(int)
+{
+ return 0;
+}
+
+double GatingResult::getCalcResult(GateMeasure*)
+{
+ return 0;
+}
+
+
+
+/*
 void Dataset::computeProfChannel(FacsanaduProject*, ProfChannel*)
 {
 }
@@ -74,7 +101,7 @@ QString Dataset::get_file_source_name()
 {
  return {};
 }
-
+*/
 
 QSet<QString> GateSet::getGateNames()
 {
@@ -86,22 +113,24 @@ QString GateSet::getFreeName()
  return {};
 }
 
-
+/*
 QList<ChannelInfo*> Dataset::getChannelInfo()
 {
  return {};
 }
+*/
 
 QString ProfChannel::getName()
 {
  return "?";
 }
 
-
+/*
 QString Dataset::getName()
 {
  return "?";
 }
+*/
 
 //void ImgResource::setWindowIcon(QWidget*){}
 

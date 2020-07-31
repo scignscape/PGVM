@@ -52,6 +52,13 @@ public:
  }
 };
 
+void GateHandle_1::move2(MainWindow* w, double dx, double dy)
+{
+ Q_UNUSED(w)
+ Q_UNUSED(dx)
+ Q_UNUSED(dy)
+}
+
 class GateHandle_2 : public GateHandle
 {
  QPointF p2;
@@ -90,6 +97,12 @@ public:
  }
 };
 
+void GateHandle_2::move2(MainWindow* w, double dx, double dy)
+{
+ Q_UNUSED(w)
+ Q_UNUSED(dx)
+ Q_UNUSED(dy)
+}
 
 
 void GateRendererRect::render(const Gate* gate, QPainter& p, ViewTransform* w, 

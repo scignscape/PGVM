@@ -84,6 +84,15 @@ public:
  }
 };
 
+void GateHandle_Mid::move2(MainWindow* w, double dx, double dy)
+{
+ Q_UNUSED(w)
+ Q_UNUSED(dx)
+ Q_UNUSED(dy)
+}
+
+
+
 /*
     public void move2(MainWindow w, double dx, double dy)
      {
@@ -146,6 +155,13 @@ public:
  }
 };
 
+void GateHandle_R::move2(MainWindow* w, double dx, double dy)
+{
+ Q_UNUSED(w)
+ Q_UNUSED(dx)
+ Q_UNUSED(dy)
+}
+
 
 
  // // Bottom
@@ -187,6 +203,12 @@ public:
  }
 };
 
+void GateHandle_B::move2(MainWindow* w, double dx, double dy)
+{
+ Q_UNUSED(w)
+ Q_UNUSED(dx)
+ Q_UNUSED(dy)
+}
 
 
 

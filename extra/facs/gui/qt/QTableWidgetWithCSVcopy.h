@@ -20,9 +20,11 @@ class QTableWidgetWithCSVcopy : public QTableWidget
 
 protected: 
 
- void keyPressEvent(QKeyEvent event);
+ void keyPressEvent(QKeyEvent* event);
 
 public:
+
+ QTableWidgetWithCSVcopy();
 
  QString allToCSV();
 // void copy(TreeSet<Integer> whichcol, TreeSet<Integer> whichrow);

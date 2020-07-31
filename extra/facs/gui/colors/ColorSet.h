@@ -39,6 +39,8 @@ class ColorSet
 
 public:
 
+ ColorSet();
+
  static ColorSet* colorset; //= new ColorSet();
 
  GateColor* get(int curcol);

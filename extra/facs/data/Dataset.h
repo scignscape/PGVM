@@ -40,6 +40,8 @@ class Dataset
 
 
 public:
+
+ Dataset();
  
  QList<ChannelInfo*> getChannelInfo();
  
@@ -69,3 +71,4 @@ public:
 };
 
 #endif // Dataset__H
+

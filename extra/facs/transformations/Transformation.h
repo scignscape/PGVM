@@ -10,9 +10,20 @@
 
 class Transformation
 {
+ int channel_; //=-1;
+
+
 public:
 
- int channel_; //=-1;
+ int channel()
+ {
+  return channel_;
+ }
+ void set_channel(int i)
+ {
+  channel_ = i;
+ }
+
  virtual void transform(QList<double> v) = 0;
  virtual void invert(QList<double> v) = 0;
  virtual double transform(double x, int index);

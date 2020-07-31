@@ -1,7 +1,20 @@
+
+// // license___here
+
 // package facsanadu.gui.view.gate;
 
-void GateRendererRange::render(final Gate gate, QPainter p, ViewTransform w, final ViewSettings viewsettings, Collection<GateHandle> handles)
+
+#include "GateRendererRange.h"
+
+void GateRendererRange::render(const Gate* gate, QPainter& p, ViewTransform* w, 
+   const ViewSettings* viewsettings, QList<GateHandle*> handles)
 {
+ Q_UNUSED(gate)
+ Q_UNUSED(p)
+ Q_UNUSED(w)
+ Q_UNUSED(viewsettings)
+ Q_UNUSED(handles)
+
 /*
 		final GateRange cg=(GateRange)gate;
 		if(viewsettings.coversX(cg.index))

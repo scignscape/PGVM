@@ -1,7 +1,9 @@
 
 // // license___here_h
 
-#include "dataset.h"
+#include "Compensation.h"
+
+#include "Dataset.h"
 
 Compensation::Compensation()
 {
@@ -15,17 +17,17 @@ int Compensation::getSize()
 
 void Compensation::updateMatrix(FacsanaduProject* p)
 {
-
+ Q_UNUSED(p)
 }
 
 void Compensation::apply(FacsanaduProject* p)
 {
-
+ Q_UNUSED(p)
 }
 
 void Compensation::apply(Dataset* ds)
 {
-
+ Q_UNUSED(ds)
 }
 
 double Compensation::get(int to, int from)

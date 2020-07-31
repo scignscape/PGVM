@@ -13,8 +13,10 @@ ProfileView::ProfileView(MainWindow* mw)
  setMouseTracking(true);
 }
  
-void ProfileView::paintEvent(QPaintEvent e)
-  {
+void ProfileView::paintEvent(QPaintEvent* e)
+{
+ Q_UNUSED(e)
+/*
   super.paintEvent(e);
   QPainter pm=new QPainter(this);
   pm.fillRect(new QRect(0, 0,width(),height()), new QBrush(QColor.fromRgb(255,255,255)));
@@ -77,33 +79,37 @@ void ProfileView::paintEvent(QPaintEvent e)
    }
   
   pm.end();
-  }
+*/
+}
 
 int ProfileView::toViewX(int x)
 {
-  return x*width()/1050;
+  return x * width() / 1050;
 }
 
 int ProfileView::fromViewX(int x)
 {
-  return x*1050/width();
+  return x * 1050 / width();
 }
 
-void ProfileView::setevent(Dataset ds, int i)
-  {
-  setevent(ds, Arrays.asList(i));
-  }
+void ProfileView::setevent(Dataset* ds, int i)
+{
+ // setevent(ds, Arrays.asList(i));
+ setevent(ds, {i});
+}
 
-void ProfileView::setevent(Dataset ds, List<Integer> ids)
-  {
-  this.ds=ds;
-  eventid.clear();
-  eventid.addAll(ids);
-  update();
-  }
+void ProfileView::setevent(Dataset* ds, QList<int> ids)
+{
+ ds_ = ds;
+ eventid_.clear();
+ eventid_.append(ids);
+ update();
+}
 
- void ProfileView::mousePressEvent(QMouseEvent event)
-  {
+void ProfileView::mousePressEvent(QMouseEvent* event)
+{
+ Q_UNUSED(event)
+ /*
   pointLast=event.posF();
   super.mousePressEvent(event);
   if(event.button()==MouseButton.LeftButton)
@@ -132,16 +138,19 @@ void ProfileView::setevent(Dataset ds, List<Integer> ids)
      }
     }
    }
-  
-  }
+ */  
+}
  
- void ProfileView::mouseDoubleClickEvent(QMouseEvent e)
-  {
-  super.mouseDoubleClickEvent(e);
-  }
+void ProfileView::mouseDoubleClickEvent(QMouseEvent* e)
+{
+ Q_UNUSED(e)
+ // super.mouseDoubleClickEvent(e);
+}
  
-void ProfileView::mouseReleaseEvent(QMouseEvent ev)
-  {
+void ProfileView::mouseReleaseEvent(QMouseEvent* ev)
+{
+ Q_UNUSED(ev)
+ /*
   super.mouseReleaseEvent(ev);
   if(curchannel!=null && moveBoundary!=-1)
    {
@@ -150,20 +159,23 @@ void ProfileView::mouseReleaseEvent(QMouseEvent ev)
    }
   moveBoundary=-1;
   //mw.handleEvent(new EventGatesMoved());   //TODO something like this!
-  }
+ */
+}
 
 int ProfileView::clamp(int x, int from, int to)
-  {
-  if(x<from)
-   return from;
-  else if(x>to)
-   return to;
-  else
-   return x;
-  }
- 
-void ProfileView::mouseMoveEvent(QMouseEvent event)
 {
+ if(x < from)
+   return from;
+ else if(x > to)
+   return to;
+ else
+   return x;
+}
+ 
+void ProfileView::mouseMoveEvent(QMouseEvent* event)
+{
+ Q_UNUSED(event)
+ /*
  super.mouseMoveEvent(event);
   
  if(moveBoundary!=-1 && curchannel!=null)
@@ -177,5 +189,7 @@ void ProfileView::mouseMoveEvent(QMouseEvent event)
   update();
  }
  pointLast=event.posF();
+ */
 }
+
 

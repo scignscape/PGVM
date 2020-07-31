@@ -12,16 +12,21 @@ QTableWidgetWithCSVcopy::QTableWidgetWithCSVcopy()
 
 }
 
-void QTableWidgetWithCSVcopy::keyPressEvent(com.trolltech.qt.gui.QKeyEvent event) 
-  {
-  if(event.matches(StandardKey.Copy) )
+void QTableWidgetWithCSVcopy::keyPressEvent(QKeyEvent* event) 
+{
+ Q_UNUSED(event)
+/*
+ if(event.matches(StandardKey.Copy) )
    copy();
-  else
+ else
    super.keyPressEvent(event);
-  }
+*/
+}
 
 QString QTableWidgetWithCSVcopy::allToCSV()
-  {
+{
+ return {};
+/*
   TreeSet<Integer> whichcol=new TreeSet<Integer>();
   TreeSet<Integer> whichrow=new TreeSet<Integer>();
   for(int i=0;i<columnCount();i++)
@@ -29,20 +34,29 @@ QString QTableWidgetWithCSVcopy::allToCSV()
   for(int i=0;i<rowCount();i++)
    whichrow.add(i);
   return toCSV(whichcol, whichrow);
-  }
+*/
+}
  
-void QTableWidgetWithCSVcopy::copy(TreeSet<Integer> whichcol, TreeSet<Integer> whichrow)
-  {
+void QTableWidgetWithCSVcopy::copy(QSet<int> whichcol, QSet<int> whichrow)
+{
+ Q_UNUSED(whichcol)
+ Q_UNUSED(whichrow)
+ /*
   String s=toCSV(whichcol, whichrow);
   QApplication.clipboard().setText(s);
-  }
+*/
+}
 
  
  /**
   * Export selection to CSV
   */
-QString QTableWidgetWithCSVcopy::toCSV(TreeSet<Integer> whichcol, TreeSet<Integer> whichrow)
-  {
+QString QTableWidgetWithCSVcopy::toCSV(QSet<int> whichcol, QSet<int> whichrow)
+{
+ Q_UNUSED(whichcol)
+ Q_UNUSED(whichrow)
+ return {};
+ /*
   StringBuilder sb=new StringBuilder();
  
   boolean fst=true;
@@ -73,14 +87,17 @@ QString QTableWidgetWithCSVcopy::toCSV(TreeSet<Integer> whichcol, TreeSet<Intege
    }
   sb.append("\n");
   return sb.toString();
-  }
+*/
+}
 
  
  /**
   * Export everything to CSV. Can return null if no
   */
 QString QTableWidgetWithCSVcopy::selectionToCSV()
-  {
+{
+ return {};
+ /*
   LinkedList<QModelIndex> indexes=new LinkedList<QModelIndex>(selectionModel().selectedIndexes());
   if(indexes.size()>0)
    {
@@ -95,21 +112,25 @@ QString QTableWidgetWithCSVcopy::selectionToCSV()
    }
   else
    return null;
-  }
+*/
+}
  
 void QTableWidgetWithCSVcopy::copyAll()
-  {
+{
+ /*
   String s=allToCSV();
   if(s!=null)
    QApplication.clipboard().setText(s);
-  }
+*/
+}
  
 void QTableWidgetWithCSVcopy::copy()
-  {
+{
+ /*
   String s=selectionToCSV();
   if(s!=null)
    QApplication.clipboard().setText(s);
-  }
+ */
+}
 
 
- }
