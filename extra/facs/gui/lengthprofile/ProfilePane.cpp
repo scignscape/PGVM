@@ -27,9 +27,9 @@ ProfilePane::ProfilePane(MainWindow* mw)
  cbNormalizeLength_ = new QCheckBox();
  cbShowAll_ = new QCheckBox();
   
- QGridLayout* laychans = new QGridLayout();
- cbShowChannel_ = new QList<QCheckBox*>;
- sScaleChannel_ = new QList<QSlider*>;
+ laychans_ = new QGridLayout();
+ //cbShowChannel_ = new QList<QCheckBox*>;
+ //sScaleChannel_ = new QList<QSlider*>;
 
  view_ = new ProfileView(mw);
   
@@ -41,15 +41,15 @@ ProfilePane::ProfilePane(MainWindow* mw)
   QCheckBox* cb = new QCheckBox();
   //cb.stateChanged.connect(this,"updateViews()");
   cb->setChecked(true);
-  cbShowChannel_->push_back(cb);
-  laychans->addWidget(cb, i, 0);
+  cbShowChannel_.push_back(cb);
+  laychans_->addWidget(cb, i, 0);
    
   QSlider* s = new QSlider();
   s->setOrientation(Qt::Horizontal);
   s->setMaximum(10000);
   s->setValue(2000);
   laychans_->addWidget(s, i, 1);
-  sScaleChannel_->append(s);
+  sScaleChannel_.append(s);
    //?s.sliderMoved.connect(this,"updateViews()");
  }
 
@@ -67,7 +67,7 @@ ProfilePane::ProfilePane(MainWindow* mw)
  QVBoxLayout* lay = new QVBoxLayout();
  lay->addLayout(blay);
  lay->addWidget(view_);
- lay->addLayout(laychans);
+ lay->addLayout(laychans_);
  
   //tfID_->editingFinished.connect(this,"updateViews()");
   //bNextProf.clicked.connect(this,"actionNextProf()");

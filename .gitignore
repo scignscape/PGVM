@@ -13,6 +13,8 @@ cpp/qmake-console/targets/*
 
 extra/facs/build/*
 
+#extra/facs/build_qtc/*
+
 *.zip
 *.gz
 *.aux

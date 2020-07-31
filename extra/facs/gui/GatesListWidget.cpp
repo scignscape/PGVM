@@ -37,6 +37,8 @@ GatesListWidget::GatesListWidget(MainWindow* mw)
 {
  main_layout_ = new QVBoxLayout;
 
+ treeGates_ = new QTreeWidget();
+
  //setMargin(0);
  
  treeGates_->setHeaderLabels( {tr("Gate"), tr("Color") } );

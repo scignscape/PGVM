@@ -23,6 +23,8 @@
 CompensationPane::CompensationPane(MainWindow* mw)
 {
  mw_= mw;  
+
+ tableMatrix_ = new QTableWidgetWithCSVcopy(this);
   
  QVBoxLayout* lay = new QVBoxLayout();
  lay->addWidget(tableMatrix_);
@@ -81,6 +83,7 @@ void CompensationPane::updateForm()
  
 void CompensationPane::dataChanged(QTableWidgetItem* it)
 {
+ Q_UNUSED(it)
  if(!updating_)
  {
 //  Compensation comp=mw.project.compensation;

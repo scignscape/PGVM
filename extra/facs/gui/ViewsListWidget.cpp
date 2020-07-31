@@ -32,6 +32,8 @@ ViewsListWidget::ViewsListWidget(MainWindow* mw)
 {
  main_layout_ = new QVBoxLayout;
 
+ tableViews_ = new QTableWidget(this);
+
  //? main_layout_->setSpacing(0);
  
  //? setMargin(0);

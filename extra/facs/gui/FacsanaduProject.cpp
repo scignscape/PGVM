@@ -5,6 +5,7 @@
 
 #include "../data/Dataset.h"
 
+#include "../data/Compensation.h"
 
 #include <QMutexLocker>
 
@@ -20,7 +21,7 @@ FacsanaduProject::FacsanaduProject()
 
 // gatingResult_ = new HashMap<Dataset, GatingResult>();
 
- compensation_ = nullptr; // hold off ... new Compensation();
+ compensation_ = new Compensation(); //nullptr; // hold off ... new Compensation();
 }
 
 GatingResult* FacsanaduProject::getGatingResult(Dataset* ds)

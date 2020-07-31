@@ -24,7 +24,7 @@ protected:
 
 public:
 
- QTableWidgetWithCSVcopy();
+ QTableWidgetWithCSVcopy(QWidget* parent = nullptr);
 
  QString allToCSV();
 // void copy(TreeSet<Integer> whichcol, TreeSet<Integer> whichrow);

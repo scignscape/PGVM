@@ -7,7 +7,8 @@
 // package facsanadu.gui.qt;
 
 
-QTableWidgetWithCSVcopy::QTableWidgetWithCSVcopy()
+QTableWidgetWithCSVcopy::QTableWidgetWithCSVcopy(QWidget* parent)
+ :  QTableWidget(parent)
 {
 
 }

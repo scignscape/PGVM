@@ -40,8 +40,8 @@ class ProfilePane : public QWidget // extends QWidget
  MainWindow* mw_;
  
  QGridLayout* laychans_; //= QGridLayout();
- QList<QCheckBox*>* cbShowChannel_; //= LinkedList<QCheckBox>();
- QList<QSlider*>* sScaleChannel_; //= LinkedList<QSlider>();
+ QList<QCheckBox*> cbShowChannel_; //= LinkedList<QCheckBox>();
+ QList<QSlider*> sScaleChannel_; //= LinkedList<QSlider>();
  
 public:
 

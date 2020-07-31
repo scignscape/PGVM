@@ -78,14 +78,15 @@ MainWindow::MainWindow()
  tabwidget_ = new QTabWidget();
  menubar_ = new QMenuBar();
 
+ project_ = new FacsanaduProject();
+
  gatesw_ = new GatesListWidget(this);
  pc_ = new ProfileChannelWidget(this);
  viewsw_ = new ViewsListWidget(this);
  datasetsw_ = new DatasetListWidget(this);
+
  paneCompensation_ = new CompensationPane(this);
  paneMetadata_ = new DatasetInfoPane(this);
-
- project_ = new FacsanaduProject();
 
  calcthread_ = new _MainWindow_GateCalcThread(project_);
 
