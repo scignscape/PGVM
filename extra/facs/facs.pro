@@ -56,6 +56,8 @@ SOURCES +=  \
  ./gui/qt/QTutil.cpp \
  ./gui/resource/ImgResource.cpp \
  ./gui/colors/QColorCombo.cpp \
+ ./transformations/TransformationStack.cpp \
+
 
 
 DEFINES += DEFAULT_ICON_FOLDER=\\\"$$PWD/gui/resource\\\"

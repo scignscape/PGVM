@@ -1,8 +1,8 @@
 
 // // license___here_h
 
-#ifndef Transformation__H
-#define Transformation__H
+#ifndef TransformationStack__H
+#define TransformationStack__H
 
 class Transformation;
 
@@ -16,9 +16,11 @@ class Transformation;
 // // A set of transformations
 class TransformationStack
 {
+ QList<Transformation*> list_; //=new ArrayList<Transformation>();
+
 public:
 
- QList<Transformation*> list_; //=new ArrayList<Transformation>();
+ TransformationStack();
    
   //@Override
  template<typename T>
