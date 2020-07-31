@@ -1,7 +1,7 @@
 
 QT += widgets core 
 
-TEMPLATE = app
+TEMPLATE=lib
 
 INCLUDEPATH += \
  ./include \
@@ -12,6 +12,14 @@ INCLUDEPATH += \
 INCLUDEPATH += \
  ./armadillo \
 
+INCLUDEPATH += \
+  $$LIBHDF5_INSTALL/include
+
+INCLUDEPATH += \
+ ./hdf5 \
+
+
+DEFINES+=QT_CYTOLIB_VERSION=\\\"9.9.9\\\"
 
 
 HEADERS += \
@@ -43,13 +51,15 @@ SOURCES +=  \
 # ./src/Makevars.win
 
 
-DEFINES += DEFAULT_ICON_FOLDER=\\\"$$PWD/gui/resource\\\"
+LIBS += -L$$PROTOBUF_INSTALL/lib -lprotobuf-lite
+LIBS += -L$$LIBHDF5_INSTALL/lib -lhdf5
 
 #
-
 
 OBJECTS_DIR = ./build/objects
 DESTDIR = ./build/dest
 TARGETSDIR = ./build/targets
+
+
 
 
