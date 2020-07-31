@@ -17,6 +17,7 @@ INCLUDEPATH += \
 
 INCLUDEPATH += \
  ./hdf5 \
+ ./hdf5src \
 
 
 DEFINES+=QT_CYTOLIB_VERSION=\\\"9.9.9\\\"
@@ -45,6 +46,42 @@ SOURCES +=  \
  ./src/spline.cpp \
  ./src/transformation.cpp \
  ./src/trans_group.cpp \
+
+
+# HDF5
+SOURCES +=  \
+ ./hdf5/H5AbstractDs.cpp \
+ ./hdf5/H5ArrayType.cpp \
+ ./hdf5/H5AtomType.cpp \
+ ./hdf5/H5Attribute.cpp \
+ ./hdf5/H5CommonFG.cpp \
+ ./hdf5/H5CompType.cpp \
+ ./hdf5/H5DaccProp.cpp \
+ ./hdf5/H5DataSet.cpp \
+ ./hdf5/H5DataSpace.cpp \
+ ./hdf5/H5DataType.cpp \
+ ./hdf5/H5DcreatProp.cpp \
+ ./hdf5/H5DxferProp.cpp \
+ ./hdf5/H5EnumType.cpp \
+ ./hdf5/H5Exception.cpp \
+ ./hdf5/H5FaccProp.cpp \
+ ./hdf5/H5FcreatProp.cpp \
+ ./hdf5/H5File.cpp \
+ ./hdf5/H5FloatType.cpp \
+ ./hdf5/H5Group.cpp \
+ ./hdf5/H5IdComponent.cpp \
+ ./hdf5/H5IntType.cpp \
+ ./hdf5/H5LaccProp.cpp \
+ ./hdf5/H5LcreatProp.cpp \
+ ./hdf5/H5Library.cpp \
+ ./hdf5/H5Location.cpp \
+ ./hdf5/H5Object.cpp \
+ ./hdf5/H5OcreatProp.cpp \
+ ./hdf5/H5PredType.cpp \
+ ./hdf5/H5PropList.cpp \
+ ./hdf5/H5StrType.cpp \
+ ./hdf5/H5VarLenType.cpp \
+
 
 # ./src/GatingSet.pb.cc
 # ./src/Makevars.in
