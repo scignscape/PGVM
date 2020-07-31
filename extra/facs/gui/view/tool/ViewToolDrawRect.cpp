@@ -1,29 +1,40 @@
+
+
+// // license___here
+
 // package facsanadu.gui.view.tool;
 
+#include "ViewToolDrawRect.h"
 
 ViewToolDrawRect::ViewToolDrawRect(ViewWidget* w)
 {
  isDrawing_ = nullptr;
- w_ = w;
+ vw_ = w;
 }
  
-void ViewToolDrawRect::mouseReleaseEvent(QMouseEvent ev)
+void ViewToolDrawRect::mouseReleaseEvent(QMouseEvent* ev)
 {
+ Q_UNUSED(ev)
+ /*
  isDrawing=null;
  w.sendEvent(new EventSetViewTool(ViewToolChoice.SELECT));
  emitEvent(new EventGatesChanged());
+ */
 }
 
-void ViewToolDrawRect::emitEvent(FacsanaduEvent e)
+void ViewToolDrawRect::emitEvent(FacsanaduEvent* e)
 {
- w.mainWindow.handleEvent(e);
+ Q_UNUSED(e)
+ // w.mainWindow.handleEvent(e);
 }
  
  /**
   * Mouse moved
   */
-void ViewToolDrawRect::mouseMoveEvent(QMouseEvent event)
+void ViewToolDrawRect::mouseMoveEvent(QMouseEvent* event)
 {
+ Q_UNUSED(event)
+ /*
  if(isDrawing!=null)
  {
   GateRect grect=(GateRect)isDrawing;
@@ -35,14 +46,17 @@ void ViewToolDrawRect::mouseMoveEvent(QMouseEvent event)
   grect.updateInternal();
   emitEvent(new EventGatesMoved());
  }
+ */
 }
 
  
  /**
   * Mouse button pressed
   */
-void ViewToolDrawRect::mousePressEvent(QMouseEvent event)
+void ViewToolDrawRect::mousePressEvent(QMouseEvent* event)
 {
+ Q_UNUSED(event)
+ /*
  if(event.button()==MouseButton.LeftButton && !w.viewsettings.isHistogram())
  {
   QPointF p = w.trans.mapScreenToFcs(event.posF()); 
@@ -59,18 +73,20 @@ void ViewToolDrawRect::mousePressEvent(QMouseEvent event)
   grect.setUniqueColor();
   w.sendEvent(new EventGatesMoved());
  }
+ */
 }
 
  /**
   * Mouse button double-clicked
   */
-void ViewToolDrawRect::mouseDoubleClickEvent(QMouseEvent event)
+void ViewToolDrawRect::mouseDoubleClickEvent(QMouseEvent* event)
 {
+ Q_UNUSED(event)
 }
  
  
 bool ViewToolDrawRect::allowHandle()
 {
- return isDrawing==null;
+ return isDrawing_ == nullptr;
 }
 

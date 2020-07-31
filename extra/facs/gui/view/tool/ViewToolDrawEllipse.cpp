@@ -1,3 +1,9 @@
+
+// // license___here
+
+#include "ViewToolDrawEllipse.h"
+
+
 // package facsanadu.gui.view.tool;
 
 
@@ -9,33 +15,39 @@
  *
  */
 
-ViewToolDrawEllipse::ViewToolDrawEllipse(ViewWidget w*)
+ViewToolDrawEllipse::ViewToolDrawEllipse(ViewWidget* w)
 {
  isDrawing_ = nullptr;
 
- w_ = w;
+ vw_ = w;
 }
  
  /**
   * Mouse button released
   */
-void ViewToolDrawEllipse::mouseReleaseEvent(QMouseEvent ev)
+void ViewToolDrawEllipse::mouseReleaseEvent(QMouseEvent* ev)
 {
+ Q_UNUSED(ev)
+/*
  isDrawing=null;
  emitEvent(new EventGatesChanged());
  w.sendEvent(new EventSetViewTool(ViewToolChoice.SELECT));
+*/
 }
 
-void ViewToolDrawEllipse::emitEvent(FacsanaduEvent e)
+void ViewToolDrawEllipse::emitEvent(FacsanaduEvent* e)
 {
- w.mainWindow.handleEvent(e);
+ Q_UNUSED(e)
+ // w.mainWindow.handleEvent(e);
 }
 
  /**
   * Mouse moved
   */
-void ViewToolDrawEllipse::mouseMoveEvent(QMouseEvent event)
+void ViewToolDrawEllipse::mouseMoveEvent(QMouseEvent* event)
 {
+ Q_UNUSED(event)
+/*
  if(isDrawing!=null)
  {
   GateEllipse grect=(GateEllipse)isDrawing;
@@ -47,14 +59,17 @@ void ViewToolDrawEllipse::mouseMoveEvent(QMouseEvent event)
   grect.updateInternal();
   w.sendEvent(new EventGatesMoved());
  }
+*/
 }
 
  
  /**
   * Mouse button pressed
   */
-void ViewToolDrawEllipse::mousePressEvent(QMouseEvent event)
+void ViewToolDrawEllipse::mousePressEvent(QMouseEvent* event)
 {
+ Q_UNUSED(event)
+/*
  if(event.button()==MouseButton.LeftButton && !w.viewsettings.isHistogram())
  {
   QPointF p = w.trans.mapScreenToFcs(event.posF()); 
@@ -70,14 +85,16 @@ void ViewToolDrawEllipse::mousePressEvent(QMouseEvent event)
   w.addGate(grect);
   grect.setUniqueColor();
   emitEvent(new EventGatesMoved());
- }  
+ }
+*/  
 }
 
  /**
   * Mouse button double-clicked
   */
-void ViewToolDrawEllipse::mouseDoubleClickEvent(QMouseEvent event)
+void ViewToolDrawEllipse::mouseDoubleClickEvent(QMouseEvent* event)
 {
+ Q_UNUSED(event)
 }
  
  

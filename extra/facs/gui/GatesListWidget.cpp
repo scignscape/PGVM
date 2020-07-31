@@ -57,7 +57,7 @@ GatesListWidget::GatesListWidget(MainWindow* mw)
 
  QPushButton* bSelectAllGates = new QPushButton(tr("Select all"), this);
  QPushButton* bRenameGate = new QPushButton(tr("Rename gate"), this);
- QPushButton* bRemoveGate = new QPushButton(QIcon(ImgResource::icon_delete),
+ QPushButton* bRemoveGate = new QPushButton(QIcon(ImgResource::icon_delete()),
    "", this);
  QPushButton* bMeasure = new QPushButton(tr("Measure"), this);
 

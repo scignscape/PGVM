@@ -1,6 +1,8 @@
 
 QT += widgets core 
 
+TEMPLATE = app
+
 INCLUDEPATH += \
  ./gui \
 
@@ -68,7 +70,7 @@ SOURCES +=  \
  ./gui/view/tool/ViewToolDrawRange.cpp \
  ./gui/view/tool/ViewToolDrawRect.cpp \
  ./gui/view/tool/ViewToolDrawPoly.cpp \
-
+ ./main.cpp \
 
 
 

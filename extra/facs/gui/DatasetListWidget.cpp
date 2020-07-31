@@ -54,10 +54,10 @@ DatasetListWidget::DatasetListWidget(MainWindow* mw)
  QPushButton* bAddDataset = new QPushButton(tr("Add dataset"), this);
  QPushButton* bSelectAllDataset = new QPushButton(tr("Select all"), this);
  QPushButton* bRemoveDataset = new QPushButton(
-   QIcon(ImgResource::icon_delete), "", this);
+   QIcon(ImgResource::icon_delete()), "", this);
   
- QPushButton* bMoveUp = new QPushButton(QIcon(ImgResource::moveUp), "", this);
- QPushButton* bMoveDown = new QPushButton(QIcon(ImgResource::moveDown), "", this);
+ QPushButton* bMoveUp = new QPushButton(QIcon(ImgResource::moveUp()), "", this);
+ QPushButton* bMoveDown = new QPushButton(QIcon(ImgResource::moveDown()), "", this);
   
  connect_this(QPushButton ::clicked ,bAddDataset ,actionAddDatasets) 
  connect_this(QPushButton ::clicked ,bRemoveDataset ,actionRemoveDataset) 

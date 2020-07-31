@@ -48,7 +48,7 @@ ProfileChannelWidget::ProfileChannelWidget(MainWindow* mw)
 
  QPushButton* bAddChannel = new QPushButton(tr("Create prof.channel"), this);
  QPushButton* bRemoveDataset = new QPushButton( 
-   QIcon(ImgResource::icon_delete), "", this);
+   QIcon(ImgResource::icon_delete()), "", this);
  
  connect_this(QPushButton ::clicked ,bAddChannel ,actionAddChannel) 
  connect_this(QPushButton ::clicked ,bRemoveDataset ,actionRemoveChannel) 

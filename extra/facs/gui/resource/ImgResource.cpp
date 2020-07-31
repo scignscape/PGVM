@@ -49,26 +49,26 @@ QPixmap* ImgResource::getIcon(QString name)
 }
 
 
-QPixmap& ImgResource::imgWindowIcon = *getIcon("programIcon.png");
+QPixmap& ImgResource::imgWindowIcon() { return *getIcon("programIcon.png"); }
 
-QPixmap& ImgResource::moveRight = *getIcon("tango-go-next.png");
-QPixmap& ImgResource::moveLeft = *getIcon("tango-go-previous.png");
+QPixmap& ImgResource::moveRight() { return *getIcon("tango-go-next.png"); }
+QPixmap& ImgResource::moveLeft() { return *getIcon("tango-go-previous.png"); }
 
-QPixmap& ImgResource::moveUp = *getIcon("tango-go-up.png");
-QPixmap& ImgResource::moveDown = *getIcon("tango-go-down.png");
+QPixmap& ImgResource::moveUp() { return *getIcon("tango-go-up.png"); }
+QPixmap& ImgResource::moveDown() { return *getIcon("tango-go-down.png"); }
 
-QPixmap& ImgResource::icon_delete = *getIcon("tango-trash.png");
+QPixmap& ImgResource::icon_delete() { return *getIcon("tango-trash.png"); }
 
-QPixmap& ImgResource::gateEllipse = *getIcon("fugue-shape-ellipse.png");
-QPixmap& ImgResource::gateRect = *getIcon("fugue-shape-rect.png");
-QPixmap& ImgResource::gatePolygon = *getIcon("fugue-shape-polygon.png");
-QPixmap& ImgResource::gateRange = *getIcon("shape-interval.png");
-QPixmap& ImgResource::gateSelect = *getIcon("drawSelect.png");
+QPixmap& ImgResource::gateEllipse() { return *getIcon("fugue-shape-ellipse.png"); }
+QPixmap& ImgResource::gateRect() { return *getIcon("fugue-shape-rect.png"); }
+QPixmap& ImgResource::gatePolygon() { return *getIcon("fugue-shape-polygon.png"); }
+QPixmap& ImgResource::gateRange() { return *getIcon("shape-interval.png"); }
+QPixmap& ImgResource::gateSelect() { return *getIcon("drawSelect.png"); }
 
 
 void ImgResource::setWindowIcon(QWidget* w)
 {
- w->setWindowIcon(QIcon(imgWindowIcon));
+ w->setWindowIcon(QIcon(imgWindowIcon()));
 }
 
 QLabel* ImgResource::label(QPixmap* p)

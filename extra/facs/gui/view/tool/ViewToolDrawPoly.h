@@ -38,7 +38,7 @@ public:
 
  void mouseReleaseEvent(QMouseEvent* ev) Q_DECL_OVERRIDE;
 
- void emitEvent(FacsanaduEvent e);
+ void emitEvent(FacsanaduEvent* e);
 
  /**
   * Mouse moved

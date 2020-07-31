@@ -1,31 +1,42 @@
+
+
+// // license___here
+
 // package facsanadu.gui.view.tool;
 
+#include "ViewToolDrawRange.h"
 
 ViewToolDrawRange::ViewToolDrawRange(ViewWidget* w)
 {
  isDrawing_ = nullptr;
- w_ = w;
+ vw_ = w;
 }
 
  // //Mouse button released
-void ViewToolDrawRange::mouseReleaseEvent(QMouseEvent ev)
+void ViewToolDrawRange::mouseReleaseEvent(QMouseEvent* ev)
 {
+ Q_UNUSED(ev)
+/*
  isDrawing=null;
  w.sendEvent(new EventSetViewTool(ViewToolChoice.SELECT));
  emitEvent(new EventGatesChanged());
+*/
 }
  
-void ViewToolDrawRange::emitEvent(FacsanaduEvent e)
+void ViewToolDrawRange::emitEvent(FacsanaduEvent* e)
 {
- w.mainWindow.handleEvent(e);
+ Q_UNUSED(e)
+// w.mainWindow.handleEvent(e);
 
 }
 
  /**
   * Mouse moved
   */
-void ViewToolDrawRange::mouseMoveEvent(QMouseEvent event)
+void ViewToolDrawRange::mouseMoveEvent(QMouseEvent* event)
 {
+ Q_UNUSED(event)
+/*
  if(isDrawing!=null)
  {
   GateRange grect=(GateRange)isDrawing;
@@ -36,13 +47,16 @@ void ViewToolDrawRange::mouseMoveEvent(QMouseEvent event)
   grect.updateInternal();
   w.sendEvent(new EventGatesMoved());
  }
+*/
 }
  
  /**
   * Mouse button pressed
   */
-void ViewToolDrawRange::mousePressEvent(QMouseEvent event)
+void ViewToolDrawRange::mousePressEvent(QMouseEvent* event)
 {
+ Q_UNUSED(event)
+/*
  if(event.button()==MouseButton.LeftButton)
  {
   QPointF p = w.trans.mapScreenToFcs(event.posF()); 
@@ -57,20 +71,21 @@ void ViewToolDrawRange::mousePressEvent(QMouseEvent event)
   grect.setUniqueColor();
   emitEvent(new EventGatesMoved());
  }
+*/
 }
 
  /**
   * Mouse button double-clicked
   */
-void ViewToolDrawRange::mouseDoubleClickEvent(QMouseEvent event)
+void ViewToolDrawRange::mouseDoubleClickEvent(QMouseEvent* event)
 {
-
+ Q_UNUSED(event)
 }
  
 // @Override
 bool ViewToolDrawRange::allowHandle()
 {
- return isDrawing==null;
+ return isDrawing_ == nullptr;
 }
 
 

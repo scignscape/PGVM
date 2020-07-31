@@ -21,8 +21,8 @@
 ProfilePane::ProfilePane(MainWindow* mw)
  :  mw_(mw)
 {
- bPrevProf_ = new QPushButton(QIcon(ImgResource::moveLeft), "");
- bNextProf_ = new QPushButton(QIcon(ImgResource::moveRight), "");
+ bPrevProf_ = new QPushButton(QIcon(ImgResource::moveLeft()), "");
+ bNextProf_ = new QPushButton(QIcon(ImgResource::moveRight()), "");
  tfID_ = new QLineEdit("0");
  cbNormalizeLength_ = new QCheckBox();
  cbShowAll_ = new QCheckBox();

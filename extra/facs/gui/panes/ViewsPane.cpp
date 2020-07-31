@@ -23,11 +23,11 @@ ViewsPane::ViewsPane(MainWindow* mw)
  matrix_ = new ViewsMatrix(mw);
  bgroup_ = new QButtonGroup(this);
 
- bGateSelect_ = new QPushButton(QIcon(ImgResource::gateSelect),"");
- bGatePoly_ = new QPushButton(QIcon(ImgResource::gatePolygon),"");
- bGateRect_ = new QPushButton(QIcon(ImgResource::gateRect),"");
- bGateEllipse_ = new QPushButton(QIcon(ImgResource::gateEllipse),"");
- bGateRange_ = new QPushButton(QIcon(ImgResource::gateRange),"");
+ bGateSelect_ = new QPushButton(QIcon(ImgResource::gateSelect()),"");
+ bGatePoly_ = new QPushButton(QIcon(ImgResource::gatePolygon()),"");
+ bGateRect_ = new QPushButton(QIcon(ImgResource::gateRect()),"");
+ bGateEllipse_ = new QPushButton(QIcon(ImgResource::gateEllipse()),"");
+ bGateRange_ = new QPushButton(QIcon(ImgResource::gateRange()),"");
  QList<QPushButton*> tb {bGateSelect_, bGatePoly_, 
    bGateRect_, bGateEllipse_, bGateRange_};
 

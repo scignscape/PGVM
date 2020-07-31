@@ -37,12 +37,13 @@ QList<int> GatingResult::getAcceptedFromGate(Gate*)
  return {};
 }
 
-
+/*
 ViewToolDrawEllipse::ViewToolDrawEllipse(ViewWidget*){}
 ViewToolDrawSelect::ViewToolDrawSelect(ViewWidget*){}
 ViewToolDrawRange::ViewToolDrawRange(ViewWidget*){}
 ViewToolDrawPoly::ViewToolDrawPoly(ViewWidget*){}
 ViewToolDrawRect::ViewToolDrawRect(ViewWidget*){}
+*/
 
 
 QList<Gate*> Gate::children() const

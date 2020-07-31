@@ -1,41 +1,51 @@
+
+
+// // license___here
+
 // package facsanadu.gui.view.tool;
+
+#include "ViewToolDrawSelect.h"
 
 
 ViewToolDrawSelect::ViewToolDrawSelect(ViewWidget* w)
 {
- w_ = w;
+ vw_ = w;
 }
  
  /**
 * Mouse button released
 */
-ViewToolDrawSelect::mouseReleaseEvent(QMouseEvent ev)
+void ViewToolDrawSelect::mouseReleaseEvent(QMouseEvent* ev)
 {
+ Q_UNUSED(ev)
 }
 
  /**
 * Mouse moved
 */
-ViewToolDrawSelect::mouseMoveEvent(QMouseEvent event)
+void ViewToolDrawSelect::mouseMoveEvent(QMouseEvent* event)
 {
+ Q_UNUSED(event)
 }
 
  
  /**
 * Mouse button pressed
 */
-ViewToolDrawSelect::mousePressEvent(QMouseEvent event)
+void ViewToolDrawSelect::mousePressEvent(QMouseEvent* event)
 {
+ Q_UNUSED(event)
 }
 
  /**
 * Mouse button double-clicked
 */
-ViewToolDrawSelect::mouseDoubleClickEvent(QMouseEvent event)
+void ViewToolDrawSelect::mouseDoubleClickEvent(QMouseEvent* event)
 {
+ Q_UNUSED(event)
 }
  
-bool allowHandle()
+bool ViewToolDrawSelect::allowHandle()
 {
  return true;
 }

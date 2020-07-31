@@ -1,17 +1,26 @@
+
+
+// // license___here
+
+#include "ViewToolDrawPoly.h"
+
+
 // package facsanadu.gui.view.tool;
 
 ViewToolDrawPoly::ViewToolDrawPoly(ViewWidget* w)
 {
  isDrawing_ = nullptr;
 
- w_ = w;
+ vw_ = w;
 }
  
  /**
 * Mouse button pressed
 */
-void ViewToolDrawPoly::mousePressEvent(QMouseEvent event)
+void ViewToolDrawPoly::mousePressEvent(QMouseEvent* event)
 {
+ Q_UNUSED(event)
+/*
  if(event.button()==MouseButton.LeftButton && !w.viewsettings.isHistogram())
  {
   QPointF p = w.trans.mapScreenToFcs(event.posF()); 
@@ -37,26 +46,31 @@ void ViewToolDrawPoly::mousePressEvent(QMouseEvent event)
  
   w.sendEvent(new EventGatesMoved());
  }
+*/
 }
 
  /**
 * Mouse button released
 */
-void ViewToolDrawPoly::mouseReleaseEvent(QMouseEvent ev)
+void ViewToolDrawPoly::mouseReleaseEvent(QMouseEvent* ev)
 {
- emitEvent(new EventGatesChanged());
+ Q_UNUSED(ev)
+// emitEvent(new EventGatesChanged());
 }
 
-void ViewToolDrawPoly::emitEvent(FacsanaduEvent e)
+void ViewToolDrawPoly::emitEvent(FacsanaduEvent* e)
 {
- w.mainWindow.handleEvent(e);
+ Q_UNUSED(e)
+// w.mainWindow.handleEvent(e);
 }
 
  /**
 * Mouse moved
 */
-void ViewToolDrawPoly::mouseMoveEvent(QMouseEvent event)
+void ViewToolDrawPoly::mouseMoveEvent(QMouseEvent* event)
 {
+ Q_UNUSED(event)
+ /*
  if(isDrawing!=null)
  {
   GatePolygon g=isDrawing;
@@ -67,14 +81,17 @@ void ViewToolDrawPoly::mouseMoveEvent(QMouseEvent event)
   g.updateInternal();
   emitEvent(new EventGatesMoved());
  }
+ */
 }
 
 
  /**
 * Mouse button double-clicked
 */
-void ViewToolDrawPoly::mouseDoubleClickEvent(QMouseEvent event)
+void ViewToolDrawPoly::mouseDoubleClickEvent(QMouseEvent* event)
 {
+ Q_UNUSED(event)
+/*
  if(isDrawing!=null)
  {
   isDrawing.removeRedundantPoints();
@@ -82,15 +99,12 @@ void ViewToolDrawPoly::mouseDoubleClickEvent(QMouseEvent event)
   w.sendEvent(new EventSetViewTool(ViewToolChoice.SELECT));
   emitEvent(new EventGatesChanged());
  }
+*/
 }
 
 
 bool ViewToolDrawPoly::allowHandle()
 {
- return isDrawing==null;
+ return isDrawing_ == nullptr;
 }
 
- 
- 
- 
- }

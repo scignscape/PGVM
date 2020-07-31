@@ -51,7 +51,7 @@ ViewsListWidget::ViewsListWidget(MainWindow* mw)
  QPushButton* bSelectAllViews = new QPushButton(tr("Select all"), this);
  QPushButton* bNewView = new QPushButton(tr("New view"), this);
 
- QPushButton* bRemoveView = new QPushButton(QIcon(ImgResource::icon_delete),
+ QPushButton* bRemoveView = new QPushButton(QIcon(ImgResource::icon_delete()),
    "", this);
 
 // connect(bNewView, &QPushButton::clicked,
