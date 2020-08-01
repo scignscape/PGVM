@@ -23,19 +23,25 @@ class QVector_Matrix_R8
  {
   QVector_Matrix_R8& _this;
   u4 row;
-  r8 operator[](u4 c);
+  r8& operator[](u4 c);
  };
+
+ static r8* _defaultv();
 
 public:
 
- QVector_Matrix_R8(u4 r = 0, u4 c = 0);
+ QVector_Matrix_R8(u4 r = 0, u4 c = 0, r8 defaultv = 0);
 
  ACCESSORS(u4 ,n_rows)
  ACCESSORS(u4 ,n_cols)
 
  _one_opbracket operator[](u4 r);
 
- r8 at(u4 r, u4 c);
+ const r8& at(u4 r, u4 c);
+ r8* get(u4 r, u4 c);
+ r8* fetch(u4 r, u4 c);
+ r8 value(u4 r, u4 c);
+ r8 value(u4 r, u4 c, r8 defaultv);
 
  u4 total_size();
 
