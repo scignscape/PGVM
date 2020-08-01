@@ -9,13 +9,23 @@
 
 int main(int argc, char* argv[])
 {
- test_cyto();
+ cytolib::FCS_READ_HEADER_PARAM hp;
+ cytolib::FCS_READ_DATA_PARAM dp;
+ cytolib::FCS_READ_PARAM rp;
 
- //cytolib::MemCytoFrame mcf;
+
+// test_cyto();
+
+ //
+ QString file_name = "/home/nlevisrael/hypergr/pgvm/ar/extra/facs/Live_cells.fcs";
+
+ cytolib::MemCytoFrame mcf(file_name.toStdString(), rp);
+
+ mcf.read_fcs();
  
- qDebug() << "OK";
+ qDebug() << "OK ...";
 
- return 9;
+ return 0;
 }
 
 

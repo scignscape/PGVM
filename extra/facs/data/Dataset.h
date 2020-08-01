@@ -6,6 +6,8 @@
 
 // package facsanadu.data;
 
+#include "bridge/qvector-matrix-double.h"
+
 #include <QList>
 #include <QMap>
 
@@ -28,6 +30,7 @@ class Dataset
 
  QList<QList<double>> eventsFloat_; //=new ArrayList<double[]>();
  QList<QList<double>> eventsFloatCompensated_; //=new ArrayList<double[]>();
+
  int numCompensated_; // = 0;
 
  QList<ChannelInfo*> channelInfo_; // =new ArrayList<ChannelInfo>();
