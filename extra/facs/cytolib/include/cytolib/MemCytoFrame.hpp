@@ -12,6 +12,8 @@
 #include "CytoFrame.hpp"
 #include "readFCSdata.hpp"
 
+void test_cyto();
+
 namespace cytolib
 {
 /**

@@ -142,8 +142,9 @@ namespace cytolib
 		{
 
 			vector<string>res;
-			for(auto e : fs::directory_iterator(p))
-				res.push_back(fs::path(e).string());
+//?			for(auto e : fs::directory_iterator(p))
+//?				res.push_back(fs::path(e).string());
+
 			return res;
 		}
 	bool CytoVFS::is_dir(string p) const{return fs::is_directory(p);}

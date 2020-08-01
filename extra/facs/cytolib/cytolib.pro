@@ -24,6 +24,7 @@ DEFINES+=QT_CYTOLIB_VERSION=\\\"9.9.9\\\"
 
 
 HEADERS += \
+ ./include/cytolib/MemCytoFrame.hpp \
 
 
 SOURCES +=  \
@@ -37,6 +38,7 @@ SOURCES +=  \
  ./src/gate.cpp \
  ./src/GatingHierarchy.cpp \
  ./src/GatingSet.cpp \
+ ./src/GatingSet.pb.cc \
  ./src/global.cpp \
  ./src/H5CytoFrame.cpp \
  ./src/in_polygon.cpp \
@@ -46,6 +48,14 @@ SOURCES +=  \
  ./src/spline.cpp \
  ./src/transformation.cpp \
  ./src/trans_group.cpp \
+
+
+#DEFINES += ARMA_DONT_USE_WRAPPER
+
+# armadillo
+# SOURCES +=  \
+#  ./armadillo/src/wrapper1.cpp \
+#  ./armadillo/src/wrapper2.cpp \
 
 
 # HDF5
@@ -90,6 +100,8 @@ SOURCES +=  \
 
 LIBS += -L$$PROTOBUF_INSTALL/lib -lprotobuf-lite
 LIBS += -L$$LIBHDF5_INSTALL/lib -lhdf5
+LIBS += -lstdc++fs -llapack -llapacke -lblas 
+
 
 #
 

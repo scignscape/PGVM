@@ -7,6 +7,14 @@
 #include <queue>
 #include <cytolib/global.hpp>
 
+#include <QDebug>
+
+void test_cyto()
+{
+ qDebug() << "test_cyto()";
+}
+
+
 namespace cytolib
 {
 
