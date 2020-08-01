@@ -11,6 +11,7 @@ cpp/src/qt-reprozip/bin/*
 cpp/src/qt-reprozip/export/*
 cpp/qmake-console/targets/*
 
+extra/facs/bridge/bridge-console/build/*
 extra/facs/dest/*
 extra/facs/dest-qtc/*
 extra/facs/build/*
