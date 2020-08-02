@@ -118,19 +118,12 @@
  ACCESSORS__SDECLARE(type, name)
 #endif
 
-//?
+
 #ifndef ACCESSORS
 #define ACCESSORS(type, name) \
  ACCESSORS__GET(MACRO_PASTE(type), name) \
  ACCESSORS__SET(MACRO_PASTE(type), name)
 #endif
-
-
-//#ifndef ACCESSORS
-//#define ACCESSORS(type, name) \
-// ACCESSORS__GET(type, name) \
-// ACCESSORS__SET(type, name)
-//#endif
 
 
 
