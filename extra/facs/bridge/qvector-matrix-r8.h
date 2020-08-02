@@ -6,6 +6,7 @@
 
 #include <QtGlobal>
 #include <QVector>
+#include <QByteArray>
  
 #include "_accessors.h"
 
@@ -28,6 +29,11 @@ class QVector_Matrix_R8
 
  static r8* _defaultv();
 
+ void _to_raw_data(QByteArray& qba, u4 offset, u4 count);
+
+ void _from_raw_data(const QByteArray& qba, QPair<u4, u4> dims, r8 defaultv);
+ void _from_raw_data_with_encoded_default(const QByteArray& qba, QPair<u4, u4> dims);
+
 public:
 
  QVector_Matrix_R8(u4 r = 0, u4 c = 0, r8 defaultv = 0);
@@ -35,7 +41,17 @@ public:
  ACCESSORS(u4 ,n_rows)
  ACCESSORS(u4 ,n_cols)
 
+ static constexpr u4 value_byte_size() { return 8; }
+
  _one_opbracket operator[](u4 r);
+
+ void to_raw_data(QByteArray& qba);
+ void to_raw_data_with_encoded_default(QByteArray& qba);
+
+ void from_raw_data(const QByteArray& qba, QPair<u4, u4> dims, r8 defaultv = 0);
+ void from_raw_data(const QByteArray& qba, r8 defaultv = 0);
+ void from_raw_data_with_encoded_default(const QByteArray& qba);
+ void from_raw_data_with_encoded_default(const QByteArray& qba, QPair<u4, u4> dims);
 
  const r8& at(u4 r, u4 c);
  r8* get(u4 r, u4 c);

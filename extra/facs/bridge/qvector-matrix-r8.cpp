@@ -4,12 +4,114 @@
  
 #include "qvector-matrix-r8.h"
 
+#include <cstring>
+
+
 QVector_Matrix_R8::QVector_Matrix_R8(u4 r, u4 c, r8 defaultv)
  : n_rows_(r), n_cols_(c), 
    elems_( (r && c)? new QVector<r8>((r * c) + 1) : nullptr) 
 {
  if(elems_)
    (*elems_)[0] = defaultv;
+}
+
+void QVector_Matrix_R8::_to_raw_data(QByteArray& qba, u4 offset, u4 count)
+{
+ if(!elems_)
+   return;
+ if(elems_->size() <= 1)
+   return;
+// if(ts < count)
+//   count = ts;
+
+ const r8* rr = elems_->constData();
+ rr += offset * value_byte_size();
+ qba = QByteArray(rr, count * value_byte_size());
+}
+
+void QVector_Matrix_R8::to_raw_data(QByteArray& qba)
+{
+ if(!elems_)
+   return;
+ u4 ts = total_size();
+ if(ts == 0)
+   return;
+ _to_raw_data(qba, 1, ts);
+}
+
+void QVector_Matrix_R8::_from_raw_data_with_encoded_default(
+  const QByteArray& qba, QPair<u4, u4> dims)
+{
+ u4 ts = (dims.first * dims.second) + 1;
+
+ if(elems_)
+ {
+  if(elems_.size() < ts)
+    elems_.resize(ts);
+  else if(elems_.size() > ts)
+    elems_.squeeze(ts);
+ }
+ else 
+   elems_ = new QVector<r8>(ts);
+
+ r8* d = elems_->data();
+ memcpy(d, qba.constData(), ts * value_byte_size()); 
+}
+
+void QVector_Matrix_R8::_from_raw_data(const QByteArray& qba, 
+  QPair<u4, u4> dims, r8 defaultv)
+{
+ u4 ts = dims.first * dims.second;
+
+ if(elems_)
+ {
+  if(elems_.size() < ts + 1)
+    elems_.resize(ts + 1);
+  else if(elems_.size() > ts + 1)
+    elems_.squeeze(ts + 1);
+ }
+ else 
+   elems_ = new QVector<r8>(ts + 1);
+
+ r8* d = elems_->data();
+ *d = defaultv;
+ memcpy(d + value_byte_size(), qba.constData(), ts * value_byte_size()); 
+}
+
+void QVector_Matrix_R8::from_raw_data(const QByteArray& qba, 
+  QPair<u4, u4> dims, r8 defaultv)
+{
+ n_rows = dims.first;
+ n_cols = dims.first;
+ _from_raw_data(qba, dims, defaultv);
+}
+
+void QVector_Matrix_R8::from_raw_data(const QByteArray& qba, r8 defaultv)
+{
+ _from_raw_data(qba, {n_rows, n_cols}, defaultv);
+}
+
+void QVector_Matrix_R8::to_raw_data_with_encoded_default(QByteArray& qba)
+{
+ if(!elems_)
+   return;
+ u4 ts = total_size();
+ if(ts == 0)
+   return;
+ _to_raw_data(qba, 0, ts + 1);
+}
+
+void QVector_Matrix_R8::from_raw_data_with_encoded_default(const QByteArray& qba)
+{
+ _from_raw_data_with_encoded_default(qba, {n_rows, n_cols});
+}
+
+void QVector_Matrix_R8::from_raw_data_with_encoded_default(
+  const QByteArray& qba, QPair<u4, u4> dims)
+{
+ n_rows = dims.first;
+ n_cols = dims.first;
+ _from_raw_data_with_encoded_default(qba, dims);
 }
 
 QVector_Matrix_R8::_one_opbracket 

@@ -11,6 +11,12 @@ int main(int argc, char* argv[])
  
  qDebug() << v[7][5] + v[2][1];
 
+ QByteArray qba;
+ v.to_raw_data(qba);
+
+ QVector_Matrix_R8 v1; //(7, 5);
+ v1.from_raw_data(qba, {7, 5});
+
  return 0;
 }
 
