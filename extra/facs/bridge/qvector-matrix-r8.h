@@ -27,6 +27,26 @@ class QVector_Matrix_R8
   r8& operator[](u4 c);
  };
 
+ enum class special_mode {
+  Sym, Skew, Diag
+ };
+
+ template<special_mode>
+ const r8& _at(u4 r, u4 c);
+
+ template<special_mode>
+ r8* _get(u4 r, u4 c);
+
+ template<special_mode>
+ r8* _fetch(u4 r, u4 c);
+
+ template<special_mode>
+ r8 _value(u4 r, u4 c);
+
+ template<special_mode>
+ r8 _value(u4 r, u4 c, r8 defaultv);
+
+
  static r8* _defaultv();
 
  void _to_raw_data(QByteArray& qba, u4 offset, u4 count);
@@ -38,8 +58,31 @@ public:
 
  QVector_Matrix_R8(u4 r = 0, u4 c = 0, r8 defaultv = 0);
 
- ACCESSORS(u4 ,n_rows)
- ACCESSORS(u4 ,n_cols)
+ ACCESSORS__DECLARE(u4 ,n_rows)
+ ACCESSORS__DECLARE(u4 ,n_cols)
+
+ void symmetric(u4 n_rows);
+ void skew_symmetric(u4 n_rows);
+ void diagonal(u4 n_rows);
+ void diagonal(u4 n_rows, u4 n_cols);
+ void diagonal();
+ void rmajor();
+ void cmajor();
+
+ bool is_diagonal()
+ {
+  return (n_cols_ & 1) && (n_cols_ > 1); 
+ }
+
+ bool is_symmetric()
+ {
+  return n_cols_ == 0; 
+ }
+
+ bool is_skew_symmetric()
+ {
+  return n_cols_ == 1; 
+ }
 
  static constexpr u4 value_byte_size() { return 8; }
 
