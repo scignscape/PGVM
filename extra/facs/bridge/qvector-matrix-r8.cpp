@@ -201,6 +201,17 @@ r8& QVector_Matrix_R8::_one_opbracket::operator[](u4 c)
  return *_this.fetch(row, c);
 }
 
+r8 QVector_Matrix_R8::_one_opbracket::operator()(u4 c)
+{
+ return _this.value(row, c);
+}
+
+r8 QVector_Matrix_R8::_one_opbracket::operator()(u4 c, r8 defaultv)
+{
+ return _this.value(row, c, defaultv);
+}
+
+
 r8* QVector_Matrix_R8::_defaultv()
 {
  static r8* result = nullptr;
@@ -211,51 +222,97 @@ r8* QVector_Matrix_R8::_defaultv()
 
 
 template<>
-const r8& QVector_Matrix_R8::_at<QVector_Matrix_R8::special_mode::Sym>(u4 r, u4 c)
+r8 QVector_Matrix_R8::_value<QVector_Matrix_R8::special_mode::Sym>(u4 r, u4 c, r8 defaultv)
 {
-
+ if(!elems_)
+   return defaultv;
+ u4 pos = 0;
+ if(r < c)
+ {
+  // //  treat them as if they're flipped
+  if(c <= n_rows())
+  {
+   pos = ( (c - 1)*n_cols() ) - ( (c - 2)*(c - 1) )/2 + r;
+   if(pos >= (u4) elems_->size())
+     pos = 0;
+  }
+ }
+ else
+ {
+  if(r <= n_rows())
+  {
+   pos = ( (r - 1)*n_cols() ) - ( (r - 2)*(r - 1) )/2 + c;
+   if(pos >= (u4) elems_->size())
+     pos = 0;
+  }
+ }
+ return elems_->value(pos, defaultv);
 }
 
 template<>
-const r8& QVector_Matrix_R8::_at<QVector_Matrix_R8::special_mode::Skew>(u4 r, u4 c)
+r8 QVector_Matrix_R8::_value<QVector_Matrix_R8::special_mode::Skew>(u4 r, u4 c, r8 defaultv)
 {
-
+ if(r < c)
+   return -_value<QVector_Matrix_R8::special_mode::Sym>(r, c, defaultv);
+ return _value<QVector_Matrix_R8::special_mode::Sym>(r, c, defaultv);
 }
 
 template<>
-const r8& QVector_Matrix_R8::_at<QVector_Matrix_R8::special_mode::Diag>(u4 r, u4 c)
+r8 QVector_Matrix_R8::_value<QVector_Matrix_R8::special_mode::Diag>(u4 r, u4 c, r8 defaultv)
 {
+ if(r > n_rows())
+   return defaultv;
+ if(c > n_cols())
+   return defaultv;
+ if(r != c)
+   return 0;
 
+ if(elems_)
+ {
+  u4 pos = ((r - 1) * n_cols()) + c;
+  return elems_->value(pos, defaultv);
+ }
+ return defaultv;
 }
 
-const r8& QVector_Matrix_R8::at(u4 r, u4 c)
+
+r8 QVector_Matrix_R8::value(u4 r, u4 c, r8 defaultv)
 {
  if(is_symmetric())
-   return _at<QVector_Matrix_R8::special_mode::Sym>(r, c);
+   return _value<QVector_Matrix_R8::special_mode::Sym>(r, c, defaultv);
  if(is_skew_symmetric())
-   return _at<QVector_Matrix_R8::special_mode::Skew>(r, c);
+   return _value<QVector_Matrix_R8::special_mode::Skew>(r, c, defaultv);
  if(is_diagonal())
-   return _at<QVector_Matrix_R8::special_mode::Diag>(r, c);
+   return _value<QVector_Matrix_R8::special_mode::Diag>(r, c, defaultv);
 
- return *fetch(r, c);
+
+ if(elems_)
+ {
+  u4 pos = ((r - 1) * n_cols()) + c;
+  return elems_->value(pos, defaultv);
+ }
+ return defaultv;
 }
+
+
+
 
 template<>
 r8 QVector_Matrix_R8::_value<QVector_Matrix_R8::special_mode::Sym>(u4 r, u4 c)
 {
-
+ return _value<QVector_Matrix_R8::special_mode::Sym>(r, c, 0);
 }
 
 template<>
 r8 QVector_Matrix_R8::_value<QVector_Matrix_R8::special_mode::Skew>(u4 r, u4 c)
 {
-
+ return _value<QVector_Matrix_R8::special_mode::Skew>(r, c, 0);
 }
 
 template<>
 r8 QVector_Matrix_R8::_value<QVector_Matrix_R8::special_mode::Diag>(u4 r, u4 c)
 {
-
+ return _value<QVector_Matrix_R8::special_mode::Diag>(r, c, 0);
 }
 
 r8 QVector_Matrix_R8::value(u4 r, u4 c)
@@ -274,19 +331,61 @@ r8 QVector_Matrix_R8::value(u4 r, u4 c)
 template<>
 r8* QVector_Matrix_R8::_fetch<QVector_Matrix_R8::special_mode::Sym>(u4 r, u4 c)
 {
-
+ if(elems_)
+ { 
+  u4 pos = 0;
+  if(r < c)
+  {
+   // //  treat them as if they're flipped
+   if(c <= n_rows())
+   {
+    pos = ( (c - 1)*n_cols() ) - ( (c - 2)*(c - 1) )/2 + r;
+    if(pos >= (u4) elems_->size())
+      pos = 0;
+   }
+  }
+  else
+  {
+   if(r <= n_rows())
+   {
+    pos = ( (r - 1)*n_cols() ) - ( (r - 2)*(r - 1) )/2 + c;
+    if(pos >= (u4) elems_->size())
+      pos = 0;
+   }
+  }
+  return &(*elems_)[pos];
+ }
+ elems_ = new QVector<r8>(1);
+ (*elems_)[0] = *_defaultv();
+ return &(*elems_)[0];
 }
 
 template<>
 r8* QVector_Matrix_R8::_fetch<QVector_Matrix_R8::special_mode::Skew>(u4 r, u4 c)
 {
-
+  // //  note: have to negate ...
+ return _fetch<QVector_Matrix_R8::special_mode::Skew>(r, c);
 }
 
 template<>
 r8* QVector_Matrix_R8::_fetch<QVector_Matrix_R8::special_mode::Diag>(u4 r, u4 c)
 {
+ u4 pos = 0;
 
+ if(r <= n_rows())
+ {
+  if(c <= n_cols())
+  {
+   if(r == c)
+     pos = r;
+  }
+ }
+ if(elems_)
+   return &(*elems_)[pos];
+
+ elems_ = new QVector<r8>(1);
+ (*elems_)[0] = *_defaultv();
+ return &(*elems_)[0];
 }
 
 r8* QVector_Matrix_R8::fetch(u4 r, u4 c)
@@ -320,21 +419,85 @@ r8* QVector_Matrix_R8::fetch(u4 r, u4 c)
 
 
 template<>
+const r8& QVector_Matrix_R8::_at<QVector_Matrix_R8::special_mode::Sym>(u4 r, u4 c)
+{
+ return *_fetch<QVector_Matrix_R8::special_mode::Sym>(r, c); 
+}
+
+template<>
+const r8& QVector_Matrix_R8::_at<QVector_Matrix_R8::special_mode::Skew>(u4 r, u4 c)
+{
+ return *_fetch<QVector_Matrix_R8::special_mode::Skew>(r, c); 
+}
+
+template<>
+const r8& QVector_Matrix_R8::_at<QVector_Matrix_R8::special_mode::Diag>(u4 r, u4 c)
+{
+ return *_fetch<QVector_Matrix_R8::special_mode::Diag>(r, c); 
+}
+
+const r8& QVector_Matrix_R8::at(u4 r, u4 c)
+{
+ if(is_symmetric())
+   return _at<QVector_Matrix_R8::special_mode::Sym>(r, c);
+ if(is_skew_symmetric())
+   return _at<QVector_Matrix_R8::special_mode::Skew>(r, c);
+ if(is_diagonal())
+   return _at<QVector_Matrix_R8::special_mode::Diag>(r, c);
+
+ return *fetch(r, c);
+}
+
+
+template<>
 r8* QVector_Matrix_R8::_get<QVector_Matrix_R8::special_mode::Sym>(u4 r, u4 c)
 {
-
+ if(!elems_)
+   return nullptr;
+ u4 pos = 0;
+ if(r < c)
+ {
+  // //  treat them as if they're flipped
+  if(c <= n_rows())
+  {
+   pos = ( (c - 1)*n_cols() ) - ( (c - 2)*(c - 1) )/2 + r;
+   if(pos >= (u4) elems_->size())
+     pos = 0;
+  }
+ }
+ else
+ {
+  if(r <= n_rows())
+  {
+   pos = ( (r - 1)*n_cols() ) - ( (r - 2)*(r - 1) )/2 + c;
+   if(pos >= (u4) elems_->size())
+     pos = 0;
+  }
+ }
+ if(pos == 0)
+    return nullptr;
+ return &(*elems_)[pos];
 }
 
 template<>
 r8* QVector_Matrix_R8::_get<QVector_Matrix_R8::special_mode::Skew>(u4 r, u4 c)
 {
-
+ return _get<QVector_Matrix_R8::special_mode::Sym>(r, c);
 }
 
 template<>
 r8* QVector_Matrix_R8::_get<QVector_Matrix_R8::special_mode::Diag>(u4 r, u4 c)
 {
-
+ if(elems_)
+ {
+  if(r > n_rows())
+    return nullptr;
+  if(c > n_cols())
+    return nullptr;
+  if(r == c)
+    return &(*elems_)[r];
+ }
+ return nullptr;
 }
 
 r8* QVector_Matrix_R8::get(u4 r, u4 c)
@@ -360,44 +523,6 @@ r8* QVector_Matrix_R8::get(u4 r, u4 c)
   return &(*elems_)[pos];
  }
  return nullptr;
-}
-
-
-template<>
-r8 QVector_Matrix_R8::_value<QVector_Matrix_R8::special_mode::Sym>(u4 r, u4 c, r8 defaultv)
-{
-
-}
-
-template<>
-r8 QVector_Matrix_R8::_value<QVector_Matrix_R8::special_mode::Skew>(u4 r, u4 c, r8 defaultv)
-{
-
-}
-
-template<>
-r8 QVector_Matrix_R8::_value<QVector_Matrix_R8::special_mode::Diag>(u4 r, u4 c, r8 defaultv)
-{
-
-}
-
-
-r8 QVector_Matrix_R8::value(u4 r, u4 c, r8 defaultv)
-{
- if(is_symmetric())
-   return _value<QVector_Matrix_R8::special_mode::Sym>(r, c, defaultv);
- if(is_skew_symmetric())
-   return _value<QVector_Matrix_R8::special_mode::Skew>(r, c, defaultv);
- if(is_diagonal())
-   return _value<QVector_Matrix_R8::special_mode::Diag>(r, c, defaultv);
-
-
- if(elems_)
- {
-  u4 pos = ((r - 1) * n_cols()) + c;
-  return elems_->value(pos, defaultv);
- }
- return defaultv;
 }
 
 

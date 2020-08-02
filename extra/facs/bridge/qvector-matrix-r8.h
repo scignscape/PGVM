@@ -25,6 +25,8 @@ class QVector_Matrix_R8
   QVector_Matrix_R8& _this;
   u4 row;
   r8& operator[](u4 c);
+  r8 operator()(u4 c);
+  r8 operator()(u4 c, r8 defaultv);
  };
 
  enum class special_mode {
