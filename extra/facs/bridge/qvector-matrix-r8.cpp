@@ -197,9 +197,9 @@ void QVector_Matrix_R8::to_raw_data(QByteArray& qba)
 }
 
 void QVector_Matrix_R8::_from_raw_data_with_encoded_default(
-  const QByteArray& qba, QPair<u4, u4> dims)
+  const QByteArray& qba, QPair<u4, u4> dims, u4 total_size)
 {
- u4 ts = (dims.first * dims.second) + 1;
+ u4 ts = total_size? total_size + 1 : (dims.first * dims.second) + 1;
 
  if(elems_)
  {
@@ -219,9 +219,9 @@ void QVector_Matrix_R8::_from_raw_data_with_encoded_default(
 }
 
 void QVector_Matrix_R8::_from_raw_data(const QByteArray& qba, 
-  QPair<u4, u4> dims, r8 defaultv)
+  QPair<u4, u4> dims, r8 defaultv, u4 total_size)
 {
- u4 ts = dims.first * dims.second;
+ u4 ts = total_size? total_size : dims.first * dims.second;
 
  if(elems_)
  {
@@ -239,6 +239,166 @@ void QVector_Matrix_R8::_from_raw_data(const QByteArray& qba,
  r8* d = elems_->data();
  *d = defaultv;
  memcpy(d + value_byte_size(), qba.constData(), ts * value_byte_size()); 
+}
+
+void QVector_Matrix_R8::_from_raw_data(const QByteArray& qba, QPair<u4, u4> dims, 
+  r8 defaultv, special_mode_x smx)
+{
+ switch(smx)
+ {
+ case special_mode_x::N_A:
+   set_n_rows(dims.first);
+   set_n_cols(dims.second);
+   _from_raw_data(qba, dims, defaultv);
+   break; 
+ case special_mode_x::Sym:
+   set_n_rows(dims.first);
+   n_cols_ = 0;
+   _from_raw_data(qba, dims, defaultv, 
+     ( dims.first * (dims.first + 1) )/2 );
+   break; 
+ case special_mode_x::Skew:
+   set_n_rows(dims.first);
+   n_cols_ = 1;
+   _from_raw_data(qba, dims, defaultv, 
+     ( dims.first * (dims.first + 1) )/2 );
+   break; 
+ case special_mode_x::Diag:
+   set_n_rows(dims.first);
+   set_n_cols(dims.second);
+   n_cols_ |= 1;
+   if(dims.first < dims.second)
+     n_rows_ |= 1;
+   _from_raw_data(qba, dims, defaultv, dims.first);
+   break; 
+
+ case special_mode_x::ED:
+   set_n_rows(dims.first);
+   set_n_cols(dims.second);   
+   _from_raw_data_with_encoded_default(qba, dims, defaultv);
+   break; 
+ case special_mode_x::Sym_ED:
+   set_n_rows(dims.first);
+   n_cols_ = 0;
+   _from_raw_data_with_encoded_default(qba, dims, 
+     ( dims.first * (dims.first + 1) )/2 );
+   break; 
+ case special_mode_x::Skew_ED:
+   set_n_rows(dims.first);
+   n_cols_ = 1;
+   _from_raw_data_with_encoded_default(qba, dims, 
+     ( dims.first * (dims.first + 1) )/2 );
+   break; 
+ case special_mode_x::Diag_ED:
+   set_n_rows(dims.first);
+   set_n_cols(dims.second);
+   n_cols_ |= 1;
+   if(dims.first < dims.second)
+     n_rows_ |= 1;
+   _from_raw_data_with_encoded_default(qba, dims, dims.first);
+   break; 
+ }
+}
+
+ // // utility for the _from_raw_data's
+void merge_dims(QVector_Matrix_R8& _this, QPair<u4, u4>& dims)
+{
+ if(dims.first == 0)
+   dims.first = _this.n_rows();
+ else
+   _this.set_n_rows(dims.first);
+
+ if(dims.second == 0)
+   dims.second = _this.n_cols();
+ else
+   _this.set_n_cols(dims.second);
+}
+
+void QVector_Matrix_R8::_from_raw_data_special::cmajor(
+  const QByteArray& qba, QPair<u4, u4> dims, r8 defaultv)
+{
+ merge_dims(_this, dims);
+ 
+ switch(mfrd)
+ {
+ case special_mode_for_raw_data::CM:
+ case special_mode_for_raw_data::Normal:
+   _this._from_raw_data(qba, dims, defaultv, special_mode_x::N_A);
+   _this.cmajor();
+   break;
+ case special_mode_for_raw_data::ED_CM:
+ case special_mode_for_raw_data::ED:
+   _this._from_raw_data(qba, dims, defaultv, special_mode_x::ED);
+   _this.cmajor();
+   break;
+ }
+}
+
+void QVector_Matrix_R8::_from_raw_data_special::diagonal(const QByteArray& qba, 
+  QPair<u4, u4> dims, r8 defaultv)
+{
+ merge_dims(_this, dims);
+ 
+ switch(mfrd)
+ {
+ case special_mode_for_raw_data::CM:
+ case special_mode_for_raw_data::Normal:
+   _this._from_raw_data(qba, dims, defaultv, special_mode_x::Diag);
+   break;
+ case special_mode_for_raw_data::ED_CM:
+ case special_mode_for_raw_data::ED:
+   _this._from_raw_data(qba, dims, defaultv, special_mode_x::Diag_ED);
+   break;
+ }
+}
+
+void QVector_Matrix_R8::_from_raw_data_special::symmetric(const QByteArray& qba, 
+  QPair<u4, u4> dims, r8 defaultv)
+{
+ merge_dims(_this, dims);
+ 
+ switch(mfrd)
+ {
+ case special_mode_for_raw_data::CM:
+   _this._from_raw_data(qba, dims, defaultv, special_mode_x::Sym);
+   _this.cmajor();
+   break;
+ case special_mode_for_raw_data::Normal:
+   _this._from_raw_data(qba, dims, defaultv, special_mode_x::Sym);
+   break;
+ case special_mode_for_raw_data::ED_CM:
+   _this._from_raw_data(qba, dims, defaultv, special_mode_x::Sym_ED);
+   _this.cmajor();
+   break;
+ case special_mode_for_raw_data::ED:
+   _this._from_raw_data(qba, dims, defaultv, special_mode_x::Sym_ED);
+   break;
+ }
+
+}
+
+void QVector_Matrix_R8::_from_raw_data_special::skew(const QByteArray& qba, 
+  QPair<u4, u4> dims, r8 defaultv)
+{
+ merge_dims(_this, dims);
+ 
+ switch(mfrd)
+ {
+ case special_mode_for_raw_data::CM:
+   _this._from_raw_data(qba, dims, defaultv, special_mode_x::Skew);
+   _this.cmajor();
+   break;
+ case special_mode_for_raw_data::Normal:
+   _this._from_raw_data(qba, dims, defaultv, special_mode_x::Skew);
+   break;
+ case special_mode_for_raw_data::ED_CM:
+   _this._from_raw_data(qba, dims, defaultv, special_mode_x::Skew_ED);
+   _this.cmajor();
+   break;
+ case special_mode_for_raw_data::ED:
+   _this._from_raw_data(qba, dims, defaultv, special_mode_x::Skew_ED);
+   break;
+ }
 }
 
 void QVector_Matrix_R8::from_raw_data(const QByteArray& qba, 
@@ -291,7 +451,7 @@ r8& QVector_Matrix_R8::_one_opbracket::operator[](u4 c)
 
 r8 QVector_Matrix_R8::_one_opbracket::operator()(u4 c)
 {
- return _this.value(row, c);
+ return _this.get_value(row, c);
 }
 
 r8 QVector_Matrix_R8::_one_opbracket::operator()(u4 c, r8 defaultv)
@@ -534,6 +694,13 @@ const r8& QVector_Matrix_R8::at(u4 r, u4 c)
    return _at<QVector_Matrix_R8::special_mode::Diag>(r, c);
 
  return *fetch(r, c);
+}
+
+r8 QVector_Matrix_R8::get_value(u4 r, u4 c)
+{
+ if(is_skew_symmetric() && (r < c))
+   return -at(c, r);
+ return at(r, c);
 }
 
 

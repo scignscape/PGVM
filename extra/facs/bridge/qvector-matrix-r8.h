@@ -33,6 +33,34 @@ class QVector_Matrix_R8
   Sym, Skew, Diag
  };
 
+ enum class special_mode_x {
+  N_A, Sym, Skew, Diag, ED, Sym_ED, Skew_ED, Diag_ED, 
+ };
+
+ enum class special_mode_for_raw_data {
+  Normal, ED, CM, ED_CM 
+ };
+
+ struct _from_raw_data_special 
+ {
+  QVector_Matrix_R8& _this;
+  special_mode_for_raw_data mfrd;
+
+  _from_raw_data_special cmajor()
+  {
+   return ( (mfrd == special_mode_for_raw_data::ED)
+       || (mfrd == special_mode_for_raw_data::ED_CM) )
+     ? _from_raw_data_special{_this, special_mode_for_raw_data::ED_CM} 
+     : _from_raw_data_special{_this, special_mode_for_raw_data::CM}; 
+  }
+
+  void cmajor(const QByteArray& qba, QPair<u4, u4> dims = {0, 0}, r8 defaultv = 0);
+  void diagonal(const QByteArray& qba, QPair<u4, u4> dims = {0, 0}, r8 defaultv = 0);
+  void symmetric(const QByteArray& qba, QPair<u4, u4> dims = {0, 0}, r8 defaultv = 0);
+  void skew(const QByteArray& qba, QPair<u4, u4> dims = {0, 0}, r8 defaultv = 0);
+
+ };
+
  template<special_mode>
  const r8& _at(u4 r, u4 c);
 
@@ -58,8 +86,14 @@ class QVector_Matrix_R8
 
  void _to_raw_data(QByteArray& qba, u4 offset, u4 count);
 
- void _from_raw_data(const QByteArray& qba, QPair<u4, u4> dims, r8 defaultv);
- void _from_raw_data_with_encoded_default(const QByteArray& qba, QPair<u4, u4> dims);
+ void _from_raw_data(const QByteArray& qba, QPair<u4, u4> dims, r8 defaultv,
+   u4 total_size = 0);
+
+ void _from_raw_data_with_encoded_default(const QByteArray& qba, 
+   QPair<u4, u4> dims, u4 total_size = 0);
+
+ void _from_raw_data(const QByteArray& qba, QPair<u4, u4> dims, 
+   r8 defaultv, special_mode_x smx);
 
 public:
 
@@ -129,11 +163,14 @@ public:
  void from_raw_data_with_encoded_default(const QByteArray& qba);
  void from_raw_data_with_encoded_default(const QByteArray& qba, QPair<u4, u4> dims);
 
+ _from_raw_data_special from_raw_data();
+
  const r8& at(u4 r, u4 c);
  r8* get(u4 r, u4 c);
  r8* fetch(u4 r, u4 c);
  r8 value(u4 r, u4 c);
  r8 value(u4 r, u4 c, r8 defaultv);
+ r8 get_value(u4 r, u4 c);
 
  u4 total_size();
 
