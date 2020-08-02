@@ -37,6 +37,94 @@ void QVector_Matrix_R8::set_n_cols(u4 n_cols)
  n_cols_ = n_cols << 1;
 }
 
+template<>
+u4 QVector_Matrix_R8::_total_size<QVector_Matrix_R8::special_mode::Sym>()
+{
+ u4 n = n_rows();
+ return (n * (n + 1)) / 2;
+}
+
+template<>
+u4 QVector_Matrix_R8::_total_size<QVector_Matrix_R8::special_mode::Skew>()
+{
+ return _total_size<QVector_Matrix_R8::special_mode::Sym>();
+}
+
+template<>
+u4 QVector_Matrix_R8::_total_size<QVector_Matrix_R8::special_mode::Diag>()
+{
+ return get_diagonal_length();
+}
+
+
+u4 QVector_Matrix_R8::total_size()
+{
+ if(is_symmetric())
+   return _total_size<QVector_Matrix_R8::special_mode::Sym>();
+ if(is_skew_symmetric())
+   return _total_size<QVector_Matrix_R8::special_mode::Skew>();
+ if(is_diagonal())
+   return _total_size<QVector_Matrix_R8::special_mode::Diag>();
+
+ return n_rows() * n_cols();
+}
+
+template<>
+u4 QVector_Matrix_R8::_get_index<QVector_Matrix_R8::special_mode::Sym>(u4 r, u4 c)
+{
+ u4 result = 0;
+ if(r < c)
+ {
+  // //  treat them as if they're flipped
+  if(c <= n_rows())
+    result = ( (c - 1)*n_cols() ) - ( (c - 2)*(c - 1) )/2 + r;
+ }
+ else
+ {
+  if(r <= n_rows())
+    result = ( (r - 1)*n_cols() ) - ( (r - 2)*(r - 1) )/2 + c;
+ }
+ return result;
+}
+
+template<>
+u4 QVector_Matrix_R8::_get_index<QVector_Matrix_R8::special_mode::Skew>(u4 r, u4 c)
+{
+ return _get_index<QVector_Matrix_R8::special_mode::Sym>(r, c);
+}
+
+template<>
+u4 QVector_Matrix_R8::_get_index<QVector_Matrix_R8::special_mode::Diag>(u4 r, u4 c)
+{
+ if(r > n_rows())
+   return 0;
+ if(c > n_cols())
+   return 0;
+ return r;
+}
+
+u4 QVector_Matrix_R8::get_index(u4 r, u4 c)
+{
+ if(is_symmetric())
+   return _get_index<QVector_Matrix_R8::special_mode::Sym>(r, c);
+ if(is_skew_symmetric())
+   return _get_index<QVector_Matrix_R8::special_mode::Skew>(r, c);
+ if(is_diagonal())
+   return _get_index<QVector_Matrix_R8::special_mode::Diag>(r, c);
+
+ return ((r - 1) * n_cols()) + c;
+}
+
+
+u4 QVector_Matrix_R8::covers(u4 r, u4 c)
+{
+ u4 pos = get_index(r, c);
+ if(pos == 0)
+   return 0;
+ return (total_size() + 1) - pos;
+}
+
+
 void QVector_Matrix_R8::symmetric(u4 n_rows)
 {
  u4 cm = n_rows_ & 1;
@@ -60,7 +148,7 @@ void QVector_Matrix_R8::diagonal(u4 n_rows)
 
 void QVector_Matrix_R8::diagonal(u4 n_rows, u4 n_cols)
 {
- u4 cm = n_rows_ & 1;
+ u4 cm = n_cols_ < n_rows ? 1 : 0;
  n_rows_ = n_rows << 1;
  n_rows_ |= cm;
  n_cols_ = n_cols << 1;
@@ -540,11 +628,6 @@ const r8& QVector_Matrix_R8::at(u4 r, u4 c)
 void QVector_Matrix_R8::resize(u4 r, u4 c)
 {
  resize(r * c);
-}
-
-u4 QVector_Matrix_R8::total_size()
-{
- return n_rows() * n_cols();
 }
 
 void QVector_Matrix_R8::resize(u4 total)

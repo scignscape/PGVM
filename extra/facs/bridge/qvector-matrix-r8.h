@@ -48,6 +48,11 @@ class QVector_Matrix_R8
  template<special_mode>
  r8 _value(u4 r, u4 c, r8 defaultv);
 
+ template<special_mode>
+ u4 _total_size();
+
+ template<special_mode>
+ u4 _get_index(u4 r, u4 c);
 
  static r8* _defaultv();
 
@@ -71,10 +76,36 @@ public:
  void rmajor();
  void cmajor();
 
+ u4 covers(u4 r, u4 c);
+ u4 get_index(u4 r, u4 c);
+
+ u4 operator %(QPair<u4, u4> pos)
+ {
+  return covers(pos.first, pos.second);
+ }
+
  bool is_diagonal()
  {
   return (n_cols_ & 1) && (n_cols_ > 1); 
  }
+
+ bool is_cmajor()
+ {
+  return (n_rows_ & 1) && !is_diagonal();
+ }
+
+ bool is_rmajor()
+ {
+  return (n_rows_ & 1) == 0;
+ }
+
+ u4 get_diagonal_length()
+ {
+  if(n_rows_ & 1)
+    return n_cols();
+  return n_rows();
+ }
+
 
  bool is_symmetric()
  {
