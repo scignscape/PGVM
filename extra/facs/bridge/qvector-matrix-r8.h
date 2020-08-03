@@ -82,6 +82,8 @@ class QVector_Matrix_R8
  template<special_mode>
  u4 _get_index(u4 r, u4 c);
 
+ u4 get_sym_index(u4 r, u4 c);
+
  static r8* _defaultv();
 
  void _to_raw_data(QByteArray& qba, u4 offset, u4 count);
@@ -163,7 +165,10 @@ public:
  void from_raw_data_with_encoded_default(const QByteArray& qba);
  void from_raw_data_with_encoded_default(const QByteArray& qba, QPair<u4, u4> dims);
 
- _from_raw_data_special from_raw_data();
+ _from_raw_data_special from_raw_data()
+ {
+  return {*this, special_mode_for_raw_data::Normal};
+ }
 
  const r8& at(u4 r, u4 c);
  r8* get(u4 r, u4 c);

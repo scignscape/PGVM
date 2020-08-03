@@ -69,22 +69,40 @@ u4 QVector_Matrix_R8::total_size()
  return n_rows() * n_cols();
 }
 
-template<>
-u4 QVector_Matrix_R8::_get_index<QVector_Matrix_R8::special_mode::Sym>(u4 r, u4 c)
+u4 QVector_Matrix_R8::get_sym_index(u4 r, u4 c)
 {
+ // // assumes r, c are in bounds
  u4 result = 0;
- if(r < c)
+
+ if(is_cmajor())
  {
-  // //  treat them as if they're flipped
-  if(c <= n_rows())
-    result = ( (c - 1)*n_cols() ) - ( (c - 2)*(c - 1) )/2 + r;
+  if(c < r)
+    // //  treat them as if they're flipped
+    result = ( (r * (r - 1)) / 2 ) + c;
+  else 
+    result = ( (c * (c - 1)) / 2 ) + r;
  }
  else
  {
-  if(r <= n_rows())
+  if(c < r)
+    // //  treat them as if they're flipped
+    result = ( (c - 1)*n_cols() ) - ( (c - 2)*(c - 1) )/2 + r;
+  else
     result = ( (r - 1)*n_cols() ) - ( (r - 2)*(r - 1) )/2 + c;
  }
  return result;
+
+}
+
+template<>
+u4 QVector_Matrix_R8::_get_index<QVector_Matrix_R8::special_mode::Sym>(u4 r, u4 c)
+{
+ if(r > n_rows())
+   return 0;
+ if(c > n_rows())
+   return 0;
+
+ return get_sym_index(r, c);
 }
 
 template<>
@@ -153,6 +171,21 @@ void QVector_Matrix_R8::diagonal(u4 n_rows, u4 n_cols)
  n_rows_ |= cm;
  n_cols_ = n_cols << 1;
  n_cols_ |= 1;
+
+ u4 len = cm? n_cols + 1 : n_rows + 1;
+
+ if(elems_)
+ {
+  if(elems_->size() < len)
+    elems_->resize(len);
+  else if(elems_->size() > len)
+  {
+   elems_->resize(len);
+   elems_->squeeze();
+  }
+ }
+ else
+   elems_ = new QVector<r8>(len);
 }
 
 void QVector_Matrix_R8::diagonal()
@@ -182,7 +215,7 @@ void QVector_Matrix_R8::_to_raw_data(QByteArray& qba, u4 offset, u4 count)
 //   count = ts;
 
  const r8* rr = elems_->constData();
- rr += offset * value_byte_size();
+ rr += offset;
  qba = QByteArray( (const char*) rr, count * value_byte_size());
 }
 
@@ -238,7 +271,7 @@ void QVector_Matrix_R8::_from_raw_data(const QByteArray& qba,
 
  r8* d = elems_->data();
  *d = defaultv;
- memcpy(d + value_byte_size(), qba.constData(), ts * value_byte_size()); 
+ memcpy(d + 1, qba.constData(), ts * value_byte_size());
 }
 
 void QVector_Matrix_R8::_from_raw_data(const QByteArray& qba, QPair<u4, u4> dims, 
@@ -247,56 +280,64 @@ void QVector_Matrix_R8::_from_raw_data(const QByteArray& qba, QPair<u4, u4> dims
  switch(smx)
  {
  case special_mode_x::N_A:
-   set_n_rows(dims.first);
-   set_n_cols(dims.second);
-   _from_raw_data(qba, dims, defaultv);
-   break; 
+  set_n_rows(dims.first);
+  set_n_cols(dims.second);
+  _from_raw_data(qba, dims, defaultv);
+  break;
  case special_mode_x::Sym:
-   set_n_rows(dims.first);
-   n_cols_ = 0;
-   _from_raw_data(qba, dims, defaultv, 
-     ( dims.first * (dims.first + 1) )/2 );
-   break; 
+  set_n_rows(dims.first);
+  n_cols_ = 0;
+  _from_raw_data(qba, dims, defaultv,
+    ( dims.first * (dims.first + 1) )/2 );
+  break;
  case special_mode_x::Skew:
-   set_n_rows(dims.first);
-   n_cols_ = 1;
-   _from_raw_data(qba, dims, defaultv, 
-     ( dims.first * (dims.first + 1) )/2 );
-   break; 
+  set_n_rows(dims.first);
+  n_cols_ = 1;
+  _from_raw_data(qba, dims, defaultv,
+    ( dims.first * (dims.first + 1) )/2 );
+  break;
  case special_mode_x::Diag:
-   set_n_rows(dims.first);
-   set_n_cols(dims.second);
-   n_cols_ |= 1;
-   if(dims.first < dims.second)
-     n_rows_ |= 1;
-   _from_raw_data(qba, dims, defaultv, dims.first);
-   break; 
+  set_n_rows(dims.first);
+  set_n_cols(dims.second);
+  n_cols_ |= 1;
+  if(dims.second < dims.first)
+  {
+   n_rows_ |= 1;
+   _from_raw_data(qba, dims, defaultv, dims.second);
+  }
+  else
+    _from_raw_data(qba, dims, defaultv, dims.first);
+  break;
 
  case special_mode_x::ED:
-   set_n_rows(dims.first);
-   set_n_cols(dims.second);   
-   _from_raw_data_with_encoded_default(qba, dims, defaultv);
-   break; 
+  set_n_rows(dims.first);
+  set_n_cols(dims.second);
+  _from_raw_data_with_encoded_default(qba, dims, defaultv);
+  break;
  case special_mode_x::Sym_ED:
-   set_n_rows(dims.first);
-   n_cols_ = 0;
-   _from_raw_data_with_encoded_default(qba, dims, 
-     ( dims.first * (dims.first + 1) )/2 );
-   break; 
+  set_n_rows(dims.first);
+  n_cols_ = 0;
+  _from_raw_data_with_encoded_default(qba, dims,
+    ( dims.first * (dims.first + 1) )/2 );
+  break;
  case special_mode_x::Skew_ED:
-   set_n_rows(dims.first);
-   n_cols_ = 1;
-   _from_raw_data_with_encoded_default(qba, dims, 
-     ( dims.first * (dims.first + 1) )/2 );
-   break; 
+  set_n_rows(dims.first);
+  n_cols_ = 1;
+  _from_raw_data_with_encoded_default(qba, dims,
+    ( dims.first * (dims.first + 1) )/2 );
+  break;
  case special_mode_x::Diag_ED:
-   set_n_rows(dims.first);
-   set_n_cols(dims.second);
-   n_cols_ |= 1;
-   if(dims.first < dims.second)
-     n_rows_ |= 1;
-   _from_raw_data_with_encoded_default(qba, dims, dims.first);
-   break; 
+  set_n_rows(dims.first);
+  set_n_cols(dims.second);
+  n_cols_ |= 1;
+  if(dims.second < dims.first)
+  {
+   n_rows_ |= 1;
+   _from_raw_data_with_encoded_default(qba, dims, dims.second);
+  }
+  else
+    _from_raw_data_with_encoded_default(qba, dims, dims.first);
+  break;
  }
 }
 
@@ -470,38 +511,51 @@ r8* QVector_Matrix_R8::_defaultv()
 
 
 template<>
-r8 QVector_Matrix_R8::_value<QVector_Matrix_R8::special_mode::Sym>(u4 r, u4 c, r8 defaultv)
+r8 QVector_Matrix_R8::_value<QVector_Matrix_R8::special_mode::Sym>(
+  u4 r, u4 c, r8 defaultv)
 {
  if(!elems_)
    return defaultv;
- u4 pos = 0;
- if(r < c)
+ if(r > n_rows())
+   return defaultv;
+ if(c > n_rows())
+   return defaultv;
+
+ u4 pos = get_sym_index(r, c);
+ if(pos >= (u4) elems_->size())
+   pos = 0;
+
+/*
+ if(is_cmajor())
  {
-  // //  treat them as if they're flipped
-  if(c <= n_rows())
+
+ }
+ else
+ {
+  if(c < r)
   {
+   // //  treat them as if they're flipped
    pos = ( (c - 1)*n_cols() ) - ( (c - 2)*(c - 1) )/2 + r;
    if(pos >= (u4) elems_->size())
      pos = 0;
   }
- }
- else
- {
-  if(r <= n_rows())
+  else
   {
    pos = ( (r - 1)*n_cols() ) - ( (r - 2)*(r - 1) )/2 + c;
    if(pos >= (u4) elems_->size())
      pos = 0;
   }
  }
+*/
+
  return elems_->value(pos, defaultv);
 }
 
 template<>
 r8 QVector_Matrix_R8::_value<QVector_Matrix_R8::special_mode::Skew>(u4 r, u4 c, r8 defaultv)
 {
- if(r < c)
-   return -_value<QVector_Matrix_R8::special_mode::Sym>(r, c, defaultv);
+ if(c < r)
+   return -_value<QVector_Matrix_R8::special_mode::Sym>(c, r, defaultv);
  return _value<QVector_Matrix_R8::special_mode::Sym>(r, c, defaultv);
 }
 
@@ -580,9 +634,20 @@ template<>
 r8* QVector_Matrix_R8::_fetch<QVector_Matrix_R8::special_mode::Sym>(u4 r, u4 c)
 {
  if(elems_)
- { 
+ {
+  if(elems_->isEmpty())
+    elems_->push_back(*_defaultv());
+
   u4 pos = 0;
-  if(r < c)
+  if( (r <= n_rows()) && (c <= n_rows()) )
+  {
+   pos = get_sym_index(r, c);
+   if(pos >= (u4) elems_->size())
+     pos = 0;
+  }
+
+/*
+  if(c < r)
   {
    // //  treat them as if they're flipped
    if(c <= n_rows())
@@ -601,6 +666,7 @@ r8* QVector_Matrix_R8::_fetch<QVector_Matrix_R8::special_mode::Sym>(u4 r, u4 c)
       pos = 0;
    }
   }
+*/
   return &(*elems_)[pos];
  }
  elems_ = new QVector<r8>(1);
@@ -698,7 +764,7 @@ const r8& QVector_Matrix_R8::at(u4 r, u4 c)
 
 r8 QVector_Matrix_R8::get_value(u4 r, u4 c)
 {
- if(is_skew_symmetric() && (r < c))
+ if(is_skew_symmetric() && (c < r))
    return -at(c, r);
  return at(r, c);
 }
@@ -709,8 +775,17 @@ r8* QVector_Matrix_R8::_get<QVector_Matrix_R8::special_mode::Sym>(u4 r, u4 c)
 {
  if(!elems_)
    return nullptr;
- u4 pos = 0;
- if(r < c)
+ if(r > n_rows())
+   return nullptr;  
+ if(c > n_rows())
+   return nullptr;  
+
+ u4 pos = get_sym_index(r, c);
+ if(pos >= (u4) elems_->size())
+   pos = 0;
+
+/*
+ if(c < r)
  {
   // //  treat them as if they're flipped
   if(c <= n_rows())
@@ -729,6 +804,7 @@ r8* QVector_Matrix_R8::_get<QVector_Matrix_R8::special_mode::Sym>(u4 r, u4 c)
      pos = 0;
   }
  }
+*/
  if(pos == 0)
     return nullptr;
  return &(*elems_)[pos];
