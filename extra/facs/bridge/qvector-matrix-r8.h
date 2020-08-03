@@ -55,9 +55,24 @@ class QVector_Matrix_R8
   }
 
   void cmajor(const QByteArray& qba, QPair<u4, u4> dims = {0, 0}, r8 defaultv = 0);
-  void diagonal(const QByteArray& qba, QPair<u4, u4> dims = {0, 0}, r8 defaultv = 0);
-  void symmetric(const QByteArray& qba, QPair<u4, u4> dims = {0, 0}, r8 defaultv = 0);
-  void skew(const QByteArray& qba, QPair<u4, u4> dims = {0, 0}, r8 defaultv = 0);
+  void _diagonal(const QByteArray& qba, QPair<u4, u4> dims = {0, 0}, r8 defaultv = 0);
+  void _symmetric(const QByteArray& qba, QPair<u4, u4> dims = {0, 0}, r8 defaultv = 0);
+  void _skew(const QByteArray& qba, QPair<u4, u4> dims = {0, 0}, r8 defaultv = 0);
+
+  void diagonal(const QByteArray& qba, QVector<u4> dims = {0, 0}, r8 defaultv = 0)
+  {
+   _diagonal(qba, {dims.value(0), dims.value(1, dims.value(0))}, defaultv); 
+  }
+
+  void symmetric(const QByteArray& qba, QVector<u4> dims = {0, 0}, r8 defaultv = 0)
+  {
+   _symmetric(qba, {dims.value(0), dims.value(1, dims.value(0))}, defaultv); 
+  }
+
+  void skew(const QByteArray& qba, QVector<u4> dims = {0, 0}, r8 defaultv = 0)
+  {
+   _skew(qba, {dims.value(0), dims.value(1, dims.value(0))}, defaultv); 
+  }
 
  };
 
@@ -83,6 +98,8 @@ class QVector_Matrix_R8
  u4 _get_index(u4 r, u4 c);
 
  u4 get_sym_index(u4 r, u4 c);
+
+ void default_init(u4 len);
 
  static r8* _defaultv();
 
