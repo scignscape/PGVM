@@ -121,6 +121,13 @@ u4 QVector_Matrix_R8::_get_index<QVector_Matrix_R8::special_mode::Diag>(u4 r, u4
  return r;
 }
 
+u4 QVector_Matrix_R8::_get_normal_index(u4 r, u4 c)
+{
+ if(is_cmajor())
+   return ((c - 1) * n_rows()) + r;
+ return ((r - 1) * n_cols()) + c;
+}
+
 u4 QVector_Matrix_R8::get_index(u4 r, u4 c)
 {
  if(is_symmetric())
@@ -130,7 +137,7 @@ u4 QVector_Matrix_R8::get_index(u4 r, u4 c)
  if(is_diagonal())
    return _get_index<QVector_Matrix_R8::special_mode::Diag>(r, c);
 
- return ((r - 1) * n_cols()) + c;
+ return _get_normal_index(r, c);
 }
 
 
@@ -434,7 +441,7 @@ void QVector_Matrix_R8::_from_raw_data_special::_symmetric(const QByteArray& qba
 
 }
 
-void QVector_Matrix_R8::_from_raw_data_special::_skew(const QByteArray& qba, 
+void QVector_Matrix_R8::_from_raw_data_special::_skew_symmetric(const QByteArray& qba, 
   QPair<u4, u4> dims, r8 defaultv)
 {
  merge_dims(_this, dims);
@@ -587,7 +594,7 @@ r8 QVector_Matrix_R8::_value<QVector_Matrix_R8::special_mode::Diag>(u4 r, u4 c, 
 
  if(elems_)
  {
-  u4 pos = ((r - 1) * n_cols()) + c;
+  u4 pos = _get_normal_index(r, c); // ((r - 1) * n_cols()) + c;
   return elems_->value(pos, defaultv);
  }
  return defaultv;
@@ -606,7 +613,7 @@ r8 QVector_Matrix_R8::value(u4 r, u4 c, r8 defaultv)
 
  if(elems_)
  {
-  u4 pos = ((r - 1) * n_cols()) + c;
+  u4 pos = _get_normal_index(r, c); // ((r - 1) * n_cols()) + c;
   return elems_->value(pos, defaultv);
  }
  return defaultv;
@@ -694,7 +701,7 @@ template<>
 r8* QVector_Matrix_R8::_fetch<QVector_Matrix_R8::special_mode::Skew>(u4 r, u4 c)
 {
   // //  note: have to negate ...
- return _fetch<QVector_Matrix_R8::special_mode::Skew>(r, c);
+ return _fetch<QVector_Matrix_R8::special_mode::Sym>(r, c);
 }
 
 template<>
@@ -735,7 +742,7 @@ r8* QVector_Matrix_R8::fetch(u4 r, u4 c)
   {
    if(c <= n_cols())
    {  
-    pos = ((r - 1) * n_cols()) + c;
+    pos = _get_normal_index(r, c); // ((r - 1) * n_cols()) + c;
     if(pos >= (u4) elems_->size())
       pos = 0;
    }
@@ -829,6 +836,7 @@ r8* QVector_Matrix_R8::_get<QVector_Matrix_R8::special_mode::Sym>(u4 r, u4 c)
 template<>
 r8* QVector_Matrix_R8::_get<QVector_Matrix_R8::special_mode::Skew>(u4 r, u4 c)
 {
+  // // user has to negate
  return _get<QVector_Matrix_R8::special_mode::Sym>(r, c);
 }
 
@@ -863,7 +871,7 @@ r8* QVector_Matrix_R8::get(u4 r, u4 c)
   if(c > n_cols())
     return nullptr;
 
-  u4 pos = ((r - 1) * n_cols()) + c;
+  u4 pos = _get_normal_index(r, c); // ((r - 1) * n_cols()) + c;
   if(pos >= (u4) elems_->size())
     return nullptr; 
   

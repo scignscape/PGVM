@@ -3,6 +3,61 @@
 
 #include "bridge/qvector-matrix-r8.h"
 
+
+int main(int argc, char* argv[])
+{
+ QVector_Matrix_R8 v;
+ v.skew_symmetric(5);
+
+  // v.cmajor();
+
+ v[4][4] = 99;
+ v[1][3] = 22;
+ 
+ qDebug() << v[4][4] + v[1](3);
+ qDebug() << v[4][4] + v[3](1);
+
+ QByteArray qba;
+ v.to_raw_data(qba);
+
+ QVector_Matrix_R8 v1; //(7, 5);
+ v1.from_raw_data() //.cmajor()
+   .skew_symmetric(qba, {5});
+
+  //symmetric(qba, {7, 7});
+
+ qDebug() << v1[4][4] + v[1][3];
+ qDebug() << v1[4][4] + v[3](1);
+
+ return 0;
+}
+
+
+int main5(int argc, char* argv[])
+{
+ QVector_Matrix_R8 v(7, 5);
+
+ v.cmajor();
+
+ v[7][5] = 99;
+ v[2][1] = 3;
+ 
+ qDebug() << v[7][5] + v[2][1];
+
+
+ QByteArray qba;
+ v.to_raw_data(qba);
+
+ QVector_Matrix_R8 v1; //(7, 5);
+ v1.from_raw_data().cmajor(qba, {7, 5});
+
+ qDebug() << v1[7][5] + v1[2][1];
+
+
+ return 0;
+}
+
+
 int main2(int argc, char* argv[])
 {
  QVector<r8> rv(5);
@@ -23,13 +78,12 @@ int main2(int argc, char* argv[])
  return 0;
 }
 
-int main(int argc, char* argv[])
+int main4(int argc, char* argv[])
 {
  QVector_Matrix_R8 v;
  v.symmetric(5);
 
- v.cmajor();
- //v.diagonal(7);
+  // v.cmajor();
 
  v[4][4] = 99;
  v[1][3] = 22;
@@ -41,7 +95,8 @@ int main(int argc, char* argv[])
  v.to_raw_data(qba);
 
  QVector_Matrix_R8 v1; //(7, 5);
- v1.from_raw_data().cmajor().symmetric(qba, {5});
+ v1.from_raw_data() //.cmajor()
+   .symmetric(qba, {5});
 
   //symmetric(qba, {7, 7});
 
