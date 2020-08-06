@@ -5,6 +5,8 @@ TEMPLATE = app
 
 INCLUDEPATH += \
  ./include \
+ .. \
+
 
 INCLUDEPATH += \
   $$PROTOBUF_INSTALL/include
@@ -48,11 +50,10 @@ LIBS += -lstdc++fs -llapack -llapacke  -lblas
 
 #
 
-OBJECTS_DIR = ../build/objects
-DESTDIR = ../build/dest
-TARGETSDIR = ../build/targets
+OBJECTS_DIR = ../../../dest/objects
+DESTDIR = ../../../dest
 
-LIBS += -L$$DESTDIR -lcytolib -ltemp
+LIBS += -L$$DESTDIR -lcytolib -lbridge
 
 
 

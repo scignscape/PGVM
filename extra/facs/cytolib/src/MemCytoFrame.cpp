@@ -9,14 +9,20 @@
 
 #include <QDebug>
 
-void test_cyto()
-{
- qDebug() << "test_cyto()";
-}
+
+#include "../bridge/qvector-matrix-r8.h"
 
 
 namespace cytolib
 {
+
+QVector_Matrix_R8* MemCytoFrame::data_to_qvmatrix()
+{
+ QVector_Matrix_R8* result = new QVector_Matrix_R8;
+
+ return result;
+}
+
 
 	void MemCytoFrame::parse_fcs_header(ifstream &in, int nOffset)
 	{

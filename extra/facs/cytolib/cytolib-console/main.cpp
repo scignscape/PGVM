@@ -1,7 +1,11 @@
 
+// nc_license
+
 #include <QDebug>
 
 #include "cytolib/MemCytoFrame.hpp"
+
+#include "bridge/qvector-matrix-r8.h"
 
 //#include "src-temp/temp.cpp"
 
@@ -22,6 +26,8 @@ int main(int argc, char* argv[])
  cytolib::MemCytoFrame mcf(file_name.toStdString(), rp);
 
  mcf.read_fcs();
+
+ QVector_Matrix_R8* qvm = mcf.data_to_qvmatrix(); 
  
  qDebug() << "OK ...";
 

@@ -12,7 +12,12 @@
 #include "CytoFrame.hpp"
 #include "readFCSdata.hpp"
 
-void test_cyto();
+
+// // QScign
+class QVector_Matrix_R8;
+
+
+
 
 namespace cytolib
 {
@@ -64,6 +69,9 @@ public:
 	 * @param onlyTxt flag indicates whether to only parse text segment (which contains the keywords)
 	 */
 	MemCytoFrame(const string &filename, const FCS_READ_PARAM & config);
+
+    QVector_Matrix_R8* data_to_qvmatrix();
+
 
 	void convertToPb(pb::CytoFrame & fr_pb
 			, const string & h5_filename
