@@ -13,7 +13,9 @@ We can provide a detailed technical description of SDRM on request.  For a quick
 Although this technology is relevant for almost any kind of scientific research, we've been particularly focused on fields related to bioimaging: image analysis, image annotation, radiology, cytometry, etc.  Our team includes image-processing experts from several countries, and we're advised by one of the scientists who first standardized DICOM (Digital Imaging and Communications in Medicine).  Some of these tools may therefore be particularly relevant to Gates Open Research publications related to vaccines and immunization, and also to Covid-19.  Myself and one co-author (who is also a developer for SDRM) are writing a book on data integration for Covid-19 (to be published by Elsevier next year), so we've been trying to locate and improve access to Covid-19-related data sets.  
 
 
-  
+
+
+
 
  
 
