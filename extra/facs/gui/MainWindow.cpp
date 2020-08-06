@@ -495,6 +495,7 @@ void MainWindow::loadFile(QFile& path) // throws IOException
 }
 
  
+
 // // Get selected views
 LinkedList<ViewSettings*> MainWindow::getSelectedViews()
 {

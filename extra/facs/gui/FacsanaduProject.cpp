@@ -7,7 +7,12 @@
 
 #include "../data/Compensation.h"
 
+#include "bridge/qvector-matrix-r8.h"
+#include "cytolib/MemCytoFrame.hpp"
+
 #include <QMutexLocker>
+#include <QDebug>
+#include <QFileInfo>
 
 //package facsanadu.gui;
 
@@ -61,9 +66,36 @@ void FacsanaduProject::performGating(LinkedList<Dataset*> listDatasets)
 
 void FacsanaduProject::addDataset(QFile& path) // throws IOException
 {
+ cytolib::FCS_READ_HEADER_PARAM hp;
+ cytolib::FCS_READ_DATA_PARAM dp;
+ cytolib::FCS_READ_PARAM rp;
+
+ QFileInfo qfi(path);
+ 
+
+// test_cyto();
+
+ //
+ //QString file_name = "/home/nlevisrael/hypergr/pgvm/ar/extra/facs/Live_cells.fcs";
+
+ cytolib::MemCytoFrame mcf(qfi.absoluteFilePath().toStdString(), rp);
+
+ mcf.read_fcs();
+
+ QVector_Matrix_R8* qvm = mcf.data_to_qvmatrix(); 
+
+ r8 test = (*qvm)[2][3];
+
+ qDebug() << "R: " << qvm->n_rows();
+ qDebug() << "C: " << qvm->n_cols();
+
+ qDebug() << "T: " << test;
+ 
+ qDebug() << "OK ...";
 
 
- Q_UNUSED(path)
+
+// Q_UNUSED(path)
  /*
  if(FCSFile::isFCSfile(path))
  {

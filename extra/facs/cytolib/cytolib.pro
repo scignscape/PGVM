@@ -106,7 +106,7 @@ LIBS += -lstdc++fs -llapack -llapacke -lblas
 
 #
 
-OBJECTS_DIR = ../../dest/objects
+OBJECTS_DIR = ../../dest/objects/cytolib
 DESTDIR = ../../dest
 
 

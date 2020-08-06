@@ -39,7 +39,10 @@ SOURCES +=  \
 DEFINES += ARMA_DONT_USE_WRAPPER
 
 
-LIBS += -L$$PROTOBUF_INSTALL/lib -lprotobuf-lite
+#LIBS += -L$$PROTOBUF_INSTALL/lib -lprotobuf-lite
+
+LIBS += /home/nlevisrael/hypergr/flowcy/protobuf/install/lib/libprotobuf-lite.a
+
 LIBS += -L$$LIBHDF5_INSTALL/lib -lhdf5
 
 #LIBS += -O1 -L/home/nlevisrael/hypergr/flowcy/armadillo/armadillo-9.900.2 -larmadillo
@@ -50,7 +53,7 @@ LIBS += -lstdc++fs -llapack -llapacke  -lblas
 
 #
 
-OBJECTS_DIR = ../../../dest/objects
+OBJECTS_DIR = ../../../dest/objects/cytolib-console
 DESTDIR = ../../../dest
 
 LIBS += -L$$DESTDIR -lcytolib -lbridge

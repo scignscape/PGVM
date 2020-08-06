@@ -8,6 +8,20 @@ INCLUDEPATH += \
 
 INCLUDEPATH += \
  . \
+ ./cytolib/include \
+ ./cytolib/armadillo \
+
+
+INCLUDEPATH += \
+  $$PROTOBUF_INSTALL/include
+
+
+INCLUDEPATH += \
+  $$LIBHDF5_INSTALL/include
+
+INCLUDEPATH += \
+  ./cytolib/hdf5/
+
 
 
 HEADERS += \
@@ -83,11 +97,20 @@ DEFINES += DEFAULT_ICON_FOLDER=\\\"$$PWD/gui/resource\\\"
 #
 
 
-OBJECTS_DIR = ../dest/objects
+OBJECTS_DIR = ../dest/objects/facs
 DESTDIR = ../dest
 
-LIBS += -L$$PROTOBUF_INSTALL/lib -lprotobuf-lite
+
+message($$PROTOBUF_INSTALL)
+
+#LIBS += -L$$PROTOBUF_INSTALL/lib -lprotobuf-lite
+
+LIBS += /home/nlevisrael/hypergr/flowcy/protobuf/install/lib/libprotobuf-lite.a
+
+
 LIBS += -L$$LIBHDF5_INSTALL/lib -lhdf5
+LIBS += -lstdc++fs -llapack -llapacke -lblas 
+
 
 LIBS += -L$$DESTDIR -lcytolib -lbridge
 
