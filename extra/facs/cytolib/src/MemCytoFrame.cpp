@@ -19,7 +19,12 @@ namespace cytolib
 QVector_Matrix_R8* MemCytoFrame::data_to_qvmatrix()
 {
  QVector_Matrix_R8* result = new QVector_Matrix_R8;
-
+ r8* pd = data_.memptr();
+ u4 n_cols = data_.n_cols;
+ u4 n_rows = data_.n_rows;
+ u4 sz = n_rows * n_cols * 8;
+ QByteArray qba( (const char*) pd, sz);
+ result->from_raw_data().cmajor(qba, {n_rows, n_cols});
  return result;
 }
 

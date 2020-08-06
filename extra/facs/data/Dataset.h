@@ -6,7 +6,7 @@
 
 // package facsanadu.data;
 
-#include "bridge/qvector-matrix-double.h"
+#include "bridge/qvector-matrix-r8.h"
 
 #include <QList>
 #include <QMap>

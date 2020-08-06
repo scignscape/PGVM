@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 
  MainWindow mw;
  
- qDebug() << "OK";
+ qDebug() << "OK,";
 
  return app.exec();
 }

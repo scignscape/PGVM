@@ -28,6 +28,13 @@ int main(int argc, char* argv[])
  mcf.read_fcs();
 
  QVector_Matrix_R8* qvm = mcf.data_to_qvmatrix(); 
+
+ r8 test = (*qvm)[2][3];
+
+ qDebug() << "R: " << qvm->n_rows();
+ qDebug() << "C: " << qvm->n_cols();
+
+ qDebug() << "T: " << test;
  
  qDebug() << "OK ...";
 

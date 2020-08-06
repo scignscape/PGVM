@@ -6,6 +6,9 @@ TEMPLATE = app
 INCLUDEPATH += \
  ./gui \
 
+INCLUDEPATH += \
+ . \
+
 
 HEADERS += \
  ./gui/MainWindow.h  \
@@ -80,8 +83,13 @@ DEFINES += DEFAULT_ICON_FOLDER=\\\"$$PWD/gui/resource\\\"
 #
 
 
-OBJECTS_DIR = ./build/objects
-DESTDIR = ./build/dest
-TARGETSDIR = ./build/targets
+OBJECTS_DIR = ../dest/objects
+DESTDIR = ../dest
+
+LIBS += -L$$PROTOBUF_INSTALL/lib -lprotobuf-lite
+LIBS += -L$$LIBHDF5_INSTALL/lib -lhdf5
+
+LIBS += -L$$DESTDIR -lcytolib -lbridge
+
 
 
