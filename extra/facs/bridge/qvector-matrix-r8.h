@@ -133,6 +133,10 @@ public:
  void rmajor();
  void cmajor();
 
+ void save_to_file(QString path);
+ void load_from_file(QString path);
+
+
  u4 covers(u4 r, u4 c);
  u4 get_index(u4 r, u4 c);
 

@@ -35,8 +35,12 @@ int main(int argc, char* argv[])
  qDebug() << "C: " << qvm->n_cols();
 
  qDebug() << "T: " << test;
+
+ qvm->save_to_file(file_name + ".txt");
  
  qDebug() << "OK ...";
+
+ 
 
  return 0;
 }

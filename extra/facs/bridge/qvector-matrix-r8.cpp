@@ -6,6 +6,9 @@
 
 #include <cstring>
 
+#include <QFile>
+#include <QDataStream>
+
 
 QVector_Matrix_R8::QVector_Matrix_R8(u4 r, u4 c, r8 defaultv)
  : n_rows_(r << 1), n_cols_(c << 1), 
@@ -14,6 +17,28 @@ QVector_Matrix_R8::QVector_Matrix_R8(u4 r, u4 c, r8 defaultv)
  if(elems_)
    (*elems_)[0] = defaultv;
 }
+
+void QVector_Matrix_R8::save_to_file(QString path)
+{
+ QFile qf(path);
+ if(!qf.open( QIODevice::WriteOnly ))
+   return;
+ QDataStream qds(&qf);
+ qds << n_rows_ << n_cols_ << *elems_;
+ qf.close();
+}
+
+void QVector_Matrix_R8::load_from_file(QString path)
+{
+ QFile qf(path);
+ if(!qf.open( QIODevice::ReadOnly ))
+   return;
+ QDataStream qds(&qf);
+ elems_ = new QVector<r8>;
+ qds >> n_rows_ >> n_cols_ >> *elems_;
+ qf.close();
+}
+
 
 u4 QVector_Matrix_R8::n_rows() const
 {
