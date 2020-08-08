@@ -6,7 +6,6 @@
 
 // package facsanadu.data;
 
-#include "bridge/qvector-matrix-r8.h"
 
 #include <QList>
 #include <QMap>
@@ -22,13 +21,18 @@ class LengthProfileData;
 class FacsanaduProject;
 class ProfChannel;
 
+class QVector_Matrix_R8;
+
 
 class Dataset
 {
  int numChannel_; // =0;
  int numPc_; //=0;
 
- QList<QList<double>> eventsFloat_; //=new ArrayList<double[]>();
+ QVector_Matrix_R8* eventsFloat_;
+
+  //QList<QList<double>> eventsFloat_; //=new ArrayList<double[]>();
+
  QList<QList<double>> eventsFloatCompensated_; //=new ArrayList<double[]>();
 
  int numCompensated_; // = 0;
@@ -44,7 +48,7 @@ class Dataset
 
 public:
 
- Dataset();
+ Dataset(QVector_Matrix_R8* eventsFloat = nullptr);
  
  QList<ChannelInfo*> getChannelInfo();
  
@@ -67,7 +71,9 @@ public:
 
  ChannelInfo* getChannelInfoForProf(ProfChannel* pc);
 
- void setEvents(QList<QList<double>> e);
+//? void setEvents(QList<QList<double>> e);
+
+ void setEvents(QVector_Matrix_R8* e);
 
  // // Resize the events. Used to make space for virtual channels
  void resizeEvents(int newsize);

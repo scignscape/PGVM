@@ -53,6 +53,8 @@ public:
 
  ViewsPane(MainWindow* mw);
 
+ void test_one_view();
+
  void updateViews();
  void valuesupdated();
  void actionSetTool();

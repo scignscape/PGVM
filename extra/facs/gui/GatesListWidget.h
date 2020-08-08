@@ -49,7 +49,7 @@ Q_OBJECT
 
  void addMeasures(QTreeWidgetItem* parentItem, Gate* g, LinkedList<GateMeasure*> selcalc);
 
- void emitEvent(FacsanaduEvent event);
+ void emitEvent(FacsanaduEvent& event);
 //  {
 //  mw.handleEvent(event);
 //  }

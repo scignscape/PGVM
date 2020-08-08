@@ -5,6 +5,8 @@
 
 #include "view/ViewWidget.h"
 
+#include <QDebug>
+
 
 // package facsanadu.gui.panes;
 
@@ -26,13 +28,45 @@ ViewsMatrix::ViewsMatrix(MainWindow* mw)
  
  layViews_->setMargin(2);
  layViews_->setSpacing(2);
+
+ //layViews_->addWidget(lab, 0, 0);
+
+ QLabel* lbl = new QLabel("qwerty", this);
+ layViews_->addWidget(lbl, 0, 0);
+
+ QLabel* lbl1 = new QLabel("qwerty .", this);
+ layViews_->addWidget(lbl1, 0, 1);
+
+
  setLayout(layViews_);
  setStyleSheet("QWidget {background: white;}");
+}
+
+void ViewsMatrix::test_one_view()
+{
+ QLabel* lbl = new QLabel("qwerty ...", this);
+ layViews_->addWidget(lbl, 1, 0);
+
+/*
+ ViewWidget* lab = new ViewWidget(mw_);
+ lab->setTool(currentTool_);
+ lab->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+ lab->setMinimumHeight(200);
+ lab->setMinimumWidth(200);
+ //onerow.add(lab);
+
+ layViews_->addWidget(lab, 1, 1);
+
+ //QLabel* lbl = new QLabel
+*/
 }
 
 // // Update the layout of everything
 void ViewsMatrix::updateViews()
 {
+
+ qDebug() << "I: " << QString("%1/%2").arg("DEFAULT_ICON_FOLDER").arg("name");
+ 
 /*
  //FacsanaduProject project=mw.project;
  LinkedList<Dataset> selds=mw.getSelectedDatasets();

@@ -116,29 +116,37 @@ void DatasetListWidget::actionSelectAllDatasets()
  
 void DatasetListWidget::actionAddDatasets()
 {
- QFileDialog dia; // =new QFileDialog();
- dia.setFileMode(QFileDialog::FileMode::ExistingFiles);
- dia.setDirectory(mw_->lastDirectory().absolutePath());
- dia.setNameFilter(tr("FCS files") + " (*.fcs *.txt *.lmd)");
- if( dia.exec() )
- {
-  try
-  {
-   for(QString sf : dia.selectedFiles())
-   {
-    mw_->load_selected_file(sf);
-//?    File f=new File(sf);
-//?    mw.lastDirectory=f.getParentFile();
-//?    mw.loadFile(f);
-   }
-  }
-  catch ( ... ) //IOException e)
-  {
-   //? QTutil.showNotice(mw, e.getMessage());
-   //? e.printStackTrace();
-  }
- }  
- updateDatasetList();
+//
+    mw_->load_selected_file("/home/nlevisrael/hypergr/pgvm/ar/extra/facs/Live_cells.fcs");
+// updateDatasetList();
+
+//mw_->load_selected_file("");
+
+// QFileDialog dia; // =new QFileDialog();
+// dia.setFileMode(QFileDialog::FileMode::ExistingFiles);
+// dia.setDirectory(mw_->lastDirectory().absolutePath());
+// dia.setNameFilter(tr("FCS files") + " (*.fcs *.txt *.lmd)");
+// if( dia.exec() )
+// {
+//  try
+//  {
+//   for(QString sf : dia.selectedFiles())
+//   {
+//    mw_->load_selected_file(sf);
+////?    File f=new File(sf);
+////?    mw.lastDirectory=f.getParentFile();
+////?    mw.loadFile(f);
+//   }
+//  }
+//  catch ( ... ) //IOException e)
+//  {
+//   //? QTutil.showNotice(mw, e.getMessage());
+//   //? e.printStackTrace();
+//  }
+// }
+////? updateDatasetList();
+
+
 }
 
 void DatasetListWidget::actionRemoveDataset()
@@ -152,10 +160,11 @@ void DatasetListWidget::actionRemoveDataset()
  }
 
  updateDatasetList();
- emitEvent(EventDatasetsChanged());
+ EventDatasetsChanged ev;
+ emitEvent(ev);
 }
 
-void DatasetListWidget::emitEvent(FacsanaduEvent event)
+void DatasetListWidget::emitEvent(FacsanaduEvent& event)
 {
   // ptr?
  mw_->handleEvent(&event);
@@ -176,7 +185,8 @@ void DatasetListWidget::actionMoveUp()
   project->datasets().removeAll(ds);
   project->datasets().insert(i-1, ds);
  }
- emitEvent(EventDatasetsChanged());
+ EventDatasetsChanged ev;
+ emitEvent(ev);
 }
   
 void DatasetListWidget::actionMoveDown()
@@ -194,7 +204,8 @@ void DatasetListWidget::actionMoveDown()
   project->datasets().removeAll(ds);
   project->datasets().insert(i+1, ds);
  }
- emitEvent(EventDatasetsChanged());
+ EventDatasetsChanged ev;
+ emitEvent(ev);
 }
 
 LinkedList<Dataset*> DatasetListWidget::getSelectedDatasets()

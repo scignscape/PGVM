@@ -30,8 +30,6 @@ ViewsPane::ViewsPane(MainWindow* mw)
  bGateRange_ = new QPushButton(QIcon(ImgResource::gateRange()),"");
  QList<QPushButton*> tb {bGateSelect_, bGatePoly_, 
    bGateRect_, bGateEllipse_, bGateRange_};
-
- matrix_ = new ViewsMatrix(mw);
   
  for(QPushButton* t : tb)
  {
@@ -84,6 +82,11 @@ ViewsPane::ViewsPane(MainWindow* mw)
 //? spMaxEvents.valueChanged.connect(this,"valuesupdated()");
 //? cbMaxEvents.stateChanged.connect(this,"valuesupdated()");
  valuesupdated();
+}
+
+void ViewsPane::test_one_view()
+{
+ matrix_->test_one_view();
 }
 
 void ViewsPane::updateViews()

@@ -344,21 +344,24 @@ void ViewWidget::CallbackSetChannel::actionSet()
  else
    vw->viewsettings_->set_indexY(chanid);
 
- vw->mainWindow_->handleEvent(EventViewsChanged());
+ EventViewsChanged ev;
+ vw->mainWindow_->handleEvent(ev);
 }
 
 
 void ViewWidget::CallbackSetHistogram::actionSet()
 {
  vw->viewsettings_->setHistogram(chanid);
- vw->mainWindow_->handleEvent(EventViewsChanged());
+ EventViewsChanged ev;
+ vw->mainWindow_->handleEvent(ev);
 }
 
 
 void ViewWidget::CallbackSetGate::actionSet()
 {
  vw->viewsettings_->set_gate(g);
- vw->mainWindow_->handleEvent(EventViewsChanged());
+ EventViewsChanged ev;
+ vw->mainWindow_->handleEvent(ev);
 }
 
 ViewWidget::CallbackSetTransformation::CallbackSetTransformation(
@@ -390,7 +393,8 @@ void ViewWidget::CallbackSetTransformation::actionSet()
    viewsettings.transformation.set(index, trans);
 */
 
- vw->mainWindow_->handleEvent(EventViewsChanged());
+ EventViewsChanged ev;
+ vw->mainWindow_->handleEvent(ev);
 }
 
 void ViewWidget::CallbackSetZoom::actionSet()
@@ -406,7 +410,8 @@ void ViewWidget::CallbackSetZoom::actionSet()
 void ViewWidget::CallbackSetBins::actionSet()
 {
  vw->viewsettings_->set_numHistBins(bins);
- vw->mainWindow_->handleEvent(EventViewsChanged());
+ EventViewsChanged ev;
+ vw->mainWindow_->handleEvent(ev);
 }
 
 int ViewWidget::getIndexX()
@@ -419,7 +424,7 @@ int ViewWidget::getIndexY()
  return viewsettings_->indexY();
 }
 
-void ViewWidget::sendEvent(FacsanaduEvent event)
+void ViewWidget::sendEvent(FacsanaduEvent& event)
 {
  mainWindow_->handleEvent(event);
 }
@@ -427,7 +432,8 @@ void ViewWidget::sendEvent(FacsanaduEvent event)
 void ViewWidget::actionSwapAxis()
 {
  viewsettings_->swapAxis();
- mainWindow_->handleEvent(EventViewsChanged());
+ EventViewsChanged ev;
+ mainWindow_->handleEvent(ev);
 }
 
 void ViewWidget::setTool(ViewToolChoice::Enum e)

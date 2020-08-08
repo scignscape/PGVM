@@ -32,9 +32,12 @@ class ViewsMatrix : public QWidget
 public: 
  
  ViewsMatrix(MainWindow* mw); 
+
+ void test_one_view();
  
  // // Update the layout of everything
  void updateViews();
+
  void setMaxEvents(int maxevents);
  void setTool(ViewToolChoice::Enum choice);
  void invalidateCache();

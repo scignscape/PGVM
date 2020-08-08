@@ -75,6 +75,8 @@ ViewsListWidget::ViewsListWidget(MainWindow* mw)
  main_layout_->addLayout(QTutil::layoutHorizontal({bSelectAllViews, bNewView, bRemoveView}));
 
  tableViews_->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+ setLayout(main_layout_);
 }
  
 void ViewsListWidget::dothelayout()

@@ -169,7 +169,7 @@ public:
  
  int getIndexX();
  int getIndexY();
- void sendEvent(FacsanaduEvent event);
+ void sendEvent(FacsanaduEvent& event);
 
  void actionSwapAxis();
 

@@ -38,7 +38,7 @@ class DatasetListWidget : public QWidget
 
  QTableWidget* tableDatasets_; // =new QTableWidget();
 
- void emitEvent(FacsanaduEvent event);
+ void emitEvent(FacsanaduEvent& event);
 
 public: 
   

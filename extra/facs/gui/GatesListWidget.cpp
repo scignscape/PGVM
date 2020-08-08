@@ -231,7 +231,8 @@ void GatesListWidget::actionAddMeasure()
    {
     g->attachMeasure(calc);
    }
-   emitEvent(EventGatesChanged()); 
+   EventGatesChanged ev;
+   emitEvent(ev);
   }
  }
 }
@@ -250,7 +251,8 @@ void GatesListWidget::actionRenameGate()
     || !project->gateset()->getGateNames().contains(newname)))
   {
    g->set_name(newname);
-   emitEvent(EventGatesChanged());
+   EventGatesChanged ev;
+   emitEvent(ev);
   }
   else
     QTutil::showNotice(mw_, tr("Invalid name"));
@@ -258,7 +260,7 @@ void GatesListWidget::actionRenameGate()
 }
 
 
-void GatesListWidget::emitEvent(FacsanaduEvent event)
+void GatesListWidget::emitEvent(FacsanaduEvent& event)
 {
   // //  by-value?
  mw_->handleEvent(&event);
@@ -301,9 +303,13 @@ void GatesListWidget::actionRemoveGates()
    changedViews = true;
   }
  }
- emitEvent(EventGatesChanged());
+ EventGatesChanged ev;
+ emitEvent(ev);
  if(changedViews)
-   emitEvent(EventViewsChanged());
+ {
+  EventViewsChanged ev;
+  emitEvent(ev);
+ }
 }
  
 void GatesListWidget::addGate(Gate* suggestParent, Gate* g)

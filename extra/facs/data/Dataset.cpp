@@ -5,11 +5,18 @@
 
 #include "ChannelInfo.h"
 
+
+#include "bridge/qvector-matrix-r8.h"
+
 #include <algorithm>
 
-Dataset::Dataset()
+Dataset::Dataset(QVector_Matrix_R8* eventsFloat)
+ : eventsFloat_(eventsFloat)
 {
- numChannel_ = 0;
+ if(eventsFloat_)
+   numChannel_ = eventsFloat_->n_cols();
+ else
+   numChannel_ = 0;
  numPc_ = 0;
 
  numCompensated_ = 0;
@@ -24,7 +31,8 @@ QList<ChannelInfo*> Dataset::getChannelInfo()
 
 int Dataset::getNumObservations()
 {
- return eventsFloat_.size();
+// return eventsFloat_.size();
+ return eventsFloat_->n_rows();
 }
 
 
@@ -139,18 +147,21 @@ ChannelInfo* Dataset::getChannelInfoForProf(ProfChannel* pc)
  return nullptr;
 }
 
-void Dataset::setEvents(QList<QList<double>> e)
+void Dataset::setEvents(QVector_Matrix_R8* e)  // QList<QList<double>> e)
 {
  eventsFloat_ = e;
- numChannel_ = 0;
- if(getNumObservations() > 0)
-   numChannel_ = eventsFloat_.first().length();
+//? numChannel_ = 0;
+//? if(getNumObservations() > 0)
+ //?  numChannel_ = eventsFloat_.first().length();
+ numChannel_ = eventsFloat_->n_cols();
 }
 
  // // Resize the events. Used to make space for virtual channels
 void Dataset::resizeEvents(int newsize)
 {
  QList<QList<double>> newEventsFloat; // =new ArrayList<double[]>(eventsFloat.size());
+
+/*
  for(QList<double> o : eventsFloat_)
  {
   QVector<double> n(newsize); // =new double[newsize];
@@ -159,7 +170,9 @@ void Dataset::resizeEvents(int newsize)
   //?System.arraycopy(o, 0, n, 0, numChannel);
   newEventsFloat.push_back(n.toList());
  }
- eventsFloat_ = newEventsFloat;
+  //? eventsFloat_ = newEventsFloat;
+ */
+
 }
 
 

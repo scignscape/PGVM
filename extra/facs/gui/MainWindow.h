@@ -166,7 +166,7 @@ public:
  void handleEvent(FacsanaduEvent* event);
 
   // temp ...
- void handleEvent(FacsanaduEvent event)
+ void handleEvent(FacsanaduEvent& event)
  {
   handleEvent(&event); 
  }

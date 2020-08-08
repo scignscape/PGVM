@@ -154,8 +154,10 @@ MainWindow::MainWindow()
 
  QVBoxLayout* layLeft = new QVBoxLayout();
 
+//? 
  layLeft->addWidget(datasetsw_);
-//? layLeft->addWidget(viewsw_);
+//?
+ layLeft->addWidget(viewsw_);
 //? layLeft->addWidget(gatesw_);
 //? layLeft->addWidget(pc_);
 
@@ -222,14 +224,22 @@ void MainWindow::load_selected_file(QString sf)
 {
  qDebug() << "sf: " << sf;
 
+ sf = "/home/nlevisrael/hypergr/pgvm/ar/extra/facs/Live_cells.fcs";
+
+ qDebug() << "sf: " << sf;
+
  QFileInfo qfi(sf);
  lastDirectory_ = qfi.absoluteDir();
  QFile qf(sf);
  loadFile(qf);
 
+
  //?    File f=new File(sf);
 //?    mw.lastDirectory=f.getParentFile();
 //?    mw.loadFile(f);
+
+//?
+ paneViews_->test_one_view();
 
 }
 
@@ -491,7 +501,8 @@ void MainWindow::actionExportCSV()
 void MainWindow::loadFile(QFile& path) // throws IOException
 {
  project_->addDataset(path);
- handleEvent(EventDatasetsChanged());
+ EventDatasetsChanged evd; // EventDatasetsChanged();
+ handleEvent(evd);
 }
 
  
@@ -556,7 +567,9 @@ void MainWindow::dogating()
 // // Event bus
 void MainWindow::handleEvent(FacsanaduEvent* event)
 {
- switch(event->get_description())
+ FacsanaduEvent::Description d = event->get_description();
+
+ switch(d)
  // if(event instanceof EventGatesChanged)
  {
  case FacsanaduEvent::Description::EventGatesChanged:

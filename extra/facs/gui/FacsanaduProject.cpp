@@ -99,6 +99,10 @@ void FacsanaduProject::addDataset(QFile& path) // throws IOException
  
  qDebug() << "OK ...";
 
+ Dataset* ds = new Dataset(qvm);
+
+ addDataset(ds);
+ 
 
 // Q_UNUSED(path)
  /*

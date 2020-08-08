@@ -17,7 +17,7 @@ SOURCES +=  \
 
 
 
-OBJECTS_DIR = ../../dest-qtc/objects
-DESTDIR = ../../dest-qtc
+OBJECTS_DIR = $$PWD/../../dest_qtc/objects
+DESTDIR = $$PWD/../../dest_qtc
 
 

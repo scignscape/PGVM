@@ -22,14 +22,18 @@ public:
   EventViewsChanged,
  };
 
- virtual Description get_description()
- {
-  return Description::N_A;
- } 
+ virtual Description get_description() = 0;
+// {
+//  return Description::N_A;
+// }
 };
 
 class EventCompensationChanged : public FacsanaduEvent // implements ...
 {
+public:
+
+ EventCompensationChanged() {}
+
  Description get_description() Q_DECL_OVERRIDE
  {
   return Description::EventCompensationChanged;
@@ -39,6 +43,10 @@ class EventCompensationChanged : public FacsanaduEvent // implements ...
 
 class EventDatasetsChanged : public FacsanaduEvent
 {
+public:
+
+ EventDatasetsChanged() {}
+
  Description get_description() Q_DECL_OVERRIDE
  {
   return Description::EventDatasetsChanged;
@@ -59,6 +67,10 @@ public:
 
 class EventGatesMoved : public FacsanaduEvent
 {
+public:
+
+ EventGatesMoved() {}
+
  Description get_description() Q_DECL_OVERRIDE
  {
   return Description::EventGatesMoved;
