@@ -18,6 +18,41 @@ QVector_Matrix_R8::QVector_Matrix_R8(u4 r, u4 c, r8 defaultv)
    (*elems_)[0] = defaultv;
 }
 
+void QVector_Matrix_R8::get_row(u4 r, QVector<r8>& row)
+{
+ row.resize(n_cols_);
+ if(is_diagonal())
+ {
+  row.fill(0);
+  if(r <= n_cols_)
+    row[r - 1] = at(r, r);
+  return;
+ }
+ if(is_symmetric() || is_skew_symmetric())
+ {
+  for(int c = 1; c <= n_cols_; ++c)
+  {
+   row[c - 1] = get_at(r, c);
+  }
+  return;
+ }
+ if(is_cmajor())
+ {
+  for(int c = 1; c <= n_cols_; ++c)
+  {
+   row[c - 1] = get_at(r, c);
+  }
+  return;
+ }
+
+
+}
+
+QVector_Matrix_R8* QVector_Matrix_R8::new_from_dimensons()
+{
+ return new QVector_Matrix_R8(n_rows_, n_cols_);
+}
+
 void QVector_Matrix_R8::save_to_file(QString path)
 {
  QFile qf(path);
@@ -810,7 +845,15 @@ const r8& QVector_Matrix_R8::at(u4 r, u4 c)
  return *fetch(r, c);
 }
 
+ // // keep this?
 r8 QVector_Matrix_R8::get_value(u4 r, u4 c)
+{
+ if(is_skew_symmetric() && (c < r))
+   return -at(c, r);
+ return at(r, c);
+}
+
+r8 QVector_Matrix_R8::get_at(u4 r, u4 c)
 {
  if(is_skew_symmetric() && (c < r))
    return -at(c, r);

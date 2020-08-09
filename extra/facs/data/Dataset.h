@@ -31,9 +31,11 @@ class Dataset
 
  QVector_Matrix_R8* eventsFloat_;
 
+ QVector_Matrix_R8* eventsFloatCompensated_;
+
   //QList<QList<double>> eventsFloat_; //=new ArrayList<double[]>();
 
- QList<QList<double>> eventsFloatCompensated_; //=new ArrayList<double[]>();
+// QList<QList<double>> eventsFloatCompensated_; //=new ArrayList<double[]>();
 
  int numCompensated_; // = 0;
 
@@ -45,6 +47,7 @@ class Dataset
 
  QMap<QString, QString> metaKeyName_; //=new TreeMap<String, String>();
 
+ do_preliminary_compensation();
 
 public:
 

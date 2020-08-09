@@ -20,6 +20,23 @@ Dataset::Dataset(QVector_Matrix_R8* eventsFloat)
  numPc_ = 0;
 
  numCompensated_ = 0;
+
+ if(eventsFloat_)
+   eventsFloatCompensated_ = new_from_dimensons();
+ else
+   eventsFloatCompensated_ = nullptr;
+
+ do_preliminary_compensation();
+}
+
+void Dataset::do_preliminary_compensation()
+{
+ for(int r = 1; r <= eventsFloat_->n_rows(); ++r)
+ {
+  QVector<r8> row;
+  eventsFloat_->get_row(r, row);
+  
+ }
 }
 
 
@@ -63,9 +80,10 @@ QString Dataset::get_file_source_name()
 
 double Dataset::getAsFloatCompensated(int obs, int indexChan)
 {
- //?return eventsFloatCompensated_.at(obs)[indexChan];
+ //?
+ return eventsFloatCompensated_.at(obs)[indexChan];
 
- return eventsFloat_->at(obs, indexChan);
+ //return eventsFloat_->at(obs, indexChan);
 
  //return eventsFloat.get(obs)[indexChan];
 }

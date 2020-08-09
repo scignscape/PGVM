@@ -125,6 +125,10 @@ public:
  ACCESSORS__DECLARE(u4 ,n_rows)
  ACCESSORS__DECLARE(u4 ,n_cols)
 
+ QVector_Matrix_R8* new_from_dimensons();
+
+ void get_row(u4 r, QVector<r8>& row);
+
  void symmetric(u4 n_rows);
  void skew_symmetric(u4 n_rows);
  void diagonal(u4 n_rows);
@@ -200,7 +204,9 @@ public:
  r8* fetch(u4 r, u4 c);
  r8 value(u4 r, u4 c);
  r8 value(u4 r, u4 c, r8 defaultv);
+
  r8 get_value(u4 r, u4 c);
+ r8 get_at(u4 r, u4 c);
 
  u4 total_size();
 
