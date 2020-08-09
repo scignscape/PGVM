@@ -19,6 +19,7 @@
 
 
 #include <QtMath>
+#include <QDebug>
 
 
 // package facsanadu.gui.view;
@@ -93,12 +94,69 @@ void ViewRenderer::renderHistogram(ViewSettings* viewsettings, Dataset* segment,
 // drawgatesRecursive(pm, trans, viewsettings->gate, viewsettings, handles);
 }
 
+// // test by rendering everything ...
+void test_render_xy(ViewSettings* viewsettings, Dataset* ds,
+  ViewTransform* trans, QPainter& pm, int rendermax)
+{
+ qDebug() << "test_render_xy";
+
+ QList<ChannelInfo*> chans = ds->getChannelInfo();
+
+ QVector<int> colr {{55}};
+ QVector<int> colg {{10}};
+ QVector<int> colb {{155}};
+
+// int colr[]=new int[listgates.size()];
+// int colg[]=new int[listgates.size()];
+// int colb[]=new int[listgates.size()];
+
+ 
+ QPen pen(QColor::fromRgb(0,0,255));
+ pen.setWidth(2);
+ pm.setPen(pen);
+
+ QColor thecol; //=new QColor();
+ QList<int> accepted = {0, 1, 2, 3};  // gr->getAcceptedFromGate(viewsettings->gate() );
+ if(! accepted.isEmpty())
+ {
+  for(int i=0; i<accepted.size() && i < rendermax; ++i)
+  {
+   int ind = accepted.at(i);
+   double chanX;
+   double chanY;
+
+ qDebug() << "test_render_xy ...";
+
+//  chanX=viewsettings->transformation.transform(ds, ind, viewsettings->indexX);
+//  chanY=viewsettings->transformation.transform(ds, ind, viewsettings->indexY);
+   chanX = ds->getAsFloatCompensated(ind, viewsettings->indexX() );
+   chanY = ds->getAsFloatCompensated(ind, viewsettings->indexY() );
+  
+   int x = trans->mapFcsToScreenX(chanX);
+   int y = trans->mapFcsToScreenY(chanY);
+
+   int colid = 0; //gr->getGateIntIDForObs(ind);
+   thecol.setRgb(colr[colid], colg[colid], colb[colid]); 
+
+   pen.setColor(thecol);
+   pm.setPen(pen);
+   pm.drawPoint(x, y);  
+  }
+ }
+}
+
  /**
  * Draw scatter plot
  */
 void ViewRenderer::renderXY(ViewSettings* viewsettings, Dataset* ds,
   GatingResult* gr, ViewTransform* trans, QPainter& pm, int rendermax)
 {
+ if(!gr)
+ {
+  test_render_xy(viewsettings, ds, trans, pm, rendermax);
+  return;
+ } 
+
  QList<ChannelInfo*> chans = ds->getChannelInfo();
 
  QList<Gate*> listgates = gr->getIdGates();

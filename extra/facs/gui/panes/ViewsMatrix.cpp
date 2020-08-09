@@ -5,6 +5,8 @@
 
 #include "view/ViewWidget.h"
 
+#include "MainWindow.h"
+
 #include <QDebug>
 
 
@@ -47,7 +49,7 @@ void ViewsMatrix::test_one_view()
  QLabel* lbl = new QLabel("qwerty ...", this);
  layViews_->addWidget(lbl, 1, 0);
 
-/*
+
  ViewWidget* lab = new ViewWidget(mw_);
  lab->setTool(currentTool_);
  lab->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -55,10 +57,14 @@ void ViewsMatrix::test_one_view()
  lab->setMinimumWidth(200);
  //onerow.add(lab);
 
+ Dataset* ds =  mw_->get_last_dataset();
+
+ lab->setDataset(ds);
+
  layViews_->addWidget(lab, 1, 1);
 
  //QLabel* lbl = new QLabel
-*/
+
 }
 
 // // Update the layout of everything

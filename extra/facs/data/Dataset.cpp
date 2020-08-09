@@ -63,8 +63,11 @@ QString Dataset::get_file_source_name()
 
 double Dataset::getAsFloatCompensated(int obs, int indexChan)
 {
- return eventsFloatCompensated_.at(obs)[indexChan];
-  //return eventsFloat.get(obs)[indexChan];
+ //?return eventsFloatCompensated_.at(obs)[indexChan];
+
+ return eventsFloat_->at(obs, indexChan);
+
+ //return eventsFloat.get(obs)[indexChan];
 }
 
 

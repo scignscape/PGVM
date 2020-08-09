@@ -513,6 +513,10 @@ LinkedList<ViewSettings*> MainWindow::getSelectedViews()
  return viewsw_->getSelectedViews();
 }
 
+Dataset* MainWindow::get_last_dataset()
+{
+ return project_->datasets().first();
+}
 
 // // Get selected datasets
 LinkedList<Dataset*> MainWindow::getSelectedDatasets()

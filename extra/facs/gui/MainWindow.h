@@ -127,7 +127,7 @@ public:
  }
 
  void load_selected_file(QString sf);
-
+ Dataset* get_last_dataset();
 
  // // Constructor
  MainWindow();

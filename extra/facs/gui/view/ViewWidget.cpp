@@ -11,6 +11,7 @@
 #include "gates/GateSet.h"
 #include "gates/gate-info.h"
 
+#include <QDebug>
 
 #include "data/Dataset.h"
 #include "data/ChannelInfo.h"
@@ -18,6 +19,9 @@
 
 #include "FacsanaduProject.h"
 #include "MainWindow.h"
+
+#include "ViewRenderer.h"
+
 
 #include <limits>
 
@@ -44,7 +48,8 @@ ViewWidget::ViewWidget(MainWindow* mw)
  curhandle_ = nullptr;
 
  // pointLast_; // = new QPointF();
- maxevents_ = 0; //? 
+ // temp ... maxevents_ = 0; //?
+ maxevents_ = 1000;
 
  mainWindow_ = mw;
 
@@ -70,8 +75,12 @@ void ViewWidget::render()
 
 void ViewWidget::updatePointImage()
 {
-  //?FacsanaduProject* project = mainWindow_->project();
-  //?GatingResult* gr = project->get_GatingResult(dataset_);  
+  //?
+ FacsanaduProject* project = mainWindow_->project();
+  //?
+ GatingResult* gr = project->get_GatingResult(dataset_);  
+
+ //GatingResult* gr = nullptr;
 
   // // GatingResult not yet impl ...
  long newGatingTime = 0; //gr->lastGatingCalculationTime();
@@ -81,6 +90,19 @@ void ViewWidget::updatePointImage()
  if(img_ == nullptr || lastGatingTime_ < newGatingTime 
    || img_->width() != width() || img_->height() != height())
  {
+ qDebug() << "updating ...";
+
+  img_ = new QImage(width(), height(), QImage::Format_RGB32); //, Format.Format_RGB32);
+
+  QPainter pm2(img_);
+//?  pm2.begin(img_);
+  pm2.setBrush(QBrush(QColor(225, 210, 200)));
+  pm2.drawRect(-5,-5,10000,10000);
+
+  ViewRenderer::renderData(viewsettings_, dataset_, gr, trans_, pm2, maxevents_); 
+//?  pm2.end();
+
+
 /*
   System.out.println("update cache");
   img= QImage(width(), height(), Format.Format_RGB32);
@@ -111,6 +133,9 @@ void ViewWidget::paintEvent(QPaintEvent* pe)
 
  updatePointImage();
 
+ qDebug() << "drawing ...";
+
+ pm.begin(this);
  pm.drawImage(QPoint {0, 0}, *img_);
 
 /*
@@ -189,7 +214,7 @@ void ViewWidget::mousePressEvent(QMouseEvent* event)
    else
      lastwasx=false;
 
-   menu->addAction(tr("Swap axis"), this, "actionSwapAxis()");
+   menu->addAction(tr("Swap axis"), this, SLOT(actionSwapAxis()));
 
 
    QList<ChannelInfo*> chans = dataset_->getChannelInfo();
