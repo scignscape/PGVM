@@ -8,6 +8,8 @@
 
 #include <QFile>
 #include <QDataStream>
+#include <QtGlobal>
+#include <QDebug>
 
 
 QVector_Matrix_R8::QVector_Matrix_R8(u4 r, u4 c, r8 defaultv)
@@ -18,19 +20,92 @@ QVector_Matrix_R8::QVector_Matrix_R8(u4 r, u4 c, r8 defaultv)
    (*elems_)[0] = defaultv;
 }
 
+void QVector_Matrix_R8::merge_row(const QVector<r8>& vec, u4 row)
+{
+ if(is_diagonal())
+ {
+  if(row <= n_cols())
+    (*this)[row][row] = vec.value(row - 1);
+  return;
+ }
+ if(is_symmetric() || is_skew_symmetric())
+ {
+  for(u4 c = 1; c <= n_cols(); ++c)
+  {
+   (*this)[row][c] = vec.value(c - 1);
+  }
+  return;
+ }
+ if(is_cmajor())
+ {
+  //?for(u4 c = 1; c <= n_cols(); ++c)
+  for(u4 index = row, i = 0; i < n_cols(); ++i, index += n_rows()) 
+  {
+   //?u4 index = r + (c - 1) * n_rows();
+   (*elems_)[index] = vec.value(i);
+  }
+  return;
+ }
+
+ u4 index = 1 + ((row - 1) * n_cols());
+ 
+ std::copy(vec.begin(), vec.end(), elems_->begin() + index);
+
+// for(u4 i = 0; i < n_cols(); ++i, ++index)
+// {
+//  (*elems_)[index] = vec[i];
+// }
+}
+
+void QVector_Matrix_R8::multiply(const QVector<r8>& vec, QVector<r8>& result)
+{
+ result.resize(vec.size());
+ u4 r = 1;
+ std::transform(vec.begin(), vec.end(), result.begin(), [&r, &vec, this](r8) -> r8
+ {
+  r8 result = 0;
+  for(u4 c = 1; c <= (u4) vec.size(); ++c)
+  {
+   result += get_at(r, c);
+  }
+  ++r;
+  return result;
+ });
+}
+
+
+void QVector_Matrix_R8::fill_diagonal(r8 val)
+{
+ u4 len = qMin(n_rows(), n_cols());
+ u4 elen = 1 + (len * len);
+ if(!elems_)
+   elems_ = new QVector<r8>(elen);
+ else if((u4) elems_->size() < elen)
+   elems_->resize(elen);
+
+ for(u4 i = 1; i <= len; ++i)
+ {
+  r8* rr = get(i, i);
+  if(rr)
+    *rr = val;
+  else
+    qDebug() << "Unexpected condition at " << __FILE__ << ", line " << __LINE__;  
+ }
+}
+
 void QVector_Matrix_R8::get_row(u4 r, QVector<r8>& row)
 {
- row.resize(n_cols_);
+ row.resize(n_cols());
  if(is_diagonal())
  {
   row.fill(0);
-  if(r <= n_cols_)
+  if(r <= n_cols())
     row[r - 1] = at(r, r);
   return;
  }
  if(is_symmetric() || is_skew_symmetric())
  {
-  for(int c = 1; c <= n_cols_; ++c)
+  for(u4 c = 1; c <= n_cols(); ++c)
   {
    row[c - 1] = get_at(r, c);
   }
@@ -38,14 +113,24 @@ void QVector_Matrix_R8::get_row(u4 r, QVector<r8>& row)
  }
  if(is_cmajor())
  {
-  for(int c = 1; c <= n_cols_; ++c)
+  //for(u4 c = 1; c <= n_cols(); ++c)
+  for(u4 index = r, i = 0; i < n_cols(); ++i, index += n_rows()) 
   {
-   row[c - 1] = get_at(r, c);
+   //u4 index = r + (c - 1) * n_rows();
+   row[i] = elems_->value(index);
   }
   return;
  }
 
+ u4 index = 1 + ((r - 1) * n_cols());
 
+ std::copy(elems_->begin() + index, elems_->begin() + index + n_cols(), row.begin());
+
+
+// for(u4 i = 0; i < n_cols(); ++i, ++index)
+// {
+//  row[i] = elems_->value(index);
+// }
 }
 
 QVector_Matrix_R8* QVector_Matrix_R8::new_from_dimensons()

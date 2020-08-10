@@ -33,6 +33,8 @@ class Dataset
 
  QVector_Matrix_R8* eventsFloatCompensated_;
 
+ QVector_Matrix_R8* test_compensation_matrix_;
+
   //QList<QList<double>> eventsFloat_; //=new ArrayList<double[]>();
 
 // QList<QList<double>> eventsFloatCompensated_; //=new ArrayList<double[]>();

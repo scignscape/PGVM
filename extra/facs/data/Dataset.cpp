@@ -22,9 +22,16 @@ Dataset::Dataset(QVector_Matrix_R8* eventsFloat)
  numCompensated_ = 0;
 
  if(eventsFloat_)
-   eventsFloatCompensated_ = new_from_dimensons();
+   eventsFloatCompensated_ = eventsFloat_->new_from_dimensions();
  else
    eventsFloatCompensated_ = nullptr;
+
+ if(eventsFloat_)
+ {
+  test_compensation_matrix_ = new QVector_Matrix_R8(
+    eventsFloat_->n_cols(), eventsFloat_->n_cols());
+  test_compensation_matrix_->fill_diagonal();
+ }
 
  do_preliminary_compensation();
 }
@@ -35,6 +42,8 @@ void Dataset::do_preliminary_compensation()
  {
   QVector<r8> row;
   eventsFloat_->get_row(r, row);
+  QVector<r8> mrow;
+  test_compensation_matrix_->multiply(row, mrow);
   
  }
 }

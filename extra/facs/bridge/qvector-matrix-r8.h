@@ -194,10 +194,15 @@ public:
  void from_raw_data_with_encoded_default(const QByteArray& qba);
  void from_raw_data_with_encoded_default(const QByteArray& qba, QPair<u4, u4> dims);
 
+ void fill_diagonal(r8 val = 1);
+
  _from_raw_data_special from_raw_data()
  {
   return {*this, special_mode_for_raw_data::Normal};
  }
+
+ void multiply(const QVector<r8>& vec, QVector<r8>& result);
+ void merge_row(const QVector<r8>& vec, u4 row);
 
  const r8& at(u4 r, u4 c);
  r8* get(u4 r, u4 c);
