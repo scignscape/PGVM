@@ -7,6 +7,8 @@
 
 #include "transformations/TransformationStack.h"
 
+#include <QDebug>
+
 
 // package facsanadu.gui.view;
 
@@ -93,6 +95,7 @@ QPointF ViewTransform::mapFcsToScreen(const QPointF& pos)
 
 int ViewTransform::mapFcsToScreenX(double x)
 {
+ qDebug() << "do trans ...";
  x = viewsettings_->transformation()->perform(x, viewsettings_->indexX() );
  return mapGeneralToScreenX(viewsettings_->scaleX() * x);
 }

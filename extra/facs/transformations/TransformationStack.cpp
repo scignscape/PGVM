@@ -6,6 +6,9 @@
 
 #include "Transformation.h"
 
+#include <QDebug>
+
+
 // package facsanadu.transformations;
 
 
@@ -19,6 +22,8 @@ TransformationStack::TransformationStack()
  // // Transform a point. Returns a new point. Might be the same array (optimization)
 QList<double> TransformationStack::perform(QList<double> v)
 {
+ qDebug() << "l TS size: " << list_.size();
+
  if(list_.isEmpty())
    return v;
  else
@@ -33,6 +38,8 @@ QList<double> TransformationStack::perform(QList<double> v)
 
 QVector<double> TransformationStack::perform(QVector<double> v)
 {
+ qDebug() << "v TS size: " << list_.size();
+
  if(list_.isEmpty())
    return v;
  else
@@ -81,6 +88,8 @@ void TransformationStack::set(int index, Transformation* trans)
 
 double TransformationStack::perform(double x, int indexX)
 {
+ qDebug() << "TS size: " << list_.size();
+
  for(Transformation* t : list_)
    x = t->transform(x, indexX);
  return x;
