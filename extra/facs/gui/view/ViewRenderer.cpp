@@ -119,18 +119,22 @@ void test_render_xy(ViewSettings* viewsettings, Dataset* ds,
  QList<int> accepted = {0, 1, 2, 3};  // gr->getAcceptedFromGate(viewsettings->gate() );
  if(! accepted.isEmpty())
  {
-  for(int i=0; i<accepted.size() && i < rendermax; ++i)
+//?  for(int i = 0; i < accepted.size() && i < rendermax; ++i)
+  for(int i = 0; i < 5; ++i)
   {
-   int ind = accepted.at(i);
+   int ind = i; //? accepted.at(i);
    double chanX;
    double chanY;
 
- qDebug() << "test_render_xy ...";
+// qDebug() << "test_render_xy ...";
 
 //  chanX=viewsettings->transformation.transform(ds, ind, viewsettings->indexX);
 //  chanY=viewsettings->transformation.transform(ds, ind, viewsettings->indexY);
    chanX = ds->getAsFloatCompensated(ind, viewsettings->indexX() );
    chanY = ds->getAsFloatCompensated(ind, viewsettings->indexY() );
+
+   qDebug() << "Chan X: " << chanX;
+   qDebug() << "Chan Y: " << chanY;
   
    int x = trans->mapFcsToScreenX(chanX);
    int y = trans->mapFcsToScreenY(chanY);

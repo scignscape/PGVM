@@ -49,7 +49,7 @@ class Dataset
 
  QMap<QString, QString> metaKeyName_; //=new TreeMap<String, String>();
 
- do_preliminary_compensation();
+ void do_preliminary_compensation();
 
 public:
 
@@ -69,7 +69,7 @@ public:
 
  double getAsFloatCompensated(int obs, int indexChan);
 
- QList<double> getAsFloatCompensated(int obs);
+ QVector<double> getAsFloatCompensated(int obs);
  
  // // Compute profile channels. or only one if not null
  void computeProfChannel(FacsanaduProject* proj, ProfChannel* forPc);

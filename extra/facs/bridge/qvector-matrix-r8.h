@@ -125,7 +125,7 @@ public:
  ACCESSORS__DECLARE(u4 ,n_rows)
  ACCESSORS__DECLARE(u4 ,n_cols)
 
- QVector_Matrix_R8* new_from_dimensons();
+ QVector_Matrix_R8* new_from_dimensions();
 
  void get_row(u4 r, QVector<r8>& row);
 

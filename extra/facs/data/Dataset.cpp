@@ -31,9 +31,8 @@ Dataset::Dataset(QVector_Matrix_R8* eventsFloat)
   test_compensation_matrix_ = new QVector_Matrix_R8(
     eventsFloat_->n_cols(), eventsFloat_->n_cols());
   test_compensation_matrix_->fill_diagonal();
+  do_preliminary_compensation();
  }
-
- do_preliminary_compensation();
 }
 
 void Dataset::do_preliminary_compensation()
@@ -44,7 +43,7 @@ void Dataset::do_preliminary_compensation()
   eventsFloat_->get_row(r, row);
   QVector<r8> mrow;
   test_compensation_matrix_->multiply(row, mrow);
-  
+  eventsFloatCompensated_->merge_row(row, r);  
  }
 }
 
@@ -90,7 +89,7 @@ QString Dataset::get_file_source_name()
 double Dataset::getAsFloatCompensated(int obs, int indexChan)
 {
  //?
- return eventsFloatCompensated_.at(obs)[indexChan];
+ return (*eventsFloatCompensated_)[obs](indexChan);
 
  //return eventsFloat_->at(obs, indexChan);
 
@@ -98,9 +97,11 @@ double Dataset::getAsFloatCompensated(int obs, int indexChan)
 }
 
 
-QList<double> Dataset::getAsFloatCompensated(int obs)
+QVector<double> Dataset::getAsFloatCompensated(int obs)
 {
- return eventsFloatCompensated_.at(obs);
+ QVector<double> result;
+ eventsFloatCompensated_->get_row(obs, result);
+ return result;
 //  return eventsFloat.get(obs);
 }
  

@@ -133,7 +133,7 @@ void QVector_Matrix_R8::get_row(u4 r, QVector<r8>& row)
 // }
 }
 
-QVector_Matrix_R8* QVector_Matrix_R8::new_from_dimensons()
+QVector_Matrix_R8* QVector_Matrix_R8::new_from_dimensions()
 {
  return new QVector_Matrix_R8(n_rows_, n_cols_);
 }
