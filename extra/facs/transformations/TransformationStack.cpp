@@ -7,6 +7,7 @@
 #include "Transformation.h"
 
 #include <QDebug>
+#include <QtMath>
 
 
 // package facsanadu.transformations;
@@ -88,7 +89,11 @@ void TransformationStack::set(int index, Transformation* trans)
 
 double TransformationStack::perform(double x, int indexX)
 {
- qDebug() << "TS size: " << list_.size();
+ if(list_.size() == 0)
+ {
+  // default ... just log everything ...
+  return qLn(x);
+ }
 
  for(Transformation* t : list_)
    x = t->transform(x, indexX);

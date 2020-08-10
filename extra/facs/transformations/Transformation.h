@@ -30,6 +30,11 @@ public:
  virtual double invert(double x, int index);
 };
 
+class TransformationLog : Transformation
+{
+
+};
+
 #endif //  Transformation__H
 
 

@@ -95,15 +95,20 @@ QPointF ViewTransform::mapFcsToScreen(const QPointF& pos)
 
 int ViewTransform::mapFcsToScreenX(double x)
 {
- qDebug() << "do trans ...";
  x = viewsettings_->transformation()->perform(x, viewsettings_->indexX() );
- return mapGeneralToScreenX(viewsettings_->scaleX() * x);
+ qDebug() << "do trans ... x = " << x;
+
+  return x;
+ //? return mapGeneralToScreenX(viewsettings_->scaleX() * x);
 }
 
 int ViewTransform::mapFcsToScreenY(double y)
 {
  y = viewsettings_->transformation()->perform(y, viewsettings_->indexY() );
- return mapGeneralToScreenY(viewsettings_->scaleY() * y); 
+ qDebug() << "do trans ... y = " << y;
+
+ return y;
+  //? return mapGeneralToScreenY(viewsettings_->scaleY() * y); 
 }
 
  

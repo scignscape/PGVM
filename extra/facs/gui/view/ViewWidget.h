@@ -75,6 +75,11 @@ private:
 
  bool mousePosInBoundary(const QPoint& pos);
 
+ MainWindow* mainWindow_;
+ ViewTransform* trans_; // =new ViewTransform();
+ ViewSettings* viewsettings_; // =new ViewSettings();
+ int maxevents_;
+
 
 protected:
 
@@ -87,15 +92,26 @@ protected:
 
 public:
 
- MainWindow* mainWindow_;
- ViewTransform* trans_; // =new ViewTransform();
- ViewSettings* viewsettings_; // =new ViewSettings();
- int maxevents_;
-
  ViewWidget(MainWindow* mw);
  void setDataset(Dataset* ds);
  void render();
  
+ void set_trans(ViewTransform* trans)
+ {
+  trans_ = trans;
+ }
+
+ ViewTransform* trans()
+ {
+  return trans_;
+ }
+
+ ViewSettings* viewsettings()
+ {
+  return viewsettings_;
+ }
+
+
  GateHandle* getClosestHandle(const QPointF& pos, double cutoff);
  
  void setChannels(int indexX, int indexY);

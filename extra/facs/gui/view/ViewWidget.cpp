@@ -22,6 +22,8 @@
 
 #include "ViewRenderer.h"
 
+#include "transformations/Transformation.h"
+#include "transformations/TransformationStack.h"
 
 #include <limits>
 
@@ -402,21 +404,25 @@ void ViewWidget::CallbackSetTransformation::actionSet()
  int index;
 
  if(forx)
-   index=vw->viewsettings_->indexX();
+   index=vw->viewsettings()->indexX();
  else
-   index=vw->viewsettings_->indexY();
+   index=vw->viewsettings()->indexY();
 
- Q_UNUSED(index)
+// Q_UNUSED(index)
 
-/*
- Transformation trans = nullptr;
- if(t == TransformationType.LOG)
-   trans_ = new TransformationLog();
- if(t==TransformationType.LINEAR)
-   viewsettings.transformation.set(index, trans);
- else if(t==TransformationType.LOG)
-   viewsettings.transformation.set(index, trans);
-*/
+
+ Transformation* trans = nullptr;
+
+//? if(ttype == "Log")
+//?   trans = new TransformationLog();
+
+// else if(ttype == "Linear")
+//?   trans = new TransformationLinear();
+
+// else if(t==TransformationType.LOG)
+ if(trans)
+   vw->viewsettings()->transformation()->set(index, trans);
+
 
  EventViewsChanged ev;
  vw->mainWindow_->handleEvent(ev);

@@ -120,7 +120,7 @@ void test_render_xy(ViewSettings* viewsettings, Dataset* ds,
  if(! accepted.isEmpty())
  {
 //?  for(int i = 0; i < accepted.size() && i < rendermax; ++i)
-  for(int i = 0; i < 5; ++i)
+  for(int i = 0; i < 50; ++i)
   {
    int ind = i; //? accepted.at(i);
    double chanX;
@@ -138,6 +138,8 @@ void test_render_xy(ViewSettings* viewsettings, Dataset* ds,
   
    int x = trans->mapFcsToScreenX(chanX);
    int y = trans->mapFcsToScreenY(chanY);
+
+   qDebug() << "x = " << x << ", y = " << y;
 
    int colid = 0; //gr->getGateIntIDForObs(ind);
    thecol.setRgb(colr[colid], colg[colid], colb[colid]); 
