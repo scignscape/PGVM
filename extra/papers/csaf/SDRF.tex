@@ -532,6 +532,12 @@
 \def\getY@i#1,#2\@nil{#2}
 \makeatother
 	
+\definecolor{BlueGreen}{rgb}{.1,.6,.4}
+
+\newcommand{\ann}[9]{%
+	\path [draw=#1,draw opacity=#2,line width=#3, fill=#4, fill opacity = #5, even odd rule] %
+	(#6) ellipse(#7 and #8) ellipse(#7*#9 and #8*#9);}
+
 \newcommand{\rectann}[9]{%
 \path [draw=#1,draw opacity=#2,line width=#3, fill=#4, fill opacity = #5, even odd rule] %
 (#6) rectangle(\getX{#6}+#7,\getY{#6}+#8)
@@ -1070,6 +1076,19 @@
 \usetikzlibrary{arrows, decorations.markings}
 \usetikzlibrary{shapes.arrows}
 
+\newcommand{\colorarr}[8]{
+	\draw [#1, draw=#2,draw opacity=#3,
+	fill=#4,fill opacity=#5,line width=#6] (#7) to (#8);
+}
+
+\definecolor{blGreen}{rgb}{.2,.7,.3}
+\definecolor{darkRed}{rgb}{.2,.0,.1}
+
+\definecolor{postLinkColor}{rgb}{.5,.5,.1}
+
+\definecolor{fcBoxColor}{rgb}{.8,.6,.3}
+
+
 \newcommand{\curicon}[2]{%
 	\node at (#1,#2) [
 	draw=black,
@@ -1129,6 +1148,8 @@
 
 \usepackage{caption} 
 \captionsetup[table]{skip=2pt}
+
+\newcommand{\cframedboxx}[3]{\begin{mdframed}[linecolor=rb!85!red,linewidth=#2]\hspace{#1}#3\end{mdframed}}
 
 \begin{document}
 
@@ -1237,10 +1258,10 @@ implementations published via \bhref{https://www.frontiersin.org/articles/10.338
 \rectann{darkRed}{0.7}{.5mm}{grammarArrowColor}{0.5}{4.9,-6.7}{1.5}{10.35}{1.15}
 
 \node [anchor=west,bottom color=yellow!30!blue,top color=pink!70!green, 
-inner sep=3, shading angle=50, text width=7cm]
-  (longnote) at (7, 0) {\vspace{-8pt} %  %{\color{rb!85!red}{
-  {\cframedboxx{0.7mm}{2pt}{\large\textbf{The authors provide 
-.}}}};
+inner sep=3, shading angle=50, text width=3cm]
+  (longnote) at (7, 0) {\vspace{-8pt}%  %{\color{rb!85!red}{
+{\cframedboxx{0mm}{2pt}{\large\raggedright\textbf{The authors provide 
+citations for data sets used in their analyses ...}}}};
 
 \end{tikzpicture}
 \caption{Table Listing Analyzed Data Sets in the Parkinson's Article}
@@ -1278,8 +1299,17 @@ needs to be extracted by computer code.}
 
 \begin{figure}
 \begin{tikzpicture}
-\node[inner sep=0pt] (tbl) at (0,0)
+\node[inner sep=0pt] (bib) at (0,0)
     {\includegraphics[trim=14cm 1.5cm 12cm 3cm,clip,width=.8\textwidth]{./scrn/s2.png}};
+\ann{blue!50!orange}{1}{.6mm}{BlueGreen!90!red}{0.5}{-3.2,4.2}{2.8}{1}{1.1}
+\ann{blue!50!orange}{1}{.6mm}{BlueGreen!90!red}{0.5}{-1,1.2}{5.2}{0.6}{1.1}
+
+\colorarr{>=latex, ->}{fcBoxColor!60!black}
+{0.8}{blGreen!30!red}{1}{1mm}{8,3}{4,1.5}
+
+\colorarr{>=latex, ->}{fcBoxColor!60!black}
+{0.8}{blGreen!30!red}{1}{1mm}{8,3}{-1.8,3.2}
+
 \end{tikzpicture}
 \caption{Bibliography (With Data Set Hyperrefs) in the Parkinson's Article}
 \label{fig:s2}
