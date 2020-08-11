@@ -1191,8 +1191,16 @@ schema.org/Dataset, Digital Curation Center, \SciData{}, \BioCoder{}, and \MIBBI
 \section{First Case Study: ``Parkinson's Disease Diagnosis: Effect of Autoencoders to
 Extract Features from Vocal Characteristics'' from the International Journal of Speech Technology, forthcoming}
 
-\p{This case study demonstrates a scenario where one article reuses multiple pre-existing data sets.  The article, by Ashena Gorgan Mohammadi, Pouya Mehralian, Amir Naseri, and Hedieh Sajedi, 
- 
+\p{This case study demonstrates a scenario where one article reuses multiple pre-existing data sets.  The article, by Ashena Gorgan Mohammadi, Pouya Mehralian, Amir Naseri, and Hedieh Sajedi, examines Parkinson's Disease symptomology from multiple perspectives, including gait (loss of motor function), speech impairment, and bioimaging (\MRI{}s).  The authors apply Machine Learning to data sets focused on these three different diagnostic areas, advansing research to refine Parkinson's predictors and diagnoses.  The overall information can be summarized as follows:
+
+\begin{enumerate}
+\item{}  Gait data was primarily drawn from a PhysioNet data set (\bhref{https://physionet.org/content/gaitpdb/1.0.0/}) obtained via sensors attached to subject's feet as they walked (the study includes both Parkinson's patients and healthy controls).  This sensor data is provided as a collection of text files, each file corresponding to one patient (or control subject), with each line in a file representing a single time snapshot.  The lines are divided into space-separated columns each representing force exerted on a single sensor (plus two columns for total force on the left-foot and right-foot sensors respectively).  This data set also includes demographic and clinical information for each patient, in a spreadsheet format.  
+
+An additional source of gait data used by the authos is a more recent (2019) study whose data is shared only on request (see \bhref{https://www.nature.com/articles/s41598-019-53656-7#MOESM1}).
+
+\item{}  The primary source of speech data is a data set hosted by the University of California Irvine Machine Learning Repository (\bhref{https://archive.ics.uci.edu/ml/datasets/Parkinsons}).  The central information is a \CSV{} file, where each line represents a single voice recording from one of 23 Parkinson's patients or 8 healthy controls (each subject made multiple recordings).  The individual lines present a quantitative model of subjects' speech via a collection of acoustic features/attributes.      
+\end{enumerate}
+} 
   
 
 \p{Nowadays many authors publish data sets to go along with books/chapters/articles, and it is important for document portals (like Springer Nature) to properly identify these data sets when they are available.  The basic concept is simple: each data set has its own digital identifier, akin to (but distinct from any) Document Object Identifier pointing to a publication.  The ids for data sets and their concomitant publications can be linked on publishers' web sites (and on external resources such as CrossRef).}
