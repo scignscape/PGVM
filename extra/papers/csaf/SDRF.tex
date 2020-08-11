@@ -538,6 +538,7 @@
 ({\getX{#6}+((#7-(#7*#9))/2)},{\getY{#6}+((#8-(#8*#9))/2)}) rectangle %
 ({\getX{#6}+((#7-(#7*#9))/2)+#7*#9},{\getY{#6}+((#8-(#8*#9))/2)+#8*#9});}
 
+\definecolor{grammarArrowColor}{rgb}{.85,.85,.45}
 
 \definecolor{pfcolor}{RGB}{94, 54, 73}
 
@@ -1232,6 +1233,15 @@ implementations published via \bhref{https://www.frontiersin.org/articles/10.338
 \begin{tikzpicture}
 \node[inner sep=0pt] (tbl) at (0,0)
     {\includegraphics[trim=14cm 1.5cm 12cm 3cm,clip,width=.8\textwidth]{./scrn/s1.png}};
+
+\rectann{darkRed}{0.7}{.5mm}{grammarArrowColor}{0.5}{4.9,-6.7}{1.5}{10.35}{1.15}
+
+\node [anchor=west,bottom color=yellow!30!blue,top color=pink!70!green, 
+inner sep=3, shading angle=50, text width=7cm]
+  (longnote) at (7, 0) {\vspace{-8pt} %  %{\color{rb!85!red}{
+  {\cframedboxx{0.7mm}{2pt}{\large\textbf{The authors provide 
+.}}}};
+
 \end{tikzpicture}
 \caption{Table Listing Analyzed Data Sets in the Parkinson's Article}
 \label{fig:s1}
