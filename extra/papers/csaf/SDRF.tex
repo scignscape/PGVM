@@ -1198,10 +1198,63 @@ Extract Features from Vocal Characteristics'' from the International Journal of 
 
 An additional source of gait data used by the authos is a more recent (2019) study whose data is shared only on request (see \bhref{https://www.nature.com/articles/s41598-019-53656-7#MOESM1}).
 
-\item{}  The primary source of speech data is a data set hosted by the University of California Irvine Machine Learning Repository (\bhref{https://archive.ics.uci.edu/ml/datasets/Parkinsons}).  The central information is a \CSV{} file, where each line represents a single voice recording from one of 23 Parkinson's patients or 8 healthy controls (each subject made multiple recordings).  The individual lines present a quantitative model of subjects' speech via a collection of acoustic features/attributes.      
+\item{}  The primary source of speech data is a data set hosted by the University of California Irvine Machine Learning Repository (\bhref{https://archive.ics.uci.edu/ml/datasets/Parkinsons}).  The central information is a \CSV{} file, where each line represents a single voice recording from one of 23 Parkinson's patients or 8 healthy controls (each subject made multiple recordings).  The individual lines present a quantitative model of subjects' speech via a collection of acoustic features/attributes.  
+
+\item{}  Radiological ...
+
+\item{}  The authors also provide a Python code repository, hosted on GitHub, which contains code they used to analyze these various data sources.
+    
 \end{enumerate}
 } 
   
+\p{In their bibliography, the authors cite the data sets they used either directly or by 
+referencing publications where the relevant data sets are described.  This properly 
+credits authorship to the researchers who curated the data sets, and it gives readers a 
+means to locate the raw data.  However, accessing and working with the raw data is 
+inconvenient from a reader's point of view without most or all of the data sets being 
+repackaged into a single archive that could be hosted and downloaded as a unit.  
+Obtaining raw data from the resources identified in the bibliography requires 
+several steps --- for instance, the PhysioNet sensor data can be downloaded 
+as a zipped folder, while the demographic data attached to it has to be downloaded 
+separately.  Some of the information obtained from \MRI{} and speech analysis 
+(reported in papers cited as data sources for the primary article) is provided 
+as supplemental materials within the secondary papers, which requires readers 
+to browse through the articles so as to find downloadable links.  In short, piecing all 
+the source data together forces readers to manually inspect multiple web resources 
+and to manually interconnect files once they are downloaded.}
+
+\p{Another complicating factor is that certain information present in the data sets 
+is implicit within how the data sets are organized, requiring extra effort to 
+extract this information in a machine-readable manner.  For instance, the PhysioNet 
+sensor data uses a file-naming convention which encodes several pieces of 
+information in the file names, such as whether the file presents a Parkinson's patient 
+or a control subject.  By examining file names, it would be possible to construct a 
+table with additional information providing context for the file contents.  However, 
+such information is not directly included within the PhysioNet data set; it 
+needs to be extracted by computer code.}
+
+\p{This collection of data sets serves as an example of how technologies such 
+as \SDRF{} can make scientific data more \q{FAIR} (Findable, Accessible, 
+Interoperable, Reusable).  When the forthcoming article is published 
+in the International Journal of Speech Technology, the disparate open-access 
+data from the article's secondary sources will be provided as a single 
+\SDRF{} archive.  This archive will provide machine-readable access to 
+information spread across multiple sources, translated into a common file-format.  
+In general, \SDRF{} encourages and implements features to help data sets 
+conform to \FAIR{} and related standards, such as (1) bundling multiple data sets 
+into a single archive; (2) migrating data to general-purpose representations 
+wherever possible --- formats such as \XML{}, \HDFFive{}, \ARFF{}, or 
+\DICOM{}; (3) providing meta-data in several formats, such as 
+Research Objects, schema.org/Dataset, Digital Curation Center, \SciData{}, 
+\BioCoder{}, and \MIBBI{} (Minimum Information for Biological and Biomedical 
+Investigations); (4) explicitly representing information encoded via file-names; 
+(5) bundling raw data, meta-data, and (where possible) machine-readable 
+article text into a single resource, which \SDRF{} calls a 
+\q{Supplemental Archive;} and (6) annnotating the data sets to support 
+microcitations granularly linking the publication to its associated 
+Supplemental Archive.} 
+
+
 
 \p{Nowadays many authors publish data sets to go along with books/chapters/articles, and it is important for document portals (like Springer Nature) to properly identify these data sets when they are available.  The basic concept is simple: each data set has its own digital identifier, akin to (but distinct from any) Document Object Identifier pointing to a publication.  The ids for data sets and their concomitant publications can be linked on publishers' web sites (and on external resources such as CrossRef).}
 
