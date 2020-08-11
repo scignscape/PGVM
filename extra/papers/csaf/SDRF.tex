@@ -164,9 +164,9 @@
 \usepackage[hyphens]{url}
 
 \usepackage{hyperref}
-\newcommand{\rpdfLink}[1]{\href{#1}{\small{#1}}}
-\newcommand{\dblHref}[1]{\href{#1}{\small{\burl{#1}}}}
-\newcommand{\browseHref}[2]{\href{#1}{\Large #2}}
+%\newcommand{\rpdfLink}[1]{\href{#1}{\small{#1}}}
+%\newcommand{\dblHref}[1]{\href{#1}{\small{\burl{#1}}}}
+%\newcommand{\browseHref}[2]{\href{#1}{\Large #2}}
 
 \colorlet{blCyan}{cyan!50!blue}
 
@@ -253,6 +253,8 @@
 \usepackage{relsize}
 
 %
+%\newcommand{\bref}[1]{\hspace*{1pt}\textbf{\ref{#1}}}
+
 \newcommand{\bref}[1]{\hspace*{1pt}\textbf{\ref{#1}}}
 
 \newcommand{\pseudoIndent}{
@@ -600,7 +602,7 @@
 \newcommand{\HMCL}{{\resizebox{!}{7.5pt}{\ATexttclr{HMCL}}}}
 \newcommand{\DSPIN}{{\resizebox{!}{7.5pt}{\ATexttclr{D-SPIN}}}}
 
-\newcommand{\Pandore}{{\resizebox{!}{7.5pt}{\ATexttclr{Pandore}}}}
+%\newcommand{\Pandore}{{\resizebox{!}{7.5pt}{\ATexttclr{Pandore}}}}
 
 \newcommand{\lDSPIN}{{\resizebox{!}{8pt}{\ATexttclr{D-SPIN}}}}
 \newcommand{\lsDSPIN}{{\resizebox{!}{8.5pt}{\ATexttclr{D-SPIN}}}}
@@ -648,11 +650,11 @@
 \definecolor{atColor}{RGB}{50, 22, 40}
 \newcommand{\ATextClr}[1]{\textcolor{atColor}{\textbf{#1}}}
 
-\newcommand{\DgDb}{\makebox{\raisebox{-3pt}{\resizebox{!}{11pt}{\ATextClr{%
+\newcommand{\DgDbx}{\makebox{\raisebox{-3pt}{\resizebox{!}{11pt}{\ATextClr{%
 \rotatebox{17}{$\varsigma$}}}}\hspace{-4pt}%
 \resizebox{!}{6.5pt}{\ATextClr{D\hspace{-2pt}B}}}}
 
-\newcommand{\lDgDb}{\makebox{\raisebox{-3pt}{%
+\newcommand{\lDgDbx}{\makebox{\raisebox{-3pt}{%
 \resizebox{!}{12pt}{\ATextClr{%
 \rotatebox{17}{$\varsigma$}}}}\hspace{-4pt}%
 \resizebox{!}{6.5pt}{\ATextClr{D\hspace{-2pt}B}}}}
@@ -1114,7 +1116,10 @@
 
 \usepackage[preserveurlmacro]{breakurl}
 
+%
 \newcommand{\bhref}[1]{\href{#1}{\burl{#1}}}
+
+%\newcommand{\bhref}[1]{} 
 
 %\setmainfont{QTChanceryType}
 
@@ -1222,9 +1227,21 @@ implementations published via \bhref{https://www.frontiersin.org/articles/10.338
     
 \end{enumerate}
 } 
+
+\begin{figure}
+\begin{tikzpicture}
+\node[inner sep=0pt] (tbl) at (0,0)
+    {\includegraphics[trim=14cm 1.5cm 12cm 3cm,clip,width=.8\textwidth]{./scrn/s1.png}};
+\end{tikzpicture}
+\caption{Table Listing Analyzed Data Sets in the Parkinson's Article}
+\label{fig:s1}
+\end{figure}
   
-\p{In their bibliography, the authors cite the data sets they used either directly or by 
-referencing publications where the relevant data sets are described.  This properly 
+\p{The authors summarize the data sets in a table within the main text 
+(see Figure~\ref{fig:s1} here) and, in their bibliography, they 
+cite these data sets either directly or by 
+referencing publications where the relevant data sets are described 
+(see Figure~\ref{fig:s2} here).  This properly 
 credits authorship to the researchers who curated the data sets, and it gives readers a 
 means to locate the raw data.  However, accessing and working with the raw data is 
 inconvenient from a reader's point of view without most or all of the data sets being 
@@ -1248,6 +1265,15 @@ or a control subject.  By examining file names, it would be possible to construc
 table with additional information providing context for the file contents.  However, 
 such information is not directly included within the PhysioNet data set; it 
 needs to be extracted by computer code.}
+
+\begin{figure}
+\begin{tikzpicture}
+\node[inner sep=0pt] (tbl) at (0,0)
+    {\includegraphics[trim=14cm 1.5cm 12cm 3cm,clip,width=.8\textwidth]{./scrn/s2.png}};
+\end{tikzpicture}
+\caption{Bibliography (With Data Set Hyperrefs) in the Parkinson's Article}
+\label{fig:s2}
+\end{figure}
 
 \p{This collection of data sets serves as an example of how technologies such 
 as \SDRF{} can make scientific data more \q{FAIR} (Findable, Accessible, 
@@ -1274,7 +1300,7 @@ Supplemental Archive.}
 
 \p{An important question for any \SDRF{} archive is how researchers 
 will productively access the data once a Supplemental Archive has been 
-downloaded.  Unlike the Flow Cytometry use-case discussed next, the 
+downloaded.  Unlike the Flow Cytometry use-case discussed below, the 
 Parkinson's archive spans several scientific disciplines, and 
 there is no obvious application which could be preferred by default 
 for examining the data files.  As a fallback option, \SDRF{} is 
@@ -1287,7 +1313,7 @@ supplemented with separate libraries extracting and
 managing information specific to individual data sets.  In 
 particular, the Supplemental Archive for the forthcoming Parkinson's 
 article will provide \Cpp{} classes encapsulating spreadsheet-like 
-data (whether originally in \textbf{.xls}, \CSC{}, or space-delimited formats) 
+data (whether originally in \textbf{.xls}, \CSV{}, or space-delimited formats) 
 republished in the unified data set.}
 
 \p{An additional concern for \SDRF{} archives is how to properly annotate 
