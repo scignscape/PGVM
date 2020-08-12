@@ -117,21 +117,36 @@ void test_render_xy(ViewSettings* viewsettings, Dataset* ds,
 
  QColor thecol; //=new QColor();
  QList<int> accepted = {0, 1, 2, 3};  // gr->getAcceptedFromGate(viewsettings->gate() );
+
+ int max = ds->getNumObservations();
+
  if(! accepted.isEmpty())
  {
 //?  for(int i = 0; i < accepted.size() && i < rendermax; ++i)
-  for(int i = 0; i < 50; ++i)
+  for(int i = 0; i < max; ++i)
   {
    int ind = i; //? accepted.at(i);
    double chanX;
    double chanY;
 
+   qDebug() << "ind = " << ind;
 // qDebug() << "test_render_xy ...";
 
 //  chanX=viewsettings->transformation.transform(ds, ind, viewsettings->indexX);
 //  chanY=viewsettings->transformation.transform(ds, ind, viewsettings->indexY);
-   chanX = ds->getAsFloatCompensated(ind, viewsettings->indexX() );
-   chanY = ds->getAsFloatCompensated(ind, viewsettings->indexY() );
+
+   int indexX = viewsettings->indexX();
+   int indexY = viewsettings->indexY();
+
+   indexX = 1;
+   indexY = 2;
+
+   
+   qDebug() << "Ind X: " << indexX;
+   qDebug() << "Ind Y: " << indexY;
+
+   chanX = ds->getAsFloatCompensated(ind, indexX );
+   chanY = ds->getAsFloatCompensated(ind, indexY );
 
    qDebug() << "Chan X: " << chanX;
    qDebug() << "Chan Y: " << chanY;

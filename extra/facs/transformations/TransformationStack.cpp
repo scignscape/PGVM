@@ -91,6 +91,7 @@ double TransformationStack::perform(double x, int indexX)
 {
  if(list_.size() == 0)
  {
+  qDebug() << "ln: " << x << " = " << qLn(x);
   // default ... just log everything ...
   return qLn(x);
  }

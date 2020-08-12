@@ -1157,7 +1157,7 @@
 	
 {\linespread{1.25}\selectfont
 
-\vspace*{2.5em}
+\vspace*{3em}
 
 \begin{center}
 %{\relscale{1.2}{\fontfamily{qcr}\fontseries{b}\selectfont 
@@ -1201,6 +1201,8 @@ drop shadow=logoPurple!50!darkRed,
 \end{tcolorbox}
 \end{center}
 
+\vspace*{-.5em}
+
 %\textcolor{darkRed}{\hrule}
 
 %\section{Overview}
@@ -1209,39 +1211,45 @@ drop shadow=logoPurple!50!darkRed,
 schema.org/Dataset, Digital Curation Center, \SciData{}, \BioCoder{}, and \MIBBI{} 
 (Minimum Information for Biological and Biomedical Investigations).  However, \SDRF{} is unique in merging different data-set formats into a unified, overarching standard which can be adapted to different publishing environments.}
 
-\p{In order to conform to current specifications --- such as FAIRsharing (Findable, Accessible, Interoperable, Reusable) or the Bill and Melinda Gates Foundation guidelines for authors --- proper protocols must be implemented at several stages of the publishing process.  In particular, (1) publications should provide clear descriptions of accompanying data sets and where that data is hosted; (2) publication repositories (such as Springer Nature) should make data-set links and metadata clearly visible on web pages where documents are read or previewed; (3) data sets themselves need to include metadata and supporting files which help researchers properly access, visualize, and reuse the data; and (4) data sets need to be connected with software which has the correct features to load and display the relevant raw data files.  \lSDRF{} will include technology applicable to each of these four facets of the publishing and data-sharing pipeline.}
+\p{In order to conform to current specifications 
+--- such as FAIRsharing (Findable, Accessible, Interoperable, Reusable) or the Bill and Melinda Gates Foundation guidelines for authors --- 
+proper protocols must be implemented at several stages of the publishing process.  In particular, (1) publications should provide clear descriptions of accompanying data sets and where that data is hosted; (2) publication repositories %(such as Springer Nature) 
+should make data-set links and metadata clearly visible on web pages where documents are read or previewed; (3) data sets themselves need to include metadata and supporting files which help researchers properly access, visualize, and reuse the data; and (4) data sets need to be connected with software which has the correct features to load and display the relevant raw data files.  \lSDRF{} will include technology applicable to each of these four facets of the publishing and data-sharing pipeline.}
 
-\p{It is important to emphasize that data sets are only truly valuable if they are machine-readable and seamlessly integrated into domain-specific software ecosystems.  Scientists who carefully examine and reuse published data sets are usually researchers doing technical work in a field closely related to the original authors'; in many cases there are specialized software applications, computational methods, algorithms, and research protocols which are endemic to the relevant subject areas.  When sharing research data, accordingly, publishers and authors should make it as easy as possible for scientists to examine the data within the digital ecosystem they utilize for their own research.  This often means that document viewers --- e.g., \PDF{} viewers and/or \HTML{} pages on publisher portals --- should ideally be interconnected with scientific applications, so that scientists, when reading books/articles, can seamlessly launch domain-specific software and visualize/examine associated data sets.  Unfortunately, most scientific software does not incorporate code libraries to parse metadata describing open-access data sets.  Therefore, publisher and data-hosting repositories can only be truly interoperative with scientific applications by providing plugins or extensions that add data-set-accession capabilities to existing scientific software.}
+\p{It is important to emphasize that data sets are only truly valuable if they are machine-readable and seamlessly integrated into domain-specific software ecosystems.  Scientists who examine and reuse published data sets are usually researchers doing technical work in a field closely related to that of the original authors; in many cases there are specialized software applications, computational methods, algorithms, and research protocols which are endemic to the relevant subject areas.  When sharing research data, accordingly, publishers and authors should make it as easy as possible for scientists to examine the data within the digital ecosystem they utilize for their own research.  This often means that document viewers --- e.g., \PDF{} viewers and/or \HTML{} pages on publisher portals --- should ideally be interconnected with scientific applications so that scientists, when reading books/articles, can seamlessly launch domain-specific software and visualize/examine associated data sets.  Unfortunately, most scientific software does not incorporate code libraries to parse metadata (summarizing file types, download instructions, etc.) describing open-access data sets.  Therefore, publisher and data-hosting repositories can only be made truly interoperative with scientific applications by providing plugins or extensions that add data-set-accession capabilities to existing scientific software.}
 
-\p{To demonstrate how such plugins can work, as well as other facets of the data-publication process augmented via \SDRF{}, this paper will review two case-studies involving existing or forthcoming articles.}
+\p{To demonstrate how such plugins can work, as well as other facets of the data-publication process augmented via \SDRF{}, this paper will review two case-studies involving articles that have been published or are under peer review.}
 
 \section{First Case Study: ``Parkinson's Disease Diagnosis: Effect of Autoencoders to
-Extract Features from Vocal Characteristics'' from the International Journal of Speech Technology, forthcoming}
+Extract Features from Vocal Characteristics,'' 
+by Ashena Gorgan Mohammadi, Pouya Mehralian, Amir Naseri, and Hedieh Sajedi 
+(International Journal of Speech Technology, under peer review)}
 
-\p{This case study demonstrates a scenario where one article reuses multiple pre-existing data sets.  The article, by Ashena Gorgan Mohammadi, Pouya Mehralian, Amir Naseri, and Hedieh Sajedi, examines Parkinson's Disease symptomology from multiple perspectives, including gait (loss of motor function), speech impairment, and bioimaging (\MRI{}s).  The authors apply Machine Learning to data sets focused on these three different diagnostic areas, advansing research to refine Parkinson's predictors and diagnoses.  The overall information can be summarized as follows:
+\p{This case study demonstrates a scenario where an article reuses multiple pre-existing data sets.  The article examines Parkinson's Disease symptomology from multiple perspectives, including gait (loss of motor function), speech impairment, and bioimaging (\MRI{}s).  The authors apply Machine Learning to data sets focused on these three different diagnostic areas, advancing research to refine Parkinson's predictors and diagnoses.  The overall information can be summarized as follows:
 
 \begin{enumerate}
-\item{}  Gait data was primarily drawn from a PhysioNet data set (\bhref{https://physionet.org/content/gaitpdb/1.0.0/}) obtained via sensors attached to subject's feet as they walked (the study includes both Parkinson's patients and healthy controls).  This sensor data is provided as a collection of text files, each file corresponding to one patient (or control subject), with each line in a file representing a single time snapshot.  The lines are divided into space-separated columns each representing force exerted on a single sensor (plus two columns for total force on the left-foot and right-foot sensors respectively).  This data set also includes demographic and clinical information for each patient, in a spreadsheet format.  
+\item{}  Gait data was primarily drawn from a PhysioNet data set (\bhref{https://physionet.org/content/gaitpdb/1.0.0/}) obtained via sensors attached to subject's feet as they walked (the study includes both Parkinson's patients and healthy controls).  This sensor data is provided as a collection of text files, each file corresponding to one patient (or control subject), with each line in a file representing a single time snapshot.  The lines are divided into space-separated columns, each representing force exerted on a single sensor, plus two additional columns calculating total force on the left-foot and right-foot sensors respectively.  This data set also includes demographic and clinical information for each patient in a spreadsheet format.  
 
-An additional source of gait data used by the authos is a more recent (2019) study whose data is shared only on request (see \bhref{https://www.nature.com/articles/s41598-019-53656-7#MOESM1}).
+The authors also use an additional source of gait data derived from a more recent (2019) study whose data is availablee only upon request (see \bhref{https://www.nature.com/articles/s41598-019-53656-7#MOESM1}).
 
-\item{}  The primary source of speech data is a data set hosted by the University of California Irvine Machine Learning Repository (\bhref{https://archive.ics.uci.edu/ml/datasets/Parkinsons}).  The central information is a \CSV{} file, where each line represents a single voice recording from one of 23 Parkinson's patients or 8 healthy controls (each subject made multiple recordings).  The individual lines present a quantitative model of subjects' speech via a collection of acoustic features/attributes.  A similar \q{telemonitoring} data set from the same archive is used to 
-study how analysis of Parkinson's-related speech data may carry over to samples obtained 
-via devices such as smartphones, for \q{people who may have difficulties maintaining a 
-precise clinical examination routine.} 
+\item{}  The speech data is primary drawn from a data set hosted by the University of California Irvine Machine Learning Repository (\bhref{https://archive.ics.uci.edu/ml/datasets/Parkinsons}).  The central information is a \CSV{} file, where each line represents a single voice recording from one of 23 Parkinson's patients or 8 healthy controls (each research subject made multiple recordings).  The individual lines in the \CSV{} file present a quantitative model of subjects' speech via a 
+collection of acoustic features/attributes.  A similar \q{telemonitoring} data set from the same archive was used to study how the analysis of Parkinson's-related 
+speech data may be applicable to samples obtained 
+via devices such as smartphones.
 
 \item{}  Radiological data for the Parkinson's analysis is not immediately 
 available for reuse, but requires special (non-commercial) authorization from the 
 Parkinson's Progressive Markers Initiative (\bhref{https://www.ppmi-info.org/}) 
-or corresponding authors of papers introducing the relevant data 
+or request made of corresponding authors of referenced papers introducing the relevant data 
 (\bhref{https://www.frontiersin.org/articles/10.3389/fnins.2019.00874/full#h6}).  
-Although this data is derived from bioimaging --- so that the 
-underlying raw data files are radiological --- the current authors 
+Although this data is derived from bioimaging (so that the 
+underlying raw data files are radiological) the current authors 
 utilize the data in a more structured form, building off of 
-image-feature extraction already performed during the prior cited 
-research.  However, the republished unified data set will 
-include code allowing researcher to reproduce the original 
-analytic workflow if desired; for instance, we will enable the 
+image-feature extraction already performed when the data set was 
+first published.  However, the republished unified data set 
+(to appear in conjunction with the IJST article) may 
+include code to allow researchers to reproduce the original 
+analytic workflow if desired; for instance, we can enable the 
 implementations published via \bhref{https://www.frontiersin.org/articles/10.3389/fnins.2019.00874/full#h6} to be embedded as a \CaPTk{} module 
 (see in particular \bhref{https://cbica.github.io/CaPTk/tr_integration.html#tr_cppIntegration}).  
  
@@ -1272,21 +1280,21 @@ citations for data sets used in their analyses ...}}}};
 (see Figure~\ref{fig:s1} here) and, in their bibliography, they 
 cite these data sets either directly or by 
 referencing publications where the relevant data sets are described 
-(see Figure~\ref{fig:s2} here).  This properly 
+(see Figure~\ref{fig:s2} here).  In so doing, this properly 
 credits authorship to the researchers who curated the data sets, and it gives readers a 
 means to locate the raw data.  However, accessing and working with the raw data is 
 inconvenient from a reader's point of view without most or all of the data sets being 
-repackaged into a single archive that could be hosted and downloaded as a unit.  
+repackaged into a \textit{single} archive that could be hosted and downloaded as one unit.  
 Obtaining raw data from the resources identified in the bibliography requires 
 several steps --- for instance, the PhysioNet sensor data can be downloaded 
 as a zipped folder, while the demographic data attached to it has to be downloaded 
 separately.  Some of the information obtained from \MRI{} and speech analysis 
-(reported in papers cited as data sources for the primary article) is provided 
-as supplemental materials within the secondary papers, which requires readers 
-to browse through the articles so as to find downloadable 
-links (see Figure~\ref{fig:s3}).  In short, piecing all 
-the source data together forces readers to manually inspect multiple web resources 
-and to manually interconnect files once they are downloaded.}
+(reported in papers cited as data sources for the IJST article) is provided 
+as supplemental materials within the secondary papers; this requires readers 
+to browse one at a time through each of the relevant articles so as to find 
+downloadable links (see Figure~\ref{fig:s3}).  In short, piecing all 
+the source data together puts the onus on readers to manually inspect multiple 
+web resources and to manually interconnect files once they are downloaded.}
 
 \p{Another complicating factor is that certain information present in the data sets 
 is implicit within how the data sets are organized, requiring extra effort to 
@@ -1294,9 +1302,9 @@ extract this information in a machine-readable manner.  For instance, the Physio
 sensor data uses a file-naming convention which encodes several pieces of 
 information in the file names, such as whether the file presents a Parkinson's patient 
 or a control subject (see Figure~\ref{fig:s4}).  
-By examining file names, it would be possible to construct a 
-table with additional information providing context for the file contents.  However, 
-such information is not directly included within the PhysioNet data set; it 
+Though by examining file names it would be possible to construct a 
+table with additional information providing context for the file contents, 
+such information however is not directly included within the PhysioNet data set; it 
 needs to be extracted by computer code.}
 
 \begin{figure}
@@ -1326,11 +1334,11 @@ others have to be located by reading the cited articles.}}}};
 \end{figure}
 
 \p{This collection of data sets serves as an example of how technologies such 
-as \SDRF{} can make scientific data more \q{FAIR} (Findable, Accessible, 
-Interoperable, Reusable).  When the forthcoming article is published 
+as \SDRF{} can fill the gap, make scientific data more \q{\FAIR{}} (Findable, Accessible, 
+Interoperable, Reusable).  Upon publication of the peer-reviewed article  
 in the International Journal of Speech Technology, the disparate open-access 
-data from the article's secondary sources will be provided as a single 
-\SDRF{} archive.  This archive will provide machine-readable access to 
+data from the article's secondary sources would be provided as a single 
+\SDRF{} archive.  This archive would provide \textit{machine-readable} access to 
 information spread across multiple sources, translated into a common file format.  
 In general, \SDRF{} encourages and implements features to help data sets 
 conform to \FAIR{} and related standards, such as (1) bundling multiple data sets 
@@ -1370,42 +1378,43 @@ via the naming conventions.}}}};
 \rectann{darkRed!20!BlueGreen}{0.7}{.5mm}{BlueGreen!50!logoOrange}{2.5}{-6.8,-2.9}{5}{1.5}{1.1}
 
 \end{tikzpicture}
-\caption{Indirectly Locating Data Sets from Cited Papers}
+\caption{Extracting Information Encoded in File Names}
 \label{fig:s4}
 \end{figure}
 
 
-\p{An important question for any \SDRF{} archive is how researchers 
-will productively access the data once a Supplemental Archive has been 
-downloaded.  Unlike the Flow Cytometry use-case discussed below, the 
-Parkinson's archive spans several scientific disciplines, and 
+\p{Once a Supplemental Archive has been downloaded, 
+an important question for any \SDRF{} archive is how researchers 
+will productively access the data.  Unlike the Flow Cytometry use-case discussed below, the 
+Parkinson's archive spans several scientific disciplines; as such, 
 there is no obvious application which could be preferred by default 
 for examining the data files.  As a fallback option, \SDRF{} is 
 designed to present data sets via \Qt{} Creator, a \Cpp{} Integrated 
 Development Environment associated with the \Qt{} application-development 
 framework.  \lSDRF{} includes code libraries to represent 
-research meta-data as \Cpp{} objects, and these libraries can be 
+research meta-data as \Cpp{} objects; these libraries can be 
 opened as \Qt{} projects.  These may be 
 supplemented with separate libraries extracting and 
 managing information specific to individual data sets.  In 
-particular, the Supplemental Archive for the forthcoming Parkinson's 
-article will provide \Cpp{} classes encapsulating spreadsheet-like 
+particular, the Supplemental Archive for the Parkinson's 
+article under peer review would provide \Cpp{} classes encapsulating spreadsheet-like 
 data (whether originally in \textbf{.xls}, \CSV{}, or space-delimited formats) 
-republished in the unified data set.}
+republished by the Journal in the unified data set.}
 
 \p{An additional concern for \SDRF{} archives is how to properly annotate 
 publications and data sets side-by-side.  In the Parkinson's article, 
 individual \Cpp{} classes encapsulating tabular data serve as 
 convenient microcitation targets: annotations within the relevant 
 \Cpp{} code represent anchors through which the data set may be 
-referenced (on a more precise scale than merely referencing the 
-Supplemental Archive as a whole).  In some cases, individual 
+referenced (on a more precise scale than merely citing the 
+Supplemental Archive as a whole).  In some places, individual 
 class attributes can also be linked to lines in the authors' 
-Python source code.  On the text side, certain individual 
-paragraphs within the Parkinson's article specifically discuss individual 
+Python source code.  On the text side, certain 
+paragraphs within the Parkinson's article specifically discuss given 
 data sets that the authors analyzed, the same data which the \SDRF{} 
-archive encodes via \Cpp{} classes.  Therefore, those paragraphs 
-can be cleanly linked to the corresponding \Cpp{} code annotations.  
+archive woyld encode via \Cpp{} classes.  This would enable those paragraphs 
+which discuss the data set to be cleanly linked to the 
+corresponding \Cpp{} code annotations.  
 This illustrates \SDRF{}'s recommended annotation/microcitation 
 system, where segments in publication texts (identified for 
 instance via \LaTeX{} \textbf{phantomsection} commands or 
@@ -1413,13 +1422,13 @@ instance via \LaTeX{} \textbf{phantomsection} commands or
 comments in code and/or raw data files in the Supplemental 
 Archive.}
 
-\begin{figure}
+\begin{figure}[h]
 \begin{tikzpicture}
 \node[inner sep=0pt] (bib) at (0,0)
-    {\includegraphics[trim=4cm 1.5cm 4.5cm 2.5cm,clip,width=.8\textwidth]{./scrn/s3.png}};
+    {\includegraphics[trim=4cm 5cm 4.5cm 2.5cm,clip,width=.8\textwidth]{./scrn/s3.png}};
 \node [anchor=west,bottom color=fcBoxColor!80!red,top color=purple!70!blue, 
-inner sep=3, shading angle=10, text width=4.5cm]
-  (longnote) at (7.3, 0) {\vspace{-8pt}%  %{\color{rb!85!red}{
+inner sep=3, shading angle=10, text width=6.5cm]
+  (longnote) at (4.1, -0.8) {\vspace{-8pt}%  %{\color{rb!85!red}{
 {\cframedboxx{0mm}{2pt}{\large\raggedright\textbf{Some data sets 
 analyzed in the Parkinson's artcle have to be located 
 by browsing ``Supplemental Material'' sections of its cited papers.}}}};
@@ -1428,11 +1437,11 @@ by browsing ``Supplemental Material'' sections of its cited papers.}}}};
 \label{fig:s3}
 \end{figure}
 
-
+\vspace{-12pt}
 \section{Second Case Study: ``Marked T cell activation, senescence, exhaustion and skewing towards TH17 in patients with COVID-19 pneumonia'' from nature.com, 2020} 
 
 \p{This article presents a use-case with some noteworthy contrasts to 
-the Parkinson's publication described in the previous section.  The 
+the Parkinson's publication described in the previous section.  This 
 Covid-19 paper (\bhref{https://www.nature.com/articles/s41467-020-17292-4}) 
 was published along with two data sets comprising Flow Cytometry Standard 
 (\FCS{}) files hosted via the Flow Repository (\bhref{http://flowrepository.org/id/FR-FCM-Z2N4} 
@@ -1447,10 +1456,10 @@ in the data sets belong to a single scientific area (Flow Cytometry)
 and are encoded in a single format (\FCS{}).  As such, it is 
 straightforward to identify the kind of software which 
 researchers need to use to visualize the raw data --- any 
-application which can parse \FCS{} files.  There are a variety 
-of commercial as well as open-source Flow Cytometry applications 
+application that can parse \FCS{} files.  There are a variety 
+of commercial as well as open-source Flow Cytometry (\FCM{}) applications 
 which can be used to access \FCS{} data.  Once readers have 
-downloaded the Flow Repository archives, then, they may individually 
+downloaded the Flow Repository archives, they may individually 
 load the \textbf{.fcs} files to study data which, in the 
 original article, is summarized via figure illustrations.}
 
@@ -1460,8 +1469,8 @@ core problem is that existing Flow Cytometry software does not
 intrinsically have capabilities to read \PDF{} files, locate 
 \FCS{} data sets, and interoperate with hosting platforms such 
 as Flow Repository.  Employing this use-case as an example with 
-which to demonstrate proper alignment between document viewers, 
-publication/date repositories, and scientific software, 
+which to illustrate proper alignment between document viewers, 
+publication/data repositories, and scientific software, 
 Linguistic Technology Systems is developing a new 
 Flow Cytometry application which \textit{can} interoperate with 
 \PDF{} viewers and \SDRF{} archives.  This application is 
@@ -1472,38 +1481,40 @@ when a reader wishes to download and visualize \FCS{} files.
 In short, the \FCM{} application --- having received 
 data from a \PDF{} viewer which implements an 
 \SDRF{} inter-application protocol --- will automatically 
-preform download and extraction steps that scientists 
+execute download and extraction steps that scientists 
 otherwise would have to perform manually.}
 
 \p{Note also that, although most of the relevant 
 data for this Covid-19 article is in \FCS{} form, 
-there is also supplemental clinical information provided 
+there is in addition supplemental clinical information provided 
 in other formats.  For cases such as these, 
 the LTS \FCM{} software includes code libraries allowing 
-researchers to parse non-\FCS{} data as well in standard 
+researchers to parse non-\FCS{} data in standard 
 formats such as \XML{}, \HDFFive{}, or \ARFF{}.}  
    
-\p{This use-case illustrates a general principle, that 
+\p{This use-case illustrates a general principle: that 
 research data is most convenient for scientists when 
 it is deployed within an infrastructure where 
 portals, document viewers, and scientific applications 
-may seamlessly interoperate.  Wherever possible, 
-when they are reading published books or articles, 
-researcher should be able to automatically launch 
+can seamlessly interoperate.  Wherever possible, 
+when researchers are reading published books or articles, 
+they should be able to automatically launch 
 the proper scientific application, download data 
 sets, and examine raw data files in the preferred 
-software with only one or two clicks --- instead 
-of manually finding, downloading, merging/extracting, 
-and then opening data files, these steps should be 
+software with only one or two clicks.  Instead 
+of readers having to waste time with manually 
+finding, downloading, merging/extracting, 
+and then opening data files, these steps would be 
 performed automatically as much as is feasible.}
 
 \section{Conclusion}
-\p{The two use-cases considered here are similar in that 
-each concern articles which are linked to multiple data sets, 
-and for maximum convenience it is optimal for researshers 
+\p{The two case-studies considered here are similar in that 
+each involve articles which are linked to multiple data sets; 
+for maximum convenience it is optimal for researchers 
 to be able to access this data without performing 
-manual download andd merging/extracting actions.  
-There are also some differences: in particular, the 
+manual download and merging/extracting actions.  
+There are also some differences between the two 
+case-studies: in particular, the 
 Parkinson's data spans multiple disciplines, whereas the 
 Covid-19 data is more rigorously grounded in Flow Cytometry.  
 As such, the operational requirements for the Covid-19 data, 
@@ -1514,14 +1525,15 @@ software while a researcher is reading the publication,
 allowing the researcher to view the data via software 
 similar to that used to generate/analyze the data 
 while the reported research was being conducted.  In 
-the case of the Parkinson's data, there is no single 
+the case of the Parkinson's data, however, there is no single 
 application which would seamlessly display the specrum 
 of information considered in that article; as 
 mentioned above, \SDRF{} defaults to using 
 \Qt{} Creator as a fallback for loading Supplemental 
 Archives where no other software is available.}
 
-\p{Whether using \Qt{} Creator or a domain-specific application, 
+\p{Regardless of whether one is using \Qt{} Creator or 
+a domain-specific application, 
 it is preferable that each \SDRF{} archive be associated 
 with one or more applications that researchers can use 
 to view data (and extract information) from the archive.  
@@ -1529,10 +1541,10 @@ Moreover, these applications would ideally be linked
 to document viewers and also to publisher's portals, 
 so that readers can automatically launch preferred 
 applications and view Supplemental Archives while 
-reading concordant publications.  In order to achieve 
+reading concomitant publications.  In order to achieve 
 this, scientific applications need to be augmented 
-with plugins to parse \SDRF{} data.  In addition, 
-we are developing an inter-application messaging protocol 
+with plugins to parse \SDRF{} data.   
+We are developing an inter-application messaging protocol 
 so that disparate applications with \SDRF{} plugins 
 may interoperate.  In particular, \PDF{} viewers may 
 interoperate with scientific applications so that 
@@ -1545,8 +1557,8 @@ Flow Cytometry.  We are also working on a \Qt{} Creator
 plugin so that \Qt{} Creator (as the \q{default} \SDRF{} 
 software) can participate in \SDRF{} networks using the 
 same protocol.  We will then expand the scope of 
-this protocol via plugins for software concerning 
-implementation such as image-analysis, molecular visualization, 
+this protocol via plugins for software in other domains,  
+such as image-analysis, molecular visualization, 
 radiology, \ThreeD{} graphics, and so forth.}
 
 \p{}

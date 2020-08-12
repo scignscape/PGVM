@@ -10,6 +10,9 @@
 
 #include <algorithm>
 
+#include <QDebug>
+
+
 Dataset::Dataset(QVector_Matrix_R8* eventsFloat)
  : eventsFloat_(eventsFloat)
 {
@@ -88,6 +91,8 @@ QString Dataset::get_file_source_name()
 
 double Dataset::getAsFloatCompensated(int obs, int indexChan)
 {
+   qDebug() << "Ef: " << eventsFloat_->at(obs, indexChan);
+
  //?
  return (*eventsFloatCompensated_)[obs](indexChan);
 
