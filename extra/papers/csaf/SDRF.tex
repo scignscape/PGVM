@@ -1305,10 +1305,18 @@ needs to be extracted by computer code.}
 \ann{blue!50!orange}{1}{.6mm}{BlueGreen!90!red}{0.5}{-1,1.2}{5.2}{0.6}{1.1}
 
 \colorarr{>=latex, ->}{fcBoxColor!60!black}
-{0.8}{blGreen!30!red}{1}{1mm}{8,3}{4,1.5}
+{0.8}{blGreen!30!red}{1}{1mm}{7.4,2.3}{4.1,1.5}
 
 \colorarr{>=latex, ->}{fcBoxColor!60!black}
-{0.8}{blGreen!30!red}{1}{1mm}{8,3}{-1.8,3.2}
+{0.8}{blGreen!30!red}{1}{1mm}{7.4,2.3}{-1.7,3.2}
+
+\node [anchor=west,bottom color=orange!80!green,top color=pink!70!blue, 
+inner sep=3, shading angle=150, text width=3cm]
+  (longnote) at (7, 0) {\vspace{-8pt}%  %{\color{rb!85!red}{
+{\cframedboxx{0mm}{2pt}{\large\raggedright\textbf{Some data sets 
+are directly available through the bibliography; 
+others have to be located by reading the cited articles.}}}};
+
 
 \end{tikzpicture}
 \caption{Bibliography (With Data Set Hyperrefs) in the Parkinson's Article}
@@ -1375,6 +1383,21 @@ instance via \LaTeX{} \textbf{phantomsection} commands or
 \JATS{} \textbf{statement} tags) are linked to annotations or 
 comments in code and/or raw data files in the Supplemental 
 Archive.}
+\begin{figure}
+\begin{tikzpicture}
+\node[inner sep=0pt] (bib) at (0,0)
+    {\includegraphics[trim=4cm 1.5cm 4.5cm 2.5cm,clip,width=.8\textwidth]{./scrn/s3.png}};
+\node [anchor=west,bottom color=fcBoxColor!80!red,top color=purple!70!blue, 
+inner sep=3, shading angle=10, text width=4.5cm]
+  (longnote) at (7.3, 0) {\vspace{-8pt}%  %{\color{rb!85!red}{
+{\cframedboxx{0mm}{2pt}{\large\raggedright\textbf{Some data sets 
+analyzed in the Parkinson's artcle have to be located 
+by browsing ``Supplemental Material'' sections of its cited papers.}}}};
+\end{tikzpicture}
+\caption{Indirectly Locating Data Sets from Cited Papers}
+\label{fig:s3}
+\end{figure}
+
 
 \section{Second Case Study: ``Marked T cell activation, senescence, exhaustion and skewing towards TH17 in patients with COVID-19 pneumonia'' from nature.com, 2020} 
 
