@@ -1209,7 +1209,7 @@ drop shadow=logoPurple!50!darkRed,
 schema.org/Dataset, Digital Curation Center, \SciData{}, \BioCoder{}, and \MIBBI{} 
 (Minimum Information for Biological and Biomedical Investigations).  However, \SDRF{} is unique in merging different data-set formats into a unified, overarching standard which can be adapted to different publishing environments.}
 
-\p{In order to conform to current specifications --- such as FAIRsharing (Findable, Accessible, Interoperable, Reusable) or the Bill and Melinda Gates Foundation guidelines for authors --- proper protocols must be implemented at several stages of the publishing process.  In particular, (1) publications themselves should provide clear descriptions of accompanying data sets and where that data is hosted; (2) publication repositories (such as Springer Nature) should make data-set links and metadata clearly visible on web pages where documents are read or previewed; (3) data sets themselves need to include metadata and supporting files which help researchers properly access, visualize, and reuse the data; and (4) data sets need to be connected with software which has the correct features to load and display the relevant raw data files.  \lSDRF{} will include technology applicable to each of these four facets of the publishing and data-sharing pipeline.}
+\p{In order to conform to current specifications --- such as FAIRsharing (Findable, Accessible, Interoperable, Reusable) or the Bill and Melinda Gates Foundation guidelines for authors --- proper protocols must be implemented at several stages of the publishing process.  In particular, (1) publications should provide clear descriptions of accompanying data sets and where that data is hosted; (2) publication repositories (such as Springer Nature) should make data-set links and metadata clearly visible on web pages where documents are read or previewed; (3) data sets themselves need to include metadata and supporting files which help researchers properly access, visualize, and reuse the data; and (4) data sets need to be connected with software which has the correct features to load and display the relevant raw data files.  \lSDRF{} will include technology applicable to each of these four facets of the publishing and data-sharing pipeline.}
 
 \p{It is important to emphasize that data sets are only truly valuable if they are machine-readable and seamlessly integrated into domain-specific software ecosystems.  Scientists who carefully examine and reuse published data sets are usually researchers doing technical work in a field closely related to the original authors'; in many cases there are specialized software applications, computational methods, algorithms, and research protocols which are endemic to the relevant subject areas.  When sharing research data, accordingly, publishers and authors should make it as easy as possible for scientists to examine the data within the digital ecosystem they utilize for their own research.  This often means that document viewers --- e.g., \PDF{} viewers and/or \HTML{} pages on publisher portals --- should ideally be interconnected with scientific applications, so that scientists, when reading books/articles, can seamlessly launch domain-specific software and visualize/examine associated data sets.  Unfortunately, most scientific software does not incorporate code libraries to parse metadata describing open-access data sets.  Therefore, publisher and data-hosting repositories can only be truly interoperative with scientific applications by providing plugins or extensions that add data-set-accession capabilities to existing scientific software.}
 
@@ -1283,7 +1283,8 @@ as a zipped folder, while the demographic data attached to it has to be download
 separately.  Some of the information obtained from \MRI{} and speech analysis 
 (reported in papers cited as data sources for the primary article) is provided 
 as supplemental materials within the secondary papers, which requires readers 
-to browse through the articles so as to find downloadable links.  In short, piecing all 
+to browse through the articles so as to find downloadable 
+links (see Figure~\ref{fig:s3}).  In short, piecing all 
 the source data together forces readers to manually inspect multiple web resources 
 and to manually interconnect files once they are downloaded.}
 
@@ -1292,7 +1293,8 @@ is implicit within how the data sets are organized, requiring extra effort to
 extract this information in a machine-readable manner.  For instance, the PhysioNet 
 sensor data uses a file-naming convention which encodes several pieces of 
 information in the file names, such as whether the file presents a Parkinson's patient 
-or a control subject.  By examining file names, it would be possible to construct a 
+or a control subject (see Figure~\ref{fig:s4}).  
+By examining file names, it would be possible to construct a 
 table with additional information providing context for the file contents.  However, 
 such information is not directly included within the PhysioNet data set; it 
 needs to be extracted by computer code.}
@@ -1329,7 +1331,7 @@ Interoperable, Reusable).  When the forthcoming article is published
 in the International Journal of Speech Technology, the disparate open-access 
 data from the article's secondary sources will be provided as a single 
 \SDRF{} archive.  This archive will provide machine-readable access to 
-information spread across multiple sources, translated into a common file-format.  
+information spread across multiple sources, translated into a common file format.  
 In general, \SDRF{} encourages and implements features to help data sets 
 conform to \FAIR{} and related standards, such as (1) bundling multiple data sets 
 into a single archive; (2) migrating data to general-purpose representations 
@@ -1345,6 +1347,33 @@ article text into a single resource, which \SDRF{} calls a
 \q{Supplemental Archive;} and (7) annnotating the data sets to support 
 microcitations granularly linking the publication to its associated 
 Supplemental Archive.} 
+
+\begin{figure}
+\begin{tikzpicture}
+\node[inner sep=0pt] (ss) at (0,0)
+    {\includegraphics[trim=1cm 2cm 11cm 5cm,clip,width=.8\textwidth]{./scrn/s4.png}};
+\node [anchor=west,bottom color=blGreen!80!blue,top color=green!70!blue, 
+inner sep=3, shading angle=10, text width=7cm]
+  (longnote) at (3.3, 0) {\vspace{-8pt}%  %{\color{rb!85!red}{
+{\cframedboxx{0mm}{2pt}{\large\raggedright\textbf{Some information in 
+the PhysioNet is encoded in file names, where 
+the initial two letter-pairs and following two number-pairs 
+all provide information about the patient and data source.  Unfortunately, 
+encoding data in this manner requires extra computer code 
+when reusing the data base, because the file names need 
+to be analyzed so as to parse the information expressed 
+via the naming conventions.}}}};
+
+\colorarr{>=latex, ->}{blGreen!30!red}
+{0.8}{blGreen!30!red}{1}{1mm}{3,-2.05}{-4.7,-2.05}
+
+\rectann{darkRed!20!BlueGreen}{0.7}{.5mm}{BlueGreen!50!logoOrange}{2.5}{-6.8,-2.9}{5}{1.5}{1.1}
+
+\end{tikzpicture}
+\caption{Indirectly Locating Data Sets from Cited Papers}
+\label{fig:s4}
+\end{figure}
+
 
 \p{An important question for any \SDRF{} archive is how researchers 
 will productively access the data once a Supplemental Archive has been 
@@ -1383,6 +1412,7 @@ instance via \LaTeX{} \textbf{phantomsection} commands or
 \JATS{} \textbf{statement} tags) are linked to annotations or 
 comments in code and/or raw data files in the Supplemental 
 Archive.}
+
 \begin{figure}
 \begin{tikzpicture}
 \node[inner sep=0pt] (bib) at (0,0)
