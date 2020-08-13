@@ -773,11 +773,20 @@
 \newcommand{\lSDRM}{\resizebox{!}{8pt}{\ATexttclr{S}}%
 \resizebox{!}{7pt}{\ATexttclr{DRM}}}
 
-\newcommand{\SDRF}{\resizebox{!}{7pt}{\ATexttclr{SDRF}}}
-\newcommand{\sSDRF}{\resizebox{!}{6pt}{\ATexttclr{SDRF}}}
-\newcommand{\lSDRF}{\resizebox{!}{8pt}{\ATexttclr{S}}%
-\resizebox{!}{7pt}{\ATexttclr{DRF}}}
 
+%\newcommand{\SDRF}{\resizebox{!}{7pt}{\ATexttclr{SDRF}}}
+%\newcommand{\sSDRF}{\resizebox{!}{6pt}{\ATexttclr{SDRF}}}
+%\newcommand{\lSDRF}{\resizebox{!}{8pt}{\ATexttclr{S}}%
+%\resizebox{!}{7pt}{\ATexttclr{DRF}}}
+
+\newcommand{\SDRF}{\resizebox{!}{7.5pt}{\ATexttclr{SDR%
+\hspace{-2pt}{\fontfamily{qcr}\fontseries{b}\selectfont{}\large\textit{f}}%
+}}}
+
+
+\newcommand{\lSDRF}{\resizebox{!}{8pt}{\ATexttclr{S}}\resizebox{!}{7.5pt}{\ATexttclr{DR%
+\hspace{-2pt}{\fontfamily{qcr}\fontseries{b}\selectfont{}\large\textit{f}}%
+}}}
 
 
 
@@ -1250,7 +1259,8 @@ first published.  However, the republished unified data set
 (to appear in conjunction with the IJST article) may 
 include code to allow researchers to reproduce the original 
 analytic workflow if desired; for instance, we can enable the 
-implementations published via \bhref{https://www.frontiersin.org/articles/10.3389/fnins.2019.00874/full#h6} to be embedded as a \CaPTk{} module 
+implementations published via \bhref{https://biomedia.doc.ic.ac.uk/software/malp-em/} 
+to be embedded as a \CaPTk{} module 
 (see in particular \bhref{https://cbica.github.io/CaPTk/tr_integration.html#tr_cppIntegration}).  
  
 \item{}  The authors also provide a Python code repository, hosted on GitHub, which contains code they used to analyze these various data sources.
