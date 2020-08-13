@@ -129,6 +129,12 @@ public:
 
  void get_row(u4 r, QVector<r8>& row);
 
+ r8 get_minimum_in_column(u4 c);
+ r8 get_maximum_in_column(u4 c);
+
+ r8 get_minimum_in_row(u4 r);
+ r8 get_maximum_in_row(u4 r);
+
  void symmetric(u4 n_rows);
  void skew_symmetric(u4 n_rows);
  void diagonal(u4 n_rows);
@@ -159,6 +165,12 @@ public:
   return (n_rows_ & 1) && !is_diagonal();
  }
 
+ bool is_cmajor_not_symmetric()
+ {
+  return (n_rows_ & 1) && 
+    ( ((n_cols_ & 1) == 0) && (n_cols_ > 1) );
+ }
+
  bool is_rmajor()
  {
   return (n_rows_ & 1) == 0;
@@ -180,6 +192,11 @@ public:
  bool is_skew_symmetric()
  {
   return n_cols_ == 1; 
+ }
+
+ bool is_symmetric_or_skew_symmetric()
+ {
+  return (n_cols_ == 1) || (n_cols_ == 0); 
  }
 
  static constexpr u4 value_byte_size() { return 8; }
@@ -212,6 +229,8 @@ public:
 
  r8 get_value(u4 r, u4 c);
  r8 get_at(u4 r, u4 c);
+
+ r8 get_at_index(u4 pos);
 
  u4 total_size();
 
