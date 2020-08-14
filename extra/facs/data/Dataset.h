@@ -33,6 +33,8 @@ class Dataset
 
  QVector_Matrix_R8* eventsFloatCompensated_;
 
+ QVector<QPair<double, double>> extrema_;
+
  QVector_Matrix_R8* test_compensation_matrix_;
 
   //QList<QList<double>> eventsFloat_; //=new ArrayList<double[]>();
@@ -56,6 +58,11 @@ public:
  Dataset(QVector_Matrix_R8* eventsFloat = nullptr);
  
  QList<ChannelInfo*> getChannelInfo();
+
+ QVector<QPair<double, double>>& extrema()
+ {
+  return extrema_;
+ }
  
  int getNumObservations();
 

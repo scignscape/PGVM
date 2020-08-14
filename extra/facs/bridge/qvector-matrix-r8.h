@@ -132,6 +132,13 @@ public:
  r8 get_minimum_in_column(u4 c);
  r8 get_maximum_in_column(u4 c);
 
+ void get_column_extrema(QVector<QPair<r8, r8>>& result);
+ void get_row_extrema(QVector<QPair<r8, r8>>& result);
+ void get_column_maxima(QVector<r8>& result);
+ void get_row_maxima(QVector<r8>& result);
+ void get_column_minima(QVector<r8>& result);
+ void get_row_minima(QVector<r8>& result);
+
  QPair<r8, r8> get_extrema_in_column(u4 c)
  {
   return {get_minimum_in_column(c), get_maximum_in_column(c)};

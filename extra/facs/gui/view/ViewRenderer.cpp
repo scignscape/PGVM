@@ -122,6 +122,18 @@ void test_render_xy(ViewSettings* viewsettings, Dataset* ds,
 
  if(! accepted.isEmpty())
  {
+  QVector<QPair<double, double>>& extrema = ds->extrema();  
+
+   int indexX = viewsettings->indexX();
+   int indexY = viewsettings->indexY();
+   qDebug() << "Ind X: " << indexX;
+   qDebug() << "Ind Y: " << indexY;
+  double xmin = extrema[indexX].first;
+  double xmax = extrema[indexX].second;
+  double ymin = extrema[indexY].first;
+  double ymax = extrema[indexY].second;
+
+
 //?  for(int i = 0; i < accepted.size() && i < rendermax; ++i)
   for(int i = 0; i < max; ++i)
   {
@@ -135,24 +147,21 @@ void test_render_xy(ViewSettings* viewsettings, Dataset* ds,
 //  chanX=viewsettings->transformation.transform(ds, ind, viewsettings->indexX);
 //  chanY=viewsettings->transformation.transform(ds, ind, viewsettings->indexY);
 
-   int indexX = viewsettings->indexX();
-   int indexY = viewsettings->indexY();
-
-   indexX = 1;
-   indexY = 2;
-
-   
-   qDebug() << "Ind X: " << indexX;
-   qDebug() << "Ind Y: " << indexY;
-
+  
    chanX = ds->getAsFloatCompensated(ind, indexX );
    chanY = ds->getAsFloatCompensated(ind, indexY );
 
    qDebug() << "Chan X: " << chanX;
    qDebug() << "Chan Y: " << chanY;
   
-   int x = trans->mapFcsToScreenX(chanX);
-   int y = trans->mapFcsToScreenY(chanY);
+//?   int x = trans->mapFcsToScreenX(chanX);
+//?   int y = trans->mapFcsToScreenY(chanY);
+
+     
+   int x = ( (chanX - xmin) / (xmax - xmin) ) * 400;  
+   int y = ( (chanY - ymin) / (ymax - ymin) ) * 400;  
+
+   //mapFcsToScreenX
 
    qDebug() << "x = " << x << ", y = " << y;
 

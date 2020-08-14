@@ -54,6 +54,7 @@ void Dataset::do_preliminary_compensation()
 //   << ", " << eventsFloatCompensated_->n_cols() 
 //   << ", " << eventsFloatCompensated_->n_rows() ;
 
+/*
  for(u4 c = 1; c <= eventsFloat_->n_cols(); ++c)
  {
   QPair<r8, r8> pr = eventsFloat_->get_extrema_in_column(c);
@@ -66,6 +67,11 @@ void Dataset::do_preliminary_compensation()
   QPair<r8, r8> pr = eventsFloatCompensated_->get_extrema_in_column(c);
   qDebug() << "Min, Max for EFC col " << c << ": " << pr;
  }
+*/
+
+ eventsFloatCompensated_->get_column_extrema(extrema_);
+
+ qDebug() << "Extrema: " << extrema_;
 
 }
 
