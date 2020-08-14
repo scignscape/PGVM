@@ -782,12 +782,12 @@
 %\resizebox{!}{7pt}{\ATexttclr{DRF}}}
 
 \newcommand{\SDRF}{\resizebox{!}{7.5pt}{\ATexttclr{SDR%
-\hspace{-1pt}{\fontfamily{qcr}\fontseries{b}\selectfont{}\large{f}}%
+\hspace{1pt}{\resizebox{!}{8pt}{\fontfamily{qhv}\fontseries{b}\selectfont{}{f}}}%
 }}}
 
 
 \newcommand{\lSDRF}{\resizebox{!}{8pt}{\ATexttclr{S}}\resizebox{!}{7.5pt}{\ATexttclr{DR%
-\hspace{-1pt}{\fontfamily{qcr}\fontseries{b}\selectfont{}\large{f}}%
+\hspace{1pt}{\fontfamily{qhv}\fontseries{b}\selectfont{}\Large{f}}%
 }}}
 
 
@@ -1234,7 +1234,10 @@ should make data-set links and metadata clearly visible on web pages where docum
 
 \p{It is important to emphasize that data sets are only truly valuable if they are machine-readable and seamlessly integrated into domain-specific software ecosystems.  Scientists who examine and reuse published data sets are generally researchers doing technical work in a field closely related to that of the original authors; in many cases there are specialized software applications, computational methods, algorithms, and research protocols which are endemic to the relevant subject areas.  When sharing research data, accordingly, publishers/authors should make it as easy as possible for scientists to examine the data within the digital ecosystem that they utilize for their own research.  This often implies that document viewers --- e.g., \PDF{} viewers and/or \HTML{} pages on publisher portals --- should ideally be interconnected with scientific applications so that scientists, when reading books/articles, can seamlessly launch domain-specific software and visualize/examine associated data sets.  Unfortunately, most scientific software does not incorporate code libraries to parse metadata (summarizing file types, download instructions, etc.) describing open-access data sets.  This can be addressed by providing plugins or extensions that add data-set-accession capabilities to existing scientific software, so that publisher repositories and data-hosting repositories can be made truly interoperable with scientific applications.}
 
-\p{To demonstrate how such plugins can work, as well as other facets of the data-publication process facilitated via \SDRF{}, this paper will review two case-studies in the academic literature.
+\p{To demonstrate how such plugins can work, as well as other facets of the data-publication process facilitated via \SDRF{}, this paper will review two case-studies addressing 
+research in the academic literature, each involving papers that have been or need to be 
+linked with multiple data sets (data which was either reused or newly created 
+during the course of the research described).
 % involving articles that have been published or are under peer review.
 }
 
@@ -1259,12 +1262,13 @@ via devices such as smartphones.
 available for reuse, but requires special (non-commercial) authorization from the 
 Parkinson's Progressive Markers Initiative (\bhref{https://www.ppmi-info.org/}) 
 or a request made of corresponding authors of referenced papers introducing the relevant data 
-(\bhref{https://www.frontiersin.org/articles/10.3389/fnins.2019.00874/full#h6}).
+(\bhref{https://www.frontiersin.org/articles/10.3389/fnins.2019.00874/full#h6}).%
 \footnote{When the unified data set is published, we will request permission to 
-include a copy of the original data set to spare future readers having 
-to request this data on their own}  
+include a copy of the original data set to spare future readers from having 
+to request this data on their own.}  
 Although this data is derived from bioimaging (so that the 
-underlying raw data files are radiological) the authors of this paper under review  
+underlying raw data files are radiological) the authors of the IJST 
+paper under review  
 utilize the data in a more structured form, building off of 
 image-feature extraction already performed when the data sets were 
 first published.  However, the republished unified data set itself 
@@ -1305,7 +1309,7 @@ in a table within the main text
 (see Figure~\ref{fig:s1} here) and, in their bibliography, they 
 cite these data sets either directly or by 
 referencing publications where the relevant data sets are described 
-(see Figure~\ref{fig:s2} here).  In so doing, this properly 
+(see Figure~\ref{fig:s2} here).  Doing so properly 
 credits authorship to the researchers who curated the data sets, and it gives readers a 
 means to locate the raw data.  However, accessing and working with the raw data is 
 inconvenient from a reader's point of view without most or all of the data sets being 
