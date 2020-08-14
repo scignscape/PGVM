@@ -132,6 +132,16 @@ public:
  r8 get_minimum_in_column(u4 c);
  r8 get_maximum_in_column(u4 c);
 
+ QPair<r8, r8> get_extrema_in_column(u4 c)
+ {
+  return {get_minimum_in_column(c), get_maximum_in_column(c)};
+ }
+
+ QPair<r8, r8> get_extrema_in_row(u4 r)
+ {
+  return {get_minimum_in_row(r), get_maximum_in_row(r)};
+ }
+
  r8 get_minimum_in_row(u4 r);
  r8 get_maximum_in_row(u4 r);
 

@@ -96,13 +96,13 @@ void QVector_Matrix_R8::fill_diagonal(r8 val)
 r8 QVector_Matrix_R8::get_minimum_in_column(u4 c)
 {
  if(is_diagonal())
-   return qMin(get_at(c, c), 0);
+   return qMin(get_at(c, c), 0.);
 
  r8 result = 0;
  if(is_symmetric_or_skew_symmetric())
  {
   // just brute force ...
-  for(u4 r = 1; r < n_rows(); ++r)
+  for(u4 r = 1; r <= n_rows(); ++r)
   {
    r8 rr = get_at(r, c);
    if(rr < result)
@@ -112,12 +112,18 @@ r8 QVector_Matrix_R8::get_minimum_in_column(u4 c)
 
  else if(is_cmajor())
  {
-  u4 index = (n_cols() * (c - 1)) + 1;
-  for(u4 i = 0; ++i, ++index; i < n_cols())
+  u4 index = (n_rows() * (c - 1)) + 1;
+  for(u4 i = 0; i < n_rows(); ++i, ++index)
   {
    r8 rr = get_at_index(index);
    if(rr < result)
      result = rr; 
+
+   // just brute force ...
+   //r8 rr = get_at(i + 1, c);
+   //if(rr < result)
+   //  result = rr;
+
   }  
  }
 
@@ -126,25 +132,26 @@ r8 QVector_Matrix_R8::get_minimum_in_column(u4 c)
   u4 nc = n_cols();
   u4 nr = n_rows();
   u4 index = c;
-  for(u4 r = 0; ++r, index += nc; r < nr)
+  for(u4 r = 0; r < nr; ++r, index += nc)
   {
    r8 rr = get_at_index(index);
    if(rr < result)
      result = rr; 
   }  
  }
+ return result;
 }
 
 r8 QVector_Matrix_R8::get_maximum_in_column(u4 c)
 {
  if(is_diagonal())
-   return qMax(get_at(c, c), 0);
+   return qMax(get_at(c, c), 0.);
 
  r8 result = 0;
  if(is_symmetric_or_skew_symmetric())
  {
   // just brute force ...
-  for(u4 r = 1; r < n_rows(); ++r)
+  for(u4 r = 1; r <= n_rows(); ++r)
   {
    r8 rr = get_at(r, c);
    if(rr > result)
@@ -154,8 +161,8 @@ r8 QVector_Matrix_R8::get_maximum_in_column(u4 c)
 
  else if(is_cmajor())
  {
-  u4 index = (n_cols() * (c - 1)) + 1;
-  for(u4 i = 0; ++i, ++index; i < n_cols())
+  u4 index = (n_rows() * (c - 1)) + 1;
+  for(u4 i = 0; i < n_rows(); ++i, ++index)
   {
    r8 rr = get_at_index(index);
    if(rr > result)
@@ -168,7 +175,7 @@ r8 QVector_Matrix_R8::get_maximum_in_column(u4 c)
   u4 nc = n_cols();
   u4 nr = n_rows();
   u4 index = c;
-  for(u4 r = 0; ++r, index += nc; r < nr)
+  for(u4 r = 0; r < nr; ++r, index += nc)
   {
    r8 rr = get_at_index(index);
    if(rr > result)
@@ -182,13 +189,13 @@ r8 QVector_Matrix_R8::get_maximum_in_column(u4 c)
 r8 QVector_Matrix_R8::get_minimum_in_row(u4 r)
 {
  if(is_diagonal())
-   return qMin(get_at(r, r), 0);
+   return qMin(get_at(r, r), 0.);
 
  r8 result = 0;
  if(is_symmetric_or_skew_symmetric())
  {
   // just brute force ...
-  for(u4 c = 1; c < n_cols(); ++c)
+  for(u4 c = 1; c <= n_cols(); ++c)
   {
    r8 rr = get_at(r, c);
    if(rr < result)
@@ -201,7 +208,7 @@ r8 QVector_Matrix_R8::get_minimum_in_row(u4 r)
   u4 nc = n_cols();
   u4 nr = n_rows();
   u4 index = r;
-  for(u4 c = 0; ++c, index += nr; c < nc)
+  for(u4 c = 0; c < nc; ++c, index += nr)
   {
    r8 rr = get_at_index(index);
    if(rr < result)
@@ -211,8 +218,8 @@ r8 QVector_Matrix_R8::get_minimum_in_row(u4 r)
 
  else
  {
-  u4 index = (n_rows() * (r - 1)) + 1;
-  for(u4 i = 0; ++i, ++index; i < n_rows())
+  u4 index = (n_cols() * (r - 1)) + 1;
+  for(u4 i = 0; i < n_cols(); ++i, ++index)
   {
    r8 rr = get_at_index(index);
    if(rr < result)
@@ -225,13 +232,13 @@ r8 QVector_Matrix_R8::get_minimum_in_row(u4 r)
 r8 QVector_Matrix_R8::get_maximum_in_row(u4 r)
 {
  if(is_diagonal())
-   return qMin(get_at(r, r), 0);
+   return qMin(get_at(r, r), 0.);
 
  r8 result = 0;
  if(is_symmetric_or_skew_symmetric())
  {
   // just brute force ...
-  for(u4 c = 1; c < n_cols(); ++c)
+  for(u4 c = 1; c <= n_cols(); ++c)
   {
    r8 rr = get_at(r, c);
    if(rr > result)
@@ -244,7 +251,7 @@ r8 QVector_Matrix_R8::get_maximum_in_row(u4 r)
   u4 nc = n_cols();
   u4 nr = n_rows();
   u4 index = r;
-  for(u4 c = 0; ++c, index += nr; c < nc)
+  for(u4 c = 0; c < nc; ++c, index += nr)
   {
    r8 rr = get_at_index(index);
    if(rr > result)
@@ -254,8 +261,8 @@ r8 QVector_Matrix_R8::get_maximum_in_row(u4 r)
 
  else
  {
-  u4 index = (n_rows() * (r - 1)) + 1;
-  for(u4 i = 0; ++i, ++index; i < n_rows())
+  u4 index = (n_cols() * (r - 1)) + 1;
+  for(u4 i = 0; i < n_cols(); ++i, ++index)
   {
    r8 rr = get_at_index(index);
    if(rr > result)
@@ -308,7 +315,7 @@ void QVector_Matrix_R8::get_row(u4 r, QVector<r8>& row)
 
 QVector_Matrix_R8* QVector_Matrix_R8::new_from_dimensions()
 {
- return new QVector_Matrix_R8(n_rows_, n_cols_);
+ return new QVector_Matrix_R8(n_rows(), n_cols());
 }
 
 void QVector_Matrix_R8::save_to_file(QString path)
@@ -972,15 +979,16 @@ r8 QVector_Matrix_R8::value(u4 r, u4 c)
 
 r8 QVector_Matrix_R8::get_at_index(u4 pos)
 {
+ //?qDebug() << "pos: " << pos;
  if(elems_)
  {
-  if(elems_->size() < pos)
+  if(pos < elems_->size())
     return (*elems_)[pos];
-  if(elems_->isEmpty()
+  if(elems_->isEmpty())
     return *_defaultv();
   return elems_->first();
  }
- return *_defaultv()
+ return *_defaultv();
 }
 
 template<>

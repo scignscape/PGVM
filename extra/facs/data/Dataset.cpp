@@ -40,7 +40,7 @@ Dataset::Dataset(QVector_Matrix_R8* eventsFloat)
 
 void Dataset::do_preliminary_compensation()
 {
- for(int r = 1; r <= eventsFloat_->n_rows(); ++r)
+ for(u4 r = 1; r <= eventsFloat_->n_rows(); ++r)
  {
   QVector<r8> row;
   eventsFloat_->get_row(r, row);
@@ -48,6 +48,25 @@ void Dataset::do_preliminary_compensation()
   test_compensation_matrix_->multiply(row, mrow);
   eventsFloatCompensated_->merge_row(row, r);  
  }
+
+// qDebug() << "getting extrema ..." << eventsFloat_->n_cols() 
+//   << ", " << eventsFloat_->n_rows()
+//   << ", " << eventsFloatCompensated_->n_cols() 
+//   << ", " << eventsFloatCompensated_->n_rows() ;
+
+ for(u4 c = 1; c <= eventsFloat_->n_cols(); ++c)
+ {
+  QPair<r8, r8> pr = eventsFloat_->get_extrema_in_column(c);
+  qDebug() << "Min, Max for EF col " << c << ": " << pr;
+ }
+
+
+ for(u4 c = 1; c <= eventsFloatCompensated_->n_cols(); ++c)
+ {
+  QPair<r8, r8> pr = eventsFloatCompensated_->get_extrema_in_column(c);
+  qDebug() << "Min, Max for EFC col " << c << ": " << pr;
+ }
+
 }
 
 
