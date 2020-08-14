@@ -239,8 +239,10 @@ void MainWindow::load_selected_file(QString sf)
 //?    mw.loadFile(f);
 
 //?
+
  paneViews_->test_one_view();
 
+ paneViews_->reset_index_data();
 }
 
 FacsanaduProject* MainWindow::getProject()

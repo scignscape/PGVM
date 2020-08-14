@@ -73,6 +73,8 @@ void Dataset::do_preliminary_compensation()
 
  qDebug() << "Extrema: " << extrema_;
 
+  // // temp ...
+ numCompensated_ = numChannel_;
 }
 
 

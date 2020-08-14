@@ -7,6 +7,8 @@
 
 #include "MainWindow.h"
 
+#include "data/Dataset.h"
+
 #include <QDebug>
 
 
@@ -33,11 +35,11 @@ ViewsMatrix::ViewsMatrix(MainWindow* mw)
 
  //layViews_->addWidget(lab, 0, 0);
 
- QLabel* lbl = new QLabel("qwerty", this);
- layViews_->addWidget(lbl, 0, 0);
+// QLabel* lbl = new QLabel("qwerty", this);
+// layViews_->addWidget(lbl, 0, 0);
 
- QLabel* lbl1 = new QLabel("qwerty .", this);
- layViews_->addWidget(lbl1, 0, 1);
+// QLabel* lbl1 = new QLabel("qwerty .", this);
+// layViews_->addWidget(lbl1, 0, 1);
 
 
  setLayout(layViews_);
@@ -46,8 +48,8 @@ ViewsMatrix::ViewsMatrix(MainWindow* mw)
 
 void ViewsMatrix::test_one_view()
 {
- QLabel* lbl = new QLabel("qwerty ...", this);
- layViews_->addWidget(lbl, 1, 0);
+// QLabel* lbl = new QLabel("qwerty ...", this);
+// layViews_->addWidget(lbl, 1, 0);
 
 
  ViewWidget* lab = new ViewWidget(mw_);
@@ -61,7 +63,9 @@ void ViewsMatrix::test_one_view()
 
  lab->setDataset(ds);
 
- layViews_->addWidget(lab, 1, 1);
+ qDebug() << "N cols:" << ds->getNumChannels();
+
+ layViews_->addWidget(lab, 0, 0);
 
  //QLabel* lbl = new QLabel
 

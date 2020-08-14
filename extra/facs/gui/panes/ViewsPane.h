@@ -17,6 +17,7 @@
 #include <QScrollArea>
 
 #include <QWidget>
+#include <QLabel>
 
 // package facsanadu.gui.panes;
 
@@ -24,13 +25,22 @@ class ViewsMatrix;
 class ViewToolChoice;
 
 class MainWindow;
+class Dataset;
 
 
 // //
 class ViewsPane : public QWidget
 {
+ MainWindow* mw_;
+
  QSpinBox* spMaxEvents_; // =new QSpinBox();
  QCheckBox* cbMaxEvents_; // =new QCheckBox(tr("Show max events:"));
+
+ QSpinBox* x_index_spin_box_;
+ QSpinBox* y_index_spin_box_;
+ QLabel* x_index_label_;
+ QLabel* y_index_label_;
+ QLabel* total_index_label_;
 
  ViewsMatrix* matrix_;
 
@@ -54,6 +64,8 @@ public:
  ViewsPane(MainWindow* mw);
 
  void test_one_view();
+
+ void reset_index_data(Dataset* ds = nullptr);
 
  void updateViews();
  void valuesupdated();

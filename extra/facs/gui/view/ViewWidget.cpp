@@ -101,6 +101,8 @@ void ViewWidget::updatePointImage()
   pm2.setBrush(QBrush(QColor(225, 210, 200)));
   pm2.drawRect(-5,-5,10000,10000);
 
+  
+
   ViewRenderer::renderData(viewsettings_, dataset_, gr, trans_, pm2, maxevents_); 
 //?  pm2.end();
 
