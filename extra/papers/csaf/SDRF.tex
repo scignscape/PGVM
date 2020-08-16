@@ -83,15 +83,16 @@
 
 %\pgfmathparse{equal(\value{page},15)||equal(\value{page},20)?int(1):int(0)}
 
-\ifnum\value{page}=12   %\pgfmathresult>0\relax
-\put(232,113){
+\ifnum\value{page}=13   %\pgfmathresult>0\relax
+\put(52,62){
  {\setlength{\fboxsep}{.65em}\fontsize{9}{10}\selectfont
 
-   {\color{white}{\parbox{11cm}{\vspace{7pt}{\begin{minipage}{.46\textwidth}
-	  {\color{black}{\textit{For more information please contact:}}\\\textbf{\color{blGreen!40!blbl}{Amy Neustein, Ph.D., Founder and CEO}}\\  
+   {\color{black}{\colorbox{red!60!blGreen}{%
+\parbox{7.1cm}{\hspace{-2pt}\colorbox{white}{\vspace{2pt}{\begin{minipage}{6.7cm}
+	  {\textit{For more information please contact:}}\\\textbf{\color{blGreen!40!blbl}{Amy Neustein, Ph.D., Founder and CEO}}\\  
        \textbf{{\color{blGreen!20!black}Linguistic Technology Systems \\
-      amy.neustein@verizon.net \textbullet{} \textbf{(917) 817-2184} }}}
-	 \end{minipage}}}}}}
+      amy.neustein@verizon.net \textbullet{} \textbf{(917) 817-2184} \vspace*{-9pt} }}
+	 \end{minipage}}}}}} } }
 }
 \fi
 
@@ -111,7 +112,9 @@
 %\setlength{\footskip}{7pt}
 
 \usepackage[paperheight=14in,paperwidth=8.5in]{geometry}
-\geometry{left=.72in,top=.39in,right=.68in,bottom=1.14in} %margins
+
+%\geometry{left=.72in,top=.39in,right=.68in,bottom=1.14in} %margins
+\geometry{left=.72in,top=.6in,right=.68in,bottom=1.2in} %margins
 
 \usepackage{etoolbox}% http://ctan.org/pkg/etoolbox
 \makeatletter
@@ -475,8 +478,9 @@
 
 
 
-\newcommand{\THQL}{\resizebox{!}{7.5pt}{\ATexttclr{THQL}}}
-\newcommand{\lTHQL}{\resizebox{!}{8pt}{\ATexttclr{THQL}}}
+\newcommand{\THQL}{\resizebox{!}{7pt}{\ATexttclr{THQL}}}
+\newcommand{\lTHQL}{\resizebox{!}{7.5pt}{\ATexttclr{T}}%
+\resizebox{!}{7pt}{\ATexttclr{HQL}}}
 
 \newcommand{\HDICOM}{\resizebox{!}{7.5pt}{\ATexttclr{{\large h}-DICOM}}}
 
@@ -645,6 +649,7 @@
 \newcommand{\GUI}{\resizebox{!}{7pt}{\AcronymText{GUI}}}
 \newcommand{\UI}{\resizebox{!}{7pt}{\AcronymText{UI}}}
 
+\newcommand{\DSL}{\resizebox{!}{7pt}{\AcronymText{DSL}}}
 
 \newcommand{\URI}{\resizebox{!}{7pt}{\AcronymText{URI}}}
 \newcommand{\DTD}{\resizebox{!}{7pt}{\AcronymText{DTD}}}
@@ -2104,9 +2109,87 @@ it may be queried according to protocols established
 for Hypergraph Database engines and then extended 
 to other information architectures.}
 
+\p{Such is the motivation behind the so-called 
+\q{Transparent Hypergraph Query Language} (\THQL{}) which is 
+being designed as a paradigm for organizing data sets 
+with the goal of formulating a hypergraph query model that 
+may be extended to Hypergraph databases, as well 
+as to information spaces that can be programmed to 
+emulate such databases.  \lTHQL{} is called \q{transparent} 
+because this technology is grounded on queries expressed 
+and evaluated directly in \Cpp{} code, so that query-processing 
+logic may be openly observed in source code and through a 
+debugger (this does not preclude a distinct \THQL{} 
+\textit{language}, but such would be implemented 
+by translating query expressions to \Cpp{} procedure calls; 
+behind the scenes \THQL{} is implemented as a \Cpp{} \DSL{}).}
+
 %impact factor
 
-%\p{}
+\p{In its design, \THQL{} represents the different use-cases 
+in which Hypergraph database technology is selected as the 
+optimal strategy for data storage and information management 
+or \q{knowledge engineering.}  In general, \THQL{} recognizes 
+four architectural paradigms which undergird the Hypergraph database 
+model (that is, an idealized model abstracted from specific products):
+
+\begin{description}
+\item[Object Serialization]  One appeal of Hypergraph database 
+engines is that they minimize the biolerplate code needed to 
+serialize (and later retrieve) \q{objects,} or typed data structures, 
+in the sense of Object-Oriented Programming.  These engines are not 
+\q{object} databases where object-persistence happens automatically, 
+but they are designed to manage objects as first-class integral 
+values more fluently than other database architectures 
+(relational, hierarchical, graph-oriented, etc.).  This means 
+that, when querying a hypergraph database, it should be 
+easy to manipulate the query results as one single typed 
+value which is an instance of an application-specific 
+type implemented within the application which initiates 
+the query, or as an iterator or \q{recursive factory} from which such 
+typed values can be initialized.  \lTHQL{} accordingly incorporates 
+logic to manage queries and query results according to such an 
+object-factory design pattern.
+
+\item[Collections-as-Values]  Another beneficial feature of Hypergraph databases 
+is that collections of similarly-typed values can be manipulated as 
+single values, requiring less intermediate modeling than appears in 
+\SQL{} or \RDF{}, for instance.  \lTHQL{} accordingly 
+presents views on hypernodes which emulate collections data structures 
+implemented in mainstream programming languages (stacks, queues, deques, etc.).     
+
+\item[Graphs and Network Models]  Although \q{nodes} (or, more 
+accurately, \textit{hypernodes} in a Hypergraph database have more 
+internal structure than nodes in ordinary (non-\q{hyper}) graphs, 
+hypergraphs are also models of hypernodes connected in graph-like 
+networks, so conventional graph queries and analyses 
+(ignoring hypernodes' internal content and considering just 
+connections between hypernodes) can be evaluated on hypergraphs 
+no less than ordinary graphs.  Accordingly, \THQL{} incorporates 
+common features of conventional graph-query languages.   
+
+\item[Hypernodes as Relational and Conceptual Structures]  
+This facet of \THQL{} integrates analytic protocols derived 
+from various existing Hypergraph technologies (as well as 
+\AI{} research that is operationalized and/or facilitated 
+by these technologies), such as \textbf{Graken.ai}, 
+\HyperGraphDB{}, Conceptual Space Theory, Fuzzy Logic, 
+Conceptual Role Semantics, 
+and so forth.  Each of these paradigms have distinct interpretations 
+of the internal structure of hypernodes.  To accommodate 
+this variation, \THQL{} allows hypernodes' internal structuration 
+--- the relationship between the overarching hypernode and its 
+contents --- to be notated according to several different 
+systems.    
+\end{description}
+}
+
+\p{LTS hopes to deploy a \THQL{} prototype in conjunction 
+with published \SDRF{} data sets and also in the context 
+of data-integration projects, including ones that will 
+be examined in a forthcoming Elsevier volume concerning 
+\q{Data-Integration and Conceptual-Space Models for Covid-19.}  
+Please contact LTS for more information.
 }
 \end{document}
 
