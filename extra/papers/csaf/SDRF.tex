@@ -83,7 +83,7 @@
 
 %\pgfmathparse{equal(\value{page},15)||equal(\value{page},20)?int(1):int(0)}
 
-\ifnum\value{page}=10   %\pgfmathresult>0\relax
+\ifnum\value{page}=11   %\pgfmathresult>0\relax
 \put(232,253.5){
  {\setlength{\fboxsep}{.65em}\fontsize{9}{10}\selectfont
 
@@ -1736,8 +1736,14 @@ where the archive is deposited.
 \SDRF{} defaults to using \Qt{} Creator as an application 
 with which to examine data sets, if there is no 
 obvious \q{preferred application} based on the research 
-topic.  
-
+topic.  Therefore, \SDRF{} recommends that the \Cpp{} 
+meta-data code be paired with \Qt{} project files and 
+other assets needed to run the code in the \Qt{} Creator 
+Integrated Development Environment, using \textbf{qmake} 
+as the build system.  In general, there should be 
+a \Qt{} project specific to the \SDRF{} meta-data; 
+in some cases, there will also be separate 
+\Qt{} projects for working with raw data files.
 \end{description}
 
 \item{} \textbf{Raw Data}:  As mentioned above, \SDRF{} 
@@ -1775,13 +1781,209 @@ in document text, but also encodes \PDF{} viewport
 coordinates for use by specialized \PDF{} viewers 
 which implement an \SDRF{} protocol for integrating 
 \PDF{} viewers with scientific applications.
-
 \end{enumerate}
-
 }
 
+\section{Checklist for Authors, Editors, and Publishers}
+\p{To clarify the steps needed to deploy publications 
+and data steps according to \SDRF{} recommendations, 
+this section will outline the steps that would be 
+taken by individuals fulfilling different roles in 
+the publishing pipeline.
+
+\begin{description}
+
+\item[Authors]  In most publishing environments, 
+the process of depositing data sets for open-access  
+hosting is entirely separate from that of submitting 
+articles for peer-reviewed publication.  Therefore, 
+it is the responsibility of authors to ensure that 
+these two resources --- their manuscripts and 
+Supplemental Archives --- are properly interconnected.  
+Some guidelines for ensuring that this process is 
+carried out smoothly include: (1) site the 
+\URL{} for the data set near the top of the document; 
+(2) cite the \URL{} for the publication in a 
+\textbf{readme} or similarly prominent 
+location in the data set; (3) if there are no 
+access restrictions, include a \PDF{} file 
+showing the full article in a findable location in 
+the data set; (4) use labels and \textbf{phantomsection} 
+or similar tags/commands to mark locations in the 
+manuscript which are conceptually linked to parts of 
+the data set; and (5) request that future authors 
+cite both the publication \URL{} and the Supplemental Archive 
+\URL{} when referencing the body of research.
+
+Additional steps are necessary when packaging files into 
+the published archive.  The exact details will depend 
+on the \SDRM{}s which apply to the environments 
+where the publication and data set are hosted, and 
+also on whether authors wish to comply with research 
+standardizations other than those of \SDRF{}.  For 
+example, archives which are published as a 
+Research Object Bundle need to use a folder layout 
+proscribed by that specification.  To work flexibly 
+with other standards, \SDRF{} does not demand 
+\textit{a priori} that authors use specific conventions 
+for file and folder names and hierarchies.  In general, 
+so as to pin the location of \SDRF{} meta-data, 
+\SDRF{} recommends the following: \Cpp{} classes and 
+\textbf{main.cpp} files specific to initializing 
+\SDRF{} meta-data should be marked accordingly with 
+\Cpp{} comments; and files in formats such as 
+\TAGML{}, serializing \SDRF{} meta-data, should 
+be similarly identified.  Once the meta-data source is 
+locatable within the archive, all other information 
+needed to fully parse the \SDRF{}-specific data 
+should be extracted from the initialized meta-data objects.  
+
+\item[Editors]  Because (as just outlined) authors' submissions 
+to data-hosting portals are usually operationally separate 
+from their endeavors to publish books and articles, publication 
+editors ordinarily cannot directly influence the authors' 
+preparations for publishing their data sets.  However, 
+editors can make recommendations and double-check that 
+their own research (and other research which is cited 
+within the article) is properly referenced, ensuring 
+that new (and relevant pre-existing) data sets are 
+Findable.  That is, editors can ensure that (1) \URL{}s 
+and digital identifiers for concomitant are prominently 
+notated in the publication text; (2) bibliographic 
+references to other publications linked to their own 
+data sets include citations for and hyperref links to 
+those resources if possible; and (3) the authors provide 
+a brief overview of their data set if that is necessary 
+to help researchers access the raw data and to help 
+readers understand how the raw data has informed the 
+research or findings presented in the publication.  
+Moreover, editors can access the data sets directly 
+through their hosting portals (or, for data sets 
+still in preparation, request access to the raw data 
+from the authors) and verify that the data set 
+properly references the accompanying publication. 
+
+It should be noted that the proper \URL{} and format 
+for referencing publications may change as manuscripts 
+work their way through the publishing process.  
+For example, a web link for accessing a peer-reviewed 
+article may only be defined once the document is 
+accepted for publication.  Also, some institutions 
+--- again, Gates Open Research supplies an example --- 
+explicitly track a submission through different stages 
+of peer review (articles may be accessible for reading 
+even while they are still being reviewed or 
+finalized).  When a data set links to its accociated 
+publication, then, such information about the current 
+state of the submission should be duly observed in the 
+data set.
+
+In short, the precise publication-related data within a 
+Supplemental Archive may need to be modified one 
+or more times as a document submission is processed, 
+so editors should be prepared to notify authors when 
+a change within the data set is necessary.
+
+\item[Publishers]  Assuming that authors and 
+editors follow the steps just outlined, 
+articles and Supplemental Archives may be 
+published in any environment without altering 
+publishers' workflows or technologies.  
+However, their are steps which publishers 
+may take to enhance the usefulness of \SDRF{} 
+resources, and to derive additional scientific 
+and commercial value from hosting articles 
+that utilize \SDRF{}.  These steps include:
+
+\begin{itemize}
+\item{} \textbf{Feature Data-Set References on Article 
+Front Pages}  The \q{front page} of an article is 
+\URL{} which uniquely locates a given publication on a 
+publisher's portal.  Usually this front page includes 
+an abstract, bibliographic citations, author names/affiliations, 
+keywords, and other high-level info about the document; 
+in some environments, the front-page also reproduces the 
+full text of the article (usually in \HTML{} format).  
+Even with this information set forth, however, it 
+can be difficult for readers to identify which publications 
+are paired with open-access data sets and to locate 
+those data sets when they are available.  Publishers 
+can rectify this situation by including links 
+to data sets near the top of the front page.
+
+\item{} \textbf{Recognize Data-Set Microcitations in Manuscripts}  
+Properly connecting publications and data sets requires 
+customized \LaTeX{} commands or \XML{} attributes, so as 
+to mark and annotate relevant locations/passages within the 
+document.  To fully utilize \SDRF{}, then --- or, indeed, 
+any rigorous data-sharing protocol --- publishers need to 
+expand their in-house media for internally representing 
+manuscripts in the pipeline with a collection of 
+additional tags, commands, and/or attributes.  The 
+details of these add-ons, depending on the technology 
+used, may be codified within individual \SDRM{}s.
+
+\item{} \textbf{Recognize Alternative Manuscript and 
+\PDF{} Formats}  This applies to non-restricted publications 
+where full text representations may be included within 
+Supplemental Archive.  In this situation, the ideal  
+\PDF{} version of a document, as well as the machine-readable 
+encoding of the text, may be different from what is 
+internally used by the publisher.  For example, 
+an article may appear as a chapter in a book, typeset 
+according to the book's conventions; in the data set, 
+however, that same article is shared as its own 
+document, and might use different typesetting rules 
+optimized for its specific content.  Also, the 
+machine-readable full-text representations presented 
+in the data set should be optimized for Text and Data 
+Mining (\TDM{}), and may therefore differ from the 
+internal encoding used by the publisher.  For these 
+scenarios, publishers should allow for alternate 
+versions of both human-readable and machine-readable 
+publication text being incorporated into the publishing 
+process, where these alternatives end up becoming 
+assets within Supplemental Archives.  Such alternatives 
+may not differ in terms of textual content 
+(although a data-set-specific version of an article 
+may include supplemental instructions for using the data set), 
+but they can differ in the visual formatting of the text 
+as well as how the text is encoded. 
+
+\item{} \textbf{Register Cross-References Between Publications and 
+Data Sets}  Publishers' databases should be configured to 
+clearly designate when a publication is linked to an 
+associated data set.  Moreover, some third-party 
+biblioinformatics services, such as CrossRef, allow 
+publishers to introduce additional attributes describing 
+publications.  Connections between publications and 
+data sets may therefore be formally declared in these 
+third-party contexts.
+
+\item{} \textbf{Incorporate Data-Sets Information into Publisher APIs}
+\p{Most publishing portals use \API{}s to support application-level 
+queries for finding or accessing publications.  These \API{}s 
+can be extended to systematically honor associations between 
+publications and data sets, e.g.: (1) return the \URL{} for a 
+data set when given an article's Document Object Identifier; 
+(2) return information about an article when queried by a 
+software component designed to manage data sets; (3) search 
+for publications whose data sets fit given criteria 
+(file format, programming language, subject area, etc.); and 
+(4) given a publication, return basic information about its associated 
+data that may help a reader decide whether to 
+download the data set (file format, total file size, preferred application, 
+etc.). 
+}    
 
 
+\end{itemize}
+    
+
+\end{description}
+}
+
+\p{}
 
 %impact factor
 
