@@ -1636,13 +1636,13 @@ publisher and data-hosting platforms, each of which have
 their own requirements and technology.  Therefore, the 
 precise contents and organization of a given \SDRF{} 
 Supplemental Archive will depend on specifications 
-pertaining the specific repository and hosting platform 
+pertaining to the specific repository and hosting platform 
 where the publication and data set, respectively, 
 are to be deposited.  To facilitate Supplemental Archive 
 preparation for different environments, \SDRF{} 
-seeks to include \q{Scientific Data Repository Models} 
+seeks to incorporate \q{Scientific Data Repository Models} 
 (\SDRM{}s) which are tailored to individual publishers.  
-The \SDRM{}s would encapsulate information pertaining 
+These \SDRM{}s would encapsulate information targeted 
 to the specific platforms where the relevant publication 
 and data set are hosted.  For example, research 
 funded by the Bill and Melinda Gates Foundation 
@@ -1650,9 +1650,9 @@ must follow certain guidelines, which are
 documented whenever an article is submitted to the 
 Gates Open Research portal.  Consequently, the 
 specific \SDRF{} meta-data for such papers can 
-be designed to notate the concordant research's 
-adherence to these organizational guidelines.  
-In these situations, the layout and vocabulary 
+be designed to notate how the associated research 
+adheres to these organizational guidelines.  
+In this type of situation, the layout and vocabulary 
 for \SDRF{} meta-data would be determined 
 at least in part by the \SDRM{} germane 
 to the environment where the research is published.}
@@ -1667,7 +1667,7 @@ or data sets via keyword searches), or
 obtain data sets from hosting platforms 
 (to automatically download data sets upon 
 request from a user reading the corresponding publication).  
-For these use-cases, individual \SDRM{} would 
+For these use-cases, individual \SDRM{}s would 
 include information and/or computer code about 
 how to access publishers' \API{}s, how to download 
 and extract a data set given a digital identifier, 
@@ -1691,9 +1691,11 @@ be different than the generic model presented here.}
 grouped into several facets, concerning meta-data, raw data, and 
 machine-readable text, respectively.
 
+\vspace{1em}
 \begin{enumerate}
 
 \item{} \textbf{SDRF Meta-Data}
+\vspace{-8pt}
 \begin{description}
 \item[Meta-Data Files]  \SDRF{} uses a vocabulary for 
 describing the contents of data sets which merges the 
@@ -1744,7 +1746,7 @@ obvious \q{preferred application} based on the research
 topic.  Therefore, \SDRF{} recommends that the \Cpp{} 
 meta-data code be paired with \Qt{} project files and 
 other assets needed to run the code in the \Qt{} Creator 
-Integrated Development Environment, using \textbf{qmake} 
+\IDE{} (Integrated Development Environment), using \textbf{qmake} 
 as the build system.  In general, there should be 
 a \Qt{} project specific to the \SDRF{} meta-data; 
 in some cases, there will also be separate 
@@ -1757,7 +1759,8 @@ formats such as \ARFF{}, \HDFFive{}, \XML{}, or
 \TAGML{} (as compared to formats such as 
 \textbf{.xls}, which are associated with specific 
 applications).  An experimental \q{Hypergraph 
-Exchange Format} (\HGXF{}) may also be used.
+Exchange Format} (\HGXF{}), being developed 
+in conjunction with \SDRF{}, may also be used.
 
 An exception to the guidelines for general-purpose 
 formats is when data should be presented in 
@@ -1770,6 +1773,7 @@ of the data, which may facilitate properly loading
 and accessing the domain-specific files, represented 
 in a more general-purpose format.    
 
+\vspace{1em}
 \item{} \textbf{Annotated Manuscripts}  Where authors have permission 
 to share full-text versions of their books/articles, \SDRF{} 
 recommends that a machine-readable representation of 
@@ -1806,7 +1810,7 @@ it is the responsibility of authors to ensure that
 these two resources --- their manuscripts and 
 Supplemental Archives --- are properly interconnected.  
 Some guidelines for ensuring that this process is 
-carried out smoothly include: (1) site the 
+carried out smoothly include: (1) cite the 
 \URL{} for the data set near the top of the document; 
 (2) cite the \URL{} for the publication in a 
 \textbf{readme} or similarly prominent 
@@ -1820,7 +1824,7 @@ the data set; and (5) request that future authors
 cite both the publication \URL{} and the Supplemental Archive 
 \URL{} when referencing the body of research.
 
-Additional steps are necessary when packaging files into 
+Additional steps are also necessary when packaging files into 
 the published archive.  The exact details will depend 
 on the \SDRM{}s which apply to the environments 
 where the publication and data set are hosted, and 
@@ -1849,37 +1853,35 @@ from their endeavors to publish books and articles, publication
 editors ordinarily cannot directly influence the authors' 
 preparations for publishing their data sets.  However, 
 editors can make recommendations and double-check that 
-their own research (and other research which is cited 
-within the article) is properly referenced, ensuring 
+authors' research (and other research which is cited 
+within new articles) is properly referenced, ensuring 
 that new (and relevant pre-existing) data sets are 
 Findable.  That is, editors can ensure that (1) \URL{}s 
-and digital identifiers for concomitant are prominently 
+and digital identifiers for concomitant data sets are prominently 
 notated in the publication text; (2) bibliographic 
-references to other publications linked to their own 
+references to other publications which have their own 
 data sets include citations for and hyperref links to 
-those resources if possible; and (3) the authors provide 
-a brief overview of their data set if that is necessary 
+those data sets if possible; and (3) the authors provide 
+a brief overview of their data set if doing so is necessary 
 to help researchers access the raw data and to help 
 readers understand how the raw data has informed the 
 research or findings presented in the publication.  
-Moreover, editors can access the data sets directly 
-through their hosting portals (or, for data sets 
-still in preparation, request access to the raw data 
-from the authors) and verify that the data set 
-properly references the accompanying publication. 
+Moreover, editors can review the data sets themselves 
+and verify that they 
+properly reference the accompanying publication. 
 
-It should be noted that the proper \URL{} and format 
+It should be noted that the proper \URL{}s and formats 
 for referencing publications may change as manuscripts 
 work their way through the publishing process.  
 For example, a web link for accessing a peer-reviewed 
 article may only be defined once the document is 
 accepted for publication.  Also, some institutions 
---- again, Gates Open Research supplies an example --- 
-explicitly track a submission through different stages 
+(e.g., Gates Open Research) 
+publicly track a submission through different stages 
 of peer review (articles may be accessible for reading 
 even while they are still being reviewed or 
-finalized).  When a data set links to its accociated 
-publication, then, such information about the current 
+finalized).  Consequently, when a data set links to its accociated 
+publication, such information about the current 
 state of the submission should be duly observed in the 
 data set.
 
@@ -1892,7 +1894,7 @@ a change within the data set is necessary.
 \item[Publishers]  Assuming that authors and 
 editors follow the steps just outlined, 
 articles and Supplemental Archives may be 
-published in any environment without altering 
+published in any environment without directly altering 
 publishers' workflows or technologies.  
 However, their are steps which publishers 
 may take to enhance the usefulness of \SDRF{} 
@@ -1902,7 +1904,7 @@ that utilize \SDRF{}.  These steps include:
 
 \begin{itemize}
 \item{} \textbf{Feature Data-Set References on Article 
-Front Pages}  The \q{front page} of an article is 
+Front Pages} \hspace{14pt}  The \q{front page} of an article is a 
 \URL{} which uniquely locates a given publication on a 
 publisher's portal.  Usually this front page includes 
 an abstract, bibliographic citations, author names/affiliations, 
@@ -1917,7 +1919,7 @@ can rectify this situation by including links
 to data sets near the top of the front page.
 
 \item{} \textbf{Recognize Data-Set Microcitations in Manuscripts}  
-Properly connecting publications and data sets requires 
+\hspace{14pt} Properly connecting publications and data sets requires 
 customized \LaTeX{} commands or \XML{} attributes, so as 
 to mark and annotate relevant locations/passages within the 
 document.  To fully utilize \SDRF{}, then --- or, indeed, 
@@ -1929,12 +1931,12 @@ details of these add-ons, depending on the technology
 used, may be codified within individual \SDRM{}s.
 
 \item{} \textbf{Recognize Alternative Manuscript and 
-\PDF{} Formats}  This applies to non-restricted publications 
+\PDF{} Formats} \hspace{14pt} This applies to non-restricted publications 
 where full text representations may be included within 
-Supplemental Archive.  In this situation, the ideal  
-\PDF{} version of a document, as well as the machine-readable 
-encoding of the text, may be different from what is 
-internally used by the publisher.  For example, 
+a Supplemental Archive.  In this situation, the ideal  
+\PDF{} version of a document --- as well as of the machine-readable 
+encoding of the text --- may be different from what is 
+internally adopted by the publisher.  For example, 
 an article may appear as a chapter in a book, typeset 
 according to the book's conventions; in the data set, 
 however, that same article is shared as its own 
@@ -1956,7 +1958,7 @@ but they can differ in the visual formatting of the text
 as well as how the text is encoded. 
 
 \item{} \textbf{Register Cross-References Between Publications and 
-Data Sets}  Publishers' databases should be configured to 
+Data Sets} \hspace{14pt} Publishers' databases should be configured to 
 clearly designate when a publication is linked to an 
 associated data set.  Moreover, some third-party 
 biblioinformatics services, such as CrossRef, allow 
@@ -1966,7 +1968,7 @@ data sets may therefore be formally declared in these
 third-party contexts.
 
 \item{} \textbf{Incorporate Data-Sets Information into Publisher APIs}
-Most publishing portals use \API{}s to support application-level 
+\hspace{14pt} Most publishing portals use \API{}s to support application-level 
 queries for finding or accessing publications.  These \API{}s 
 can be extended to systematically honor associations between 
 publications and data sets, e.g.: (1) return the \URL{} for a 
@@ -1978,7 +1980,7 @@ for publications whose data sets fit given criteria
 (4) given a publication, return basic information about its associated 
 data that may help a reader decide whether to 
 download the data set (file format, total file size, preferred application, 
-etc.).     
+and so forth).     
 \end{itemize}
 \end{description}
 }
@@ -1988,7 +1990,7 @@ etc.).
 benefits for publishers (as well as instutions, such as 
 universities or independent journals, which publish their 
 own material).  Bear in mind that the details are \SDRF{} 
-are adapted to different \SDRM{}s; therefore, the characterization 
+are adapted to different \SDRM{}s; as such, the characterization 
 of \SDRF{} content presented here is provisional, and may 
 take different forms in different publishing environments.  
 Therefore, adopting \SDRF{} does not require publishers 
@@ -2031,10 +2033,10 @@ data sets' corresponding articles are indexed.
 paired with conscientiously curated, well-documented 
 and reusable data sets are more likely to 
 spur further research than publications whose raw 
-data is not shared at or is shared in ways which 
+data is not shared at all or is shared in ways which 
 add extra effort for researchers seeking to re-use 
 or re-examine the data.  In general, scientists 
-grivitate to using raw data which can be plugged 
+gravitate to using raw data which can be plugged 
 most readily into the computing environments they 
 use for their own research.  For this reason, 
 research work --- expressed both in data sets and 
@@ -2044,14 +2046,15 @@ deem the data convenient to use and expand upon.
 
 \item{}  \textbf{Enhancing the Publishing Ecosystem}  
 As digital media becomes an increasingly important part 
-of scientist's use and experience of published research, 
+of scientists' use and experience of published research, 
 publishers are expected to provide ever more sophisticated 
 technology for visualizing data and publications.  
 Aside from just showing \PDF{} or \HTML{} views of 
 articles, publishers are gradually introducing 
 multi-media platforms which permit interactive 
 data access, \ThreeD{} data visualization, 
-audio and video content, and so forth.  Interfacing 
+audio and video content, and similar features of 
+enhanced \q{Reader Experience.}  Interfacing 
 directly with scientific applications --- e.g., 
 via publisher-specific application plugins --- 
 is a natural corollary to this trend, adding yet 
@@ -2076,9 +2079,8 @@ formats for representing information.  Hypergraph
 Database engines are favored in part because hypergraph 
 schema can incorporated many families of data models, 
 so that Hypergraph Databases can store diverse, heterogeneous 
-data, sourced from disparate origin-points.}
-
-\p{Nevertheless --- despite some common features which make Hypergraph Database 
+data, sourced from disparate origin-points.  
+Nevertheless --- despite some common features which make Hypergraph Database 
 engines, collectively, good architectural choices 
 for heterogeneous and decentralized data persistence ---  
 there are several distinct Hypergraph engines 
@@ -2087,10 +2089,10 @@ different data models and protocols.  It is therefore a
 worthwhile project to define a multi-purpose Hypergraph data 
 model which merges idiosyncratic details of 
 these various platforms, offering a common framework for 
-accessing Hypergraph data.  Such a frameworks' value could 
+accessing Hypergraph data.  Such a framework's value could 
 be enhanced by applying it to information spaces which 
 are not, necessarily, backed by a Hypergraph Database engine 
-but which are amenable to an intermediate software layer which 
+but which are amenable to an intermediate software layer that 
 translates Hypergraph-oriented queries to a query language 
 endemic to the actual database used.  Although Hypergraph databases 
 are gaining a greater foothold in some computing domains 
@@ -2106,16 +2108,16 @@ but also to any systematic data compilation, including
 published data sets.  Therefore, one use-case for 
 \SDRF{} is to package raw data in such a way that 
 it may be queried according to protocols established 
-for Hypergraph Database engines and then extended 
-to other information architectures.}
+for Hypergraph Database engines (and then extended 
+to other information architectures).}
 
 \p{Such is the motivation behind the so-called 
-\q{Transparent Hypergraph Query Language} (\THQL{}) which is 
-being designed as a paradigm for organizing data sets 
+\q{Transparent Hypergraph Query Language} (\THQL{}) which LTS 
+is designing as a paradigm for organizing data sets 
 with the goal of formulating a hypergraph query model that 
 may be extended to Hypergraph databases, as well 
 as to information spaces that can be programmed to 
-emulate such databases.  \lTHQL{} is called \q{transparent} 
+emulate such databases.  \lTHQL{} is characterized as \q{transparent} 
 because this technology is grounded on queries expressed 
 and evaluated directly in \Cpp{} code, so that query-processing 
 logic may be openly observed in source code and through a 
@@ -2133,7 +2135,7 @@ or \q{knowledge engineering.}  In general, \THQL{} recognizes
 four architectural paradigms which undergird the Hypergraph database 
 model (that is, an idealized model abstracted from specific products):
 
-\begin{description}
+\begin{description}[itemsep=3pt]
 \item[Object Serialization]  One appeal of Hypergraph database 
 engines is that they minimize the biolerplate code needed to 
 serialize (and later retrieve) \q{objects,} or typed data structures, 
@@ -2159,13 +2161,13 @@ presents views on hypernodes which emulate collections data structures
 implemented in mainstream programming languages (stacks, queues, deques, etc.).     
 
 \item[Graphs and Network Models]  Although \q{nodes} (or, more 
-accurately, \textit{hypernodes} in a Hypergraph database have more 
+accurately, \textit{hypernodes}) in a Hypergraph database have more 
 internal structure than nodes in ordinary (non-\q{hyper}) graphs, 
 hypergraphs are also models of hypernodes connected in graph-like 
 networks, so conventional graph queries and analyses 
 (ignoring hypernodes' internal content and considering just 
 connections between hypernodes) can be evaluated on hypergraphs 
-no less than ordinary graphs.  Accordingly, \THQL{} incorporates 
+no less than on ordinary graphs.  Accordingly, \THQL{} incorporates 
 common features of conventional graph-query languages.   
 
 \item[Hypernodes as Relational and Conceptual Structures]  
