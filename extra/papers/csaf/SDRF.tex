@@ -84,7 +84,7 @@
 %\pgfmathparse{equal(\value{page},15)||equal(\value{page},20)?int(1):int(0)}
 
 \ifnum\value{page}=11   %\pgfmathresult>0\relax
-\put(232,253.5){
+\put(232,113){
  {\setlength{\fboxsep}{.65em}\fontsize{9}{10}\selectfont
 
    {\color{white}{\parbox{11cm}{\vspace{7pt}{\begin{minipage}{.46\textwidth}
@@ -1961,7 +1961,7 @@ data sets may therefore be formally declared in these
 third-party contexts.
 
 \item{} \textbf{Incorporate Data-Sets Information into Publisher APIs}
-\p{Most publishing portals use \API{}s to support application-level 
+Most publishing portals use \API{}s to support application-level 
 queries for finding or accessing publications.  These \API{}s 
 can be extended to systematically honor associations between 
 publications and data sets, e.g.: (1) return the \URL{} for a 
@@ -1973,16 +1973,92 @@ for publications whose data sets fit given criteria
 (4) given a publication, return basic information about its associated 
 data that may help a reader decide whether to 
 download the data set (file format, total file size, preferred application, 
-etc.). 
-}    
-
-
+etc.).     
 \end{itemize}
-    
-
 \end{description}
 }
 
+\subsection{Benefits for Publishers}
+\p{We believe adopting \SDRF{} technology can derive several 
+benefits for publishers (as well as instutions, such as 
+universities or independent journals, which publish their 
+own material).  Bear in mind that the details are \SDRF{} 
+are adapted to different \SDRM{}s; therefore, the characterization 
+of \SDRF{} content presented here is provisional, and may 
+take different forms in different publishing environments.  
+Therefore, adopting \SDRF{} does not require publishers 
+to substantially (or at all) modify their existing software.  
+In general, though, incorporating certain \SDRF{} 
+protocols and/or implementations --- whether as software 
+extensions or simply as recommended design patterns --- 
+can augment publishers' offerings in several ways:
+
+\begin{enumerate}
+\item{}  \textbf{Increased Citations and Downloads}  By 
+explicitly linking publications and data sets, publishers 
+improve the likelihood that researchers will find 
+the publications.  Data sets present an alternative 
+route (alongside references in other sources, or 
+keywork searches) for scholars to locate books and 
+articles relevant to their research.  
+
+It is important to stress that, despite standardizations 
+such as \DCC{} and Research Objects, the vast majority of 
+published data sets are shared haphazardly, without 
+proper organization or meta-data.  Therefore, those 
+data-sets which \textit{do} adopt rigorous curation 
+standards are more likely to be found by software 
+designed for contemporary data-publishing specifications.  
+These well-curated resources may also stand out from their 
+peers on data hosting platforms.  Some hosting environments 
+explicitly introduce a \q{score} to measure how well 
+each data set is organized and documented (e.g., 
+the \MIFlowCyt{}, or \q{Minimumum Information about a 
+Flow Cytometry Experiment}, rating on \textbf{flowRepository.org}).  
+Accordingly, data sets which score highly on existing or 
+future metrics --- 
+assessing how systematically their data is organized --- 
+are more likely to attract researchers' attention, which 
+in turn drives traffic to the publication sites where 
+data sets' corresponding articles are indexed. 
+   
+\item{}  \textbf{Impact Factor}  Articles which are 
+paired with conscientiously curated, well-documented 
+and reusable data sets are more likely to 
+spur further research than publications whose raw 
+data is not shared at or is shared in ways which 
+add extra effort for researchers seeking to re-use 
+or re-examine the data.  In general, scientists 
+grivitate to using raw data which can be plugged 
+most readily into the computing environments they 
+use for their own research.  For this reason, 
+research work --- expressed both in data sets and 
+in publications discussing the research --- is 
+likely to be more influential when scientists 
+deem the data convenient to use and expand upon.  
+
+\item{}  \textbf{Enhancing the Publishing Ecosystem}  
+As digital media becomes an increasingly important part 
+of scientist's use and experience of published research, 
+publishers are expected to provide ever more sophisticated 
+technology for visualizing data and publications.  
+Aside from just showing \PDF{} or \HTML{} views of 
+articles, publishers are gradually introducing 
+multi-media platforms which permit interactive 
+data access, \ThreeD{} data visualization, 
+audio and video content, and so forth.  Interfacing 
+directly with scientific applications --- e.g., 
+via publisher-specific application plugins --- 
+is a natural corrolary to this trend, adding yet 
+more computational heft to publishers' platforms.  
+But properly networking publications with 
+specific software demands rigorously documented 
+links between publications and data sets, such as 
+provided via \SDRF{}.   
+\end{enumerate}
+}
+
+\section{The Transparent Hypergraph Query Language}
 \p{}
 
 %impact factor
