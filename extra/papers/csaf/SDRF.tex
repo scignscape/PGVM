@@ -333,6 +333,7 @@
 \newcommand{\PVD}{\resizebox{!}{7pt}{\AcronymText{PVD}}}
 
 \newcommand{\TAGML}{\resizebox{!}{7pt}{\AcronymText{TAGML}}}
+\newcommand{\sTAGML}{\resizebox{!}{6pt}{\AcronymText{TAGML}}}
 
 \newcommand{\GTagML}{\resizebox{!}{7pt}{\ATexttclr{G{%
 \scriptsize{TAG}}ML}}}
@@ -624,6 +625,7 @@
 \newcommand{\JSON}{\resizebox{!}{7pt}{\AcronymText{JSON}}}
 \newcommand{\UV}{\resizebox{!}{7pt}{\AcronymText{UV}}}
 
+\newcommand{\sJSON}{\resizebox{!}{6pt}{\AcronymText{JSON}}}
 
 \newcommand{\PET}{\resizebox{!}{7pt}{\AcronymText{PET}}}
 \newcommand{\MRI}{\resizebox{!}{7pt}{\AcronymText{MRI}}}
@@ -781,16 +783,18 @@
 %\newcommand{\lSDRF}{\resizebox{!}{8pt}{\ATexttclr{S}}%
 %\resizebox{!}{7pt}{\ATexttclr{DRF}}}
 
-\newcommand{\SDRF}{\resizebox{!}{7.5pt}{\ATexttclr{SDR%
-\hspace{1pt}{\resizebox{!}{8pt}{\fontfamily{qhv}\fontseries{b}\selectfont{}{f}}}%
-}}}
+\newcommand{\SDRFx}{\resizebox{!}{7.5pt}{\ATexttclr{SDR%
+\hspace{1pt}{\raisebox{-1pt}{\resizebox{!}{8.5pt}{\fontfamily{qhv}\fontseries{b}\selectfont{}{F}}}%
+}}}}
 
 
-\newcommand{\lSDRF}{\resizebox{!}{8pt}{\ATexttclr{S}}\resizebox{!}{7.5pt}{\ATexttclr{DR%
-\hspace{1pt}{\fontfamily{qhv}\fontseries{b}\selectfont{}\Large{f}}%
-}}}
+\newcommand{\lSDRF}{\resizebox{!}{8pt}{\ATexttclr{S}}\resizebox{!}{8pt}{\ATexttclr{DR%
+\hspace{1pt}{\raisebox{-.5pt}{\fontfamily{qhv}\fontseries{b}\selectfont{}\Large{F}}%
+}}}}
 
-
+\newcommand{\SDRF}{\resizebox{!}{8pt}{\ATexttclr{S}}\resizebox{!}{8pt}{\ATexttclr{DR%
+\hspace{1pt}{\raisebox{-1pt}{\fontfamily{qhv}\fontseries{b}\selectfont{}\Large{F}}%
+}}}}
 
 \newcommand{\Cpp}{\resizebox{!}{7pt}{\AcronymText{C++}}}
 
@@ -1206,9 +1210,10 @@ drop shadow=logoPurple!50!darkRed,
 \begin{center}	
 {\setlength{\fboxsep}{32pt}
 	\relscale{1.1}{{\fontfamily{qcr}\fontseries{b}\selectfont%
-{SDRF (Scientific Data Repository Framework): 
-Improving Data Sets' Machine Readabability and 
-Interoperability with Published Research}}}}
+{\Large{SDRF (Scientific Data Repository Framework)}\\
+
+Improving Data Sets' Machine Readabability \\
+and Interoperability with Published Research}}}}
 \end{center}
 \end{minipage}
 \end{tcolorbox}
@@ -1220,30 +1225,29 @@ Interoperability with Published Research}}}}
 
 \section{A New Protocol for Sharing Scientific Data}
 
-\p{Linguistic Technology Systems (LTS) is developing \SDRF{} to encompasses data models, publishing guidelines, and code libraries to for deploying open-access research data sets associated with scientific publications.  Nowadays there are many general-purpose and domain-specific portals hosting scientific data; there are also several available formats for describing and encoding scientific data, such as Research Objects, 
+\p{Linguistic Technology Systems (LTS) is developing \SDRF{} to encompass data models, publishing guidelines, and code libraries for deploying open-access research data sets associated with scientific publications.  Nowadays there are many general-purpose and domain-specific portals hosting scientific data; there are also several available formats for describing and encoding scientific data, such as Research Objects, 
 \textbf{schema.org/Dataset}, Digital Curation Center (\DCC{}), \SciData{}, \BioCoder{}, and \MIBBI{} 
-(Minimum Information for Biological and Biomedical Investigations).  However, \SDRF{} is unique in merging different data-set formats into a unified, overarching standard which can be adapted to different publishing housing and pipelines.}
+(Minimum Information for Biological and Biomedical Investigations).  The purpose of \SDRF{} is to merge these different data-set formats into a unified, overarching standard which can be adapted to different publishing houses and pipelines.}
 
 \section{Shaping Protocols to Conform to Current Specifications in Publishing}
 
 \p{In order to conform to current specifications 
 --- such as FAIRsharing (Findable, Accessible, Interoperable, Reusable) or the Bill and Melinda Gates Foundation guidelines for authors 
 (\bhref{https://gatesopenresearch.org/for-authors/data-guidelines}) --- 
-proper protocols must be implemented at several stages of the publishing process: (1) publications should provide clear descriptions of accompanying data sets and where that data is hosted; (2) publication repositories %(such as Springer Nature) 
+proper protocols must be implemented at several stages of the publishing process, in particular (1) publications should provide clear descriptions of accompanying data sets and where that data is hosted; (2) publication repositories %(such as Springer Nature) 
 should make data-set links and metadata clearly visible on web pages where documents are read or previewed; (3) data sets themselves need to include metadata and supporting files which help researchers properly access, visualize, and reuse the data; and (4) data sets need to be connected with software which has the correct features to load and display the relevant raw data files.  \lSDRF{} will include technology applicable to each of these four facets of the publishing and data-sharing pipeline in order to conform to current standards.}
 
-\p{It is important to emphasize that data sets are only truly valuable if they are machine-readable and seamlessly integrated into domain-specific software ecosystems.  Scientists who examine and reuse published data sets are generally researchers doing technical work in a field closely related to that of the original authors; in many cases there are specialized software applications, computational methods, algorithms, and research protocols which are endemic to the relevant subject areas.  When sharing research data, accordingly, publishers/authors should make it as easy as possible for scientists to examine the data within the digital ecosystem that they utilize for their own research.  This often implies that document viewers --- e.g., \PDF{} viewers and/or \HTML{} pages on publisher portals --- should ideally be interconnected with scientific applications so that scientists, when reading books/articles, can seamlessly launch domain-specific software and visualize/examine associated data sets.  Unfortunately, most scientific software does not incorporate code libraries to parse metadata (summarizing file types, download instructions, etc.) describing open-access data sets.  This can be addressed by providing plugins or extensions that add data-set-accession capabilities to existing scientific software, so that publisher repositories and data-hosting repositories can be made truly interoperable with scientific applications.}
+\p{It is important to emphasize that data sets are only truly valuable if they are machine-readable and seamlessly integrated into domain-specific software ecosystems.  Scientists who examine and reuse published data sets are generally researchers doing technical work in a field closely related to that of the original authors; in many cases there are specialized software applications, computational methods, algorithms, and research protocols which are endemic to the relevant subject areas.  When sharing research data, accordingly, publishers/authors should make it as easy as possible for scientists to examine the data within the digital ecosystem that they utilize for their own research.  This often implies that document viewers --- e.g., \PDF{} viewers and/or \HTML{} pages on publisher portals --- should be ideally interconnected with scientific applications so that scientists, when reading books/articles, can seamlessly launch domain-specific software and visualize/examine associated data sets.  Unfortunately, most scientific software does not incorporate code libraries to parse metadata (summarizing file types, download instructions, etc.) describing open-access data sets.  This can be addressed by providing plugins or extensions that add data-set-accession capabilities to existing scientific software, so that publisher repositories and data-hosting repositories can be made truly interoperable with scientific applications.}
 
 \p{To demonstrate how such plugins can work, as well as other facets of the data-publication process facilitated via \SDRF{}, this paper will review two case-studies addressing 
-research in the academic literature, each involving papers that have been or need to be 
+research in the academic literature, each involving papers that have been 
 linked with multiple data sets (data which was either reused or newly created 
 during the course of the research described).
 % involving articles that have been published or are under peer review.
 }
 
 \section[First Case Study]%
-{\large{First Case Study: \normalsize{``Parkinson's Disease Diagnosis: Effect of Autoencoders to
-Extract Features from Vocal Characteristics,'' 
+{\large{First Case Study: \normalsize{``Parkinson's Disease Diagnosis: The Effect of Autoencoders on Extracting Features from Vocal Characteristics,'' 
 by Ashena Gorgan Mohammadi, Pouya Mehralian, Amir Naseri, and Hedieh Sajedi 
 (International Journal of Speech Technology, pending review)}}}
 
@@ -1261,8 +1265,8 @@ via devices such as smartphones.
 \item{}  \textbf{Radiological Data}: this data is not immediately 
 available for reuse, but requires special (non-commercial) authorization from the 
 Parkinson's Progressive Markers Initiative (\bhref{https://www.ppmi-info.org/}) 
-or a request made of corresponding authors of referenced papers introducing the relevant data 
-(\bhref{https://www.frontiersin.org/articles/10.3389/fnins.2019.00874/full#h6}).%
+or making a request of corresponding authors of referenced papers introducing the 
+relevant data (\bhref{https://www.frontiersin.org/articles/10.3389/fnins.2019.00874/full#h6}).%
 \footnote{When the unified data set is published, we will request permission to 
 include a copy of the original data set to spare future readers from having 
 to request this data on their own.}  
@@ -1271,7 +1275,8 @@ underlying raw data files are radiological) the authors of the IJST
 paper under review  
 utilize the data in a more structured form, building off of 
 image-feature extraction already performed when the data sets were 
-first published.  However, the republished unified data set itself 
+first published by the prior authors.  
+However, the republished unified data set itself 
 (to appear in conjunction with the IJST submission) might 
 include code to allow researchers to reproduce the original 
 analytic workflow if desired: for instance, among other things, we can enable the 
@@ -1303,7 +1308,7 @@ citations for data sets used in their analyses ...}}}};
 \label{fig:s1}
 \end{figure}
 
-\subsection{Uniying the Data Sets into a Single Package}  
+\subsection{Unifying the Data Sets into a Single Package}  
 \p{In this artice pending review, the authors summarize the data sets 
 in a table within the main text 
 (see Figure~\ref{fig:s1} here) and, in their bibliography, they 
@@ -1593,7 +1598,122 @@ this protocol via plugins for software in other domains,
 such as image-analysis, molecular visualization, 
 radiology, \ThreeD{} graphics, and so forth.}
 
-\p{}
+\vspace{-6pt}
+\section{Future Projections: Operationalizing SDRF}
+
+\p{This section will present a concrete outline of the steps 
+necessary to package scientific data into an \SDRF{} Supplemental 
+Archive.  Data Sets may be published with content and organization 
+compatible with both \SDRF{} and other formats, such as 
+Research Object Bundles, so using \SDRF{} does not preclude 
+adopting other formats as well.  For example, a data set which 
+provides \SDRF{} meta-data may also include the \textbf{meta-inf} 
+files required by Research Objects.  Indeed, it is recommended 
+that authors aim for compatibility with multiple standards, 
+not only \SDRF{}.  This section, however, will focus on the 
+components of Supplemental Archives that are specific to \SDRF{}.}
+
+\p{This section will describe two different approaches to 
+using \SDRF{}.  One approach employs \SDRF{} to a limited 
+extent, deferring to older technologies for such basic 
+operations as encoding data or annotating publications.  
+An alternative is to adopt \SDRF{} more holistically, 
+adopting experimental or under-development features in the 
+\SDRF{} libraries.  When discussed in the following 
+outline, these features will usually be characterized 
+as \q{experimental} or \q{specific to \SDRF{} code libraries.}}
+
+\subsection{Standard Components of SDRF Supplemental Archives}
+
+\p{The components of an \SDRF{} Supplemental Archive can be 
+grouped into several facets, concerning meta-data, raw data, and 
+machine-readable text, respectively.
+
+\begin{enumerate}
+
+\item{} \textbf{SDRF Meta-Data}
+\begin{description}
+\item[Meta-Data Files]  \SDRF{} uses a vocabulary for 
+describing the contents of data sets which merges the 
+data models of several existing formats, such as 
+\DCC{} and \textbf{schema.org/Dataset}.  \SDRF{} 
+recommends encoding this data in \TAGML{} 
+(\q{Text-as-Graph Markup Language}), which is a very flexible, 
+and computationally powerful representation 
+format.\footnote{\sTAGML{} is \q{powerful} in the 
+sense that, with suitable mappings between their 
+disparate syntactic expressions, \sTAGML{} represents 
+a superset of \sXML{} and other common data-representation 
+languages, such as \sJSON{}.}  The \SDRF{}-specific 
+libraries include parsers for (an extended version of) \TAGML{}.  
+
+\item[C++ Files]  \SDRF{} also recommends that authors provide 
+\Cpp{} code to initialize objects representing Supplemental 
+Archive's meta-data.  These objects may be directly constructed 
+from the \TAGML{} meta-data files, or authors may choose to 
+customize the \Cpp{} logic as desired.  For lab-based research, 
+authors may employ \BioCoder{}, which uses \Cpp{} code to 
+notate research protocols and workflows (the \SDRF{} libraries 
+include a modified version of \BioCoder{}).  Moreover, 
+for data sets whose \q{preferred application} for opening 
+raw data files is implemented in \Cpp{} (as is the case 
+for many, if not most, scientific-computing applications), 
+the Supplemental Archive may include plugins or extensions 
+to these applications.  In general, using \Cpp{} objects 
+specific to Supplemental Archive meta-data as a basis, 
+authors (or programmers coding on authors' behalf) may 
+introduce additional \Cpp{} code demonstrating or 
+enabling analysis, visualization, or application-integration 
+for the Supplemental Archive's raw data.
+
+\end{description}
+
+\item{} \textbf{Raw Data}:  As mentioned above, \SDRF{} 
+recommends that raw data be encoded in general-purpose 
+formats such as \ARFF{}, \HDFFive{}, \XML{}, or 
+\TAGML{} (as compared to formats such as 
+\textbf{.xls}, which are associated with specific 
+applications).  An experimental \q{Hypergraph 
+Exchange Format} (\HGXF{}) may also be used.
+
+An exception to the guidelines for general-purpose 
+formats is when data should be presented in 
+optimized formats endemic to a certain scientific 
+field, such as \FCS{} files for Flow Cytometry, 
+or \DICOM{} files for bioimaging.  In these cases, 
+it is recommended to employ such formats for most 
+of the raw data files but also to construct summaries 
+of the data, which may facilitate properly loading 
+and accessing the domain-specific files, represented 
+in a more general-purpose format.    
+
+\item{} \textbf{Annotated Manuscripts}  Where authors have permission 
+to share full-text versions of their books/articles, \SDRF{} 
+recommends that a machine-readable representation of 
+these publications, in formats such as \TAGML{} or 
+\XML{}, be included in the Supplemental Archive 
+(\SDRF{} has an experimental \q{Hypergraph 
+Text Encoding Protocol} which may be utilized as well).  
+This machine-readable manuscript may then be 
+annotated and cross-referenced with raw data and/or 
+code files also included in the Supplemental Archive.  
+An experimental \SDRF{} \LaTeX{} package provides 
+an annotation framework which not only marks locations 
+in document text, but also encodes \PDF{} viewport 
+coordinates for use by specialized \PDF{} viewers 
+which implement an \SDRF{} protocol for integrating 
+\PDF{} viewers with scientific applications.
+
+\end{enumerate}
+
+}
+
+
+
+
+%impact factor
+
+%\p{}
 }
 \end{document}
 
