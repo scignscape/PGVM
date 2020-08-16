@@ -1623,6 +1623,63 @@ adopting experimental or under-development features in the
 outline, these features will usually be characterized 
 as \q{experimental} or \q{specific to \SDRF{} code libraries.}}
 
+\subsection{Formulating Scientific Data Repository Models 
+for Individual Publishing Environments}
+
+\p{\lSDRF{} is intended to interoperate with mulitple 
+publisher and data-hosting platforms, each of which have 
+their own requirements and technology.  Therefore, the 
+precise contents and organization of a given \SDRF{} 
+Supplemental Archive will depend on specifications 
+pertaining the specific repository and hosting platform 
+where the publication and data set, respectively, 
+are to be deposited.  To facilitate Supplemental Archive 
+preparation for different environments, \SDRF{} 
+seeks to include \q{Scientific Data Repository Models} 
+(\SDRM{}s) which are tailored to individual publishers.  
+The \SDRM{}s would encapsulate information pertaining 
+to the specific platforms where the relevant publication 
+and data set are hosted.  For example, research 
+funded by the Bill and Melinda Gates Foundation 
+must follow certaing guidelines, which are 
+documented whenever an article is submitted to the 
+Gates Open Research portal.  Consequently, the 
+specific \SDRF{} meta-data for such papers can 
+be designed to notate the concordant research's 
+adherence to these organizational guidelines.  
+In these situations, the layout and vocabulary 
+for \SDRF{} meta-data would be determined 
+at least in part by the \SDRM{} germane 
+to the environment where the research is published.}
+
+\p{The purpose of an \SDRM{} is also to facilitate 
+the implementation of technologies which interoperate 
+with publishers' platforms --- for instance, 
+\API{} clients which can request information from 
+document/data portals (e.g., locating articles 
+or data sets via keywork searches), or 
+\PDF{} viewers enhanced with capabilities to 
+obtain data sets from hosting platforms 
+(to automatically download data sets upon 
+request from a user reading the corresponding publication).  
+For these use-cases, individual \SDRM{} would 
+include information and/or computer code about 
+how to access publishers' \API{}s, how to download 
+and extract a data set given a digital identifier, 
+and so forth.}
+
+\p{Because \SDRF{} Supplemental Archives may differ somewhat 
+according to the specific \SDRM{} in effect, any 
+description of these archives is provisional.  To be 
+precise, \SDRF{} assumes a generic \SDRM{} --- 
+dubbed \q{\MOSAIC{}} --- which can be extended 
+or modified in consultation with individual 
+publishers, as required.  As such, the following 
+outline will apply intrinsically to the 
+\MOSAIC{} \SDRM{}; depending on the platform, 
+the details for individual \SDRF{} Supplemental Archives may 
+be different than the generic model presented here.}
+
 \subsection{Standard Components of SDRF Supplemental Archives}
 
 \p{The components of an \SDRF{} Supplemental Archive can be 
@@ -1665,6 +1722,21 @@ authors (or programmers coding on authors' behalf) may
 introduce additional \Cpp{} code demonstrating or 
 enabling analysis, visualization, or application-integration 
 for the Supplemental Archive's raw data.
+
+\item[SDRM-Specific Meta-Data]  Either via data files or 
+computer code, information or capabilities specific 
+to the platforms where papers and Supplemental Archives 
+are hosted may be presented in conjunction with 
+the applicable \SDRM{}s.  For instance, \Cpp{} code 
+distributed with the archive may include 
+procedures for accessing \API{}s of the hosting service 
+where the archive is deposited.   
+
+\item[Qt Project Files]   As explained earlier, 
+\SDRF{} defaults to using \Qt{} Creator as an application 
+with which to examine data sets, if there is no 
+obvious \q{preferred application} based on the research 
+topic.  
 
 \end{description}
 
