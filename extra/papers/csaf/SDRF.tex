@@ -83,7 +83,7 @@
 
 %\pgfmathparse{equal(\value{page},15)||equal(\value{page},20)?int(1):int(0)}
 
-\ifnum\value{page}=11   %\pgfmathresult>0\relax
+\ifnum\value{page}=12   %\pgfmathresult>0\relax
 \put(232,113){
  {\setlength{\fboxsep}{.65em}\fontsize{9}{10}\selectfont
 
@@ -2059,7 +2059,50 @@ provided via \SDRF{}.
 }
 
 \section{The Transparent Hypergraph Query Language}
-\p{}
+\p{\lSDRF{} does not overtly proscribe any particular 
+format for encoding raw data in \SDRF{} archives; 
+as such, \SDRF{} cannot make definitive recommendations 
+for how this data may be consumed.  Nevertheless, 
+\SDRF{} draws on contemporary research into database 
+engineering, particularly the body of literature 
+concerning Hypergraph Database design and the 
+use of hypergraphs as multi-faceted, general-purpose 
+formats for representing information.  Hypergraph 
+Database engines are favored in part because hypergraph 
+schema can incorporated many families of data models, 
+so that Hypergraph Databases can store diverse, heterogeneous 
+data, sourced from disparate origin-points.}
+
+\p{Nevertheless --- despite some common features which make Hypergraph Database 
+engines, collectively, good architectural choices 
+for heterogeneous and decentralized data persistence ---  
+there are several distinct Hypergraph engines 
+widely used in contemporary technology, each with slightly 
+different data models and protocols.  It is therefore a 
+worthwhile project to define a multi-purpose Hypergraph data 
+model which merges idiosyncratic details of 
+these various platforms, offering a common framework for 
+accessing Hypergraph data.  Such a frameworks' value could 
+be enhanced by applying it to information spaces which 
+are not, necessarily, backed by a Hypergraph Database engine 
+but which are amenable to an intermediate software layer which 
+translates Hypergraph-oriented queries to a query language 
+endemic to the actual database used.  Although Hypergraph databases 
+are gaining a greater foothold in some computing domains 
+(biomedical, governmental, financial, etc.), a much larger 
+proportion of database instances rely on more traditional 
+data-storage technology.   With proper software 
+adapters, it is possible to construct \q{views} onto 
+data spaces such that they can be operationally interacted 
+with as if they employed hypergraph models internally.}
+
+\p{These points apply not only to databases themselves 
+but also to any systematic data compilation, including 
+published data sets.  Therefore, one use-case for 
+\SDRF{} is to package raw data in such a way that 
+it may be queried according to protocols established 
+for Hypergraph Database engines and then extended 
+to other information architectures.}
 
 %impact factor
 
