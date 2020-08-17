@@ -1215,7 +1215,7 @@ drop shadow=logoPurple!50!darkRed,
 \begin{center}	
 {\setlength{\fboxsep}{32pt}
 	\relscale{1.1}{{\fontfamily{qcr}\fontseries{b}\selectfont%
-{\Large{SDRF (Scientific Data Repository Framework)}\\
+{\Large{SDRF (Scientific Data Repository Framework) \textit{Supplemental Archives}}\\
 
 Improving Data Sets' Machine Readabability \\
 and Interoperability with Published Research}}}}
@@ -1610,7 +1610,7 @@ radiology, \ThreeD{} graphics, and so forth.}
 necessary to package scientific data into an \SDRF{} Supplemental 
 Archive.  Data Sets may be published with content and organization 
 compatible with both \SDRF{} and other formats, such as 
-Research Object Bundles, so using \SDRF{} does not preclude 
+Research Object Bundles, so that using \SDRF{} does not preclude 
 adopting other formats as well.  For example, a data set which 
 provides \SDRF{} meta-data may also include the \textbf{meta-inf} 
 files required by Research Objects.  Indeed, it is recommended 
@@ -1618,20 +1618,20 @@ that authors aim for compatibility with multiple standards,
 not only \SDRF{}.  This section, however, will focus on the 
 components of Supplemental Archives that are specific to \SDRF{}.}
 
-\p{This section will describe two different approaches to 
+\p{In this section we describe two different approaches to 
 using \SDRF{}.  One approach employs \SDRF{} to a limited 
 extent, deferring to older technologies for such basic 
 operations as encoding data or annotating publications.  
 An alternative is to adopt \SDRF{} more holistically: 
 adopting experimental or under-development features in the 
-\SDRF{} libraries.  When discussed in the following 
-outline, these features will usually be characterized 
-as \q{experimental} or \q{specific to \SDRF{} code libraries.}}
+\SDRF{} libraries.  When discussed below, these 
+features will usually be characterized 
+as \textit{experimental} or \textit{specific to \SDRF{} code libraries.}}
 
 \subsection{Formulating Scientific Data Repository Models 
 for Individual Publishing Environments}
 
-\p{\lSDRF{} is intended to interoperate with mulitple 
+\p{\lSDRF{} is intended to interoperate with multiple 
 publisher and data-hosting platforms, each of which have 
 their own requirements and technology.  Therefore, the 
 precise contents and organization of a given \SDRF{} 
@@ -1642,7 +1642,8 @@ are to be deposited.  To facilitate Supplemental Archive
 preparation for different environments, \SDRF{} 
 seeks to incorporate \q{Scientific Data Repository Models} 
 (\SDRM{}s) which are tailored to individual publishers.  
-These \SDRM{}s would encapsulate information targeted 
+These \SDRM{}s would encapsulate information (via application 
+plugins and/or code libraries) targeted 
 to the specific platforms where the relevant publication 
 and data set are hosted.  For example, research 
 funded by the Bill and Melinda Gates Foundation 
@@ -1664,7 +1665,7 @@ with publishers' platforms --- for instance,
 document/data portals (e.g., locating articles 
 or data sets via keyword searches), or 
 \PDF{} viewers enhanced with capabilities to 
-obtain data sets from hosting platforms 
+obtain data sets from data hosting platforms 
 (to automatically download data sets upon 
 request from a user reading the corresponding publication).  
 For these use-cases, individual \SDRM{}s would 
@@ -1676,11 +1677,12 @@ and so forth.}
 \p{Because \SDRF{} Supplemental Archives may differ somewhat 
 according to the specific \SDRM{} in effect, any 
 description of these archives is provisional.  To be 
-precise, \SDRF{} assumes a generic \SDRM{} --- 
-dubbed \q{\MOSAIC{}} --- which can be extended 
+precise, \SDRF{} assumes a generic \SDRM{} developed by LTS --- 
+dubbed \q{\MOSAIC{}} (\q{Multiparadigm Ontologies for 
+Scientific and Technical Publications}) --- which can be extended 
 or modified in consultation with individual 
-publishers, as required.  As such, the following 
-outline will apply intrinsically to the 
+publishers, as required.  As such, what is described below 
+will apply intrinsically to the 
 \MOSAIC{} \SDRM{}; depending on the platform, 
 the details for individual \SDRF{} Supplemental Archives may 
 be different than the generic model presented here.}
@@ -1688,8 +1690,8 @@ be different than the generic model presented here.}
 \subsection{Standard Components of SDRF Supplemental Archives}
 
 \p{The components of an \SDRF{} Supplemental Archive can be 
-grouped into several facets, concerning meta-data, raw data, and 
-machine-readable text, respectively.
+grouped into several facets: meta-data, raw data, and 
+machine-readable text.
 
 \vspace{1em}
 \begin{enumerate}
@@ -1714,8 +1716,8 @@ libraries include parsers for (an extended version of) \TAGML{}.
 \item[C++ Files]  \SDRF{} also recommends that authors provide 
 \Cpp{} code to initialize objects representing Supplemental 
 Archive's meta-data.  These objects may be directly constructed 
-from the \TAGML{} meta-data files, or authors may choose to 
-customize the \Cpp{} logic as desired.  For lab-based research, 
+from the \TAGML{} meta-data files, or (if desired) authors may choose to 
+customize the \Cpp{} logic.  For lab-based research, 
 authors may employ \BioCoder{}, which uses \Cpp{} code to 
 notate research protocols and workflows (the \SDRF{} libraries 
 include a modified version of \BioCoder{}).  Moreover, 
@@ -1730,8 +1732,8 @@ introduce additional \Cpp{} code demonstrating or
 enabling analysis, visualization, or application-integration 
 for the Supplemental Archive's raw data.
 
-\item[SDRM-Specific Meta-Data]  Either via data files or 
-via computer code, information or capabilities specific 
+\item[SDRM-Specific Meta-Data]  Using either data files or 
+computer code, information or capabilities specific 
 to the platforms where papers and Supplemental Archives 
 are hosted may be presented in conjunction with 
 the applicable \SDRM{}s.  For instance, \Cpp{} code 
@@ -1749,7 +1751,7 @@ other assets needed to run the code in the \Qt{} Creator
 \IDE{} (Integrated Development Environment), using \textbf{qmake} 
 as the build system.  In general, there should be 
 a \Qt{} project specific to the \SDRF{} meta-data; 
-in some cases, there will also be separate 
+in some cases, there would also be separate 
 \Qt{} projects for working with raw data files.
 \end{description}
 
@@ -1759,13 +1761,13 @@ formats such as \ARFF{}, \HDFFive{}, \XML{}, or
 \TAGML{} (as compared to formats such as 
 \textbf{.xls}, which are associated with specific 
 applications).  An experimental \q{Hypergraph 
-Exchange Format} (\HGXF{}), being developed 
+Exchange Format} (\HGXF{}), being developed by LTS 
 in conjunction with \SDRF{}, may also be used.
 
 An exception to the guidelines for general-purpose 
 formats is when data should be presented in 
 optimized formats endemic to a certain scientific 
-field, such as \FCS{} files for Flow Cytometry, 
+field, such as \FCS{} files for Flow Cytometry 
 or \DICOM{} archives for bioimaging.  In these cases, 
 it is recommended to employ such formats for most 
 of the raw data files but also to construct summaries 
