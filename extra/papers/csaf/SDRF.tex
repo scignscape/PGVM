@@ -84,7 +84,7 @@
 %\pgfmathparse{equal(\value{page},15)||equal(\value{page},20)?int(1):int(0)}
 
 \ifnum\value{page}=13   %\pgfmathresult>0\relax
-\put(52,62){
+\put(50,60){
  {\setlength{\fboxsep}{.65em}\fontsize{9}{10}\selectfont
 
    {\color{black}{\colorbox{red!60!blGreen}{%
@@ -1622,7 +1622,7 @@ components of Supplemental Archives that are specific to \SDRF{}.}
 using \SDRF{}.  One approach employs \SDRF{} to a limited 
 extent, deferring to older technologies for such basic 
 operations as encoding data or annotating publications.  
-An alternative is to adopt \SDRF{} more holistically, 
+An alternative is to adopt \SDRF{} more holistically: 
 adopting experimental or under-development features in the 
 \SDRF{} libraries.  When discussed in the following 
 outline, these features will usually be characterized 
@@ -1636,7 +1636,7 @@ publisher and data-hosting platforms, each of which have
 their own requirements and technology.  Therefore, the 
 precise contents and organization of a given \SDRF{} 
 Supplemental Archive will depend on specifications 
-pertaining to the specific repository and hosting platform 
+pertaining to the particular repository and hosting platform 
 where the publication and data set, respectively, 
 are to be deposited.  To facilitate Supplemental Archive 
 preparation for different environments, \SDRF{} 
@@ -1702,11 +1702,11 @@ describing the contents of data sets which merges the
 data models of several existing formats, such as 
 \DCC{} and \textbf{schema.org/Dataset}.  \SDRF{} 
 recommends encoding this data in \TAGML{} 
-(\q{Text-as-Graph Markup Language}), which is a very flexible, 
+(\q{Text-as-Graph Markup Language}), which is a very flexible 
 and computationally powerful representation 
 format.\footnote{\sTAGML{} is \q{powerful} in the 
 sense that, with suitable mappings between their 
-disparate syntactic expressions, \sTAGML{} represents 
+disparate syntactic structures, \sTAGML{} represents 
 a superset of \sXML{} and other common data-representation 
 languages, such as \sJSON{}.}  The \SDRF{}-specific 
 libraries include parsers for (an extended version of) \TAGML{}.  
@@ -1731,7 +1731,7 @@ enabling analysis, visualization, or application-integration
 for the Supplemental Archive's raw data.
 
 \item[SDRM-Specific Meta-Data]  Either via data files or 
-computer code, information or capabilities specific 
+via computer code, information or capabilities specific 
 to the platforms where papers and Supplemental Archives 
 are hosted may be presented in conjunction with 
 the applicable \SDRM{}s.  For instance, \Cpp{} code 
@@ -1753,7 +1753,7 @@ in some cases, there will also be separate
 \Qt{} projects for working with raw data files.
 \end{description}
 
-\item{} \textbf{Raw Data}:  As mentioned above, \SDRF{} 
+\item{} \textbf{Raw Data} \hspace{12pt}  As mentioned above, \SDRF{} 
 recommends that raw data be encoded in general-purpose 
 formats such as \ARFF{}, \HDFFive{}, \XML{}, or 
 \TAGML{} (as compared to formats such as 
@@ -1766,26 +1766,26 @@ An exception to the guidelines for general-purpose
 formats is when data should be presented in 
 optimized formats endemic to a certain scientific 
 field, such as \FCS{} files for Flow Cytometry, 
-or \DICOM{} files for bioimaging.  In these cases, 
+or \DICOM{} archives for bioimaging.  In these cases, 
 it is recommended to employ such formats for most 
 of the raw data files but also to construct summaries 
-of the data, which may facilitate properly loading 
-and accessing the domain-specific files, represented 
-in a more general-purpose format.    
+of the data (to facilitate properly loading 
+and accessing the domain-specific files) utilizing 
+a more general-purpose format.    
 
 \vspace{1em}
-\item{} \textbf{Annotated Manuscripts}  Where authors have permission 
+\item{} \textbf{Annotated Manuscripts} \hspace{14pt}  Where authors have permission 
 to share full-text versions of their books/articles, \SDRF{} 
 recommends that a machine-readable representation of 
 these publications, in formats such as \TAGML{} or 
 \XML{}, be included in the Supplemental Archive 
 (\SDRF{} has an experimental \q{Hypergraph 
-Text Encoding Protocol} which may be utilized as well).  
+Text Encoding Protocol} which could be adopted as well).  
 This machine-readable manuscript may then be 
 annotated and cross-referenced with raw data and/or 
 code files also included in the Supplemental Archive.  
 An experimental \SDRF{} \LaTeX{} package provides 
-an annotation framework which not only marks locations 
+an annotation framework that not only marks locations 
 in document text, but also encodes \PDF{} viewport 
 coordinates for use by specialized \PDF{} viewers 
 which implement an \SDRF{} protocol for integrating 
@@ -1811,12 +1811,12 @@ these two resources --- their manuscripts and
 Supplemental Archives --- are properly interconnected.  
 Some guidelines for ensuring that this process is 
 carried out smoothly include: (1) cite the 
-\URL{} for the data set near the top of the document; 
+\URL{} for the data set near the top of the research document; 
 (2) cite the \URL{} for the publication in a 
 \textbf{readme} or similarly prominent 
 location in the data set; (3) if there are no 
 access restrictions, include a \PDF{} file 
-showing the full article in a findable location in 
+showing the full article in an easily findable location in 
 the data set; (4) use labels and \textbf{phantomsection} 
 or similar tags/commands to mark locations in the 
 manuscript which are conceptually linked to parts of 
@@ -1826,7 +1826,7 @@ cite both the publication \URL{} and the Supplemental Archive
 
 Additional steps are also necessary when packaging files into 
 the published archive.  The exact details will depend 
-on the \SDRM{}s which apply to the environments 
+on which \SDRM{}s apply to the environments 
 where the publication and data set are hosted, and 
 also on whether authors wish to comply with research 
 standardizations other than those of \SDRF{}.  For 
@@ -1834,9 +1834,9 @@ example, archives which are published as a
 Research Object Bundle need to use a folder layout 
 proscribed by that specification.  To work flexibly 
 with other standards, \SDRF{} does not demand 
-\textit{a priori} that authors use specific conventions 
+\textit{a priori} that authors follow any given conventions 
 for file and folder names and hierarchies.  In general, 
-so as to pin the location of \SDRF{} meta-data, 
+however, so as to pin the location of \SDRF{} meta-data, 
 \SDRF{} recommends the following: \Cpp{} classes and 
 \textbf{main.cpp} files specific to initializing 
 \SDRF{} meta-data should be marked accordingly with 
@@ -1856,7 +1856,7 @@ editors can make recommendations and double-check that
 authors' research (and other research which is cited 
 within new articles) is properly referenced, ensuring 
 that new (and relevant pre-existing) data sets are 
-Findable.  That is, editors can ensure that (1) \URL{}s 
+Findable.  That is, editors may confirm that (1) \URL{}s 
 and digital identifiers for concomitant data sets are prominently 
 notated in the publication text; (2) bibliographic 
 references to other publications which have their own 
@@ -1893,11 +1893,11 @@ a change within the data set is necessary.
 
 \item[Publishers]  Assuming that authors and 
 editors follow the steps just outlined, 
-articles and Supplemental Archives may be 
+articles and Supplemental Archives could be 
 published in any environment without directly altering 
 publishers' workflows or technologies.  
 However, their are steps which publishers 
-may take to enhance the usefulness of \SDRF{} 
+might take to enhance the usefulness of \SDRF{} 
 resources, and to derive additional scientific 
 and commercial value from hosting articles 
 that utilize \SDRF{}.  These steps include:
@@ -1932,19 +1932,19 @@ used, may be codified within individual \SDRM{}s.
 
 \item{} \textbf{Recognize Alternative Manuscript and 
 \PDF{} Formats} \hspace{14pt} This applies to non-restricted publications 
-where full text representations may be included within 
+where full text representations are allowed to be included within 
 a Supplemental Archive.  In this situation, the ideal  
 \PDF{} version of a document --- as well as of the machine-readable 
 encoding of the text --- may be different from what is 
 internally adopted by the publisher.  For example, 
 an article may appear as a chapter in a book, typeset 
 according to the book's conventions; in the data set, 
-however, that same article is shared as its own 
+however, that same article is openly shared as its own 
 document, and might use different typesetting rules 
 optimized for its specific content.  Also, the 
 machine-readable full-text representations presented 
 in the data set should be optimized for Text and Data 
-Mining (\TDM{}), and may therefore differ from the 
+Mining (\TDM{}), and could therefore differ from the 
 internal encoding used by the publisher.  For these 
 scenarios, publishers should allow for alternate 
 versions of both human-readable and machine-readable 
@@ -1953,14 +1953,14 @@ process, where these alternatives end up becoming
 assets within Supplemental Archives.  Such alternatives 
 may not differ in terms of textual content 
 (although a data-set-specific version of an article 
-may include supplemental instructions for using the data set), 
+might include supplemental instructions for using the data set), 
 but they can differ in the visual formatting of the text 
 as well as how the text is encoded. 
 
 \item{} \textbf{Register Cross-References Between Publications and 
 Data Sets} \hspace{14pt} Publishers' databases should be configured to 
 clearly designate when a publication is linked to an 
-associated data set.  Moreover, some third-party 
+associated data set.  Moreover, certain third-party 
 biblioinformatics services, such as CrossRef, allow 
 publishers to introduce additional attributes describing 
 publications.  Connections between publications and 
@@ -2021,8 +2021,8 @@ peers on data hosting platforms.  Some hosting environments
 explicitly introduce a \q{score} to measure how well 
 each data set is organized and documented (e.g., 
 the \MIFlowCyt{}, or \q{Minimumum Information about a 
-Flow Cytometry Experiment}, rating on \textbf{flowRepository.org}).  
-Accordingly, data sets which score highly on existing or 
+Flow Cytometry Experiment,} rating on \textbf{flowRepository.org}).  
+Accordingly, those data sets which score highly on existing or 
 future metrics --- 
 assessing how systematically their data is organized --- 
 are more likely to attract researchers' attention, which 
@@ -2036,7 +2036,7 @@ spur further research than publications whose raw
 data is not shared at all or is shared in ways which 
 add extra effort for researchers seeking to re-use 
 or re-examine the data.  In general, scientists 
-gravitate to using raw data which can be plugged 
+gravitate to raw data which can be plugged 
 most readily into the computing environments they 
 use for their own research.  For this reason, 
 research work --- expressed both in data sets and 
@@ -2089,8 +2089,10 @@ different data models and protocols.  It is therefore a
 worthwhile project to define a multi-purpose Hypergraph data 
 model which merges idiosyncratic details of 
 these various platforms, offering a common framework for 
-accessing Hypergraph data.  Such a framework's value could 
-be enhanced by applying it to information spaces which 
+accessing Hypergraph data.}
+
+\p{Such a framework's value would 
+furthermore be enhanced by applying it to information spaces which 
 are not, necessarily, backed by a Hypergraph Database engine 
 but which are amenable to an intermediate software layer that 
 translates Hypergraph-oriented queries to a query language 
@@ -2115,7 +2117,7 @@ to other information architectures).}
 \q{Transparent Hypergraph Query Language} (\THQL{}) which LTS 
 is designing as a paradigm for organizing data sets 
 with the goal of formulating a hypergraph query model that 
-may be extended to Hypergraph databases, as well 
+may be extended to hypergraph databases, as well 
 as to information spaces that can be programmed to 
 emulate such databases.  \lTHQL{} is characterized as \q{transparent} 
 because this technology is grounded on queries expressed 
@@ -2186,6 +2188,7 @@ systems.
 \end{description}
 }
 
+\vspace{-10pt}
 \p{LTS hopes to deploy a \THQL{} prototype in conjunction 
 with published \SDRF{} data sets and also in the context 
 of data-integration projects, including ones that will 
