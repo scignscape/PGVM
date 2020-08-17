@@ -83,8 +83,8 @@
 
 %\pgfmathparse{equal(\value{page},15)||equal(\value{page},20)?int(1):int(0)}
 
-\ifnum\value{page}=15   %\pgfmathresult>0\relax
-\put(50,60){
+\ifnum\value{page}=16   %\pgfmathresult>0\relax
+\put(47,57){
  {\setlength{\fboxsep}{.65em}\fontsize{9}{10}\selectfont
 
    {\color{black}{\colorbox{red!60!blGreen}{%
@@ -114,7 +114,7 @@
 \usepackage[paperheight=14in,paperwidth=8.5in]{geometry}
 
 %\geometry{left=.72in,top=.39in,right=.68in,bottom=1.14in} %margins
-\geometry{left=.72in,top=.6in,right=.68in,bottom=1.2in} %margins
+\geometry{left=.72in,top=.47in,right=.68in,bottom=1.2in} %margins
 
 \usepackage{etoolbox}% http://ctan.org/pkg/etoolbox
 \makeatletter
@@ -1219,7 +1219,7 @@ drop shadow=logoPurple!50!darkRed,
 \begin{minipage}{\textwidth}	
 \begin{center}	
 {\setlength{\fboxsep}{32pt}
-	\relscale{1.15}{{\fontfamily{qcr}\fontseries{b}\selectfont%
+	\relscale{1.1}{{\fontfamily{qcr}\fontseries{b}\selectfont%
 {\LARGE{SDRF (Scientific Data Repository \\
 
 \vspace{-5pt}Framework) Supplemental Archives}\\
@@ -2098,7 +2098,9 @@ provided via \SDRF{}.
 
 \section{Appendix I: Use-Cases For Publisher Plugins}
 
-\p{Because the data sets linked to publications often need to be accessed 
+\p{Publications often have graphics or multimedia content that require special viewers.  More often than not these assets are visual or structured representation of data which may be placed in a data set --- e.g. a table printed inline in the document is derived from a spreadsheet which is its own data file.  Many document portals allow readers to examine these inline figures in separate frames and windows.  To support more sophisticated multimedia content, with file types specific to different scientific fields, publishers are attempting to create browser plugins to visualize complex scientific data.  In general, however, such scientific assets should really be viewed in domain-specific scientific software.  This suggests that publishers' portals and document viewers should interoperate with existing applications -- rather than, or at least in addition to, trying to emulate these applications via browser plugins.  One facet of a publisher's \SDRM{} would be how their portals identify and communicate with the \q{preferred software} that would be used to view different data sets.}
+
+\p{Because the data sets linked to publications often have to be accessed 
 via specialized scientific applications, special programming is 
 needed to ensure that each publisher's software can seamlessly interoperate 
 with domain-specific scientific software.  Although scientific 
@@ -2107,11 +2109,12 @@ not typically know how to identify such files in the context
 of a published data set.  For example, Flow Cytometry 
 software has the capability to open \FCS{} files, but not  
 to open Research Object Bundles which contain \FCS{} files.  
-As a result, existing scientific applications need to be 
+As a result, existing scientific applications must be 
 extended so that they can recognize data-publication formats 
 such as Research Objects and \SDRF{}.}
 
-\p{To demonstrate how such plugins could work in practice, consider the connections which exist between parts of publications (e.g., a figure illustration) and corresponding parts of data sets (e.g., .csv files).  Here are some illustrative use-cases:
+\p{To demonstrate how such plugins could work in practice, consider the connections which exist between parts of publications (e.g., a figure illustration) and corresponding parts of data sets 
+(e.g., \textbf{.csv} files).  Here are some illustrative use-cases:
 
 \begin{enumerate}
 \item{}  A graphic in a publication displays a segmented image.  Via a context menu, this graphic can be linked to an image-processing data set which is viewed in image-annotation software (e.g. 
@@ -2129,19 +2132,83 @@ a molecular-visualization application, where the raw data is obtained from Prote
 
 \item{}  An archaeology paper shows images from a site which has been investigated with advanced imaging/laser equipment, e.g. point-cloud scanners or Matterport 360-degree cameras.  Via context menus or links embedded in figure captions, the associated data set may be viewed in \ThreeD{} graphics software such as \MeshLab{}, or in Panoramic Photography viewers such as Panini.
 
-\item{}  A computer science paper includes code samples; context menus or hyperlinks at the start of each sample can be designed to open an \IDE{} (e.g. \Qt{} Creator) or an interactive programming notebook (e.g., \Jupyter{}) to run the sampled code, with the complete code provided by a data set.
+\item{}  A computer science paper includes code samples; context menus or hyperlinks at the start of each sample can be designed to open an \IDE{} (e.g. \Qt{} Creator) or an interactive 
+notebook (e.g., \Jupyter{}) to run the sampled code, with the complete code provided by a data set.
 
 \item{}  A paper presenting lab results includes a schematic summary of lab protocols generated by \BioCoder{}.  A context menu can then launch \Qt{} Creator to display the actual \BioCoder{} files, included in a data set.
 
 \item{}  A paper discussing a vaccination campaign references data sets evaluating subjects' immunological responses, geospatial visualization of the campaign's target area, and epidemiological modeling.  This paper may then be linked to several different scientific applications: \ArcGIS{} for the geospatial data; FlowJo for the immunology; \Qt{} Creator for running epidemiological simulations (modeled via the \textbf{EpiFire} library, for instance).
 
-\item{}  A paper on stroke rehabilitation may use \DICOM{} to record both image data (e.g. \MRI{}s) and audio data (e.g. documenting aphasia).  These \DICOM{} files need to be opened in the proper software -- e.g. \medInria{} for \TwoD{} images, \ITK{} Snap for \ThreeD{} images, and Audacity for audio.  When the publication text describes the diagnostic significance of particular \DICOM{}-encoded findings, then (perhaps via \DICOM{} Structured Recording), these text segments should be annotated to identify the software category appropriate for the specific \DICOM{}files used.
+\item{}  A paper on stroke rehabilitation may use \DICOM{} to record both image data (e.g. \MRI{}s) and audio data (e.g. documenting aphasia).  These \DICOM{} files need to be opened in the proper software -- e.g. \medInria{} for \TwoD{} images, \ITK{} Snap for \ThreeD{} images, and Audacity for audio.  When the publication text describes the diagnostic significance of particular \DICOM{}-encoded findings, then (perhaps via \DICOM{} Structured Reporting), these text segments should be annotated to identify the software category appropriate for the specific \DICOM{} files used.
 \end{enumerate} 
 }
 
 \p{For each of these scenarios, there must be a functioning integration between the document-viewers which readers use for the main publication, and the domain-specific applications they use for the data set files.  One way to achieve this is for publishers to provide a suite of plugins to scientific/technical applications used to view most kinds of data files that are published in conjunction with scientific literature.  Each plugin would be configured to recognize signals generated from documents created via that publisher's software and to respond to those signals properly (retrieving and opening data files from the relevant open-access data sets).}
 
-\p{}
+\p{It would, of course, be impractical for every publisher to implement 
+plugins for many different scientific applications in isolation.  A 
+more reasonable solution would be to formulate a protocol, in 
+consultation with both publishers and application developers, 
+stipulating how publishers' content --- in particular, 
+\PDF{} files and web pages displaying research papers --- 
+should interact with scientific software.  Solutions already 
+commonly used, such as the Common Workflow Language (\CWL{}), 
+may be a starting-point for this standardization; however, 
+the fully developed protocol should be tailored to the 
+unique demands of triangularly connecting publications, data 
+set, and scientific applications.}
+
+\p{Interactive Digital Notebooks, such as \Jupyter{}, embody 
+another kind of technology that is sometimes employed 
+to share research and/or to demonstrate research methods.  
+Such notebooks typically display an interactive 
+presentation combining computer code, explanatory text, 
+and data visualization (e.g., charts, plots, or diagrams).  
+A common use-case for digital-notebook-style presentations 
+is to load a quantitative data set, perform some statistical 
+transformation on the raw data, and visualize how the  
+statistical operations modify the data productively.  
+In such scenarios, the important technological elements 
+include a coding language or library conducive to 
+statistical analysis (such as \R{} or \Python{}), and a 
+\GUI{} library that can convert statistical data to 
+\TwoD{} or \ThreeD{} graphics.}
+
+\p{This sort of statistics-oriented analysis is only one 
+example, however, of how data sets may be explored interactively.  
+There are many use-cases in which analytic and 
+visualization capabilities from diverse scientific or mathematical 
+fields (not just statistics) are relevant.  We should, accordingly, 
+expand our notion of \q{Interactive Digital Notebooks} to encompass 
+a wide range of interactive presentations constructed through the 
+analytic capabilities and \GUI{} features of scientific 
+applications.  In this sense, a Digital Notebook would be a 
+component embedded inside a pre-existing application, and 
+a common protocol can be specified with respect to how 
+Digital Notebooks are initialized and interact with the 
+host software.  Digital Notebooks in this guise would be 
+proper vehicles for formalizing a publication-to-application 
+networking protocol.}
+
+\p{Moreover, aside from overall links between data sets and publications, parts of a publication may be linked to parts of a data set.  For example, a table, scatter-plot, or plot-graph displayed in a publication may be linked to a \textbf{.csv} file in a data set.  Correlations between publications and data sets may also be based on Controlled Vocabularies and other ways of identifying concepts in publication texts.  If publications and data sets are both annotated using the same Controlled Vocabulary, then links are implicitly created between the two resources, wherever a part of a data set and of a publication text, respectively, are annotated as concerning the same concept.  To make these connections explicit, publication manuscripts should ideally be annotated with concepts or data structures that directly or indirectly define granular connections between publications and data sets.  When publications are fully open-access, these annotations can be included in machine-readable full-text resources that can be freely downloaded.}
+
+\p{Connections between publications and data sets can be asserted by using a micro-citation system within the data set and annotations within the publication.  Here are a few examples: the name of a protein may be marked in publication text and also linked to a Protein Databank file in a data set; the name of a flourochrome may be marked in a publication and cited as one channel group in a Flow Cytometry file; the description of an Image Segmentation algorithm, such as a Sobel-Feldman operator, may be linked to an image in a data set resulting from that operator applied to a primary image, and also mentioned in the text as part of the description of an image-processing workflow; biochemical assays may be described in the text and also formally declared via \MIBBI{}, \BioCoder{}, or SpringerProtocols, with that systematic info included in the data set; and so forth.}
+
+\p{In short, a Digital Notebook protocol can be formulated which incorporates 
+models of document annotations and data micro-citations, identifying granular 
+connections existing between specific locations in article text and specific 
+facets of the data set.  An Interactive Digital Notebook should allow users 
+to switch \GUI{} focus back and forth between the text (presented, say, 
+in \PDF{} form) and the windows where the data-set is visualized.  Such 
+cross-referencing, indeed, is an important aspect of interactiveness.}
+
+\p{As is demonstrated by \SeCo{} --- a Digital Notebook based 
+on \HyperGraphDB{} --- implementing Digital Notebooks 
+is facilitated by Hypergraph Database Technology, so a 
+cross-application Digital Notebook could profitably 
+be centered on hypergraph database theory.  In this manner a 
+Digital Notebook protocol would be thematically related to 
+\SDRF{}'s proposed protocol for remote database access, discussed next.}
 
 \section{Appendix II: The Transparent Hypergraph Query Language}
 \p{\lSDRF{} does not overtly proscribe any particular 
