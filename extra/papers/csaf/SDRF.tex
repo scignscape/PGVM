@@ -1797,7 +1797,7 @@ which implement an \SDRF{} protocol for integrating
 
 \section{Checklist for Authors, Editors, and Publishers}
 \p{To clarify the steps needed to deploy publications 
-and data steps according to \SDRF{} recommendations, 
+and data sets according to \SDRF{} recommendations, 
 this section will outline the steps that would be 
 taken by individuals fulfilling different roles in 
 the publishing pipeline.
@@ -1813,7 +1813,7 @@ these two resources --- their manuscripts and
 Supplemental Archives --- are properly interconnected.  
 Some guidelines for ensuring that this process is 
 carried out smoothly include: (1) cite the 
-\URL{} for the data set near the top of the research document; 
+\URL{} for the data set near the top of the manuscript submission; 
 (2) cite the \URL{} for the publication in a 
 \textbf{readme} or similarly prominent 
 location in the data set; (3) if there are no 
@@ -1822,7 +1822,8 @@ showing the full article in an easily findable location in
 the data set; (4) use labels and \textbf{phantomsection} 
 or similar tags/commands to mark locations in the 
 manuscript which are conceptually linked to parts of 
-the data set; and (5) request that future authors 
+the data set; and (5) request that authors who reference the 
+current manuscript 
 cite both the publication \URL{} and the Supplemental Archive 
 \URL{} when referencing the body of research.
 
@@ -1838,7 +1839,7 @@ proscribed by that specification.  To work flexibly
 with other standards, \SDRF{} does not demand 
 \textit{a priori} that authors follow any given conventions 
 for file and folder names and hierarchies.  In general, 
-however, so as to pin the location of \SDRF{} meta-data, 
+to pin the location of \SDRF{} meta-data, 
 \SDRF{} recommends the following: \Cpp{} classes and 
 \textbf{main.cpp} files specific to initializing 
 \SDRF{} meta-data should be marked accordingly with 
@@ -1851,45 +1852,46 @@ should be extracted from the initialized meta-data objects.
 
 \item[Editors]  Because (as just outlined) authors' submissions 
 to data-hosting portals are usually operationally separate 
-from their endeavors to publish books and articles, publication 
+from their article submission, publication 
 editors ordinarily cannot directly influence the authors' 
 preparations for publishing their data sets.  However, 
 editors can make recommendations and double-check that 
-authors' research (and other research which is cited 
-within new articles) is properly referenced, ensuring 
-that new (and relevant pre-existing) data sets are 
+authors' research (and other cited research  
+within the article under submission) is properly referenced, ensuring 
+that new (and pre-existing) data sets are 
 Findable.  That is, editors may confirm that (1) \URL{}s 
 and digital identifiers for concomitant data sets are prominently 
 notated in the publication text; (2) bibliographic 
 references to other publications which have their own 
 data sets include citations for and hyperref links to 
 those data sets if possible; and (3) the authors provide 
-a brief overview of their data set if doing so is necessary 
+a brief overview of their data set when necessary 
 to help researchers access the raw data and to help 
 readers understand how the raw data has informed the 
-research or findings presented in the publication.  
+research/findings presented in the publication.  
 Moreover, editors can review the data sets themselves 
 and verify that they 
 properly reference the accompanying publication. 
 
 It should be noted that the proper \URL{}s and formats 
 for referencing publications may change as manuscripts 
-work their way through the publishing process.  
+work their way through the publishing process, from 
+submission to publication.  
 For example, a web link for accessing a peer-reviewed 
 article may only be defined once the document is 
 accepted for publication.  Also, some institutions 
 (e.g., Gates Open Research) 
 publicly track a submission through different stages 
-of peer review (articles may be accessible for reading 
-even while they are still being reviewed or 
-finalized).  Consequently, when a data set links to its accociated 
+of peer review (links to articles may be accessible  
+even while they are still being peer reviewed).  Consequently, 
+when a data set links to its associated 
 publication, such information about the current 
-state of the submission should be duly observed in the 
+status of the submission should be duly observed in the 
 data set.
 
 In short, the precise publication-related data within a 
 Supplemental Archive may need to be modified one 
-or more times as a document submission is processed, 
+or more times as a manuscript submission is processed, 
 so editors should be prepared to notify authors when 
 a change within the data set is necessary.
 
@@ -1911,7 +1913,7 @@ Front Pages} \hspace{14pt}  The \q{front page} of an article is a
 publisher's portal.  Usually this front page includes 
 an abstract, bibliographic citations, author names/affiliations, 
 keywords, and other high-level info about the document; 
-in some environments, the front-page also reproduces the 
+in some environments, the front page also reproduces the 
 full text of the article (usually in \HTML{} format).  
 Even with this information set forth, however, it 
 can be difficult for readers to identify which publications 
@@ -1924,9 +1926,9 @@ to data sets near the top of the front page.
 \hspace{14pt} Properly connecting publications and data sets requires 
 customized \LaTeX{} commands or \XML{} attributes, so as 
 to mark and annotate relevant locations/passages within the 
-document.  To fully utilize \SDRF{}, then --- or, indeed, 
-any rigorous data-sharing protocol --- publishers need to 
-expand their in-house media for internally representing 
+document.  To fully utilize \SDRF{} --- or, indeed, 
+any rigorous data-sharing protocol --- publishers accordingly 
+need to expand their in-house media for internally representing 
 manuscripts in the pipeline with a collection of 
 additional tags, commands, and/or attributes.  The 
 details of these add-ons, depending on the technology 
@@ -1946,10 +1948,10 @@ document, and might use different typesetting rules
 optimized for its specific content.  Also, the 
 machine-readable full-text representations presented 
 in the data set should be optimized for Text and Data 
-Mining (\TDM{}), and could therefore differ from the 
+Mining (\TDM{}), and could, therefore, differ from the 
 internal encoding used by the publisher.  For these 
-scenarios, publishers should allow for alternate 
-versions of both human-readable and machine-readable 
+scenarios, publishers should allow for \textit{alternate 
+versions} of both human-readable and machine-readable 
 publication text being incorporated into the publishing 
 process, where these alternatives end up becoming 
 assets within Supplemental Archives.  Such alternatives 
@@ -1966,10 +1968,10 @@ associated data set.  Moreover, certain third-party
 biblioinformatics services, such as CrossRef, allow 
 publishers to introduce additional attributes describing 
 publications.  Connections between publications and 
-data sets may therefore be formally declared in these 
+data sets may, therefore, be formally declared in these 
 third-party contexts.
 
-\item{} \textbf{Incorporate Data-Sets Information into Publisher APIs}
+\item{} \textbf{Incorporate Data-Set Information into Publisher APIs}
 \hspace{14pt} Most publishing portals use \API{}s to support application-level 
 queries for finding or accessing publications.  These \API{}s 
 can be extended to systematically honor associations between 
@@ -1989,9 +1991,9 @@ and so forth).
 
 \subsection{Benefits for Publishers}
 \p{We believe adopting \SDRF{} technology can derive several 
-benefits for publishers (as well as instutions, such as 
-universities or independent journals, which publish their 
-own material).  Bear in mind that the details are \SDRF{} 
+benefits for publishers (as well as institutions, 
+universities, or independent journals, which publish their 
+own material).  Bear in mind that the details of \SDRF{} 
 are adapted to different \SDRM{}s; as such, the characterization 
 of \SDRF{} content presented here is provisional, and may 
 take different forms in different publishing environments.  
@@ -2003,18 +2005,20 @@ extensions or simply as recommended design patterns ---
 can augment publishers' offerings in several ways:
 
 \begin{enumerate}
-\item{}  \textbf{Increased Citations and Downloads}  By 
+\item{}  \textbf{Improving Impact Factor} \hspace{12pt}  By 
 explicitly linking publications and data sets, publishers 
 improve the likelihood that researchers will find 
-the publications.  Data sets present an alternative 
-route (alongside references in other sources, or 
-keyword searches) for scholars to locate books and 
-articles relevant to their research.  
-
-It is important to stress that, despite standardizations 
+the publications.  Data sets present an additional/alternative 
+route for scholars to locate articles and books, 
+which would otherwise be found via keyword searches 
+or bibliographic references.  This would likely increase 
+citations and downloads.  
+ 
+\item{}  \textbf{Driving Traffic to the Publication Site}
+Despite standardizations 
 such as \DCC{} and Research Objects, the vast majority of 
-published data sets are shared haphazardly, without 
-proper organization or meta-data.  Therefore, those 
+published data sets are shared haphazardly --- without 
+proper organization or meta-data.  As a resut, those 
 data-sets which \textit{do} adopt rigorous curation 
 standards are more likely to be found by software 
 designed for contemporary data-publishing specifications.  
@@ -2031,8 +2035,8 @@ are more likely to attract researchers' attention, which
 in turn drives traffic to the publication sites where 
 data sets' corresponding articles are indexed. 
    
-\item{}  \textbf{Impact Factor}  Articles which are 
-paired with conscientiously curated, well-documented 
+\item{}  \textbf{Research Influence}  Articles 
+which are paired with conscientiously curated, well-documented 
 and reusable data sets are more likely to 
 spur further research than publications whose raw 
 data is not shared at all or is shared in ways which 
@@ -2046,7 +2050,7 @@ in publications discussing the research --- is
 likely to be more influential when scientists 
 deem the data convenient to use and expand upon.  
 
-\item{}  \textbf{Enhancing the Publishing Ecosystem}  
+\item{}  \textbf{Enhancing the Publishing Ecosystem and }  
 As digital media becomes an increasingly important part 
 of scientists' use and experience of published research, 
 publishers are expected to provide ever more sophisticated 
@@ -2061,7 +2065,7 @@ directly with scientific applications --- e.g.,
 via publisher-specific application plugins --- 
 is a natural corollary to this trend, adding yet 
 more computational heft to publishers' platforms.  
-But properly networking publications with 
+However, properly networking publications with 
 specific software demands rigorously documented 
 links between publications and data sets, such as 
 provided via \SDRF{}.   
