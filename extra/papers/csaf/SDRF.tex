@@ -84,7 +84,7 @@
 %\pgfmathparse{equal(\value{page},15)||equal(\value{page},20)?int(1):int(0)}
 
 \ifnum\value{page}=16   %\pgfmathresult>0\relax
-\put(47,87){
+\put(47,72){
  {\setlength{\fboxsep}{.65em}\fontsize{9}{10}\selectfont
 
    {\color{black}{\colorbox{red!60!blGreen}{%
@@ -1220,12 +1220,13 @@ drop shadow=logoPurple!50!darkRed,
 \begin{center}	
 {\setlength{\fboxsep}{32pt}
 	\relscale{1.1}{{\fontfamily{qcr}\fontseries{b}\selectfont%
-{\LARGE{SDRF (Scientific Data Repository \\
+{\Large{SDRF (Scientific Data Repository Framework) \\
 
-\vspace{-5pt}Framework) Supplemental Archives}\\
+\vspace{-5pt}Supplemental Archives}\\
 
-Improving Data Sets' Machine Readabability \\
-and Interoperability with Published Research}}}}
+\vspace{5pt}
+\textit{\large{Improving Data Sets' Machine Readabability \\
+and Interoperability with Published Research}} }}}}
 \end{center}
 \end{minipage}
 \end{tcolorbox}
@@ -1772,7 +1773,8 @@ formats such as \ARFF{}, \HDFFive{}, \XML{}, or
 \textbf{.xls}, which are associated with specific 
 applications).  An experimental \q{Hypergraph 
 Exchange Format} (\HGXF{}), being developed by LTS 
-in conjunction with \SDRF{}, may also be used.
+in conjunction with \SDRF{}, or a related 
+query format discussed in Appendix II, may also be used.
 
 An exception to the guidelines for general-purpose 
 formats is when data should be presented in 
@@ -1817,7 +1819,7 @@ the publishing pipeline.
 \item[Authors]  In most publishing environments, 
 the process of depositing data sets for open-access  
 hosting is entirely separate from that of submitting 
-articles for peer-reviewed publication.  Therefore, 
+articles for peer-reviewed publications.  Therefore, 
 it is the responsibility of authors to ensure that 
 these two resources --- their manuscripts and 
 Supplemental Archives --- are properly interconnected.  
@@ -1860,13 +1862,13 @@ locatable within the archive, all other information
 needed to fully parse the \SDRF{}-specific data 
 should be extracted from the initialized meta-data objects.  
 
-\item[Editors]  Because (as just outlined) authors' submissions 
+\item[Editors]  Because (as just outlined) an author's submission 
 to data-hosting portals are usually operationally separate 
 from their article submission, publication 
-editors ordinarily cannot directly influence the authors' 
-preparations for publishing their data sets.  However, 
+editors ordinarily cannot directly influence the author's 
+preparation for publishing their data sets.  However, 
 editors can make recommendations and double-check that 
-authors' research (and other cited research  
+the author's research (and other cited research  
 within the article under submission) is properly referenced, ensuring 
 that new (and pre-existing) data sets are 
 Findable.  That is, editors may confirm that (1) \URL{}s 
@@ -1894,7 +1896,7 @@ or organizations
 (for instance, Gates Open Research) 
 publicly track a submission through different stages 
 of processing (links to articles may be accessible  
-even while they are still being peer-reviewed or finalized).  
+even while they are still being peer-reviewed or proofed).  
 When a data set links to its associated 
 publication, such information about the current 
 status of the submission should be duly observed in the 
@@ -1975,7 +1977,7 @@ as well as how the text is encoded.
 \item{} \textbf{Develop and Share Plugins for Scientific Applications} \hspace{14pt}   Ideally, publishers should provide plugins or standalone applications for readers to use after they have downloaded data sets.  While readers can open raw data files in the proper applications, those applications may not have the capabilities to understand the other files in a Supplemental Archive.  Publishers should therefore provide tools or plugins so that these applications can access the whole archive, not just the raw data.  If portals link to web sites where readers can download the applications for viewing raw data files, these links could be paired with instructions on how to obtain and use plugins provided by the publisher.
 
 
-\item{} \textbf{Register Cross-References Between Publications and 
+\item{} \textbf{Register Cross-References between Publications and 
 Data Sets} \hspace{14pt} Publishers' databases should be configured to 
 clearly designate when a publication is linked to an 
 associated data set.  Moreover, certain third-party 
@@ -2049,9 +2051,10 @@ they would not discover otherwise.
 \item{}  \textbf{Driving Traffic to the Publication Site}
 \hspace{12pt} Despite standardizations 
 such as \DCC{} and Research Objects, the vast majority of 
-published data sets are shared haphazardly --- without 
+published data sets fail to adhere to these standards.  Instead, they 
+are shared haphazardly, without 
 proper organization or meta-data.  As a resut, those 
-data-sets which \textit{do} adopt rigorous curation 
+data-sets which \textit{do}, in contrast, adopt rigorous curation 
 standards are more likely to be found by software 
 designed for contemporary data-publishing specifications.  
 Well-curated resources also stand out from their 
@@ -2221,7 +2224,8 @@ is facilitated by Hypergraph Database Technology, so a
 cross-application Digital Notebook protocol could profitably 
 be centered on hypergraph database theory.  In this manner a 
 Digital Notebook protocol would be thematically related to 
-\SDRF{}'s proposed protocol for remote database access, discussed next.}
+\SDRF{}'s proposed protocol for remote database access, discussed 
+next.}
 
 \vspace{-6pt}
 \section{Appendix II: The Transparent Hypergraph Query Language}
@@ -2249,8 +2253,8 @@ model which merges idiosyncratic details of
 these various platforms, offering a common framework for 
 accessing Hypergraph data.}
 
-\p{Such a framework's value would 
-furthermore be enhanced by applying it to information spaces which 
+\p{Furthermore, such a framework's value would 
+be enhanced by applying it to information spaces which 
 are not, necessarily, backed by a Hypergraph Database engine 
 but which are amenable to an intermediate software layer that 
 translates Hypergraph-oriented queries to a query language 
@@ -2271,8 +2275,8 @@ it may be queried according to protocols established
 for Hypergraph Database engines (and then extended 
 to other information architectures).}
 
-\p{Such is the motivation behind the so-called 
-\q{Transparent Hypergraph Query Language} (\THQL{}) which LTS 
+\p{Such is the motivation behind the 
+\q{Transparent Hypergraph Query Language} (\THQL{}), which LTS 
 is designing as a paradigm for organizing data sets 
 with the goal of formulating a hypergraph query model that 
 may be extended to hypergraph databases, as well 
@@ -2284,12 +2288,12 @@ logic may be openly observed in source code and through a
 debugger (this does not preclude a distinct \THQL{} 
 \textit{language}, but such would be implemented 
 by translating query expressions to \Cpp{} procedure calls; 
-behind the scenes \THQL{} is implemented as a \Cpp{} \DSL{}).  
+behind the scenes \THQL{} is treated as a \Cpp{} \DSL{}).  
 While oriented first and foremost to hypergraph database 
 architecture, \THQL{} also serves as an extension 
 to Conceptual Space Markup Language, which was 
 formalized (by Benjamin Adams and Martin Raubal) 
-as an operationalization of Peter Gardenf\"{}ors's 
+as an operationalization of Peter Gardenf\"{o}rs's 
 Conceptual Space Theory.}
 
 %impact factor
@@ -2356,9 +2360,8 @@ systems.
 \p{LTS hopes to deploy a \THQL{} prototype in conjunction 
 with published \SDRF{} data sets and also in the context 
 of data-integration projects, including ones that will 
-be examined in a forthcoming Elsevier volume concerning 
-\q{Data-Integration and Conceptual-Space Models for Covid-19.}  
-Please contact LTS for more information.
+be examined in a forthcoming Elsevier volume,
+\q{Data-Integration and Conceptual-Space Models for Covid-19.}
 }
 \end{document}
 
