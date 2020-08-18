@@ -84,7 +84,7 @@
 %\pgfmathparse{equal(\value{page},15)||equal(\value{page},20)?int(1):int(0)}
 
 \ifnum\value{page}=16   %\pgfmathresult>0\relax
-\put(47,57){
+\put(47,87){
  {\setlength{\fboxsep}{.65em}\fontsize{9}{10}\selectfont
 
    {\color{black}{\colorbox{red!60!blGreen}{%
@@ -114,7 +114,7 @@
 \usepackage[paperheight=14in,paperwidth=8.5in]{geometry}
 
 %\geometry{left=.72in,top=.39in,right=.68in,bottom=1.14in} %margins
-\geometry{left=.72in,top=.47in,right=.68in,bottom=1.2in} %margins
+\geometry{left=.72in,top=.5in,right=.68in,bottom=1.5in} %margins
 
 \usepackage{etoolbox}% http://ctan.org/pkg/etoolbox
 \makeatletter
@@ -1258,6 +1258,24 @@ during the course of the research described).
 % involving articles that have been published or are under peer review.
 }
 
+\begin{figure}
+\begin{tikzpicture}
+\node[inner sep=0pt] (tbl) at (0,0)
+    {\includegraphics[trim=14cm 1.5cm 12cm 3cm,clip,width=.8\textwidth]{./scrn/s1.png}};
+
+\rectann{darkRed}{0.7}{.5mm}{grammarArrowColor}{0.5}{4.9,-6.7}{1.5}{10.35}{1.15}
+
+\node [anchor=west,bottom color=yellow!30!blue,top color=pink!70!green, 
+inner sep=3, shading angle=50, text width=3cm]
+  (longnote) at (7, 0) {\vspace{-8pt}%  %{\color{rb!85!red}{
+{\cframedboxx{0mm}{2pt}{\large\raggedright\textbf{The authors provide 
+citations for data sets used in their analyses ...}}}};
+
+\end{tikzpicture}
+\caption{Table Listing Analyzed Data Sets in the Parkinson's Article}
+\label{fig:s1}
+\end{figure}
+
 \section[First Case Study]%
 {\large{First Case Study: \normalsize{``Parkinson's Disease Diagnosis: The Effect of Autoencoders on Extracting Features from Vocal Characteristics,'' 
 by Ashena Gorgan Mohammadi, Pouya Mehralian, Amir Naseri, and Hedieh Sajedi 
@@ -1302,22 +1320,30 @@ which they used to analyze these various data sources.
 \end{enumerate}
 } 
 
-\begin{figure}
+\begin{figure}[h]
 \begin{tikzpicture}
-\node[inner sep=0pt] (tbl) at (0,0)
-    {\includegraphics[trim=14cm 1.5cm 12cm 3cm,clip,width=.8\textwidth]{./scrn/s1.png}};
+\node[inner sep=0pt] (bib) at (0,0)
+    {\includegraphics[trim=14cm 1.5cm 12cm 3cm,clip,width=.8\textwidth]{./scrn/s2.png}};
+\ann{blue!50!orange}{1}{.6mm}{BlueGreen!90!red}{0.5}{-3.2,4.2}{2.8}{1}{1.1}
+\ann{blue!50!orange}{1}{.6mm}{BlueGreen!90!red}{0.5}{-1,1.2}{5.2}{0.6}{1.1}
 
-\rectann{darkRed}{0.7}{.5mm}{grammarArrowColor}{0.5}{4.9,-6.7}{1.5}{10.35}{1.15}
+\colorarr{>=latex, ->}{fcBoxColor!60!black}
+{0.8}{blGreen!30!red}{1}{1mm}{7.4,2.3}{4.1,1.5}
 
-\node [anchor=west,bottom color=yellow!30!blue,top color=pink!70!green, 
-inner sep=3, shading angle=50, text width=3cm]
+\colorarr{>=latex, ->}{fcBoxColor!60!black}
+{0.8}{blGreen!30!red}{1}{1mm}{7.4,2.3}{-1.7,3.2}
+
+\node [anchor=west,bottom color=orange!80!green,top color=pink!70!blue, 
+inner sep=3, shading angle=150, text width=3cm]
   (longnote) at (7, 0) {\vspace{-8pt}%  %{\color{rb!85!red}{
-{\cframedboxx{0mm}{2pt}{\large\raggedright\textbf{The authors provide 
-citations for data sets used in their analyses ...}}}};
+{\cframedboxx{0mm}{2pt}{\large\raggedright\textbf{Some data sets 
+are directly available through the bibliography; 
+others have to be located by reading the cited articles.}}}};
+
 
 \end{tikzpicture}
-\caption{Table Listing Analyzed Data Sets in the Parkinson's Article}
-\label{fig:s1}
+\caption{Bibliography (With Data Set Hyperrefs) in the Parkinson's Article}
+\label{fig:s2}
 \end{figure}
 
 \subsection{Unifying the Data Sets into a Single Package}  
@@ -1353,31 +1379,6 @@ table with additional information providing context for the file contents,
 such information is not directly included within the PhysioNet data set; it 
 needs to be extracted by computer code.}
 
-\begin{figure}
-\begin{tikzpicture}
-\node[inner sep=0pt] (bib) at (0,0)
-    {\includegraphics[trim=14cm 1.5cm 12cm 3cm,clip,width=.8\textwidth]{./scrn/s2.png}};
-\ann{blue!50!orange}{1}{.6mm}{BlueGreen!90!red}{0.5}{-3.2,4.2}{2.8}{1}{1.1}
-\ann{blue!50!orange}{1}{.6mm}{BlueGreen!90!red}{0.5}{-1,1.2}{5.2}{0.6}{1.1}
-
-\colorarr{>=latex, ->}{fcBoxColor!60!black}
-{0.8}{blGreen!30!red}{1}{1mm}{7.4,2.3}{4.1,1.5}
-
-\colorarr{>=latex, ->}{fcBoxColor!60!black}
-{0.8}{blGreen!30!red}{1}{1mm}{7.4,2.3}{-1.7,3.2}
-
-\node [anchor=west,bottom color=orange!80!green,top color=pink!70!blue, 
-inner sep=3, shading angle=150, text width=3cm]
-  (longnote) at (7, 0) {\vspace{-8pt}%  %{\color{rb!85!red}{
-{\cframedboxx{0mm}{2pt}{\large\raggedright\textbf{Some data sets 
-are directly available through the bibliography; 
-others have to be located by reading the cited articles.}}}};
-
-
-\end{tikzpicture}
-\caption{Bibliography (With Data Set Hyperrefs) in the Parkinson's Article}
-\label{fig:s2}
-\end{figure}
 
 \subsection{Constructing Machine-Readable Supplemental Archives}
 
@@ -1404,32 +1405,6 @@ article text into a single resource, which \SDRF{} calls a
 \q{Supplemental Archive;} and (7) annnotating the data sets to support 
 microcitations that granularly link the publication to its associated 
 Supplemental Archive.} 
-
-\begin{figure}
-\begin{tikzpicture}
-\node[inner sep=0pt] (ss) at (0,0)
-    {\includegraphics[trim=1cm 2cm 11cm 5cm,clip,width=.8\textwidth]{./scrn/s4.png}};
-\node [anchor=west,bottom color=blGreen!80!blue,top color=green!70!blue, 
-inner sep=3, shading angle=10, text width=7cm]
-  (longnote) at (3.3, 0) {\vspace{-8pt}%  %{\color{rb!85!red}{
-{\cframedboxx{0mm}{2pt}{\large\raggedright\textbf{Some information in 
-the PhysioNet is encoded in file names, where 
-the initial two letter-pairs and following two number-pairs 
-all provide information about the patient and data source.  Unfortunately, 
-encoding data in this manner requires extra computer code 
-when reusing the data base, because the file names need 
-to be analyzed so as to parse the information expressed 
-via the naming conventions.}}}};
-
-\colorarr{>=latex, ->}{blGreen!30!red}
-{0.8}{blGreen!30!red}{1}{1mm}{3,-2.05}{-4.7,-2.05}
-
-\rectann{darkRed!20!BlueGreen}{0.7}{.5mm}{BlueGreen!50!logoOrange}{2.5}{-6.8,-2.9}{5}{1.5}{1.1}
-
-\end{tikzpicture}
-\caption{Extracting Information Encoded in File Names}
-\label{fig:s4}
-\end{figure}
 
 
 \p{Once a Supplemental Archive has been downloaded, 
@@ -1468,19 +1443,31 @@ instance via \LaTeX{} \textbf{phantomsection} commands or
 comments in code and/or raw data files in the Supplemental 
 Archive.}
 
-\begin{figure}[h]
+
+\begin{figure}
 \begin{tikzpicture}
-\node[inner sep=0pt] (bib) at (0,0)
-    {\includegraphics[trim=4cm 5cm 4.5cm 2.5cm,clip,width=.8\textwidth]{./scrn/s3.png}};
-\node [anchor=west,bottom color=fcBoxColor!80!red,top color=purple!70!blue, 
-inner sep=3, shading angle=10, text width=6.5cm]
-  (longnote) at (4.1, -0.8) {\vspace{-8pt}%  %{\color{rb!85!red}{
-{\cframedboxx{0mm}{2pt}{\large\raggedright\textbf{Some data sets 
-analyzed in the Parkinson's artcle have to be located 
-by browsing ``Supplemental Material'' sections of its cited papers.}}}};
+\node[inner sep=0pt] (ss) at (0,0)
+    {\includegraphics[trim=1cm 2cm 11cm 5cm,clip,width=.8\textwidth]{./scrn/s4.png}};
+\node [anchor=west,bottom color=blGreen!80!blue,top color=green!70!blue, 
+inner sep=3, shading angle=10, text width=7cm]
+  (longnote) at (3.3, 0) {\vspace{-8pt}%  %{\color{rb!85!red}{
+{\cframedboxx{0mm}{2pt}{\large\raggedright\textbf{Some information in 
+the PhysioNet is encoded in file names, where 
+the initial two letter-pairs and following two number-pairs 
+all provide information about the patient and data source.  Unfortunately, 
+encoding data in this manner requires extra computer code 
+when reusing the data base, because the file names need 
+to be analyzed so as to parse the information expressed 
+via the naming conventions.}}}};
+
+\colorarr{>=latex, ->}{blGreen!30!red}
+{0.8}{blGreen!30!red}{1}{1mm}{3,-2.05}{-4.7,-2.05}
+
+\rectann{darkRed!20!BlueGreen}{0.7}{.5mm}{BlueGreen!50!logoOrange}{2.5}{-6.8,-2.9}{5}{1.5}{1.1}
+
 \end{tikzpicture}
-\caption{Indirectly Locating Data Sets from Cited Papers}
-\label{fig:s3}
+\caption{Extracting Information Encoded in File Names}
+\label{fig:s4}
 \end{figure}
 
 \vspace{-12pt}
@@ -1497,6 +1484,22 @@ data sets (via \textbf{flowrepository.org} pages) are explictly provided
 in the publication's \q{Data Availability} section.  However, researchers 
 still need to perform several steps to manually download the full set 
 of relevant \FCS{} and meta-data files.}
+
+
+\begin{figure}
+\begin{tikzpicture}
+\node[inner sep=0pt] (bib) at (0,0)
+    {\includegraphics[trim=4cm 5cm 4.5cm 2.5cm,clip,width=.8\textwidth]{./scrn/s3.png}};
+\node [anchor=west,bottom color=fcBoxColor!80!red,top color=purple!70!blue, 
+inner sep=3, shading angle=10, text width=6.5cm]
+  (longnote) at (4.1, -0.8) {\vspace{-8pt}%  %{\color{rb!85!red}{
+{\cframedboxx{0mm}{2pt}{\large\raggedright\textbf{Some data sets 
+analyzed in the Parkinson's artcle have to be located 
+by browsing ``Supplemental Material'' sections of its cited papers.}}}};
+\end{tikzpicture}
+\caption{Indirectly Locating Data Sets from Cited Papers}
+\label{fig:s3}
+\end{figure}
 
 \p{One feature of this second use-case is that the technical information 
 in the data sets belong to a single scientific area (Flow Cytometry) 
@@ -1887,10 +1890,11 @@ submission to publication.
 For example, a web link for accessing a peer-reviewed 
 article may only be defined once the document is 
 accepted for publication.  Also, some institutions 
-(e.g., Gates Open Research) 
+or organizations  
+(for instance, Gates Open Research) 
 publicly track a submission through different stages 
-of peer review (links to articles may be accessible  
-even while they are still being peer reviewed).  
+of processing (links to articles may be accessible  
+even while they are still being peer-reviewed or finalized).  
 When a data set links to its associated 
 publication, such information about the current 
 status of the submission should be duly observed in the 
@@ -1995,28 +1999,30 @@ for publications whose data sets fit given criteria
 data that may help a reader decide whether to 
 download the data set (file format, total file size, preferred application, 
 and so forth).
-\end{itemize}
 
-Data set info displayed visually for readers on document portals should also be incorporated into APIs.  At the minimum, an API endpoint should yield data set ids given document ids.  A more complete set of API queries for data sets might include:
+Data set info displayed visually for readers on document portals should also be incorporated into 
+\API{}s.  At the minimum, an \API{} endpoint should yield data set ids given document ids.  A more complete set of \API{} queries for data sets might include:
 
 \begin{enumerate}
-\item{}  Search for publications based on attributes of their associated data sets (e.g.: file formats/programming languages; recommended data-viewing software; keywords in data-set descriptions; protocols as identified by standardization formats like MIBBI; repository host where the data is stored);
+\item{}  Search for publications based on attributes of their associated data sets (e.g.: file formats/programming languages; recommended data-viewing software; keywords in data-set descriptions; protocols as identified by standardization formats like \MIBBI{}; repository host where the data is stored);
 
-\item{}  Return a complete data-set description object serialized for use by an API client library, given a data-set identifier;
+\item{}  Return a complete data-set description object serialized for use by an \API{} client library, given a data-set identifier;
 
-\item{}  Individual API endpoints for the most crucial metadata given a data-set identifier (e.g.: file format; size; authorship; recommended applications);
+\item{}  Individual \API{} endpoints for the most crucial metadata given a data-set identifier (e.g.: file format; size; authorship; recommended applications);
 
 \item{}  Handle requests for microcitations generated by document signals, the same signals used for inter-application networking between document viewers and scientific applications;
 
-\item{}  Provide API endpoints for finding and using plugins (discussed in Appendix I).
+\item{}  Provide \API{} endpoints for finding and using plugins (discussed in Appendix I).
 \end{enumerate}
+\end{itemize}
+
 \end{description}
 }
 
 \subsection{Benefits for Publishers}
 \p{We believe adopting \SDRF{} technology can derive several 
 benefits for publishers (as well as institutions, 
-universities, or independent journals, which publish their 
+universities, or independent journals which publish their 
 own material).  Bear in mind that the details of \SDRF{} 
 are adapted to different \SDRM{}s; as such, the characterization 
 of \SDRF{} content presented here is provisional, and may 
@@ -2036,7 +2042,9 @@ the publications.  Data sets present an additional/alternative
 route for scholars to locate articles and books, 
 which would otherwise be found via keyword searches 
 or bibliographic references.  This would likely increase 
-citations and downloads.  
+citations and downloads, because researchers would learn 
+about publications of interest through data sets that 
+they would not discover otherwise.  
  
 \item{}  \textbf{Driving Traffic to the Publication Site}
 \hspace{12pt} Despite standardizations 
@@ -2098,7 +2106,9 @@ provided via \SDRF{}.
 
 \section{Appendix I: Use-Cases For Publisher Plugins}
 
-\p{Publications often have graphics or multimedia content that require special viewers.  More often than not these assets are visual or structured representation of data which may be placed in a data set --- e.g. a table printed inline in the document is derived from a spreadsheet which is its own data file.  Many document portals allow readers to examine these inline figures in separate frames and windows.  To support more sophisticated multimedia content, with file types specific to different scientific fields, publishers are attempting to create browser plugins to visualize complex scientific data.  In general, however, such scientific assets should really be viewed in domain-specific scientific software.  This suggests that publishers' portals and document viewers should interoperate with existing applications -- rather than, or at least in addition to, trying to emulate these applications via browser plugins.  One facet of a publisher's \SDRM{} would be how their portals identify and communicate with the \q{preferred software} that would be used to view different data sets.}
+\p{Publications often have graphics or multimedia content that require special viewers.  More often than not these assets are visual or structured representation of data which may be placed in a data set --- e.g. a table printed inline in the document is derived from a spreadsheet which is its own data file.  Many document portals allow readers to examine these inline figures in separate frames and windows.  To support more sophisticated multimedia content, with file types specific to different scientific fields, publishers are attempting to create browser plugins to visualize complex scientific data.  In general, however, such scientific assets should really be viewed in domain-specific scientific software.  This suggests that publishers' portals and document viewers should interoperate with existing applications --- rather than, or at least in addition to, trying to emulate these 
+\makebox{applications via} browser plugins.  One facet of a publisher's \SDRM{} would be how their portals identify and communicate with the \q{preferred software} that would be used to view 
+different Supplemental Archives.}
 
 \p{Because the data sets linked to publications often have to be accessed 
 via specialized scientific applications, special programming is 
@@ -2128,7 +2138,7 @@ The event data itself is stored in \FCS{} files (which may be accessed from web 
 files (in formats such as \GatingML{}) internal to the data set.
 
 \item{}  A graphic shows a \TwoD{} or \ThreeD{} outline of the molecular structure of a protein.  Via a context menu, this structure can be viewed as an interactive \ThreeD{} presentation in \IQmol{}, 
-a molecular-visualization application, where the raw data is obtained from Protein Data Bank.  As a variation on this use-case, every protein mentioned in a chemistry paper can be marked with a hyperlink and/or context menu launching \IQmol{} with the relevant \textbf{.pdb} file.
+a molecular-visualization application, where the raw data is obtained from the Protein Data Bank.  As a variation on this use-case, every protein mentioned in a chemistry paper can be marked with a hyperlink and/or context menu launching \IQmol{} with the relevant \textbf{.pdb} file.
 
 \item{}  An archaeology paper shows images from a site which has been investigated with advanced imaging/laser equipment, e.g. point-cloud scanners or Matterport 360-degree cameras.  Via context menus or links embedded in figure captions, the associated data set may be viewed in \ThreeD{} graphics software such as \MeshLab{}, or in Panoramic Photography viewers such as Panini.
 
@@ -2186,7 +2196,10 @@ applications.  In this sense, a Digital Notebook would be a
 component embedded inside a pre-existing application, and 
 a common protocol can be specified with respect to how 
 Digital Notebooks are initialized and interact with the 
-host software.  Digital Notebooks in this guise would be 
+host software.  Scripting languages like \R{} or \Python{} 
+might be replaced in this context by more light-weight options 
+more conducive to \Cpp{} embedding, such as Embeddable Common Lisp  
+or \AngelScript{}.  Digital Notebooks in this guise would be 
 proper vehicles for formalizing a publication-to-application 
 networking protocol.}
 
@@ -2205,11 +2218,12 @@ cross-referencing, indeed, is an important aspect of interactiveness.}
 \p{As is demonstrated by \SeCo{} --- a Digital Notebook based 
 on \HyperGraphDB{} --- implementing Digital Notebooks 
 is facilitated by Hypergraph Database Technology, so a 
-cross-application Digital Notebook could profitably 
+cross-application Digital Notebook protocol could profitably 
 be centered on hypergraph database theory.  In this manner a 
 Digital Notebook protocol would be thematically related to 
 \SDRF{}'s proposed protocol for remote database access, discussed next.}
 
+\vspace{-6pt}
 \section{Appendix II: The Transparent Hypergraph Query Language}
 \p{\lSDRF{} does not overtly proscribe any particular 
 format for encoding raw data in \SDRF{} archives; 
@@ -2270,7 +2284,13 @@ logic may be openly observed in source code and through a
 debugger (this does not preclude a distinct \THQL{} 
 \textit{language}, but such would be implemented 
 by translating query expressions to \Cpp{} procedure calls; 
-behind the scenes \THQL{} is implemented as a \Cpp{} \DSL{}).}
+behind the scenes \THQL{} is implemented as a \Cpp{} \DSL{}).  
+While oriented first and foremost to hypergraph database 
+architecture, \THQL{} also serves as an extension 
+to Conceptual Space Markup Language, which was 
+formalized (by Benjamin Adams and Martin Raubal) 
+as an operationalization of Peter Gardenf\"{}ors's 
+Conceptual Space Theory.}
 
 %impact factor
 
@@ -2281,7 +2301,7 @@ or \q{knowledge engineering.}  In general, \THQL{} recognizes
 four architectural paradigms which undergird the Hypergraph database 
 model (that is, an idealized model abstracted from specific products):
 
-\begin{description}[itemsep=3pt]
+\begin{description}[itemsep=1pt]
 \item[Object Serialization]  One appeal of Hypergraph database 
 engines is that they minimize the biolerplate code needed to 
 serialize (and later retrieve) \q{objects,} or typed data structures, 
@@ -2332,7 +2352,7 @@ systems.
 \end{description}
 }
 
-\vspace{-10pt}
+\vspace{-12pt}
 \p{LTS hopes to deploy a \THQL{} prototype in conjunction 
 with published \SDRF{} data sets and also in the context 
 of data-integration projects, including ones that will 
