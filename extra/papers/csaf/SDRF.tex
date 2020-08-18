@@ -84,7 +84,7 @@
 %\pgfmathparse{equal(\value{page},15)||equal(\value{page},20)?int(1):int(0)}
 
 \ifnum\value{page}=16   %\pgfmathresult>0\relax
-\put(47,72){
+\put(47,62){
  {\setlength{\fboxsep}{.65em}\fontsize{9}{10}\selectfont
 
    {\color{black}{\colorbox{red!60!blGreen}{%
@@ -1971,7 +1971,7 @@ process, where these alternatives end up becoming
 assets within Supplemental Archives.  Such alternatives 
 may not differ in terms of textual content 
 (although a data-set-specific version of an article 
-might include supplemental instructions for using the data set), 
+could include supplemental instructions for using the data set), 
 but they can differ in the visual formatting of the text 
 as well as how the text is encoded. 
 
@@ -2006,7 +2006,7 @@ and so forth).
 Data set info displayed visually for readers on document portals should also be incorporated into 
 \API{}s.  At the minimum, an \API{} endpoint should yield data set ids given document ids.  A more complete set of \API{} queries for data sets might include:
 
-\begin{enumerate}
+\begin{enumerate}[itemsep=5pt]
 \item{}  Search for publications based on attributes of their associated data sets (e.g.: file formats/programming languages; recommended data-viewing software; keywords in data-set descriptions; protocols as identified by standardization formats like \MIBBI{}; repository host where the data is stored);
 
 \item{}  Return a complete data-set description object serialized for use by an \API{} client library, given a data-set identifier;
@@ -2037,16 +2037,16 @@ protocols and/or implementations --- whether as software
 extensions or simply as recommended design patterns --- 
 can augment publishers' offerings in several ways:
 
-\begin{enumerate}
+\begin{enumerate}[itemsep=3pt, leftmargin=20pt]
 \item{}  \textbf{Improving Impact Factor} \hspace{12pt}  By 
 explicitly linking publications and data sets, publishers 
-improve the likelihood that researchers will find 
+amplify the likelihood that researchers will find 
 the publications.  Data sets present an additional/alternative 
 route for scholars to locate articles and books, 
 which would otherwise be found via keyword searches 
 or bibliographic references.  This would likely increase 
 citations and downloads, because researchers would learn 
-about publications of interest through data sets that 
+through data sets about publications of interest that 
 they would not discover otherwise.  
  
 \item{}  \textbf{Driving Traffic to the Publication Site}
@@ -2090,7 +2090,7 @@ deem the data convenient to use and expand upon.
 \hspace{12pt} As digital media becomes an increasingly important part 
 of scientists' use and experience of published research, 
 publishers are expected to provide ever more sophisticated 
-technology for visualizing data and publications.  
+technology for visualizing data and documents.  
 Aside from just showing \PDF{} or \HTML{} views of 
 articles, publishers are gradually introducing 
 multi-media platforms which permit interactive 
@@ -2130,7 +2130,7 @@ such as Research Objects and \SDRF{}.}
 \p{To demonstrate how such plugins could work in practice, consider the connections which exist between parts of publications (e.g., a figure illustration) and corresponding parts of data sets 
 (e.g., \textbf{.csv} files).  Here are some illustrative use-cases:
 
-\begin{enumerate}
+\begin{enumerate}[itemsep=2pt, leftmargin=18pt]
 \item{}  A graphic in a publication displays a segmented image.  Via a context menu, this graphic can be linked to an image-processing data set which is viewed in image-annotation software (e.g. 
 \IAT{}, from the University of Milano-Bicocca) showing segments as annotations; or the data set is viewed in image-analysis software (such as \CaPTk{}, from the University of Pennsylvania) where researchers can reproduce the steps taken to obtain the segmented image from the original.
 
