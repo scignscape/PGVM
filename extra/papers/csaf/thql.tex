@@ -1230,7 +1230,7 @@ drop shadow=logoPurple!50!darkRed,
 
 %\textcolor{darkRed}{\hrule}
 
-\section{Rationale}
+\section{Overview}
 
 \p{Sometimes institutions find it necessary to share data 
 with outside entities.  In clinical medicine, for example, 
@@ -1287,14 +1287,66 @@ the capability to build more focused
 portals which share data whose profile and 
 organization is targeted to individual data-sharing 
 projects.  It may be the case that each such project 
- 
+requires its own software component, serving as a layer 
+and adapter intermediary between the organization's 
+internal data sources and outside parties' applications 
+which request data in the context of a given 
+multi-site project.}
+
+\p{So as to analyze correct design-patterns for such adapter-components, 
+the current discussion will focus on solutions that can be 
+treated as extensions to database engines.  This approach is 
+somewhat abstracted from concrete implementations, because it is 
+not necessarily the case that all data from a given organization would 
+be housed in one single database.  Instead, large institutions 
+can easily have decentralized, heterogeneous information spaces 
+spanning multiple forms of database design, as well as assets 
+maintained outside any database at all (e.g., via filesystems or 
+network-connected software).  However, protocols for data-sharing 
+projects meeting the criteria relevant for this paper may be 
+formalized in the context of accession to individual database instances, 
+and subsequently generalized to more complex information-storage 
+scenarios.}
+
+\p{Assume, accordingly, that the goal of selective, curated 
+outside-party access to some portion of an information space 
+is manifest specifically in the context of a single database instance, 
+implemented via a specific database engine.  The question 
+is then how to architect or enhance the database engine so that 
+programmers may implement selective views onto the database instance, 
+permitting remote access to relevant data whose extent and 
+structure is determined by the parameters of a given data-sharing project.}
+
+\p{As a framework for analyzing this problem-space, the current paper will 
+concentrate on one specific kind of database architecture, 
+specifically that of \q{hypergraph} database engines.  
+Hypergraph databases are well-suited to multi-faceted, heterogeneous 
+data profiles which combine features of more restricted 
+database designs.  As a result, protocols developed in the 
+hypergraph context may be adapted to apply to other 
+genres of database as well (techniques for doing so will 
+be discussed below).  In sum, this paper will examine the 
+problem of formulating a data-sharing protocol in the 
+specific context of hypergraph database engines, an 
+then consider how such a protocol may be extended to 
+other data-persistence environments.}
+
+\section{Data-Sharing Protocols in the Hypergraph Database Context}
+\p{The central theme of paper, then, is as follows: we have a 
+hypergraph database, and intend to make some part of 
+the data which it contains available within the context of 
+targeted data-sharing projects.  Hypergraph database engines 
+are chosen because they support heterogeneous, flexible 
+data profiles --- information need not be constrained to 
+a single format --- and because application-integration is 
+often easier via the hypergraph architecture than via alternatives.  
+That is, less development time or biolerplate code is needed 
+to marshal data between application-runtime and database-persistent  
+representations.  Insofar as these are benefits of  
     }
 
 \p{}
 
-\p{}
-
-\p{}
 
 \end{document}
 
