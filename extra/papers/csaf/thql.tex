@@ -1240,11 +1240,11 @@ pooling data from more than one hospital can permit the
 comparative effectiveness of different clinical interventions 
 to be quantified (with some degree of precision, even if not 
 at the level of double-blind trials).  Or, in environmental 
-science, ecological assments from multiple jurisdictions may 
+science, ecological assessments from multiple jurisdictions may 
 be merged into a holistic picture covering a large geographic 
 area.  Consider such data-integration challenges from a 
 researcher's point of view: placing individual data-sources in 
-context alongside parallal information from analogous 
+context alongside parallel information from analogous 
 locations makes each single data-source more valuable.  It 
 therefore behooves organizations (whether commercial or 
 governmental entities) to acquire technologies which 
@@ -1342,10 +1342,54 @@ a single format --- and because application-integration is
 often easier via the hypergraph architecture than via alternatives.  
 That is, less development time or biolerplate code is needed 
 to marshal data between application-runtime and database-persistent  
-representations.  Insofar as these are benefits of  
-    }
+representations.  Insofar as these are benefits of hypergraph 
+database engines themselves, they also represent features which 
+are reflected in protocols for outside database access.  That is 
+to say, how external applications obtain data remotely from 
+hypergraph database instances should reflect patterns in how 
+hypergraph data is organized.}
 
-\p{}
+\p{At the same time, there are several different hypergraph 
+database engines used in production, each with distinct 
+features and paradigms.  As a result, we cannot point to one 
+single, canonical hypergraph database model that could provide 
+a common protocol applicable to all relevant technologies.  
+Instead, a multi-purpose protocol should integrate features 
+specific to different individual engines.  The goal is, therefore, 
+to formulate a system for describing remote hypergraph database 
+access which could be applied as a mold for software components 
+obtaining data from a remote portal backed by one of several 
+different hypergraph engines.  The same accession framework 
+should apply to multiple engines, integrating each one's distinct 
+modeling features.  In order to engineer a suitably integrated 
+framework, it is useful to contrast different engines' 
+designs and to develop an overarching terminology which 
+can represent the commanalities and contrasts between them.}
+
+\subsection{Hypernode Projections}
+\p{The term \textit{projection} is used in the context of 
+\HyperGraphDB{} to refer to an individual component of an 
+aggregate \q{node,} or \textit{hypernode} --- \q{hyper} 
+meaning that each node has, in general, mulitple smaller 
+parts.  Hypergraphs are distinguished from ordinary 
+graphs in that the essential components of hypergraphs 
+--- that is, individual hypernodes --- are assumed to have 
+internal structure; to be composed of smaller units.  
+Hypergraphs therefore have two different levels of 
+organization: one scale of structure applying \textit{between} 
+hypernodes, which has graph-like properties (hypernodes 
+are connected to other hypernodes via labeled edges), 
+and a finer grain of detail through which individual 
+hypernodes have their own internal parts.  Any protocol 
+for accessing hypergraph data therefore needs to 
+identify the difference between information modeled 
+through these two distinct scales of organization.}
+
+\p{Adopting \HyperGraphDB{}'s terminology, each hypernode 
+\textit{projects onto} one or more constituent parts 
+(which, although this is not a standardized term, 
+can be called \q{hyponodes}).     }
+
 
 
 \end{document}
