@@ -319,6 +319,8 @@
 
 \newcommand{\FCS}{\resizebox{!}{7pt}{\AcronymText{FCS}}}
 
+\newcommand{\STL}{\resizebox{!}{7pt}{\AcronymText{STL}}}
+
 \newcommand{\GAVI}{\resizebox{!}{7pt}{\AcronymText{GAVI}}}
 \newcommand{\ArcGIS}{\resizebox{!}{7pt}{\AcronymText{ArcGIS}}}
 \newcommand{\QGIS}{\resizebox{!}{7pt}{\AcronymText{QGIS}}}
@@ -1817,8 +1819,115 @@ further in the next section.
 }
 
 \section{Documenting Research Protocols}
-\p{ strathcona2016 }
 
+\p{A systematic outline of research methods serves 
+several different purposes, depending on the applicable 
+scientific field.  In some cases, documenting 
+laboratory protocols promotes replication of the 
+research and/or methodology used --- in the physical 
+environment of a laboratory, reproducing a lab protocol 
+is dependent on precise configurations of measurements and 
+equipment that often cannot be gleaned from the text of 
+a research paper alone.  This is the motivation for 
+protocol-description formats such as those gathered 
+under \MIBBI{}: when seeking to reproduce the methods 
+discussed in an article, lab technicians consult \MIBBI{} 
+files for technical information about the experimental 
+setup (rather than the article text).}
+
+\p{The \BioCoder{} library supplies a variation on 
+this form of laboratory-based protocol-description, because 
+although \BioCoder{} procedures generate protocol-description files, 
+the actual protocol definition is constructed via procedural 
+(specifically, \Cpp{}) computer code.  That is to say, 
+\BioCoder{}-defined protocols can be examined on two levels: 
+through descriptions (in formats such as \HTML{}) which are 
+generated after \BioCoder{} is executed, or through the 
+actual \Cpp{} code where the steps and requirements of 
+the protocol are set forth in granular detail.  Employing 
+\Cpp{} as a modeling language allows protocol-descriptions 
+to be construsted in an expressive manner, utilizing 
+programming formations (such as branching statements, 
+objects, template/generic programming, and so forth) 
+to represent protocol details.  Modelers, as such, 
+have the full expressiveness of a procedural 
+programming language to work with (rather than the 
+more restricted expressiveness of a markup language).  
+At the same time, \BioCoder{}'s libraries are equipped 
+to generate (for example) \HTML{} files by executing 
+the \Cpp{} code wherein a protocol is defined; consequently, 
+the protocol is also expressed in human-readable form, 
+so that consulting the underlying \Cpp{} programming 
+is not prerequite for studying the protocol described.}
+
+\p{The \SDRF{} code libraries include a modified version of 
+\BioCoder{} intended to expand the range of environments 
+where \BioCoder{} may be utilized.  The key additions include:
+
+\begin{enumerate}
+\item{}  The \SDRF{} port of \BioCoder{} uses a more modern 
+\Cpp{} programming style --- for example, with \Qt{} and \STL{} 
+(Standard Template Library) containers/algorithms instead of 
+\C{} arrays.  This approach makes it easier to use \BioCoder{} in 
+conjunction with other \Cpp{} libraries for \PDF{}, \LaTeX{}, 
+graph visualization, application networking, and so forth.
+ 
+\item{}  Allowing templates and abstract base classes to be 
+established as an interface for \BioCoder{}-style workflow classes.  
+Apart from concrete protocols, there can also be \q{protocol models} 
+which reflect different investigative modalities --- e.g., 
+protocols for Machine Learning need a different vocabulary than protocols for 
+lab experiments.  Existing \BioCoder{} global functions could 
+in such contexts be mapped to class methods in this more general framework, 
+so e.g. \textbf{start_protocol(...)} would become
+\textbf{dspin.start_protocol(...)} (here \textbf{DSPIN} refers 
+to an under-development \SDRF{} model for image analysis).
+ 
+\item{}  Generating protocol-description files in multiple formats 
+(not only \HTML{}), and integrating protocol models with publishing software.  
+For instance, \BioCoder{}'s description generators can (depending on the 
+\BioCoder{} template selected) be extended to output 
+\LaTeX{}, \TAGML{}, or publisher-specific \XML{} dialects.  
+Moreover, each step in a described 
+protocol could be assigned a unique identifier that could be used to
+create a unique \LaTeX{} label, permitting locations in the text 
+of publications associated with the research work to be annotated with
+links to the protocol description.
+ 
+\item{}  Extending \BioCoder{}'s graph functionality, using a 
+Qt-compatible library to visualize the runtime graph, with a 
+convenient interface for manipulating the graph structure with modern \Cpp{}.  
+Insofar as protocol models can be tailored to different scientific fields,
+different protocols would also call for different semantics for
+runtime graphs --- that is, different property/edge schemata as would
+be modeled by a graph database, with edge and node-property
+annotations defined according to discipline-specific terminology.
+ 
+\item{} Establishing a framework for aligning protocol models with
+standardized workflow vocabularies and \q{minimum information}
+checklists, such as \MIBBI{}.  For runtime graphs, such ontologies could
+provide the domain of values for edge and node-property annotations.
+For protocol-description code, the individual methods/functions for a
+protocol model could be decorated with annotations asserting that a
+particular function notates a research step which has a particular
+label in an \MIBBI{} (or similar) recommendation.  One could, for
+instance, maintain a dictionary of links between \Cpp{} function/method
+pointers and label names formalized in an \MIBBI{}-style controlled vocabulary.}
+
+\p{Use protocols as executable workflows for "in silico" modalities.
+ On the image analysis side, we're adopting the "Pantheon" Image
+ Processing Objectives ontology, which was developed alongside Pandore,
+ a suite of image-processing utilities that can be combined into
+ workflows.  Rather then use Pantheon as a static markup format, we're
+ trying to consolidate the Pantheon terminology into a collection of
+ C++ methods (called "D-SPIN" -- "Data Structure Protocol for
+ Image-Analysis Networking") based on the BioCoder example.  D-SPIN
+ code can generate text descriptions of imaging protocols, but it can
+ also execute image-analysis pipelines directly, by calling Pandore
+ analytic functions (what they call "operators").  So this is one
+ example of where BioCoder-style protocols can be used for direct
+ workflow implementations, not just summarizes of experimental
+ processes.}
 
 
 \section{Checklist for Authors, Editors, and Publishers}
