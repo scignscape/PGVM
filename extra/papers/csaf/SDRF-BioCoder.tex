@@ -1928,28 +1928,74 @@ may implement analytic routines wherein sample images are
 subject to a sequence of transformations, with a 
 modified image produced after each step becoming   
 input for the next step.  With proper imaging software, 
-researchers could reproduce explicitly --- whether to 
+researchers could reproduce such analyses explicitly --- whether to 
 verify the accuracy of the published analysis or to 
 better understand the published research by visualizing 
-its intermediary stages.   
+its intermediary stages.  In these situations, 
+workflow descriptions are not only human-readable guidelines 
+for re-enacting a certain investigative modality; they 
+can be formal computational artifacts which orchestrate 
+the execution of implemented procedures so as to allow the original 
+computations to be repeated in different environments.}
 
+\p{Researchers will sometimes share their analytic code 
+in the same spirit of transparency and reusability as 
+that which motivates sharing raw data.  At a minimum, 
+such sharing need entail only including source-code files 
+within a data set and/or linking data sets to version-controlled 
+archives (on GitHub, for instance, or a similar code-hosting site).  
+However, computer code can be more tightly integrated with 
+their containing Supplemental Archives by including code 
+annotations and/or documentation which concretely ties 
+programming elements (e.g. procedures, types, object member 
+fields, or individual typed values) to components and 
+concepts that can be cited in the data set (and annotated 
+in a corresponding publication).  In some cases, such 
+annotations may serve to explain why a given algorithmic 
+implementation or sequence of operations is chosen, 
+yielding an explication of digital protocols similar 
+to those documented (in the lab context) via \BioCoder{} 
+or \MIBBI{}.  The \q{\Pandore{}} project, for instance --- 
+a suite of image-processing utilities (called \q{operators}) 
+that can be combined into compound workflows --- 
+introduces an \q{Image Processing Objectives} ontology 
+yielding systematically defined lexical notation for 
+asserting the purpose of different steps in an 
+image-processing pipeline.  Workflows modeled 
+via \Pandore{} may be directly executed via imaging 
+software, and they may also be studied as human-readable 
+emendations clarifying why the shared image-processing 
+analyses are composed as they are.}
 
- }
+\p{\lSDRF{} encourages authors to utilize systematic annotation 
+systems spread across text, code, and data as much as is possible.  
+The details of annotation semantics depends on articles' 
+applicable scientific field, so it is difficult to 
+present a general analysis of how such annotations might be 
+constructed (although some disciplines have existing 
+standard vocabularies that can be drawn upon for source-code 
+annotations, including the \Pandore{} ontology and \MiFlowCyt{} 
+specification within \MIBBI{}, to mention examples cited here).  
+LTS is also working on a more cross-disciplinary, but 
+experimental, mechanism for 
+unifying code and text annotations as part of \THQL{} 
+(discussed below).  
+}
 
-\p{Use protocols as executable workflows for "in silico" modalities.
- On the image analysis side, we're adopting the "Pantheon" Image
- Processing Objectives ontology, which was developed alongside Pandore,
- a suite of image-processing utilities that can be combined into
- workflows.  Rather then use Pantheon as a static markup format, we're
- trying to consolidate the Pantheon terminology into a collection of
- C++ methods (called "D-SPIN" -- "Data Structure Protocol for
- Image-Analysis Networking") based on the BioCoder example.  D-SPIN
- code can generate text descriptions of imaging protocols, but it can
- also execute image-analysis pipelines directly, by calling Pandore
- analytic functions (what they call "operators").  So this is one
- example of where BioCoder-style protocols can be used for direct
- workflow implementations, not just summarizes of experimental
- processes.}
+%\p{Use protocols as executable workflows for "in silico" modalities.
+% On the image analysis side, we're adopting the "Pantheon" Image
+% Processing Objectives ontology, which was developed alongside Pandore,
+% a suite of image-processing utilities that can be combined into
+% workflows.  Rather then use Pantheon as a static markup format, we're
+% trying to consolidate the Pantheon terminology into a collection of
+% C++ methods (called "D-SPIN" -- "Data Structure Protocol for
+% Image-Analysis Networking") based on the BioCoder example.  D-SPIN
+% code can generate text descriptions of imaging protocols, but it can
+% also execute image-analysis pipelines directly, by calling Pandore
+% analytic functions (what they call "operators").  So this is one
+% example of where BioCoder-style protocols can be used for direct
+% workflow implementations, not just summarizes of experimental
+% processes.}
 
 
 \section{Checklist for Authors, Editors, and Publishers}
