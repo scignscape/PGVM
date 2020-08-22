@@ -10,13 +10,23 @@
 
 #include <QVector>
 
+class GH_Codex_Standard_8bit;
+
 class GH_Block_Standard_8bit : GH_Block_Base 
 {
  QVector<u1> chars_;
 
+ GH_Codex_Standard_8bit* codex_;
+
 public:
 
  GH_Block_Standard_8bit();
+
+ QString get_latex_representation(u4 index) Q_DECL_OVERRIDE;
+ QString get_xml_representation(u4 index) Q_DECL_OVERRIDE;
+ QChar get_qchar_representation(u4 index, QString& alternate) Q_DECL_OVERRIDE;
+ QString get_qstring_representation(u4 index) Q_DECL_OVERRIDE;
+
 
 };
 

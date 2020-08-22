@@ -12,6 +12,12 @@ public:
 
  GH_Codex_Standard_8bit();
 
+ QString get_latex_representation(u4 index);
+ QString get_xml_representation(u4 index);
+ QChar get_qchar_representation(u4 index, QString& alternate);
+ QString get_qstring_representation(u4 index);
+
+
 };
 
 

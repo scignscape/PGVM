@@ -1833,7 +1833,7 @@ protocol-description formats such as those gathered
 under \MIBBI{}: when seeking to reproduce the methods 
 discussed in an article, lab technicians consult \MIBBI{} 
 files for technical information about the experimental 
-setup (rather than the article text).}
+setup (instead of or in addition to the article text).}
 
 \p{The \BioCoder{} library supplies a variation on 
 this form of laboratory-based protocol-description, because 
@@ -1846,7 +1846,7 @@ generated after \BioCoder{} is executed, or through the
 actual \Cpp{} code where the steps and requirements of 
 the protocol are set forth in granular detail.  Employing 
 \Cpp{} as a modeling language allows protocol-descriptions 
-to be construsted in an expressive manner, utilizing 
+to be constructed in an expressive manner, utilizing 
 programming formations (such as branching statements, 
 objects, template/generic programming, and so forth) 
 to represent protocol details.  Modelers, as such, 
@@ -1895,10 +1895,11 @@ of publications associated with the research work to be annotated with
 links to the protocol description.
  
 \item{}  Extending \BioCoder{}'s graph functionality, using a 
-Qt-compatible library to visualize the runtime graph, with a 
-convenient interface for manipulating the graph structure with modern \Cpp{}.  
-Insofar as protocol models can be tailored to different scientific fields,
-different protocols would also call for different semantics for
+\Qt{}-compatible library to visualize the runtime graph, with a 
+convenient interface for manipulating the graph structure with modern \Cpp{} 
+code.  Insofar as protocol models can be 
+tailored to disparate scientific fields,
+different protocols would also call for varying semantics for
 runtime graphs --- that is, different property/edge schemata as would
 be modeled by a graph database, with edge and node-property
 annotations defined according to discipline-specific terminology.
@@ -1908,7 +1909,7 @@ standardized workflow vocabularies and \q{minimum information}
 checklists, such as \MIBBI{}.  For runtime graphs, such ontologies could
 provide the domain of values for edge and node-property annotations.
 For protocol-description code, the individual methods/functions for a
-protocol model could be decorated with annotations asserting that a
+protocol model might be decorated with annotations asserting that a
 particular function notates a research step which has a particular
 label in an \MIBBI{} (or similar) recommendation.  One could, for
 instance, maintain a dictionary of links between \Cpp{} function/method
@@ -1947,7 +1948,7 @@ archives (on GitHub, for instance, or a similar code-hosting site).
 However, computer code can be more tightly integrated with 
 their containing Supplemental Archives by including code 
 annotations and/or documentation which concretely ties 
-programming elements (e.g. procedures, types, object member 
+programming elements (such as procedures, types, object member 
 fields, or individual typed values) to components and 
 concepts that can be cited in the data set (and annotated 
 in a corresponding publication).  In some cases, such 
@@ -1974,7 +1975,7 @@ applicable scientific field, so it is difficult to
 present a general analysis of how such annotations might be 
 constructed (although some disciplines have existing 
 standard vocabularies that can be drawn upon for source-code 
-annotations, including the \Pandore{} ontology and \MiFlowCyt{} 
+annotations, including the \Pandore{} ontology, and the \MIFlowCyt{} 
 specification within \MIBBI{}, to mention examples cited here).  
 LTS is also working on a more cross-disciplinary, but 
 experimental, mechanism for 
