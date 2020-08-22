@@ -534,6 +534,9 @@
 \newcommand{\GatingML}{\resizebox{!}{7pt}{\AcronymText{Gating-ML}}}
 \newcommand{\flowCL}{\resizebox{!}{7pt}{\AcronymText{flowCL}}}
 
+\newcommand{\sMIFlowCyt}{\resizebox{!}{6.5pt}{\AcronymText{MIFlowCyt}}}
+
+
 
 \makeatletter
 
@@ -621,10 +624,13 @@
 \newcommand{\HMCL}{{\resizebox{!}{7.5pt}{\ATexttclr{HMCL}}}}
 \newcommand{\DSPIN}{{\resizebox{!}{7.5pt}{\ATexttclr{D-SPIN}}}}
 
-%\newcommand{\Pandore}{{\resizebox{!}{7.5pt}{\ATexttclr{Pandore}}}}
+%\newcommand{\sPandore}{{\resizebox{!}{6.5pt}{\ATexttclr{Pandore}}}}
+%\newcommand{\sMIBBI}{{\resizebox{!}{6.5pt}{\ATexttclr{MIBBI}}}}
 
 \newcommand{\lDSPIN}{{\resizebox{!}{8pt}{\ATexttclr{D-SPIN}}}}
 \newcommand{\lsDSPIN}{{\resizebox{!}{8.5pt}{\ATexttclr{D-SPIN}}}}
+
+\newcommand{\sDSPIN}{{\resizebox{!}{6.5pt}{\ATexttclr{D-SPIN}}}}
 
 \newcommand{\CLang}{\resizebox{!}{7pt}{\AcronymText{C}}}
 
@@ -808,6 +814,11 @@
 \hspace{1pt}{\raisebox{-1pt}{\fontfamily{qhv}\fontseries{b}\selectfont{}\Large{F}}%
 }}}}
 
+\newcommand{\sSDRF}{\resizebox{!}{6.5pt}{\ATexttclr{S}}\resizebox{!}{6.5pt}{\ATexttclr{DR%
+\hspace{1pt}{\raisebox{-.5pt}{\fontfamily{qhv}\fontseries{b}\selectfont{}\Large{F}}%
+}}}}
+
+
 \newcommand{\Cpp}{\resizebox{!}{7pt}{\AcronymText{C++}}}
 
 %\newcommand{\\WhiteDB{}}{\resizebox{!}{7pt}{\AcronymText{\WhiteDB{}}}}
@@ -909,6 +920,7 @@
 \newcommand{\sIDE}{\resizebox{!}{6pt}{\AcronymText{IDE}}}
 \newcommand{\sBioCoder}{\resizebox{!}{6pt}{\AcronymText{BioCoder}}}
 \newcommand{\sMIBBI}{\resizebox{!}{6pt}{\AcronymText{MIBBI}}}
+\newcommand{\sPandore}{\resizebox{!}{6pt}{\AcronymText{Pandore}}}
 
 
 \newcommand{\R}{\resizebox{!}{7pt}{\AcronymText{R}}}
@@ -1819,7 +1831,7 @@ the research work, as will be shown in the next section.
 
 \section{Documenting Research Protocols: Making Beneficial Modifications of BioCoder}
 
-\p{It is understood that a systematic deliniation of research 
+\p{It is understood that a systematic delineation of research 
 methods/protocols 
 serves a number of different purposes.  In some cases, documenting 
 laboratory protocols promotes replication of the 
@@ -1839,7 +1851,7 @@ which often does not provide sufficient detail about
 experimental parameters.}
 
 \p{\BioCoder{} (a programming framework to standardize 
-and automate biology protocols can be replicated in other 
+and automate biology protocols so thay may be replicated in other 
 laboratories) offers a variation on 
 laboratory-based protocol-descriptions such as \MIBBI{}.  This is 
 because although \BioCoder{} procedures generate 
@@ -1887,22 +1899,22 @@ protocols for Machine Learning need a different vocabulary than protocols for
 lab experiments.  Consequently, existing \BioCoder{} global functions could, 
 in such contexts, be mapped to class methods in this more general framework. 
 For example, \textbf{start\_protocol(...)} would become
-\textbf{dspin.start\_protocol(...)}.\footnote{Here \DSPIN{} refers 
-to an \SDRF{} model for image analysis that is under-development.}
+\textbf{dspin.start\_protocol(...)}.\footnote{Here \sDSPIN{} refers 
+to an \sSDRF{} model for image analysis that is under-development.}
  
 \item{}  Generating protocol-description files in multiple formats 
 (not only \HTML{}), and integrating protocol models with publishing software.  
 For instance, \BioCoder{}'s description generators may be extended to output 
 \LaTeX{}, \TAGML{}, or publisher-specific \XML{} dialects.  
 Moreover, each step in a described 
-protocol could be assigned a unique identifier that could be used to
+protocol could be assigned a unique identifier, which in turn is used to
 create a unique \LaTeX{} label, permitting locations within the text 
 of the publications associated with the research work to be annotated with
 links to the protocol description.
  
 \item{}  Extending \BioCoder{}'s graph functionality, using a 
 \Qt{}-compatible library to visualize the runtime graph, with a 
-convenient interface for manipulating the graph structure with modern \Cpp{} 
+convenient interface for manipulating the graph structure via modern \Cpp{} 
 code.  Insofar as protocol models can be 
 tailored to disparate scientific fields,
 different protocols would also call for varying semantics for
@@ -1917,14 +1929,14 @@ provide the domain of values for edge and node-property annotations.
 For protocol-description code, the individual methods/functions for a
 protocol model might be decorated with annotations asserting that a
 particular function notates a research step which has a particular
-label in an \MIBBI{} (or similar) recommendation.  One might, for
+label in an \MIBBI{} (or similar) recommendation.  One may, for
 instance, maintain a dictionary of links between \Cpp{} function/method
 pointers and label names formalized in an \MIBBI{}-style controlled vocabulary.
 \end{enumerate}
 }
 
 \subsection{Research Protocols and Computational Workflows: Integrating 
-Code with Supplemental Archive}
+Code with Supplemental Archives}
 
 \p{Technologies such as \BioCoder{} and \MIBBI{} are primarily 
 applied to the construction of 
@@ -1983,8 +1995,8 @@ applicable scientific field, it is difficult to
 present a general analysis of how such annotations might be 
 constructed \footnote{Although some disciplines have existing 
 standard vocabularies that can be drawn upon for source-code 
-annotations, including the \Pandore{} ontology, and the \MIFlowCyt{} 
-specification within \MIBBI{}, to mention examples cited here.}  
+annotations, including the \sPandore{} ontology, and the \sMIFlowCyt{} 
+specification within \sMIBBI{}, to mention examples cited here.}  
 (LTS is also working on a more cross-disciplinary, but 
 experimental, mechanism for 
 unifying code and text annotations as part of \THQL{} 
