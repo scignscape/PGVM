@@ -1,16 +1,16 @@
 
 // licence_h
 
-#ifndef GH_CODEX_STANDARD_8BIT__H
-#define GH_CODEX_STANDARD_8BIT__H
+#ifndef GH_GLYPHDECK_STANDARD_8BIT__H
+#define GH_GLYPHDECK_STANDARD_8BIT__H
 
 #include "gh-block-base.h"
 
-class GH_Codex_Standard_8bit // : GH_Block_Base 
+class GH_Glyphdeck_Standard_8bit // : GH_Block_Base 
 {
 public:
 
- GH_Codex_Standard_8bit();
+ GH_Glyphdeck_Standard_8bit();
 
  QString get_latex_representation(u4 index);
  QString get_xml_representation(u4 index);
@@ -21,6 +21,6 @@ public:
 };
 
 
-#endif // GH_CODEX_STANDARD_8BIT__H
+#endif // GH_GLYPHDECK_STANDARD_8BIT__H
 
 

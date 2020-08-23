@@ -10,13 +10,13 @@
 
 #include <QVector>
 
-class GH_Codex_Standard_8bit;
+class GH_Glyphdeck_Standard_8bit;
 
 class GH_Block_Standard_8bit : GH_Block_Base 
 {
  QVector<u1> chars_;
 
- GH_Codex_Standard_8bit* codex_;
+ GH_Glyphdeck_Standard_8bit* glyphdeck_;
 
 public:
 
