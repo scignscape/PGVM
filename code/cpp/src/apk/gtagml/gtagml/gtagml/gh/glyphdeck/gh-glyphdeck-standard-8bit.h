@@ -12,10 +12,14 @@ public:
 
  GH_Glyphdeck_Standard_8bit();
 
- QString get_latex_representation(u4 index);
- QString get_xml_representation(u4 index);
- QChar get_qchar_representation(u4 index, QString& alternate);
- QString get_qstring_representation(u4 index);
+ u1 get_basic_char(u1 gp);
+ u1 get_char_with_diacritic(u1 gp);
+ u1 get_non_alphanumeric_char(u1 gp);
+
+ QString get_latex_representation(u1 gp);
+ QString get_xml_representation(u1 gp);
+ QChar get_qchar_representation(u1 gp, QString& alternate);
+ QString get_qstring_representation(u1 gp);
 
 
 };
