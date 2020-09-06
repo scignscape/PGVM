@@ -1,0 +1,8 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Creating a Truly Unified Data-Sharing Framework}{}% 2
+\BOOKMARK [1][-]{section.3}{Protocol Outline for Server, Infoset, and Client Objects}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Server-Layer Procedures}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Infoset-Object Procedures}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Client-Object Procedures}{section.3}% 6
+\BOOKMARK [1][-]{section.4}{The Hypergraph Text Encoding Protocol}{}% 7
+\BOOKMARK [2][-]{subsection.4.1}{Character Encoding and TAGML}{section.4}% 8
