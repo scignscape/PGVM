@@ -362,19 +362,19 @@ tex ...
  case 60: return 'X';
  case 61: return 'Y';
  case 62: return 'Z';
- case 63: return ' ';
+ case 63: return '-';
 
  //  64
  case 0: return '.';
  case 1: return ',';
- case 2: return '-';
- case 3: return ';';
- case 4: return ':';
- case 5: return ' '; // se
- case 6: return '?';
- case 7: return '(';
- case 8: return ')';
- case 9: return '\\n'; // se
+ case 2: return ';';
+ case 3: return ':';
+ case 4: return '(';
+ case 5: return ')'; 
+ case 6: return '-'; // mdash
+ case 7: return ' ';
+ case 8: return ' ';  // se
+ case 9: return '\\n';
 
 // punc  weak-punc  lit word-repl quasi-let quasi-math  ?serialize
 // surround group word-scale code math vis dcode let diacritic-let s-ref-display
